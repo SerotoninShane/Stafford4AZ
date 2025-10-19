@@ -16,6 +16,7 @@
     <meta name="twitter:card" content="summary_large_image">
 
     <!-- Fonts and Stylesheets -->
+    <link rel="icon" href="assets/icon.svg" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -51,9 +52,11 @@
     <!-- Header -->
     <header>
         <div class="header-left">
-            <div class="logo">
-                <img src="assets/logo.png" alt="Eric Stafford Logo"/>
-            </div>
+        <div class="logo">
+            <a href="/index.html">
+                <img src="assets/logo.png" alt="Eric Stafford Logo">
+            </a>
+        </div>
             <div class="headshot"></div>
         </div>
         <nav>
@@ -64,7 +67,7 @@
                 <a href="#events">Events</a>
             </div>
             <div class="nav-right">
-                <a href="#donate" class="nav-btn">DONATE</a>
+                <a href="https://secure.actblue.com/donate/stafford-4-az-1" class="nav-btn" target="_blank">DONATE</a>
                 <a href="#volunteer" class="nav-btn">VOLUNTEER</a>
             </div>
         </nav>
@@ -78,7 +81,7 @@
                     Eric Stafford: Arizonans First. Arizona Always.
                 </h1>
                 <div class="hero-buttons">
-                    <a href="#donate" class="btn">DONATE</a>
+                    <a href="https://secure.actblue.com/donate/stafford-4-az-1" class="btn" target="_blank">DONATE</a>
                     <a href="#volunteer" class="btn">VOLUNTEER</a>
                 </div>
             </div>
@@ -138,11 +141,11 @@
         <div class="video-content-wrapper">
             <div class="video-text">
                 <h2>See Eric's Vision for Arizona</h2>
-                <p>Hear directly from Eric about his plans to put Arizonans first and build a better future for our state.</p>
+                <p>See Eric Stafford share his vision for Arizona and how he plans to put Arizonans first. Hear directly from him about affordable healthcare, strong schools, fair labor, and sustainable water policies. Watch the video to learn how his results-driven leadership can create a brighter future for all Arizonans.</p>
             </div>
         </div>
         <div class="video-thumbnail-container" id="videoThumbnail">
-            <img src="assets/eric.jpg" alt="Eric Stafford Video Thumbnail">
+            <img src="assets/thumbnail.JPG" alt="Eric Stafford Video Thumbnail">
             <div class="play-button">
                 <i class="fas fa-play"></i>
             </div>
@@ -167,19 +170,31 @@
             for Senate
         </h2>
         <div class="donate-amounts">
+            <a href="https://apps.azsos.gov/apps/election/eps/qc/" target="_blank">
             <button class="donate-amount-btn" data-amount="5">$5</button>
+            </a>
+            <a href="https://secure.actblue.com/donate/stafford-4-az-1" target="_blank">
             <button class="donate-amount-btn" data-amount="10">$10</button>
+            </a>
+            <a href="https://secure.actblue.com/donate/stafford-4-az-1" target="_blank">
             <button class="donate-amount-btn" data-amount="25">$25</button>
+            </a>
+            <a href="https://secure.actblue.com/donate/stafford-4-az-1" target="_blank">
             <button class="donate-amount-btn" data-amount="50">$50</button>
+            </a>
+            <a href="https://secure.actblue.com/donate/stafford-4-az-1" target="_blank">
             <button class="donate-amount-btn" data-amount="100">$100</button>
+            </a>
+            <a href="https://secure.actblue.com/donate/stafford-4-az-1" target="_blank">
             <button class="donate-amount-btn other" data-amount="other">OTHER</button>
+            </a>
         </div>
     </section>
 
     <!-- Platform Section -->
     <section class="platform-section" id="platform">
         <div class="platform-image-container">
-            <img src="assets/eric.jpg" alt="Eric Stafford Campaign Image">
+            <img src="assets/vote.jpg" alt="Eric Stafford Campaign Image">
         </div>
         <div class="platform-content-wrapper">
             <div class="platform-text">
@@ -191,11 +206,46 @@
         </div>
     </section>
 
+    <div id="cleanElectionsModal" class="clean-elections-modal">
+        <div class="modal-content-clean">
+            <span class="close-clean-modal" onclick="closeCleanElectionsModal()">&times;</span>
+            <h2>Support Clean Elections</h2>
+            <p>Help us reach our goal! Make a $5 qualifying contribution to support Eric's campaign through Arizona's Clean Elections program.</p>
+            
+            <div class="progress-container">
+                <div class="progress-label">
+                    <span>Progress</span>
+                    <span id="progressCount">127 / 240</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="progressBarFill" style="width: 53%;"></div>
+                </div>
+            </div>
+
+            <a href="https://apps.azsos.gov/apps/election/eps/qc/" class="donate-btn-modal" target="_blank">Donate $5 Now</a>
+        </div>
+    </div>
+
+    <!-- Floating Minimized Widget -->
+    <div id="cleanElectionsWidget" class="clean-elections-widget" onclick="openCleanElectionsModal()">
+        <div class="widget-content">
+            <div class="widget-icon">
+                <i class="fas fa-hand-holding-dollar"></i>
+            </div>
+            <div class="widget-text">
+                <h3>Clean Elections</h3>
+                <div class="widget-progress-mini">
+                    <div class="widget-progress-fill" style="width: 53%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer id="donate">
         <h3>Join Our Movement</h3>
         <div class="footer-buttons">
-            <a href="#contact" class="btn-footer">DONATE</a>
+            <a href="https://secure.actblue.com/donate/stafford-4-az-1" class="btn-footer" target="_blank">DONATE</a>
             <a href="#volunteer" class="btn-footer">VOLUNTEER</a>
         </div>
         
@@ -208,15 +258,21 @@
         </div>
 
         <div class="footer-social">
-            <a href="#" aria-label="Bluesky">
-                <i class="fab fa-bluesky"></i> 
-            </a>
-            <a href="#" aria-label="Instagram">
-                <i class="fab fa-instagram"></i> 
-            </a>
-            <a href="#" aria-label="YouTube">
-                <i class="fab fa-youtube"></i> 
-            </a>
+        <a href="https://bsky.app/profile/stafford4az.bsky.social" aria-label="Bluesky" target="_blank" rel="noopener">
+            <i class="fab fa-bluesky"></i>
+        </a>
+        <a href="https://www.instagram.com/stafford4az" aria-label="Instagram" target="_blank" rel="noopener">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.youtube.com/@Stafford4AZ" aria-label="YouTube" target="_blank" rel="noopener">
+            <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://x.com/stafford4az" aria-label="X (Twitter)" target="_blank" rel="noopener">
+            <i class="fab fa-x-twitter"></i>
+        </a>
+        <a href="https://www.facebook.com/Stafford4AZ/" aria-label="Facebook" target="_blank" rel="noopener">
+            <i class="fab fa-facebook"></i>
+        </a>
         </div>
 
         <p class="copyright">©2025 Eric Stafford for Arizona Senate. All rights reserved.</p>

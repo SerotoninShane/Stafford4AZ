@@ -215,7 +215,7 @@
         .hero-headshot-container img {
             width: 100%; 
             height: 100%; 
-            filter: saturate(170%) contrast(115%) ;
+            filter: saturate(155%) contrast(110%) ;
             object-fit: cover; /* Keeps aspect ratio, crops if needed */
             object-position: center -20%; /* Adjusts the focal point, e.g., slightly higher to zoom on face */
             transform: scale(1.25); /* Scales the image up by 15% inside its container */
@@ -598,19 +598,22 @@
     box-shadow: -10px 10px 60px rgba(0, 0, 0, 0.5);
     position: absolute;
     right: 0;
-    top: 6vh;
+    top: 8vh;
     cursor: pointer;
     z-index: 1;
 }
 
 .video-thumbnail-container img {
-    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: auto;
     height: 100%;
+    transform: translate(-50%, -50%) scale(1.8);
     object-fit: cover;
-    display: block;
-    filter: brightness(0.85) contrast(1.1);
-    object-position: center 20%;
+    object-position: center center;
 }
+
 
 .play-button {
     position: absolute;
@@ -805,6 +808,7 @@
 .platform-image-container {
     width: 50vw;
     height: 520px;
+    aspect-ratio: 19/6;
     overflow: hidden;
     border-radius: 0 5% 0 0;
     box-shadow: 10px 10px 60px rgba(0, 0, 0, 0.5);
@@ -815,13 +819,17 @@
 }
 
 .platform-image-container img {
-    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: auto;
     height: 100%;
+    transform: translate(-50%, -50%) scale(1.8);
     object-fit: cover;
-    display: block;
+    object-position: center center;
     filter: brightness(0.85) contrast(1.1);
-    object-position: center 20%;
 }
+
 
         @media (max-width: 768px) {
             header {
@@ -854,4 +862,244 @@
             }
 
 
+        }
+
+                .clean-elections-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .clean-elections-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content-clean {
+            background: var(--off-white);
+            padding: 50px;
+            border-radius: 8px;
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close-clean-modal {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            color: var(--main-blue);
+            font-size: 32px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+            line-height: 1;
+        }
+
+        .close-clean-modal:hover {
+            color: var(--bg-orange);
+        }
+
+        .modal-content-clean h2 {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--main-blue);
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .modal-content-clean p {
+            font-size: 18px;
+            color: var(--main-blue);
+            line-height: 1.6;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .progress-container {
+            margin: 30px 0;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--main-blue);
+            font-size: 18px;
+        }
+
+        .progress-bar-bg {
+            width: 100%;
+            height: 30px;
+            background-color: rgba(23, 60, 98, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--bg-orange), var(--bg-red));
+            border-radius: 15px;
+            transition: width 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.3), 
+                transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .donate-btn-modal {
+            width: 100%;
+            padding: 18px 40px;
+            font-size: 22px;
+            font-weight: 800;
+            border: 4px solid var(--bg-orange);
+            background: var(--bg-orange);
+            color: var(--off-white);
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-top: 20px;
+        }
+
+        .donate-btn-modal:hover {
+            background: transparent;
+            color: var(--bg-orange);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(254, 166, 85, 0.3);
+        }
+
+        /* Floating Minimized Widget */
+        .clean-elections-widget {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--main-blue);
+            color: var(--off-white);
+            padding: 20px 25px;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            z-index: 1999;
+            transition: all 0.3s ease;
+            max-width: 280px;
+            animation: slideInRight 0.5s ease;
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .clean-elections-widget:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .widget-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .widget-icon {
+            font-size: 28px;
+            color: var(--bg-orange);
+        }
+
+        .widget-text h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .widget-progress-mini {
+            width: 100%;
+            height: 6px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+
+        .widget-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--bg-orange), var(--bg-red));
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+
+        /* Demo Button */
+        .demo-btn {
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: 800;
+            border: 4px solid var(--main-blue);
+            background: var(--main-blue);
+            color: var(--off-white);
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 1px;
+        }
+
+        .demo-btn:hover {
+            background: transparent;
+            color: var(--main-blue);
         }

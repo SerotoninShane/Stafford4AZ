@@ -386,6 +386,41 @@
                 padding: 25px;
             }
         }
+
+                /* Mini Hero Section */
+.mini-hero {
+    min-height: 25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(var(--main-blue), #122940);
+    position: relative;
+    overflow: hidden;
+    color: var(--off-white);
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.mini-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('../assets/background.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%) contrast(200%);
+    background-blend-mode: luminosity;
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.mini-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
@@ -396,36 +431,32 @@
 
     <header>
         <div class="header-left">
-            <div class="logo"><img src="logo.png" alt="Eric Stafford for Arizona Senate"/></div>
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../assets/logo.png" alt="Eric Stafford Logo">
+                </a>
+            </div>
         </div>
         <nav>
             <div class="nav-left">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
+                <a href="../index.html">Home</a>
+                <a href="../about/about.html">About</a>
                 <a href="platform.html">Platform</a>
                 <a href="#events">Events</a>
-                <div class="social-links">
-                    <a href="#" aria-label="Bluesky">
-                        <i class="fab fa-bluesky"></i> 
-                    </a>
-                    <a href="#" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i> 
-                    </a>
-                    <a href="#" aria-label="YouTube">
-                        <i class="fab fa-youtube"></i> 
-                    </a>
-                </div>
             </div>
             <div class="nav-right">
-                <a href="#donate" class="nav-btn">DONATE</a>
+                <a href="https://secure.actblue.com/donate/stafford-4-az-1" class="nav-btn">DONATE</a>
                 <a href="#volunteer" class="nav-btn">VOLUNTEER</a>
             </div>
         </nav>
     </header>
-
+            <section class="mini-hero">
+    <div class="mini-hero-content">
+        <h2>Eric's Platform</h2>
+    </div>
+    </section>
     <section class="platform-section" id="platform">
         <div class="platform-header">
-            <h1>Eric's Platform</h1>
             <h2>Where I Stand</h2>
             <p class="platform-intro">
                 Arizona families are being priced out of their own communities. Why? Because corporate interests and out-of-state developers have shaped policies that benefit the wealthy few while hardworking Arizonans struggle to get by.
@@ -659,7 +690,7 @@
     <footer id="donate">
         <h3>Join Our Movement</h3>
         <div class="footer-buttons">
-            <a href="#contact" class="btn-footer">DONATE</a>
+            <a href="https://secure.actblue.com/donate/stafford-4-az-1" class="btn-footer">DONATE</a>
             <a href="#volunteer" class="btn-footer">VOLUNTEER</a>
         </div>
         
@@ -669,15 +700,21 @@
         </div>
 
         <div class="footer-social">
-            <a href="#" aria-label="Bluesky">
-                <i class="fab fa-bluesky"></i> 
-            </a>
-            <a href="#" aria-label="Instagram">
-                <i class="fab fa-instagram"></i> 
-            </a>
-            <a href="#" aria-label="YouTube">
-                <i class="fab fa-youtube"></i> 
-            </a>
+        <a href="https://bsky.app/profile/stafford4az.bsky.social" aria-label="Bluesky" target="_blank" rel="noopener">
+            <i class="fab fa-bluesky"></i>
+        </a>
+        <a href="https://www.instagram.com/stafford4az" aria-label="Instagram" target="_blank" rel="noopener">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.youtube.com/@Stafford4AZ" aria-label="YouTube" target="_blank" rel="noopener">
+            <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://x.com/stafford4az" aria-label="X (Twitter)" target="_blank" rel="noopener">
+            <i class="fab fa-x-twitter"></i>
+        </a>
+        <a href="https://www.facebook.com/Stafford4AZ/" aria-label="Facebook" target="_blank" rel="noopener">
+            <i class="fab fa-facebook"></i>
+        </a>
         </div>
         <p class="copyright">©2025 Eric Stafford for Arizona Senate. All rights reserved.</p>
     </footer>
