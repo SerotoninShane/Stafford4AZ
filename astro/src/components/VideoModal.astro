@@ -1,0 +1,115 @@
+---
+const { videoUrl = "https://www.youtube.com/embed/acwCoMV8jTE?autoplay=1&start=3" } = Astro.props;
+---
+
+<div id="videoModal" class="video-modal" data-video-url={videoUrl}>
+    <span class="close-modal">&times;</span>
+    <div class="video-modal-content">
+        <div class="video-wrapper">
+            <iframe id="videoPlayer" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+
+<style>
+.video-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.video-modal-content {
+    position: relative;
+    margin: auto;
+    width: 90%;
+    max-width: 1200px;
+    top: 50%;
+    padding: 5vw;
+    transform: translateY(-50%);
+}
+
+.close-modal {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    color: var(--off-white);
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+    z-index: 1001;
+}
+
+.close-modal:hover {
+    color: var(--bg-orange);
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+</style>
+
+<script>
+    const videoModal = document.getElementById('videoModal')!;
+    const videoPlayer = document.getElementById('videoPlayer')! as HTMLIFrameElement;
+    const closeModal = document.querySelector('.close-modal')!;
+    const videoUrl = videoModal.dataset.videoUrl;
+
+    // Helper function to calculate scrollbar width
+    function getScrollbarWidth() {
+        return window.innerWidth - document.documentElement.clientWidth;
+    }
+
+    // Open modal
+    function openModal() {
+        // 1. Calculate scrollbar width
+        const scrollbarWidth = getScrollbarWidth();
+        
+        // 2. Lock body scroll and compensate for scrollbar removal
+        document.body.style.paddingRight = scrollbarWidth + 'px'; // <-- ADDED: Compensates for content shift
+        document.body.style.overflow = 'hidden';                 // <-- Locks the scroll
+        
+        // 3. Show modal and start video
+        videoModal.style.display = 'block';
+        videoPlayer.src = videoUrl!;
+    }
+
+    // Close modal
+    function closeVideo() {
+        // 1. Reset body styles to unlock scroll
+        document.body.style.overflow = '';
+        document.body.style.paddingRight = ''; // <-- ADDED: Resets the padding
+        
+        // 2. Hide modal and stop video
+        videoModal.style.display = 'none';
+        videoPlayer.src = '';
+    }
+
+    // Event listeners
+    window.addEventListener('openVideoModal', openModal);
+    closeModal.addEventListener('click', closeVideo);
+    videoModal.addEventListener('click', e => { if (e.target === videoModal) closeVideo(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && videoModal.style.display === 'block') closeVideo(); });
+</script>

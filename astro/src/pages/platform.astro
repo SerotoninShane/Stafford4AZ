@@ -1,0 +1,193 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PlatformItem from '../components/PlatformItem.astro';
+// Define the unique data for this specific page
+const pageTitle = "Eric Stafford for Arizona Senate - Platform";
+const pageUrl = '/platform';
+const pageDescription = "View Eric Stafford's detailed platform on education, water, and economic development for Arizona.";
+
+// Data array for platform items
+const platformItems = [
+  {
+    title: "Secure Arizona's Water Future",
+    content: "Water is Arizona's most precious resource, and it's under threat. Climate change, overuse, and decades of mismanagement have put our water security at risk. We need bold action now.",
+    listItems: [
+      "Protect Arizona's Colorado River water rights",
+      "Invest in water conservation and infrastructure",
+      "Hold corporate water users accountable",
+      "Support innovative water recycling and desalination projects",
+      "Ensure tribal water rights are honored and protected"
+    ]
+  },
+  {
+    title: "Make Housing Affordable Again",
+    content: "Arizona families are being priced out of homeownership and rental markets by Wall Street investors and corporate landlords. We need to put housing back in reach for working families.",
+    listItems: [
+      "Tax incentives for first-time homebuyers",
+      "Crack down on corporate landlords driving up rents",
+      "Increase funding for affordable housing development",
+      "Support local communities in preventing displacement",
+      "Address predatory lending and unfair eviction practices"
+    ]
+  },
+  {
+    title: "Fully Fund Public Education",
+    content: "Arizona ranks near the bottom nationally in education funding. Our teachers are underpaid, our classrooms are overcrowded, and our students deserve better.",
+    listItems: [
+      "Competitive teacher salaries to attract and retain quality educators",
+      "Increased funding for school infrastructure and resources",
+      "Expanded access to early childhood education",
+      "Support for vocational and technical training programs",
+      "Accountability for charter schools receiving public funds"
+    ]
+  },
+  {
+    title: "Combat Climate Change and Protect Our Environment",
+    content: "Arizona is on the frontlines of climate change. Record heat, devastating wildfires, and water scarcity threaten our way of life. We must act decisively to protect our environment and transition to clean energy.",
+    listItems: [
+      "Accelerate the transition to renewable energy",
+      "Protect Arizona's public lands and natural treasures",
+      "Support good-paying green jobs in solar and wind energy",
+      "Strengthen air quality standards to protect public health",
+      "Invest in wildfire prevention and forest management"
+    ]
+  },
+  {
+    title: "Fix Our Broken Healthcare System",
+    content: "Healthcare is a right, not a privilege. Too many Arizonans are forced to choose between paying for medicine and putting food on the table. We need comprehensive reform.",
+    listItems: [
+      "Expanding access to affordable healthcare for all Arizonans",
+      "Lowering prescription drug costs by allowing Medicare to negotiate prices",
+      "Protecting coverage for pre-existing conditions",
+      "Increasing mental health and addiction treatment services",
+      "Expanding rural healthcare access and telemedicine"
+    ]
+  },
+  {
+    title: "Support Small Businesses and Break Up Monopolies",
+    content: "Small businesses are the backbone of Arizona's economy, but they're being squeezed by mega-corporations that dominate entire industries. We need to level the playing field.",
+    listItems: [
+      "Enforce antitrust laws and break up monopolies",
+      "Provide tax relief and support for small businesses",
+      "Expand access to capital for entrepreneurs",
+      "Protect Main Street from Wall Street consolidation",
+      "Support local agriculture and food producers"
+    ]
+  },
+  {
+    title: "Comprehensive Immigration Reform",
+    content: "Arizona's border communities deserve real solutions, not political theater. We need comprehensive immigration reform that secures our border while treating people with dignity.",
+    listItems: [
+      "Modernize border security with technology and personnel",
+      "Create a pathway to citizenship for Dreamers",
+      "Reform the asylum system to be fair and efficient",
+      "Support border communities with resources and infrastructure",
+      "Address root causes of migration through international cooperation"
+    ]
+  },
+  {
+    title: "Protect Reproductive Rights",
+    content: "The government has no place in personal medical decisions. I will always defend the right to choose and fight against any attempts to restrict reproductive healthcare.",
+    listItems: [
+      "Codify Roe v. Wade protections into federal law",
+      "Protect access to contraception and family planning services",
+      "Ensure healthcare providers can practice without political interference",
+      "Support comprehensive sex education"
+    ]
+  },
+  {
+    title: "Honor Tribal Sovereignty",
+    content: "Arizona's 22 federally recognized tribes are sovereign nations with inherent rights. The federal government must honor its treaty obligations and support tribal self-determination.",
+    listItems: [
+      "Full respect for tribal sovereignty and treaty rights",
+      "Adequate funding for Indian Health Services",
+      "Protection of sacred sites and cultural resources",
+      "Support for tribal economic development",
+      "Justice for Missing and Murdered Indigenous Women"
+    ]
+  },
+  {
+    title: "Get Money Out of Politics",
+    content: "Our democracy is being sold to the highest bidder. We need fundamental campaign finance reform to ensure every voice is heard, not just those with deep pockets.",
+    listItems: [
+      "Overturning Citizens United",
+      "Public financing of campaigns",
+      "Strict limits on corporate political spending",
+      "Full transparency in political donations",
+      "End the revolving door between Congress and lobbying firms"
+    ]
+  }
+];
+---
+
+<BaseLayout title={pageTitle} canonicalUrl={pageUrl} description={pageDescription}>
+
+<section class="mini-hero">
+  <div class="mini-hero-content">
+    <h2>Eric's Platform</h2>
+  </div>
+</section>
+
+<section class="platform-page-section" id="platform">
+  <div class="platform-page-header">
+    <h2>Where I Stand</h2>
+    <p class="platform-page-intro">
+      Arizona families are being priced out of their own communities. Why? Because corporate interests and out-of-state developers have shaped policies that benefit the wealthy few while hardworking Arizonans struggle to get by.
+    </p>
+    <p class="platform-page-intro">
+      I'm running to put Arizona families first—not special interests or corporate donors.
+    </p>
+    <p class="platform-page-intro">
+      We deserve leaders who are clear about where they stand. Here is my platform.
+    </p>
+    <p class="platform-page-contact">
+      Most importantly, I want to hear from you as this platform grows and develops. Please reach out to info@ericstaffordforsenate.com with any thoughts or additions you might have, or to schedule a further conversation.
+    </p>
+  </div>
+
+  <div class="overview-section">
+    <h2>Overview</h2>
+    <p>
+      Arizona stands at a crossroads. Our state is growing rapidly, but that growth isn't benefiting everyone equally. While corporations rake in record profits, working families face skyrocketing housing costs, water insecurity, and an education system that's been systematically underfunded for decades.
+    </p>
+    <p>
+      We need a government that works for Arizona families, not one beholden to special interests. My platform addresses the real challenges facing our communities, from securing our water future to making housing affordable, from protecting our environment to ensuring every child gets a quality education.
+    </p>
+    <p>
+      I will be a Senator for all Arizonans—not just those who can afford to buy influence in Washington.
+    </p>
+  </div>
+
+  <ul class="platform-page-list">
+    {platformItems.map(item => (
+      <PlatformItem title={item.title} content={item.content} listItems={item.listItems} />
+    ))}
+  </ul>
+</section>
+
+<script>
+const headers = document.querySelectorAll<HTMLButtonElement>('.platform-item-header');
+
+headers.forEach(header => {
+  header.addEventListener('click', () => {
+    const content = document.getElementById(header.getAttribute('aria-controls')!);
+    if (!content) return;
+
+    const expanded = header.getAttribute('aria-expanded') === 'true';
+    
+    // Collapse all
+    headers.forEach(h => {
+      h.setAttribute('aria-expanded', 'false');
+      const c = document.getElementById(h.getAttribute('aria-controls')!);
+      c?.setAttribute('hidden', '');
+    });
+
+    if (!expanded) {
+      header.setAttribute('aria-expanded', 'true');
+      content.removeAttribute('hidden');
+    }
+  });
+});
+</script>
+
+</BaseLayout>

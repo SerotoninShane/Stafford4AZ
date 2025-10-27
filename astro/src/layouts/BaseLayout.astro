@@ -1,0 +1,33 @@
+---
+import Header from '../components/Header.astro'; 
+import Footer from '../components/Footer.astro';
+import HeadMeta from '../components/HeadMeta.astro'; 
+import CleanElectrions from '../components/CleanElectrions.astro';
+
+// Define props for the layout
+interface Props {
+    title: string;
+    canonicalUrl: string; // Add canonicalUrl to layout props
+    description?: string; // Add description to layout props
+}
+
+// Destructure props (now every page must provide a title and canonicalUrl)
+const { title, canonicalUrl, description } = Astro.props; 
+---
+
+<!doctype html>
+<html lang="en">
+    <HeadMeta 
+        title={title} 
+        canonicalUrl={canonicalUrl} 
+        description={description}
+    />
+    <body>
+        <Header client:load /> 
+        <main>
+            <slot /> 
+        </main>
+        <Footer client:load /> 
+        <CleanElectrions client:load/>
+    </body>
+</html>

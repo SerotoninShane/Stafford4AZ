@@ -1,0 +1,97 @@
+---
+type PlatformItemProps = {
+  title: string;
+  content: string;
+  listItems?: string[];
+};
+
+const { title, content, listItems = [] } = Astro.props as PlatformItemProps;
+const id = title.toLowerCase().replace(/\s+/g, '-'); // unique ID for aria-controls
+---
+
+<li class="platform-item">
+  <h3>
+    <button
+      class="platform-item-header"
+      aria-expanded="false"
+      aria-controls={id}
+    >
+      <span>{title}</span>
+      <span class="platform-toggle">+</span>
+    </button>
+  </h3>
+  <div class="platform-item-content" id={id} hidden>
+    <div class="platform-item-body">
+      <p>{content}</p>
+      {listItems.length > 0 && (
+        <ul>
+          {listItems.map((item: string) => <li>{item}</li>)}
+        </ul>
+      )}
+    </div>
+  </div>
+</li>
+
+<style>
+.platform-item {
+    margin-bottom: 15px;
+    border: 2px solid var(--main-blue);
+    overflow: hidden;
+}
+
+/* Use button for better accessibility */
+.platform-item-header {
+    background-color: var(--main-blue);
+    color: var(--off-white);
+    padding: 20px 25px;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    width: 100%;
+    text-align: left;
+}
+
+.platform-item-header:hover,
+.platform-item-header[aria-expanded="true"] {
+    background-color: var(--bg-orange);
+}
+
+.platform-toggle {
+    font-size: 24px;
+    font-weight: 700;
+    transition: transform 0.3s;
+}
+
+.platform-item-header[aria-expanded="true"] .platform-toggle {
+    transform: rotate(45deg);
+}
+
+.platform-item-content {
+    overflow: hidden;
+    background-color: var(--off-white);
+}
+
+.platform-item-body {
+    padding: 30px 25px;
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--main-blue);
+}
+
+.platform-item-body p {
+    margin-bottom: 15px;
+}
+
+.platform-item-body ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.platform-item-body li {
+    margin-bottom: 8px;
+}
+</style>

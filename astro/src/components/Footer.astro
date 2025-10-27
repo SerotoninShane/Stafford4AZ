@@ -1,0 +1,114 @@
+---
+// This is the "frontmatter" section. 
+// You can add JavaScript/TypeScript here later if needed.
+---
+
+<!-- Footer -->
+<footer id="donate">
+    <h3>Join Our Movement</h3>
+    <div class="footer-buttons">
+        <a href="https://secure.actblue.com/donate/stafford-4-az-1" class="btn-footer" target="_blank">DONATE</a>
+        <a href="#volunteer" class="btn-footer">VOLUNTEER</a>
+    </div>
+    
+    <div class="footer-legal-block">
+        <p>
+            <strong>CONTACT</strong> | 
+            <a href="#" style="color: var(--off-white); text-decoration: none;">PRIVACY POLICY/TERMS OF SERVICE</a>
+        </p>
+        <p class="paid-for">PAID FOR BY ERIC STAFFORD FOR ARIZONA SENATE</p>
+    </div>
+
+    <div class="footer-social">
+    <a href="https://bsky.app/profile/stafford4az.bsky.social" aria-label="Bluesky" target="_blank" rel="noopener">
+        <i class="fab fa-bluesky"></i>
+    </a>
+    <a href="https://www.instagram.com/stafford4az" aria-label="Instagram" target="_blank" rel="noopener">
+        <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://www.youtube.com/@Stafford4AZ" aria-label="YouTube" target="_blank" rel="noopener">
+        <i class="fab fa-youtube"></i>
+    </a>
+    <a href="https://x.com/stafford4az" aria-label="X (Twitter)" target="_blank" rel="noopener">
+        <i class="fab fa-x-twitter"></i>
+    </a>
+    <a href="https://www.facebook.com/Stafford4AZ/" aria-label="Facebook" target="_blank" rel="noopener">
+        <i class="fab fa-facebook"></i>
+    </a>
+    </div>
+
+    <p class="copyright">©2025 Eric Stafford for Arizona Senate. All rights reserved.</p>
+</footer>
+
+<style>
+/* Footer */
+footer {
+    background: var(--main-blue);
+    color: var(--off-white);
+    padding: 5vh;
+    text-align: center;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.15"/></svg>');
+    opacity: 0.4;
+    z-index: 1;
+}
+
+footer > * {
+    position: relative;
+    z-index: 2;
+}
+
+footer h3 {
+    font-size: 42px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.footer-buttons {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    margin: 2vh;
+}
+
+.btn-footer {
+    padding: 1vh 4vh;
+    font-size: 20px;
+    font-weight: 800;
+    border: 4px solid var(--bg-orange);
+    background: transparent;
+    color: var(--bg-orange);
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    letter-spacing: 1px;
+}
+
+.btn-footer:hover {
+    background: var(--bg-orange);
+    color: var(--main-blue);
+}
+
+.footer-social {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin: 10px;
+}
+
+.footer-social a {
+    color: var(--off-white);
+    font-size: 24px;
+}
+</style>

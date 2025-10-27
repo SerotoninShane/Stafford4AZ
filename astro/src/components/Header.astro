@@ -1,0 +1,141 @@
+---
+// This is the "frontmatter" section. 
+// You can add JavaScript/TypeScript here later if needed.
+---
+
+<!-- Top Banner -->
+<div class="top-banner">
+    <a href="#events">
+        Meet Eric Stafford Near You <span class="arrow">→</span>
+    </a>
+</div>
+
+<!-- Header -->
+<header>
+    <div class="header-left">
+    <div class="logo">
+        <a href="/">
+            <img src="assets/logo.webp" alt="Eric Stafford Logo">
+        </a>
+    </div>
+        <div class="headshot"></div>
+    </div>
+    <nav>
+        <div class="nav-left">
+            <a href="/" data-astro-prefetch="viewport">Home</a>
+            <a href="/about" data-astro-prefetch="viewport">About</a>
+            <a href="/platform" data-astro-prefetch="viewport">Platform</a>
+            <a href="#events">Events</a>
+        </div>
+        <div class="nav-right">
+            <a href="https://secure.actblue.com/donate/stafford-4-az-1" class="nav-btn" target="_blank">DONATE</a>
+            <a href="#volunteer" class="nav-btn">VOLUNTEER</a>
+        </div>
+    </nav>
+</header>
+
+<style>
+/* Top Banner */
+.top-banner {
+    background-color: var(--bg-orange);
+    text-align: center;
+    padding: 13px 20px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.top-banner a {
+    color: var(--off-white);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.arrow {
+    font-size: 16px;
+}
+
+/* Navigation */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 2vw;
+    position: static;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-weight: 700;
+    position: absolute;
+    z-index: 100;
+    top: -2px
+}
+
+.logo img {
+    width: clamp(200px, 37vw, 420px); 
+    height: auto; 
+    aspect-ratio: 5 / 2;
+    display: block;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    gap: 1vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-left {
+    display: flex;
+    gap: 1vw;
+}
+
+.nav-right {
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 1vw;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--main-blue);
+    font-weight: 600;
+    font-size: clamp(14px, 1.4vw, 20px); 
+    transition: opacity 0.3s;
+    letter-spacing: 0.3px;
+    display: flex; 
+    align-items: center;
+}
+
+nav .nav-btn {
+    padding: 1vh 1.6vh; /* Changed padding to vw */
+    font-size: clamp(14px, 1.4vw, 20px); 
+    font-weight: 800;
+    border: 3px solid var(--main-blue);
+    background: transparent;
+    color: var(--main-blue);
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    letter-spacing: 0.5px;
+}
+
+.nav-btn:hover {
+    background: var(--main-blue);
+    color: var(--off-white);
+}
+</style>

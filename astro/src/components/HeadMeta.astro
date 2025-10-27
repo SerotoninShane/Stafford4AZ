@@ -1,0 +1,74 @@
+---
+import { ClientRouter } from 'astro:transitions';
+// Define the properties (props) that this component will accept
+interface Props {
+    title: string;
+    description?: string; // Optional since it has a global default
+    canonicalUrl?: string; // The specific page URL for canonical tag
+    imagePath?: string; // Optional if all pages use the same image
+}
+
+// Set up default values for shared props
+const { 
+    title, 
+    canonicalUrl = 'https://stafford4az.com/', // Default to homepage
+    description = 'Eric Stafford is running for Arizona Senate to put Arizonans first. Learn about his platform, events, and how to volunteer or donate.',
+    imagePath = '/assets/eric.webp'
+} = Astro.props;
+
+// Construct full URLs for Open Graph/Twitter
+const siteUrl = 'https://stafford4az.com';
+const fullCanonicalUrl = canonicalUrl.startsWith(siteUrl) ? canonicalUrl : siteUrl + canonicalUrl;
+const fullImageUrl = siteUrl + imagePath;
+---
+<head>
+    <ClientRouter />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <meta name="description" content={description}>
+    <meta name="keywords" content="Eric Stafford, Arizona Senate 2025, Arizona politics, volunteer, donate, campaign">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href={fullCanonicalUrl}>
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content={fullCanonicalUrl}>
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description}>
+    <meta property="og:image" content={fullImageUrl}>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content={title}>
+    <meta name="twitter:description" content={description}>
+    <meta name="twitter:image" content={fullImageUrl}>
+
+    <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/assets/icon.png">
+
+    <meta name="theme-color" content="#173c62">
+
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+   <link rel="preload" as="image" href="/assets/logo.webp">
+
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Eric Stafford",
+    "url": "https://stafford4az.com",
+    "image": "https://stafford4az.com/assets/eric.webp",
+    "sameAs": [
+        "https://www.instagram.com/ericstafford",
+        "https://www.youtube.com/@ericstafford",
+        "https://blueskyweb.xyz/ericstafford"
+    ],
+    "jobTitle": "Arizona Senate Candidate",
+    "affiliation": {
+        "@type": "Organization",
+        "name": "Eric Stafford for Arizona Senate"
+    }
+    }
+    </script>
+</head>

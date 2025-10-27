@@ -1,0 +1,45 @@
+---
+// Import the layout
+import BaseLayout from '../layouts/BaseLayout.astro';
+// Define the unique data for this specific page
+const pageTitle = "Eric Stafford for Arizona Senate - About";
+const pageUrl = '/about';
+const pageDescription = "View Eric Stafford's detailed platform on education, water, and economic development for Arizona.";
+---
+
+<BaseLayout 
+    title={pageTitle} 
+    canonicalUrl={pageUrl} 
+    description={pageDescription}
+>
+<section class="mini-hero">
+    <div class="mini-hero-content">
+        <h2>Meet Eric Stafford</h2>
+    </div>
+</section>
+
+<section class="about-container" id="about">
+    <div class="about-image-container">
+        <img src="../assets/eric.webp" alt="Eric Stafford"/>
+    </div>
+
+    <div class="about-content">
+        <p>Eric Stafford is a community organizer, small business advocate, and lifelong Arizonan running for U.S. Senate to deliver <strong>progress and prosperity</strong>  to all by rejecting special interests and legislating with integrity.</p>
+
+        <p>A born-and-raised Arizonan, Eric's path reflects his commitment to service and results. His blue-collar experience began when he earned his <strong>Airframe & Powerplant License</strong> and worked as a certified Airplane Mechanic & Machinist. This work gave him firsthand insight into the struggles of working families and the need for greater workplace justice.</p>
+
+        <p>Eric's dedication to an ethical, human-first approach was cemented by personal tragedy: watching his own mother suffer permanent brain damage because the <strong>inflated cost of medicine</strong> due to corporate greed made her life-saving treatment unaffordable. This injustice fuels his fight for affordable healthcare and against corporate price gouging.</p>
+
+        <p>From organizing neighbors to save long-time residents from corporate developers, to bringing together ranchers, tribal leaders, and environmental advocates on <strong>water conservation</strong>, Eric believes results matter more than party loyalty. He has dedicated his energy to a team of progress for all Arizonans, pushing for:</p>
+
+        <ul>
+            <li><strong>Education:</strong> Fully funding public schools and supporting teachers to reverse crippling system debt.</li>
+            <li><strong>Labor:</strong> Ensuring essential workers earn a living wage and restoring benefits for a stable middle class.</li>
+            <li><strong>Climate:</strong> Proactively preserving groundwater, maintaining aquifers, and improving air quality.</li>
+        </ul> <br>
+
+        <p>Eric Stafford is prepared to be a fearless leader who rejects dark money, prioritizes his constituents, and brings a pragmatic approach to creating a government that truly works for all Americans.</p>
+    </div>
+</section>
+
+</BaseLayout>

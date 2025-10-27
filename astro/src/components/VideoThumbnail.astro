@@ -1,0 +1,73 @@
+---
+const { thumbnail = "/assets/thumbnail.webp", alt = "Video Thumbnail" } = Astro.props;
+---
+
+<style>
+.video-thumbnail-container {
+  width: 50vw;
+  height: 520px;
+  overflow: hidden;
+  border-radius: 5% 0 0 0;
+  box-shadow: -10px 10px 60px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  right: 0;
+  top: 8vh;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.video-thumbnail-container img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: 100%;
+  transform: translate(-50%, -50%) scale(1.8);
+  object-fit: cover;
+  object-position: center center;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  background-color: var(--bg-red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 30px rgba(254, 166, 85, 0.5);
+}
+
+.play-button i {
+  color: var(--off-white);
+  font-size: 20px;
+  margin-left: 3px;
+}
+
+.play-button:hover {
+  transform: translate(-50%, -50%) scale(1.15);
+  box-shadow: 0 8px 40px rgba(246, 76, 45, 0.6);
+}
+</style>
+
+
+<div class="video-thumbnail-container" id="videoThumbnail">
+  <img src={thumbnail} alt={alt} />
+  <div class="play-button">
+    <i class="fas fa-play"></i>
+  </div>
+</div>
+
+<script>
+const thumb = document.getElementById('videoThumbnail');
+if (thumb) {
+  thumb.addEventListener('click', () => {
+    window.dispatchEvent(new CustomEvent('openVideoModal'));
+  });
+}
+</script>

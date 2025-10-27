@@ -1,0 +1,313 @@
+---
+// Props for dynamic progress
+const { currentCount = 127, goalCount = 240 } = Astro.props;
+const progressPercent = (currentCount / goalCount) * 100;
+---
+<div id="cleanElectionsModal" class="clean-elections-modal">
+  <div class="modal-content-clean">
+    <span class="close-clean-modal">&times;</span>
+    <h2>Support Clean Elections</h2>
+    <p>Help us reach our goal! Make a $5 qualifying contribution to support Eric's campaign through Arizona's Clean Elections program.</p>
+    
+    <div class="progress-container">
+      <div class="progress-label">
+        <span>Progress</span>
+        <span id="progressCount">{currentCount} / {goalCount}</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" style={`width: ${progressPercent}%;`}></div>
+      </div>
+    </div>
+
+    <a href="https://apps.azsos.gov/apps/election/eps/qc/" class="donate-btn-modal" target="_blank">Donate $5 Now</a>
+  </div>
+</div>
+
+<div id="cleanElectionsWidget" class="clean-elections-widget">
+  <div class="widget-content">
+    <div class="widget-icon">
+      <i class="fas fa-hand-holding-dollar"></i>
+    </div>
+    <div class="widget-text">
+      <h3>Clean Elections</h3>
+      <div class="widget-progress-mini">
+        <div class="widget-progress-fill" style={`width: ${progressPercent}%;`}></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.clean-elections-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    animation: fadeIn 0.3s ease;
+}
+
+.clean-elections-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content-clean {
+    background: var(--off-white);
+    padding: 50px;
+    border-radius: 8px;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close-clean-modal {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: var(--main-blue);
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+    line-height: 1;
+}
+
+.close-clean-modal:hover {
+    color: var(--bg-orange);
+}
+
+.modal-content-clean h2 {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--main-blue);
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.modal-content-clean p {
+    font-size: 18px;
+    color: var(--main-blue);
+    line-height: 1.6;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.progress-container {
+    margin: 30px 0;
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--main-blue);
+    font-size: 18px;
+}
+
+.progress-bar-bg {
+    width: 100%;
+    height: 30px;
+    background-color: rgba(23, 60, 98, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--bg-orange), var(--bg-red));
+    border-radius: 15px;
+    transition: width 0.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.3), 
+        transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.donate-btn-modal {
+    width: 100%;
+    padding: 18px 40px;
+    font-size: 22px;
+    font-weight: 800;
+    border: 4px solid var(--bg-orange);
+    background: var(--bg-orange);
+    color: var(--off-white);
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-top: 20px;
+}
+
+.donate-btn-modal:hover {
+    background: transparent;
+    color: var(--bg-orange);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(254, 166, 85, 0.3);
+}
+
+/* Floating Minimized Widget */
+.clean-elections-widget {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--main-blue);
+    color: var(--off-white);
+    padding: 20px 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    z-index: 1999;
+    transition: all 0.3s ease;
+    max-width: 280px;
+    animation: slideInRight 0.5s ease;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.clean-elections-widget:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.widget-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.widget-icon {
+    font-size: 28px;
+    color: var(--bg-orange);
+}
+
+.widget-text h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.widget-progress-mini {
+    width: 100%;
+    height: 6px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.widget-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--bg-orange), var(--bg-red));
+    border-radius: 3px;
+    transition: width 0.5s ease;
+}
+
+/* Demo Button */
+.demo-btn {
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: 800;
+    border: 4px solid var(--main-blue);
+    background: var(--main-blue);
+    color: var(--off-white);
+    cursor: pointer;
+    transition: all 0.3s;
+    letter-spacing: 1px;
+}
+
+.demo-btn:hover {
+    background: transparent;
+    color: var(--main-blue);
+}
+</style>
+
+<script type="module">
+const modal = document.getElementById('cleanElectionsModal');
+const widget = document.getElementById('cleanElectionsWidget');
+
+function openCleanElectionsModal() {
+    modal.classList.add('active');
+    widget.style.display = 'none';
+}
+
+function closeCleanElectionsModal() {
+    modal.classList.remove('active');
+    widget.style.display = 'block';
+    localStorage.setItem('cleanElectionsModalShown', 'true');
+}
+
+window.closeCleanElectionsModal = closeCleanElectionsModal;
+
+widget.addEventListener('click', openCleanElectionsModal);
+modal.querySelector('.close-clean-modal').addEventListener('click', closeCleanElectionsModal);
+
+// Auto-show modal once
+const hasSeenModal = localStorage.getItem('cleanElectionsModalShown');
+widget.style.display = 'block';
+if (!hasSeenModal) {
+    setTimeout(openCleanElectionsModal, 1500);
+}
+
+// Close modal when clicking outside
+window.addEventListener('click', (event) => {
+    if (event.target === modal) closeCleanElectionsModal();
+});
+</script>
