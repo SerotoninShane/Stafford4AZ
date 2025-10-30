@@ -1402,6 +1402,18 @@ section {
     list-style: none;
 }
 
+.campaign-form input[type="text"],
+.campaign-form input[type="email"],
+.campaign-form input[type="tel"] {
+    padding: 14px;
+    border: 1px solid var(--bg-dark-green);
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+    width: 100%; /* Add this line if not present */
+    box-sizing: border-box; /* Add this line if not present */
+}
 
 /* Tablet and smaller laptops */
 @media (max-width: 1024px) {
