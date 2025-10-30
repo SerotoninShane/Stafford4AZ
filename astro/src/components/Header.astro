@@ -1,16 +1,12 @@
 ---
-// This is the "frontmatter" section. 
+// This is the "frontmatter" section.
 // You can add JavaScript/TypeScript here later if needed.
 ---
-
-<!-- Top Banner -->
 <div class="top-banner">
     <a href="#events">
         Meet Eric Stafford Near You <span class="arrow">→</span>
     </a>
 </div>
-
-<!-- Header -->
 <header>
     <div class="header-left">
     <div class="logo">
@@ -20,7 +16,14 @@
     </div>
         <div class="headshot"></div>
     </div>
-    <nav>
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <nav id="nav-menu">
         <div class="nav-left">
             <a href="/" data-astro-prefetch="viewport">Home</a>
             <a href="/about" data-astro-prefetch="viewport">About</a>
@@ -43,7 +46,6 @@
     font-size: 16px;
     font-weight: 700;
 }
-
 .top-banner a {
     color: var(--off-white);
     text-decoration: none;
@@ -51,11 +53,9 @@
     align-items: center;
     gap: 8px;
 }
-
 .arrow {
     font-size: 16px;
 }
-
 /* Navigation */
 header {
     display: flex;
@@ -68,61 +68,53 @@ header {
     right: 0;
     z-index: 10;
 }
-
 .logo {
     font-weight: 700;
     position: absolute;
     z-index: 100;
     top: -2px
 }
-
 .logo img {
-    width: clamp(200px, 37vw, 420px); 
-    height: auto; 
+    width: 420px;
+    height: auto;
     aspect-ratio: 5 / 2;
     display: block;
 }
-
 .header-left {
     display: flex;
     align-items: center;
 }
-
 nav {
     display: flex;
     gap: 1vw;
     align-items: center;
     justify-content: center;
 }
-
 .nav-left {
     display: flex;
     gap: 1vw;
 }
-
 .nav-right {
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 1vw;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
-
 nav a {
     text-decoration: none;
     color: var(--main-blue);
     font-weight: 600;
-    font-size: clamp(14px, 1.4vw, 20px); 
+    font-size: clamp(14px, 1.4vw, 20px);
     transition: opacity 0.3s;
     letter-spacing: 0.3px;
-    display: flex; 
+    display: flex;
     align-items: center;
 }
-
 nav .nav-btn {
-    padding: 1vh 1.6vh; /* Changed padding to vw */
-    font-size: clamp(14px, 1.4vw, 20px); 
+    padding: 1vh 1.6vh;
+    font-size: clamp(14px, 1.4vw, 20px);
     font-weight: 800;
     border: 3px solid var(--main-blue);
     background: transparent;
@@ -133,9 +125,217 @@ nav .nav-btn {
     display: inline-block;
     letter-spacing: 0.5px;
 }
-
 nav .nav-btn:hover {
     background: var(--main-blue);
     color: var(--off-white);
 }
+
+/* Hamburger Menu - Hidden by default */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 101;
+}
+
+.hamburger span {
+    width: 30px;
+    height: 3px;
+    background-color: var(--main-blue);
+    margin: 4px 0;
+    transition: all 0.3s ease;
+    border-radius: 3px;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+}
+
+/* Lock body scroll when menu is open */
+body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
+/* Mobile Navigation Styles */
+@media (max-width: 1024px) {
+    header {
+        position: relative;
+        justify-content: space-between; /* CHANGED: Space between logo and hamburger */
+        align-items: center; /* ADDED: Vertical alignment */
+        padding: 15px 20px;
+    }
+
+    .header-left {
+        position: static;
+        display: block;
+        flex: 1; /* ADDED: Takes available space */
+    }
+
+    .logo {
+        position: absolute;
+        top: -50px;
+        left: 0;
+        transform: none;
+        text-align: left; /* CHANGED: Left align instead of center */
+        width: auto; /* CHANGED: Auto width instead of 100% */
+        z-index: 10;
+    }
+
+    .logo img {
+        width: 420px; /* INCREASED: Larger logo size */
+        margin: 0; /* CHANGED: Remove auto margin for left alignment */
+    }
+    
+    .hamburger {
+        display: flex;
+        position: relative; /* CHANGED: From absolute to relative */
+        right: auto; /* REMOVED: Absolute positioning */
+        top: auto; /* REMOVED: Absolute positioning */
+        transform: none; /* REMOVED: Transform */
+        flex-shrink: 0; /* ADDED: Prevent hamburger from shrinking */
+    }
+
+    .top-banner {
+        font-size: 12px;
+        padding: 10px 15px;
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        right: -100vw;
+        width: 100vw;
+        height: 100vh;
+        background-color: var(--off-white);
+        flex-direction: column;
+        padding: 120px 30px 30px;
+        gap: 0;
+        box-shadow: none;
+        transition: right 0.3s ease;
+        overflow-y: auto;
+        z-index: 100;
+    }
+
+    nav.active {
+        right: 0;
+    }
+    
+    .nav-left {
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .nav-left a {
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(23, 60, 98, 0.1);
+        width: 100%;
+        font-size: 18px;
+    }
+
+    .nav-right {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+
+    nav .nav-btn {
+        width: 100%;
+        padding: 15px;
+        font-size: 18px;
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+        header {
+        position: relative;
+        justify-content: space-between; /* CHANGED: Space between logo and hamburger */
+        align-items: center; /* ADDED: Vertical alignment */
+        padding: 5px;
+    }
+        .logo {
+        position: absolute;
+        top: -35px;
+        left: 0;
+        transform: none;
+        text-align: left; /* CHANGED: Left align instead of center */
+        width: auto; /* CHANGED: Auto width instead of 100% */
+        z-index: 10;
+    }
+    .logo img {
+        width: 300px; /* ADJUSTED: Slightly smaller on very small screens but still bigger than before */
+    }
+
+    nav {
+        width: 100vw;
+        right: -100vw;
+    }
+
+    .hamburger span {
+        width: 25px;
+    }
+}
 </style>
+
+<script>
+    function setupMobileMenu() {
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        const body = document.body;
+
+        if (!hamburger || !navMenu) {
+            return;
+        }
+
+        function toggleMenu() {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            body.classList.toggle('menu-open');
+        }
+
+        if (!hamburger.dataset.listenersAttached) {
+            hamburger.addEventListener('click', toggleMenu);
+            hamburger.dataset.listenersAttached = 'true';
+
+            const navLinks = navMenu.querySelectorAll('a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    if (navMenu.classList.contains('active')) {
+                        e.preventDefault();
+                        const href = link.getAttribute('href');
+                        
+                        toggleMenu();
+                        
+                        setTimeout(() => {
+                            window.location.href = href;
+                        }, 200);
+                    }
+                });
+            });
+        }
+        
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        body.classList.remove('menu-open');
+    }
+
+    setupMobileMenu();
+    document.addEventListener('astro:page-load', setupMobileMenu);
+</script>

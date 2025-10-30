@@ -111,4 +111,68 @@ footer h3 {
     color: var(--off-white);
     font-size: 24px;
 }
+
+@media (max-width: 768px) {
+    footer {
+        /* Increase padding slightly on top/bottom for better visual separation */
+        padding: 6vh 20px;
+    }
+
+    footer h3 {
+        /* Decrease font size for mobile header */
+        font-size: 32px;
+    }
+
+    .footer-buttons {
+        /* Change to column layout to stack buttons vertically */
+        flex-direction: column;
+        gap: 15px;
+        margin: 3vh auto;
+        /* Constrain button group width */
+        max-width: 300px;
+    }
+
+    .btn-footer {
+        /* Adjust padding and font size for better mobile tap target */
+        padding: 15px 3vh; /* Increased vertical padding */
+        font-size: 18px;
+        width: 100%; /* Make buttons full width of the container (max-width: 300px) */
+    }
+
+    .footer-legal-block p {
+        /* Adjust font size for legal text */
+        font-size: 14px;
+    }
+
+    .paid-for {
+        /* Ensure paid-for text is legible */
+        font-size: 12px;
+    }
+
+    .footer-social {
+        /* Keep the same icon size or slightly decrease if needed */
+        gap: 15px;
+        margin-top: 15px;
+    }
+    
+    .footer-social a {
+        font-size: 22px;
+    }
+
+    .copyright {
+        font-size: 12px;
+        margin-top: 15px;
+    }
+}
+
+/* Additional adjustment for very small screens (e.g., iPhone 5/SE) */
+@media (max-width: 480px) {
+    footer h3 {
+        font-size: 28px;
+    }
+    
+    .footer-buttons {
+        max-width: 250px;
+    }
+}
 </style>

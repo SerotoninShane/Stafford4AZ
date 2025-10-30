@@ -52,6 +52,43 @@ const { thumbnail = "/assets/thumbnail.webp", alt = "Video Thumbnail" } = Astro.
 .play-button:hover {
   transform: translate(-50%, -50%) scale(1.15);
   box-shadow: 0 8px 40px rgba(246, 76, 45, 0.6);
+``}
+
+@media (max-width: 1024px) {
+  .video-thumbnail-container {
+    /* Override Desktop Absolute Positioning */
+    position: relative; /* Change to flow with content */
+    width: 100%; /* Full width for mobile */
+    height: 250px; /* Reduced height for mobile viewports */
+    top: 0; /* Clear the 'top: 8vh' */
+    right: 0; /* Clear the 'right: 0' */
+    margin-top: 30px; /* Add some spacing above it */
+    border-radius: 0; /* Remove corner radius, make it a standard block */
+    box-shadow: none; /* Reduce the intense shadow on mobile */
+    z-index: 1;
+  }
+
+  .video-thumbnail-container img {
+    /* Adjust image scale to be less 'zoomed in' on a smaller screen */
+    transform: translate(-50%, -50%) scale(2);
+  }
+
+  .play-button {
+    /* Slightly smaller play button for mobile */
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 4px 15px rgba(254, 166, 85, 0.5);
+  }
+  
+  .play-button i {
+    font-size: 16px;
+  }
+  
+  .play-button:hover {
+    /* Prevent hover effect from triggering on mobile devices */
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 15px rgba(254, 166, 85, 0.5);
+  }
 }
 </style>
 

@@ -23,11 +23,11 @@ const { title, canonicalUrl, description } = Astro.props;
         description={description}
     />
     <body>
-        <Header client:load /> 
+        <Header transition:persist /> 
         <main>
             <slot /> 
         </main>
-        <Footer client:load /> 
-        <CleanElectrions client:load/>
+        <Footer transition:persist /> 
+        <CleanElectrions transition:persist />
     </body>
 </html>

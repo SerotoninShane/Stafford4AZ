@@ -277,37 +277,184 @@ const progressPercent = (currentCount / goalCount) * 100;
     background: transparent;
     color: var(--main-blue);
 }
+
+@media (max-width: 768px) {
+    .clean-elections-widget {
+        padding: 15px;
+        border-radius: 50%;
+        max-width: 60px;
+        width: 60px;
+        height: 60px;
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .widget-content {
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .widget-text {
+        display: none;
+    }
+    
+    .widget-icon {
+        font-size: 24px;
+        margin: 0;
+    }
+    
+    .modal-content-clean {
+        padding: 30px 25px;
+        width: 95%;
+    }
+    
+    .modal-content-clean h2 {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+    
+    .modal-content-clean p {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    
+    .progress-label {
+        font-size: 16px;
+    }
+    
+    .progress-bar-bg {
+        height: 25px;
+    }
+    
+    .donate-btn-modal {
+        padding: 15px 30px;
+        font-size: 18px;
+    }
+    
+    .close-clean-modal {
+        top: 15px;
+        right: 15px;
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .clean-elections-widget {
+        padding: 12px;
+        max-width: 50px;
+        width: 50px;
+        height: 50px;
+        bottom: 12px;
+        right: 12px;
+    }
+    
+    .widget-icon {
+        font-size: 20px;
+    }
+    
+    .modal-content-clean {
+        padding: 25px 20px;
+    }
+    
+    .modal-content-clean h2 {
+        font-size: 24px;
+    }
+    
+    .modal-content-clean p {
+        font-size: 15px;
+    }
+    
+    .progress-label {
+        font-size: 14px;
+    }
+    
+    .progress-bar-bg {
+        height: 20px;
+    }
+    
+    .donate-btn-modal {
+        padding: 12px 25px;
+        font-size: 16px;
+        border-width: 3px;
+    }
+}
 </style>
 
-<script type="module">
-const modal = document.getElementById('cleanElectionsModal');
-const widget = document.getElementById('cleanElectionsWidget');
+<script>
+    // Define the global function for closing, as it may be called from outside
+    // (e.g., from inline HTML attributes, though generally avoided).
+    function closeCleanElectionsModal() {
+        const modal = document.getElementById('cleanElectionsModal');
+        const widget = document.getElementById('cleanElectionsWidget');
+        
+        if (modal && widget) {
+            modal.classList.remove('active');
+            widget.style.display = 'block';
+            // Set localStorage flag so it doesn't auto-open again
+            localStorage.setItem('cleanElectionsModalShown', 'true');
+        }
+    }
+    window.closeCleanElectionsModal = closeCleanElectionsModal;
 
-function openCleanElectionsModal() {
-    modal.classList.add('active');
-    widget.style.display = 'none';
-}
+    // --- SETUP FUNCTION ---
+    function initializeCleanElections() {
+        const modal = document.getElementById('cleanElectionsModal');
+        const widget = document.getElementById('cleanElectionsWidget');
+        const closeModalButton = modal?.querySelector('.close-clean-modal');
+        
+        // Ensure elements exist before proceeding
+        if (!modal || !widget) {
+            // console.error('CleanElections elements not found.'); // Removed for cleaner console
+            return; 
+        }
 
-function closeCleanElectionsModal() {
-    modal.classList.remove('active');
-    widget.style.display = 'block';
-    localStorage.setItem('cleanElectionsModalShown', 'true');
-}
+        // Use a function for opening the modal
+        const openCleanElectionsModal = () => {
+            modal.classList.add('active');
+            widget.style.display = 'none';
+        };
 
-window.closeCleanElectionsModal = closeCleanElectionsModal;
+        // 1. Prevent Listener Stacking: Use a flag to ensure event listeners are added only ONCE.
+        if (!widget.dataset.listenersAttached) {
+            
+            // Listener for the widget (to re-open the modal)
+            widget.addEventListener('click', openCleanElectionsModal);
 
-widget.addEventListener('click', openCleanElectionsModal);
-modal.querySelector('.close-clean-modal').addEventListener('click', closeCleanElectionsModal);
+            // Listener for the close button
+            if (closeModalButton) {
+                closeModalButton.addEventListener('click', closeCleanElectionsModal);
+            }
 
-// Auto-show modal once
-const hasSeenModal = localStorage.getItem('cleanElectionsModalShown');
-widget.style.display = 'block';
-if (!hasSeenModal) {
-    setTimeout(openCleanElectionsModal, 1500);
-}
+            // Listener for clicking outside the modal
+            window.addEventListener('click', (event) => {
+                if (event.target === modal) closeCleanElectionsModal();
+            });
 
-// Close modal when clicking outside
-window.addEventListener('click', (event) => {
-    if (event.target === modal) closeCleanElectionsModal();
-});
+            // Mark the widget as having attached listeners
+            widget.dataset.listenersAttached = 'true';
+        }
+
+        // 2. Initial State and Auto-show Logic
+        // Ensure widget is visible and modal is closed on page load/transition
+        widget.style.display = 'block';
+        modal.classList.remove('active'); 
+
+        const hasSeenModal = localStorage.getItem('cleanElectionsModalShown');
+
+        // Only set the auto-open timeout if the user hasn't seen it yet
+        if (!hasSeenModal) {
+            // Clear any old timeout before setting a new one (prevents race conditions)
+            clearTimeout(window._cleanElectionsTimeout); 
+            window._cleanElectionsTimeout = setTimeout(openCleanElectionsModal, 1500);
+        }
+    }
+    
+    // --- Astro View Transitions Handling ---
+    
+    // 1. Run immediately on initial load
+    initializeCleanElections();
+    
+    // 2. Crucially, re-run after every View Transition navigation
+    document.addEventListener('astro:page-load', initializeCleanElections);
+
 </script>
