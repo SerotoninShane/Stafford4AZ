@@ -1,0 +1,66 @@
+---
+// Import the layout
+import BaseLayout from '../layouts/BaseLayout.astro';
+// Define the unique data for this specific page
+const pageTitle = "Eric Stafford for Arizona Senate - Contact";
+const pageUrl = '/contact';
+const pageDescription = "View Eric Stafford's detailed platform on education, water, and economic development for Arizona.";
+---
+
+<BaseLayout 
+    title={pageTitle} 
+    canonicalUrl={pageUrl} 
+    description={pageDescription}
+>
+<section class="mini-hero">
+    <div class="mini-hero-content">
+        <h2>Contact</h2>
+    </div>
+</section>
+
+<section class="about-section" id="contact">
+    <div class="about-image"> 
+        <h2>We’d Love to Hear From You</h2>
+        <p class="disclaimer-large">
+            If you have questions, comments, want to get involved with Eric Stafford's campaign for Arizona Senate, or wish to share your thoughts on changes in legislation affecting LD29, please use the form below to contact us. We welcome your input and will respond as soon as possible to help keep you informed and engaged in shaping policies that matter to our community.
+        </p>
+    </div>
+    
+    <div class="about-content">
+        <form class="campaign-form" name="campaign-signup" method="POST" data-netlify="true">
+            <input type="hidden" name="form-name" value="campaign-signup">
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="first-name">First Name (required)</label>
+                    <input type="text" id="first-name" name="first-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name (required)</label>
+                    <input type="text" id="last-name" name="last-name" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="zip-code">Zip Code (required)</label>
+                    <input type="text" id="zip-code" name="zip-code" pattern="[0-9]{5}" title="Please enter a 5-digit zip code" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="email">Email (required)</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <button type="submit" class="btn submit-btn">Submit</button>
+        </form>
+    </div>
+</section>
+
+
+</BaseLayout>

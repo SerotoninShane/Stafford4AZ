@@ -1,0 +1,23 @@
+---
+// Import the layout
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Schedule from '../components/Calendar.astro';
+// Define the unique data for this specific page
+const pageTitle = "Eric Stafford for Arizona Senate - Events";
+const pageUrl = '/events';
+const pageDescription = "View Eric Stafford's detailed platform on education, water, and economic development for Arizona.";
+---
+
+<BaseLayout 
+    title={pageTitle} 
+    canonicalUrl={pageUrl} 
+    description={pageDescription}
+>
+<section class="mini-hero">
+    <div class="mini-hero-content">
+        <h2>Events</h2>
+    </div>
+</section>
+<Schedule />
+
+</BaseLayout>

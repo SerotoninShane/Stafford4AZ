@@ -5,17 +5,20 @@
 
 <!-- Footer -->
 <footer id="donate">
+    <img src="/assets/icon.svg"/ width="200px">
     <h3>Join Our Movement</h3>
     <div class="footer-buttons">
-        <a href="https://secure.actblue.com/donate/stafford-4-az-1" class="btn-footer" target="_blank">DONATE</a>
-        <a href="#volunteer" class="btn-footer">VOLUNTEER</a>
+        <a href="https://secure.actblue.com/donate/staffordforarizona" class="btn-footer" target="_blank">DONATE</a>
+        <a href="/events" class="btn-footer">VOLUNTEER</a>
     </div>
     
     <div class="footer-legal-block">
         <p>
-            <strong>CONTACT</strong> | 
-            <a href="#" style="color: var(--off-white); text-decoration: none;">PRIVACY POLICY/TERMS OF SERVICE</a>
+            <strong><a href="/contact" style="color: var(--off-white); text-decoration: none;">CONTACT</a></strong> | 
+            <strong><a href="/privacy" style="color: var(--off-white); text-decoration: none;">PRIVACY POLICY</a></strong> | 
+            <strong><a href="/terms" style="color: var(--off-white); text-decoration: none;">TERMS OF SERVICE</a></strong>
         </p>
+
         <p class="paid-for">PAID FOR BY ERIC STAFFORD FOR ARIZONA SENATE</p>
     </div>
 
@@ -45,7 +48,7 @@
 footer {
     background: var(--main-blue);
     color: var(--off-white);
-    padding: 5vh;
+    padding: 4vh;
     text-align: center;
     position: relative;
 }
@@ -112,6 +115,16 @@ footer h3 {
     font-size: 24px;
 }
 
+.paid-for {
+    border: 3px white solid;
+    font-weight: bold;
+    padding-block: 16px;
+    padding-inline: 8px;
+    margin: 2vh;
+    width: fit-content;
+    margin-inline: auto;
+}
+
 @media (max-width: 768px) {
     footer {
         /* Increase padding slightly on top/bottom for better visual separation */
@@ -146,7 +159,7 @@ footer h3 {
 
     .paid-for {
         /* Ensure paid-for text is legible */
-        font-size: 12px;
+        font-size: 19px;
     }
 
     .footer-social {

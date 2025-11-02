@@ -166,28 +166,53 @@ const platformItems = [
 </section>
 
 <script>
-const headers = document.querySelectorAll<HTMLButtonElement>('.platform-item-header');
-
-headers.forEach(header => {
-  header.addEventListener('click', () => {
-    const content = document.getElementById(header.getAttribute('aria-controls')!);
-    if (!content) return;
-
-    const expanded = header.getAttribute('aria-expanded') === 'true';
+  // --- SETUP FUNCTION ---
+  function initializePlatformAccordion() {
+    const headers = document.querySelectorAll<HTMLButtonElement>('.platform-item-header');
     
-    // Collapse all
-    headers.forEach(h => {
-      h.setAttribute('aria-expanded', 'false');
-      const c = document.getElementById(h.getAttribute('aria-controls')!);
-      c?.setAttribute('hidden', '');
-    });
-
-    if (!expanded) {
-      header.setAttribute('aria-expanded', 'true');
-      content.removeAttribute('hidden');
+    // Ensure elements exist before proceeding
+    if (!headers || headers.length === 0) {
+      return;
     }
-  });
-});
+
+    headers.forEach(header => {
+      // 1. Prevent Listener Stacking: Check if listeners already attached
+      if (header.dataset.listenerAttached === 'true') {
+        return; // Skip if already has listener
+      }
+
+      header.addEventListener('click', () => {
+        const content = document.getElementById(header.getAttribute('aria-controls')!);
+        if (!content) return;
+
+        const expanded = header.getAttribute('aria-expanded') === 'true';
+        
+        // Collapse all
+        headers.forEach(h => {
+          h.setAttribute('aria-expanded', 'false');
+          const c = document.getElementById(h.getAttribute('aria-controls')!);
+          c?.setAttribute('hidden', '');
+        });
+
+        // Expand clicked item if it wasn't already expanded
+        if (!expanded) {
+          header.setAttribute('aria-expanded', 'true');
+          content.removeAttribute('hidden');
+        }
+      });
+
+      // Mark this header as having an attached listener
+      header.dataset.listenerAttached = 'true';
+    });
+  }
+
+  // --- Astro View Transitions Handling ---
+  
+  // 1. Run immediately on initial load
+  initializePlatformAccordion();
+  
+  // 2. Re-run after every View Transition navigation
+  document.addEventListener('astro:page-load', initializePlatformAccordion);
 </script>
 
 </BaseLayout>
