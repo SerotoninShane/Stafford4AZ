@@ -5,20 +5,29 @@
 
 <!-- Footer -->
 <footer id="donate">
-    <img src="/assets/icon.svg"/ width="200px">
+    <img src="/assets/icon.svg" alt="Eric Stafford for Arizona Senate" width="200" height="200" style="max-width:200px;height:auto;">
     <h3>Join Our Movement</h3>
     <div class="footer-buttons">
-        <a href="https://apps.azsos.gov/apps/election/eps/qc/Home/Ineligible/19ff18fa-6ab3-4a37-b0a9-9bc2e2d41eb6" class="btn-footer" target="_blank">DONATE</a>
-        <a href="/events" class="btn-footer">VOLUNTEER</a>
+        <a href="https://secure.actblue.com/donate/stafford-4-az-1?refcode=directory" class="btn-footer" target="_blank" rel="noopener" aria-label="Donate via ActBlue">DONATE</a>
+        <a href="/get-involved" class="btn-footer" aria-label="Get involved with the campaign">GET INVOLVED</a>
+    </div>
+
+    <nav class="footer-links-row" aria-label="Footer navigation">
+        <a href="/endorsements">Endorsements</a>
+        <span class="footer-sep">|</span>
+        <a href="/voter-resources">Voter Resources</a>
+        <span class="footer-sep">|</span>
+        <a href="/transparency">Transparency</a>
+        <span class="footer-sep">|</span>
+        <a href="/contact">Contact</a>
+    </nav>
+    <div class="footer-links-row footer-legal-row">
+        <a href="/privacy">Privacy Policy</a>
+        <span class="footer-sep">|</span>
+        <a href="/terms">Terms of Service</a>
     </div>
     
     <div class="footer-legal-block">
-        <p>
-            <strong><a href="/contact" style="color: var(--off-white); text-decoration: none;">CONTACT</a></strong> | 
-            <strong><a href="/privacy" style="color: var(--off-white); text-decoration: none;">PRIVACY POLICY</a></strong> | 
-            <strong><a href="/terms" style="color: var(--off-white); text-decoration: none;">TERMS OF SERVICE</a></strong>
-        </p>
-
         <p class="paid-for">PAID FOR BY ERIC STAFFORD FOR ARIZONA SENATE</p>
     </div>
 
@@ -40,7 +49,7 @@
     </a>
     </div>
 
-    <p class="copyright">©2025 Eric Stafford for Arizona Senate. All rights reserved.</p>
+    <p class="copyright">©2026 Eric Stafford for Arizona Senate. All rights reserved.</p>
 </footer>
 
 <style>
@@ -101,6 +110,46 @@ footer h3 {
 .btn-footer:hover {
     background: var(--bg-orange);
     color: var(--main-blue);
+}
+
+/* Footer Links Row */
+.footer-links-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 2vh auto 0.5vh;
+}
+
+.footer-links-row a {
+    color: var(--off-white);
+    text-decoration: none;
+    font-size: 14px;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.footer-links-row a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.footer-sep {
+    color: var(--off-white);
+    opacity: 0.35;
+    font-size: 13px;
+    user-select: none;
+}
+
+.footer-legal-row {
+    margin-top: 0;
+    margin-bottom: 1.5vh;
+}
+
+.footer-legal-row a {
+    font-size: 13px;
+    opacity: 0.6;
 }
 
 .footer-social {

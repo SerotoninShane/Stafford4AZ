@@ -1,0 +1,287 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitle = "Eric Stafford for Arizona Senate - Transparency";
+const pageUrl = '/transparency';
+const pageDescription = "Campaign finance transparency for Eric Stafford's Arizona Senate LD29 campaign. Clean Elections participant, open books, accountable to voters.";
+---
+
+<BaseLayout 
+    title={pageTitle} 
+    canonicalUrl={pageUrl} 
+    description={pageDescription}
+>
+<section class="mini-hero">
+    <div class="mini-hero-content">
+        <h2>Transparency</h2>
+    </div>
+</section>
+
+<section class="transparency-page reveal">
+    <div class="transparency-header">
+        <h2>Open Books, Honest Campaign</h2>
+        <p>Eric believes voters deserve to know exactly who funds his campaign and how every dollar is spent. That's why he's running as a Clean Elections candidate — powered by people, not corporations.</p>
+    </div>
+
+    <!-- Clean Elections -->
+    <div class="transparency-section">
+        <div class="transparency-icon">
+            <i class="fas fa-award"></i>
+        </div>
+        <div class="transparency-content">
+            <h3>Arizona Clean Elections Candidate</h3>
+            <p>Eric is a certified Clean Elections candidate through the <a href="https://www.azcleanelections.gov/" target="_blank" rel="noopener">Arizona Citizens Clean Elections Commission</a>. This means his campaign is publicly funded by Arizona voters — not special interests, lobbyists, or corporate PACs.</p>
+            <p>Clean Elections candidates qualify by collecting $5 contributions from registered voters in their district — proving grassroots support before receiving any public funds.  Eric has collected <strong>227 of 240</strong> qualifying contributions so far.</p>
+        </div>
+    </div>
+
+    <!-- Paid For Disclosure -->
+    <div class="transparency-section">
+        <div class="transparency-icon">
+            <i class="fas fa-file-invoice-dollar"></i>
+        </div>
+        <div class="transparency-content">
+            <h3>Campaign Disclosure</h3>
+            <div class="disclosure-box">
+                <p><strong>PAID FOR BY ERIC STAFFORD FOR ARIZONA SENATE</strong></p>
+                <p>Authorized by Eric Stafford, Candidate for Arizona State Senate, LD29</p>
+            </div>
+            <p>All campaign communications, advertisements, and materials are paid for by Eric Stafford for Arizona Senate in compliance with Arizona campaign finance laws.</p>
+        </div>
+    </div>
+
+    <!-- Finance Reports -->
+    <div class="transparency-section">
+        <div class="transparency-icon">
+            <i class="fas fa-magnifying-glass-chart"></i>
+        </div>
+        <div class="transparency-content">
+            <h3>Campaign Finance Reports</h3>
+            <p>All campaign finance reports are filed with the Arizona Secretary of State and are publicly available. You can view our filings and track every contribution and expenditure.</p>
+            <a href="https://apps.azsos.gov/apps/election/cfs/search/MainSearch.aspx" class="btn transparency-btn" target="_blank" rel="noopener">View Public Filings</a>
+        </div>
+    </div>
+
+    <!-- No Corporate Money -->
+    <div class="transparency-section">
+        <div class="transparency-icon">
+            <i class="fas fa-ban"></i>
+        </div>
+        <div class="transparency-content">
+            <h3>No Corporate PAC Money</h3>
+            <p>Eric does not accept contributions from corporate PACs, fossil fuel companies, or dark money groups. His campaign is funded exclusively through Arizona's Clean Elections system and small-dollar donations from people who believe in his vision for LD29.</p>
+        </div>
+    </div>
+
+    <!-- Commitment -->
+    <div class="transparency-commitment">
+        <h3>Our Commitment to You</h3>
+        <div class="commitment-grid">
+            <div class="commitment-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Every dollar publicly reported</span>
+            </div>
+            <div class="commitment-item">
+                <i class="fas fa-check-circle"></i>
+                <span>No corporate PAC money</span>
+            </div>
+            <div class="commitment-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Clean Elections certified</span>
+            </div>
+            <div class="commitment-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Open and accessible to constituents</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="transparency-contact">
+        <p>Have questions about our campaign finances or want to report a concern? <a href="/contact">Contact us directly</a>.</p>
+    </div>
+</section>
+
+</BaseLayout>
+
+<style>
+.transparency-page {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 60px 40px 80px;
+}
+
+.transparency-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.transparency-header h2 {
+    font-size: 36px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--main-blue);
+    margin-bottom: 16px;
+}
+
+.transparency-header p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--main-blue);
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.transparency-section {
+    display: flex;
+    gap: 24px;
+    padding: 32px 0;
+    border-bottom: 1px solid rgba(23, 60, 98, 0.1);
+}
+
+.transparency-section:first-of-type {
+    border-top: 1px solid rgba(23, 60, 98, 0.1);
+}
+
+.transparency-icon {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(254, 166, 85, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: var(--bg-orange);
+}
+
+.transparency-content h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--main-blue);
+    margin-bottom: 10px;
+}
+
+.transparency-content p {
+    font-size: 15px;
+    color: var(--main-blue);
+    opacity: 0.85;
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.transparency-content a:not(.btn) {
+    color: var(--bg-orange);
+    text-decoration: underline;
+}
+
+.disclosure-box {
+    background: rgba(23, 60, 98, 0.04);
+    border-left: 4px solid var(--main-blue);
+    padding: 16px 20px;
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 12px;
+}
+
+.disclosure-box p {
+    margin-bottom: 4px !important;
+    font-size: 14px !important;
+}
+
+.disclosure-box p:last-child {
+    margin-bottom: 0 !important;
+    opacity: 0.7;
+}
+
+.transparency-btn {
+    margin-top: 8px;
+    padding: 10px 24px;
+    font-size: 14px;
+    border-color: var(--main-blue);
+    color: var(--main-blue);
+}
+
+.transparency-btn:hover {
+    background: var(--main-blue);
+    color: var(--off-white);
+}
+
+/* Commitment Section */
+.transparency-commitment {
+    margin-top: 50px;
+    padding: 40px;
+    background: linear-gradient(135deg, var(--main-blue), #122940);
+    border-radius: 8px;
+    color: var(--off-white);
+    text-align: center;
+}
+
+.transparency-commitment h3 {
+    font-size: 26px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+.commitment-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.commitment-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+}
+
+.commitment-item i {
+    color: var(--bg-orange);
+    font-size: 18px;
+}
+
+/* Contact */
+.transparency-contact {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.transparency-contact p {
+    font-size: 15px;
+    color: var(--main-blue);
+    opacity: 0.7;
+}
+
+.transparency-contact a {
+    color: var(--bg-orange);
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .transparency-page {
+        padding: 40px 20px 60px;
+    }
+
+    .transparency-header h2 {
+        font-size: 28px;
+    }
+
+    .transparency-section {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .commitment-grid {
+        grid-template-columns: 1fr;
+        text-align: left;
+    }
+
+    .transparency-commitment {
+        padding: 30px 20px;
+    }
+}
+</style>

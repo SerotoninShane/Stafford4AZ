@@ -9,63 +9,68 @@ const pageDescription = "View Eric Stafford's detailed platform on education, wa
 // Data array for platform items
 const platformItems = [
   {
-    title: "Secure Arizona's Water Future",
-    content: "Water is Arizona's most precious resource, and it's under threat. Climate change, overuse, and decades of mismanagement have put our water security at risk. We need bold action now.",
-    listItems: [
-      "Protect Arizona's Colorado River water rights",
-      "Invest in water conservation and infrastructure",
-      "Hold corporate water users accountable",
-      "Support innovative water recycling and desalination projects",
-      "Ensure tribal water rights are honored and protected"
-    ]
-  },
-  {
     title: "Make Housing Affordable Again",
-    content: "Arizona families are being priced out of homeownership and rental markets by Wall Street investors and corporate landlords. We need to put housing back in reach for working families.",
+    content: "Families across LD29—from Surprise to the West Valley—are being priced out of homeownership and rental markets by Wall Street investors and corporate landlords. In one of the fastest-growing regions in the country, housing shouldn't be a luxury. We need to put it back in reach for working families.",
     listItems: [
-      "Tax incentives for first-time homebuyers",
-      "Crack down on corporate landlords driving up rents",
+      "Tax incentives for first-time homebuyers in rapidly growing communities",
+      "Crack down on corporate landlords and investors driving up rents",
       "Increase funding for affordable housing development",
-      "Support local communities in preventing displacement",
-      "Address predatory lending and unfair eviction practices"
+      "Support local communities in preventing displacement of long-time residents",
+      "Address predatory lending and unfair eviction practices",
+      "Ensure new development includes affordable housing commitments"
     ]
   },
   {
-    title: "Fully Fund Public Education",
-    content: "Arizona ranks near the bottom nationally in education funding. Our teachers are underpaid, our classrooms are overcrowded, and our students deserve better.",
+    title: "Strengthen Labor Rights and Protect Workers",
+    content: "As a tradesman who earned his Airframe & Powerplant license and worked as a certified airplane mechanic and machinist, I know firsthand what it means to work with your hands and fight for fair treatment on the job. Arizona's workers—union and non-union alike—deserve strong protections, living wages, and a seat at the table.",
+    listItems: [
+      "Protect and expand the right to organize and collectively bargain",
+      "Fight for prevailing wage standards on public projects",
+      "Strengthen workplace safety standards and OSHA enforcement",
+      "End wage theft and misclassification of employees as independent contractors",
+      "Support apprenticeship programs in the skilled trades",
+      "Ensure essential workers earn a living wage with real benefits"
+    ]
+  },
+  {
+    title: "Fully Fund Public Education and the Trades",
+    content: "Arizona ranks near the bottom nationally in education funding. Our teachers are underpaid, our classrooms are overcrowded, and our students deserve better. At the same time, we're facing a critical shortage of skilled tradespeople. We need to invest in both traditional education and the trades that build Arizona.",
     listItems: [
       "Competitive teacher salaries to attract and retain quality educators",
       "Increased funding for school infrastructure and resources",
-      "Expanded access to early childhood education",
-      "Support for vocational and technical training programs",
-      "Accountability for charter schools receiving public funds"
-    ]
-  },
-  {
-    title: "Combat Climate Change and Protect Our Environment",
-    content: "Arizona is on the frontlines of climate change. Record heat, devastating wildfires, and water scarcity threaten our way of life. We must act decisively to protect our environment and transition to clean energy.",
-    listItems: [
-      "Accelerate the transition to renewable energy",
-      "Protect Arizona's public lands and natural treasures",
-      "Support good-paying green jobs in solar and wind energy",
-      "Strengthen air quality standards to protect public health",
-      "Invest in wildfire prevention and forest management"
+      "Massively expand vocational, technical, and apprenticeship programs",
+      "Partner with unions and trade schools to create career pathways",
+      "Accountability for charter schools receiving public funds",
+      "Support community colleges like Rio Salado in providing accessible education"
     ]
   },
   {
     title: "Fix Our Broken Healthcare System",
-    content: "Healthcare is a right, not a privilege. Too many Arizonans are forced to choose between paying for medicine and putting food on the table. We need comprehensive reform.",
+    content: "Healthcare is a right, not a privilege. I watched my own mother suffer permanent brain damage because the inflated cost of medicine—driven by corporate greed—made her life-saving treatment unaffordable. No family should ever face that choice. We need comprehensive reform now.",
     listItems: [
-      "Expanding access to affordable healthcare for all Arizonans",
-      "Lowering prescription drug costs by allowing Medicare to negotiate prices",
-      "Protecting coverage for pre-existing conditions",
-      "Increasing mental health and addiction treatment services",
-      "Expanding rural healthcare access and telemedicine"
+      "Expanding access to affordable healthcare for all Arizonans through AHCCCS and state programs",
+      "Lowering prescription drug costs through state-level bulk purchasing and price transparency laws",
+      "Protecting coverage for pre-existing conditions under Arizona law",
+      "Increasing mental health and addiction treatment services statewide",
+      "Expanding healthcare access in fast-growing West Valley communities",
+      "Holding pharmaceutical companies accountable through state consumer protection laws"
+    ]
+  },
+  {
+    title: "Manage Growth and Invest in Infrastructure",
+    content: "LD29 is one of the fastest-growing areas in Arizona. Surprise alone has grown from 30,000 to over 150,000 residents in just two decades. Massive projects like the proposed $3.2 billion BNSF logistics hub in Wittmann will reshape our communities. Growth must work for residents—not just developers.",
+    listItems: [
+      "Ensure community input on major development projects like the BNSF Wittmann rail hub",
+      "Expand public transit options after the elimination of WeRIDE service",
+      "Invest in road infrastructure to keep pace with explosive population growth",
+      "Protect existing neighborhoods from overdevelopment and industrial encroachment",
+      "Demand environmental impact assessments for large-scale industrial projects",
+      "Prioritize water and utility infrastructure before approving new developments"
     ]
   },
   {
     title: "Support Small Businesses and Break Up Monopolies",
-    content: "Small businesses are the backbone of Arizona's economy, but they're being squeezed by mega-corporations that dominate entire industries. We need to level the playing field.",
+    content: "Small businesses are the backbone of Arizona's economy, but they're being squeezed by mega-corporations that dominate entire industries. From the shops along Bell Road to family farms in the West Valley, we need to level the playing field.",
     listItems: [
       "Enforce antitrust laws and break up monopolies",
       "Provide tax relief and support for small businesses",
@@ -75,46 +80,58 @@ const platformItems = [
     ]
   },
   {
-    title: "Comprehensive Immigration Reform",
-    content: "Arizona's border communities deserve real solutions, not political theater. We need comprehensive immigration reform that secures our border while treating people with dignity.",
+    title: "Combat Extreme Heat and Protect Our Environment",
+    content: "Arizona is on the frontlines of climate change. Wittmann has recorded temperatures of 119°F. Record heat, water scarcity, and poor air quality threaten our communities and our workers—especially those in the trades and construction who labor outdoors. We must act decisively.",
     listItems: [
-      "Modernize border security with technology and personnel",
-      "Create a pathway to citizenship for Dreamers",
-      "Reform the asylum system to be fair and efficient",
-      "Support border communities with resources and infrastructure",
-      "Address root causes of migration through international cooperation"
+      "Adopt extreme heat protections for outdoor workers",
+      "Accelerate the transition to renewable energy and good-paying green jobs",
+      "Strengthen air quality standards to protect public health",
+      "Invest in urban cooling infrastructure—shade, green space, and cooling centers",
+      "Protect Arizona's groundwater and support smart water conservation",
+      "Invest in wildfire prevention and forest management"
+    ]
+  },
+  {
+    title: "Support Veterans and Military Families",
+    content: "Luke Air Force Base is right in our backyard, and thousands of veterans and military families call LD29 home. We owe them more than gratitude—we owe them real support, from healthcare to housing to good jobs when they return to civilian life.",
+    listItems: [
+      "Expand state-funded veteran healthcare services and reduce wait times",
+      "Increase state funding for mental health and PTSD treatment for veterans",
+      "Support veteran employment programs and skills-to-trades pipelines",
+      "Protect military families from predatory lending and housing scams through state regulation",
+      "Ensure Luke Air Force Base remains a vital community partner"
+    ]
+  },
+  {
+    title: "Comprehensive Immigration Reform",
+    content: "Arizona's border communities deserve real solutions, not political theater. As a state senator, I'll fight for practical state-level policies that support our border communities while treating people with dignity.",
+    listItems: [
+      "Fund state border security technology and partnerships with local law enforcement",
+      "Protect Dreamers' access to in-state tuition and state services",
+      "Support border communities with state resources and infrastructure funding",
+      "Ensure immigrant workers are protected by Arizona labor laws",
+      "Oppose state legislation that promotes racial profiling or targets immigrant families"
     ]
   },
   {
     title: "Protect Reproductive Rights",
     content: "The government has no place in personal medical decisions. I will always defend the right to choose and fight against any attempts to restrict reproductive healthcare.",
     listItems: [
-      "Codify Roe v. Wade protections into federal law",
-      "Protect access to contraception and family planning services",
-      "Ensure healthcare providers can practice without political interference",
-      "Support comprehensive sex education"
-    ]
-  },
-  {
-    title: "Honor Tribal Sovereignty",
-    content: "Arizona's 22 federally recognized tribes are sovereign nations with inherent rights. The federal government must honor its treaty obligations and support tribal self-determination.",
-    listItems: [
-      "Full respect for tribal sovereignty and treaty rights",
-      "Adequate funding for Indian Health Services",
-      "Protection of sacred sites and cultural resources",
-      "Support for tribal economic development",
-      "Justice for Missing and Murdered Indigenous Women"
+      "Codify reproductive freedom protections into Arizona state law",
+      "Protect access to contraception and family planning services statewide",
+      "Ensure Arizona healthcare providers can practice without political interference",
+      "Support comprehensive, medically accurate sex education in Arizona schools"
     ]
   },
   {
     title: "Get Money Out of Politics",
-    content: "Our democracy is being sold to the highest bidder. We need fundamental campaign finance reform to ensure every voice is heard, not just those with deep pockets.",
+    content: "Our democracy is being sold to the highest bidder. Arizona needs fundamental campaign finance reform at the state level to ensure every voice is heard, not just those with deep pockets.",
     listItems: [
-      "Overturning Citizens United",
-      "Public financing of campaigns",
-      "Strict limits on corporate political spending",
-      "Full transparency in political donations",
-      "End the revolving door between Congress and lobbying firms"
+      "Strengthen Arizona's dark money disclosure laws and close loopholes",
+      "Expand and protect Arizona's Clean Elections public financing system",
+      "Strict limits on corporate political spending in state elections",
+      "Full transparency in all political donations to Arizona candidates",
+      "End the revolving door between the state legislature and lobbying firms"
     ]
   }
 ];
@@ -128,7 +145,7 @@ const platformItems = [
   </div>
 </section>
 
-<section class="platform-page-section" id="platform">
+<section class="platform-page-section reveal" id="platform">
   <div class="platform-page-header">
     <h2>Where I Stand</h2>
     <p class="platform-page-intro">
@@ -154,7 +171,7 @@ const platformItems = [
       We need a government that works for Arizona families, not one beholden to special interests. My platform addresses the real challenges facing our communities, from securing our water future to making housing affordable, from protecting our environment to ensuring every child gets a quality education.
     </p>
     <p>
-      I will be a Senator for all Arizonans—not just those who can afford to buy influence in Washington.
+      I will be a Senator for all Arizonans—not just those who can afford to buy influence in Phoenix.
     </p>
   </div>
 

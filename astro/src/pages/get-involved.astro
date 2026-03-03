@@ -3,9 +3,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Schedule from '../components/Calendar.astro';
 // Define the unique data for this specific page
-const pageTitle = "Eric Stafford for Arizona Senate - Events";
-const pageUrl = '/events';
-const pageDescription = "Find upcoming events, town halls, and volunteer opportunities for Eric Stafford's Arizona Senate campaign in LD29.";
+const pageTitle = "Eric Stafford for Arizona Senate - Get Involved";
+const pageUrl = '/get-involved';
+const pageDescription = "Find upcoming events, volunteer opportunities, and ways to support Eric Stafford's Arizona Senate campaign in LD29.";
 ---
 
 <BaseLayout 
@@ -20,7 +20,7 @@ const pageDescription = "Find upcoming events, town halls, and volunteer opportu
 </section>
 
 <!-- Events Intro -->
-<section class="events-intro">
+<section class="events-intro reveal">
     <div class="events-intro-content">
         <h2>Join Us on the Trail</h2>
         <p>
@@ -30,12 +30,12 @@ const pageDescription = "Find upcoming events, town halls, and volunteer opportu
 </section>
 
 <!-- Calendar Section -->
-<section class="events-calendar-section">
+<section class="events-calendar-section reveal">
     <Schedule />
 </section>
 
 <!-- Volunteer CTA Section -->
-<section class="volunteer-section">
+<section class="volunteer-section reveal">
     <div class="volunteer-content">
         <div class="volunteer-text">
             <h2>Volunteer With Us</h2>
@@ -73,7 +73,7 @@ const pageDescription = "Find upcoming events, town halls, and volunteer opportu
         </div>
         <div class="volunteer-form-wrapper">
             <h3>Sign Up to Volunteer</h3>
-            <form class="volunteer-form" name="volunteer-signup" method="POST" data-netlify="true">
+            <form class="volunteer-form" name="volunteer-signup" method="POST" data-netlify="true" action="/thank-you">
                 <input type="hidden" name="form-name" value="volunteer-signup">
                 <div class="form-group">
                     <label for="vol-name">Full Name</label>
@@ -105,6 +105,54 @@ const pageDescription = "Find upcoming events, town halls, and volunteer opportu
                 <button type="submit" class="btn volunteer-submit-btn">Count Me In</button>
             </form>
         </div>
+    </div>
+</section>
+
+<!-- Yard Sign CTA -->
+<section class="yard-sign-section reveal">
+    <div class="yard-sign-content">
+        <div class="yard-sign-icon">
+            <i class="fas fa-signs-post"></i>
+        </div>
+        <div class="yard-sign-text">
+            <h2>Request a Yard Sign</h2>
+            <p>Show your neighbors you support Eric Stafford for Arizona Senate. We'll deliver a free yard sign right to your door.</p>
+        </div>
+        <form class="yard-sign-form" name="yard-sign-request" method="POST" data-netlify="true" action="/thank-you">
+            <input type="hidden" name="form-name" value="yard-sign-request">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="text" name="address" placeholder="Street Address" required>
+            <input type="text" name="city" placeholder="City" required>
+            <input type="text" name="zip" placeholder="Zip Code" pattern="[0-9]{5}" required>
+            <button type="submit" class="btn yard-sign-btn">Send Me a Sign</button>
+        </form>
+    </div>
+</section>
+
+<!-- Endorsements Preview -->
+<section class="endorsements-preview-section reveal">
+    <div class="endorsements-preview-content">
+        <h2>Endorsed By</h2>
+        <p class="endorsements-subtitle">Eric is proud to be supported by workers, community leaders, and organizations across LD29.</p>
+        <div class="endorsements-preview-grid">
+            <div class="endorsement-card">
+                <i class="fas fa-hard-hat"></i>
+                <span>Labor & Trade Unions</span>
+            </div>
+            <div class="endorsement-card">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <span>Educators & Teachers</span>
+            </div>
+            <div class="endorsement-card">
+                <i class="fas fa-store"></i>
+                <span>Small Business Owners</span>
+            </div>
+            <div class="endorsement-card">
+                <i class="fas fa-people-carry-box"></i>
+                <span>Community Leaders</span>
+            </div>
+        </div>
+        <a href="/endorsements" class="btn endorsements-link-btn">See All Endorsements</a>
     </div>
 </section>
 
@@ -286,6 +334,157 @@ const pageDescription = "Find upcoming events, town halls, and volunteer opportu
     color: var(--main-blue);
 }
 
+/* Yard Sign Section */
+.yard-sign-section {
+    background: var(--bg-orange);
+    padding: 50px 40px;
+}
+
+.yard-sign-content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.yard-sign-icon {
+    font-size: 48px;
+    color: var(--main-blue);
+    flex-shrink: 0;
+}
+
+.yard-sign-text {
+    flex: 1;
+    min-width: 250px;
+}
+
+.yard-sign-text h2 {
+    font-size: 28px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--main-blue);
+    margin-bottom: 6px;
+}
+
+.yard-sign-text p {
+    font-size: 16px;
+    color: var(--main-blue);
+    opacity: 0.85;
+    line-height: 1.5;
+}
+
+.yard-sign-form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.yard-sign-form input {
+    padding: 12px 14px;
+    border: 2px solid var(--main-blue);
+    border-radius: 4px;
+    font-size: 15px;
+    font-family: 'Work Sans', sans-serif;
+    background: var(--off-white);
+    outline: none;
+    min-width: 140px;
+    flex: 1;
+}
+
+.yard-sign-form input:focus {
+    box-shadow: 0 0 0 2px var(--main-blue);
+}
+
+.yard-sign-btn {
+    background: var(--main-blue);
+    color: var(--off-white);
+    border-color: var(--main-blue);
+    flex-shrink: 0;
+}
+
+.yard-sign-btn:hover {
+    background: transparent;
+    color: var(--main-blue);
+}
+
+/* Endorsements Preview */
+.endorsements-preview-section {
+    padding: 80px 40px;
+    text-align: center;
+    background: var(--off-white);
+}
+
+.endorsements-preview-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.endorsements-preview-content h2 {
+    font-size: 36px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--main-blue);
+    margin-bottom: 10px;
+}
+
+.endorsements-subtitle {
+    font-size: 17px;
+    color: var(--main-blue);
+    opacity: 0.85;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.endorsements-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.endorsement-card {
+    background: white;
+    border: 2px solid rgba(23, 60, 98, 0.1);
+    border-radius: 8px;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.endorsement-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.endorsement-card i {
+    font-size: 32px;
+    color: var(--bg-orange);
+}
+
+.endorsement-card span {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--main-blue);
+    text-align: center;
+}
+
+.endorsements-link-btn {
+    border-color: var(--main-blue);
+    color: var(--main-blue);
+}
+
+.endorsements-link-btn:hover {
+    background: var(--main-blue);
+    color: var(--off-white);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .events-intro {
@@ -312,6 +511,33 @@ const pageDescription = "Find upcoming events, town halls, and volunteer opportu
     .volunteer-text h2 {
         font-size: 28px;
     }
+
+    .yard-sign-section {
+        padding: 40px 20px;
+    }
+
+    .yard-sign-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .yard-sign-form {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .yard-sign-form input {
+        width: 100%;
+    }
+
+    .endorsements-preview-section {
+        padding: 50px 20px;
+    }
+
+    .endorsements-preview-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -325,6 +551,10 @@ const pageDescription = "Find upcoming events, town halls, and volunteer opportu
 
     .volunteer-form-wrapper {
         padding: 24px 20px;
+    }
+
+    .endorsements-preview-grid {
+        grid-template-columns: 1fr;
     }
 }
 </style>

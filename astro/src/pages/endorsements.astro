@@ -1,0 +1,172 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitle = "Eric Stafford for Arizona Senate - Endorsements";
+const pageUrl = '/endorsements';
+const pageDescription = "See who is endorsing Eric Stafford for Arizona State Senate in LD29. Unions, community leaders, and organizations standing with working families.";
+---
+
+<BaseLayout 
+    title={pageTitle} 
+    canonicalUrl={pageUrl} 
+    description={pageDescription}
+>
+<section class="mini-hero">
+    <div class="mini-hero-content">
+        <h2>Endorsements</h2>
+    </div>
+</section>
+
+<section class="endorsements-page reveal">
+    <div class="endorsements-header">
+        <h2>Who Stands With Eric</h2>
+        <p>This campaign is built on the support of working families, union members, small business owners, and community leaders across LD29. We're proud to have the backing of people and organizations who share our vision for Arizona.</p>
+    </div>
+
+    <!-- Endorsement Categories -->
+    <div class="endorsement-category">
+        <h3><i class="fas fa-hard-hat"></i> Labor & Trade Organizations</h3>
+        <p class="endorsement-placeholder">Endorsements are being finalized and will be listed here as they are confirmed. If your organization would like to endorse Eric, please <a href="/contact">reach out to our team</a>.</p>
+    </div>
+
+    <div class="endorsement-category">
+        <h3><i class="fas fa-chalkboard-teacher"></i> Education & Educators</h3>
+        <p class="endorsement-placeholder">Coming soon — endorsements from educators and education organizations who believe in fully funding Arizona's public schools.</p>
+    </div>
+
+    <div class="endorsement-category">
+        <h3><i class="fas fa-store"></i> Small Business Owners</h3>
+        <p class="endorsement-placeholder">Local business owners across the West Valley are standing with Eric. Full list coming soon.</p>
+    </div>
+
+    <div class="endorsement-category">
+        <h3><i class="fas fa-users"></i> Community Leaders</h3>
+        <p class="endorsement-placeholder">Neighbors, organizers, and local leaders building a grassroots movement. Full list coming soon.</p>
+    </div>
+
+    <div class="endorsement-category">
+        <h3><i class="fas fa-flag-usa"></i> Elected Officials</h3>
+        <p class="endorsement-placeholder">Endorsements from elected officials will be posted here as they are announced.</p>
+    </div>
+
+    <!-- CTA -->
+    <div class="endorsement-cta">
+        <h3>Want to Endorse Eric?</h3>
+        <p>Whether you're a union, an organization, a local business, or an individual community member — your endorsement matters. Let us know you stand with us.</p>
+        <a href="/contact" class="btn endorsement-cta-btn">Submit Your Endorsement</a>
+    </div>
+</section>
+
+</BaseLayout>
+
+<style>
+.endorsements-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 40px 80px;
+}
+
+.endorsements-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.endorsements-header h2 {
+    font-size: 36px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--main-blue);
+    margin-bottom: 16px;
+}
+
+.endorsements-header p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--main-blue);
+    opacity: 0.9;
+}
+
+.endorsement-category {
+    margin-bottom: 40px;
+    padding: 30px;
+    background: white;
+    border-radius: 8px;
+    border-left: 5px solid var(--bg-orange);
+}
+
+.endorsement-category h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--main-blue);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.endorsement-category h3 i {
+    color: var(--bg-orange);
+    font-size: 20px;
+    min-width: 24px;
+}
+
+.endorsement-placeholder {
+    font-size: 16px;
+    color: var(--main-blue);
+    opacity: 0.75;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+.endorsement-placeholder a {
+    color: var(--bg-orange);
+    font-weight: 600;
+}
+
+.endorsement-cta {
+    margin-top: 60px;
+    text-align: center;
+    padding: 40px;
+    background: rgba(254, 166, 85, 0.1);
+    border-radius: 8px;
+}
+
+.endorsement-cta h3 {
+    font-size: 28px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--main-blue);
+    margin-bottom: 12px;
+}
+
+.endorsement-cta p {
+    font-size: 16px;
+    color: var(--main-blue);
+    opacity: 0.85;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.endorsement-cta-btn {
+    border-color: var(--main-blue);
+    color: var(--main-blue);
+}
+
+.endorsement-cta-btn:hover {
+    background: var(--main-blue);
+    color: var(--off-white);
+}
+
+@media (max-width: 768px) {
+    .endorsements-page {
+        padding: 40px 20px 60px;
+    }
+
+    .endorsements-header h2 {
+        font-size: 28px;
+    }
+
+    .endorsement-category {
+        padding: 20px;
+    }
+}
+</style>

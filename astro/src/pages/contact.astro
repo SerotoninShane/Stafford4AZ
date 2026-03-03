@@ -4,7 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 // Define the unique data for this specific page
 const pageTitle = "Eric Stafford for Arizona Senate - Contact";
 const pageUrl = '/contact';
-const pageDescription = "View Eric Stafford's detailed platform on education, water, and economic development for Arizona.";
+const pageDescription = "Contact Eric Stafford's campaign for Arizona State Senate in LD29. Questions, feedback, endorsements, and volunteer inquiries welcome.";
 ---
 
 <BaseLayout 
@@ -27,37 +27,51 @@ const pageDescription = "View Eric Stafford's detailed platform on education, wa
     </div>
     
     <div class="about-content">
-        <form class="campaign-form" name="campaign-signup" method="POST" data-netlify="true">
-            <input type="hidden" name="form-name" value="campaign-signup">
+        <form class="campaign-form" name="contact-form" method="POST" data-netlify="true" action="/thank-you">
+            <input type="hidden" name="form-name" value="contact-form">
 
             <div class="form-row">
                 <div class="form-group">
-                    <label for="first-name">First Name (required)</label>
-                    <input type="text" id="first-name" name="first-name" required>
+                    <label for="contact-first-name">First Name (required)</label>
+                    <input type="text" id="contact-first-name" name="first-name" required>
                 </div>
                 <div class="form-group">
-                    <label for="last-name">Last Name (required)</label>
-                    <input type="text" id="last-name" name="last-name" required>
+                    <label for="contact-last-name">Last Name (required)</label>
+                    <input type="text" id="contact-last-name" name="last-name" required>
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group">
-                    <label for="zip-code">Zip Code (required)</label>
-                    <input type="text" id="zip-code" name="zip-code" pattern="[0-9]{5}" title="Please enter a 5-digit zip code" required>
+                    <label for="contact-email">Email (required)</label>
+                    <input type="email" id="contact-email" name="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="phone">Phone</label>
-                    <input type="tel" id="phone" name="phone">
+                    <label for="contact-phone">Phone</label>
+                    <input type="tel" id="contact-phone" name="phone">
                 </div>
             </div>
 
             <div class="form-group full-width">
-                <label for="email">Email (required)</label>
-                <input type="email" id="email" name="email" required>
+                <label for="contact-subject">Subject</label>
+                <select id="contact-subject" name="subject">
+                    <option value="">Select a topic...</option>
+                    <option value="general">General Question</option>
+                    <option value="volunteer">Volunteering</option>
+                    <option value="endorsement">Endorsement Inquiry</option>
+                    <option value="event">Event / Speaking Request</option>
+                    <option value="media">Press / Media</option>
+                    <option value="policy">Policy Feedback</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="contact-message">Message (required)</label>
+                <textarea id="contact-message" name="message" rows="5" placeholder="How can we help?" required></textarea>
             </div>
             
-            <button type="submit" class="btn submit-btn">Submit</button>
+            <button type="submit" class="btn submit-btn">Send Message</button>
         </form>
     </div>
 </section>

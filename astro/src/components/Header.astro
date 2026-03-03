@@ -3,15 +3,16 @@
 // You can add JavaScript/TypeScript here later if needed.
 ---
 <div class="top-banner">
-    <a href="/events">
+    <a href="/get-involved">
         Meet Eric Stafford Near You <span class="arrow">→</span>
     </a>
+    <a href="/es" class="top-banner-es">En Español</a>
 </div>
 <header>
     <div class="header-left">
     <div class="logo">
         <a href="/">
-            <img src="/assets/logo.webp" alt="Eric Stafford Logo">
+            <img src="/assets/logo.webp" alt="Eric Stafford Logo" width="200" height="60" style="max-width:100%;height:auto;">
         </a>
     </div>
         <div class="headshot"></div>
@@ -23,16 +24,15 @@
         <span></span>
     </button>
 
-    <nav id="nav-menu">
+    <nav id="nav-menu" aria-label="Main navigation">
         <div class="nav-left">
             <a href="/" data-astro-prefetch="viewport">Home</a>
             <a href="/about" data-astro-prefetch="viewport">About</a>
             <a href="/platform" data-astro-prefetch="viewport">Platform</a>
-            <a href="/events">Events</a>
         </div>
         <div class="nav-right">
-            <a href="https://apps.azsos.gov/apps/election/eps/qc/Home/Ineligible/19ff18fa-6ab3-4a37-b0a9-9bc2e2d41eb6" class="nav-btn" target="_blank">DONATE</a>
-            <a href="/events" class="nav-btn">VOLUNTEER</a>
+            <a href="https://secure.actblue.com/donate/stafford-4-az-1?refcode=directory" class="nav-btn" target="_blank">DONATE</a>
+            <a href="/get-involved" class="nav-btn">GET INVOLVED</a>
         </div>
     </nav>
 </header>
@@ -45,6 +45,7 @@
     padding: 13px 20px;
     font-size: 16px;
     font-weight: 700;
+    position: relative;
 }
 .top-banner a {
     color: var(--off-white);
@@ -52,6 +53,22 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
+}
+.top-banner-es {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 13px;
+    font-weight: 600;
+    opacity: 0.85;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 4px;
+    padding: 3px 10px;
+}
+.top-banner-es:hover {
+    opacity: 1;
+    background: rgba(255,255,255,0.15);
 }
 .arrow {
     font-size: 16px;
@@ -165,8 +182,6 @@ nav .nav-btn:hover {
 /* Lock body scroll when menu is open */
 body.menu-open {
     overflow: hidden;
-    position: fixed;
-    width: 100%;
 }
 
 /* Mobile Navigation Styles */
@@ -299,12 +314,27 @@ body.menu-open {
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('nav-menu');
         const body = document.body;
+        let scrollY = 0;
 
         if (!hamburger || !navMenu) {
             return;
         }
 
         function toggleMenu() {
+            const isOpening = !hamburger.classList.contains('active');
+            
+            if (isOpening) {
+                scrollY = window.scrollY;
+                body.style.top = `-${scrollY}px`;
+                body.style.position = 'fixed';
+                body.style.width = '100%';
+            } else {
+                body.style.position = '';
+                body.style.top = '';
+                body.style.width = '';
+                window.scrollTo(0, scrollY);
+            }
+            
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
             body.classList.toggle('menu-open');

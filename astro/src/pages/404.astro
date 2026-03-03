@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitle = "Page Not Found - Eric Stafford for Arizona Senate";
+const pageUrl = '/404';
+const pageDescription = "The page you're looking for doesn't exist. Return to Eric Stafford's campaign website.";
+---
+
+<BaseLayout 
+    title={pageTitle} 
+    canonicalUrl={pageUrl} 
+    description={pageDescription}
+>
+<section class="error-page">
+    <div class="error-content">
+        <div class="error-icon">
+            <i class="fas fa-map-signs"></i>
+        </div>
+        <h1>404</h1>
+        <h2>Wrong Turn — This Page Doesn't Exist</h2>
+        <p>Looks like this page wandered outside the district. Let's get you back on track.</p>
+        <div class="error-actions">
+            <a href="/" class="btn error-btn-primary">Back to Home</a>
+            <a href="/platform" class="btn error-btn-secondary">See Where I Stand</a>
+        </div>
+        <div class="error-links">
+            <a href="/about">About Eric</a>
+            <span>·</span>
+            <a href="/get-involved">Get Involved</a>
+            <span>·</span>
+            <a href="/contact">Contact</a>
+        </div>
+    </div>
+</section>
+</BaseLayout>
+
+<style>
+.error-page {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 40px;
+    text-align: center;
+    background: var(--off-white);
+}
+
+.error-content {
+    max-width: 550px;
+}
+
+.error-icon {
+    font-size: 48px;
+    color: var(--bg-orange);
+    margin-bottom: 16px;
+}
+
+.error-page h1 {
+    font-size: 96px;
+    font-weight: 800;
+    color: var(--main-blue);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.error-page h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--main-blue);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.error-page p {
+    font-size: 17px;
+    color: var(--main-blue);
+    opacity: 0.8;
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+.error-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 32px;
+}
+
+.error-btn-primary {
+    background: var(--bg-orange);
+    border-color: var(--bg-orange);
+    color: var(--main-blue);
+    padding: 14px 32px;
+    font-weight: 700;
+}
+
+.error-btn-primary:hover {
+    background: #e8943e;
+    border-color: #e8943e;
+}
+
+.error-btn-secondary {
+    border-color: var(--main-blue);
+    color: var(--main-blue);
+    padding: 14px 32px;
+}
+
+.error-btn-secondary:hover {
+    background: var(--main-blue);
+    color: var(--off-white);
+}
+
+.error-links {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-links a {
+    color: var(--main-blue);
+    opacity: 0.65;
+    font-size: 14px;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.error-links a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.error-links span {
+    color: var(--main-blue);
+    opacity: 0.35;
+    font-size: 14px;
+}
+
+@media (max-width: 480px) {
+    .error-page h1 {
+        font-size: 64px;
+    }
+
+    .error-actions {
+        flex-direction: column;
+    }
+}
+</style>

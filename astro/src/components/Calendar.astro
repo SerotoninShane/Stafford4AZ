@@ -331,7 +331,43 @@ class Calendar {
     static months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
     static events = [
-        { date: '2024-12-06', repeats: true, frequency: 'weekly', color: '#fea655', events: [['Canvassing', '10:00am - 2:00pm']] },
+        // === Recurring Weekly ===
+        // Saturday Canvassing (day=7 → (7-1)%7=6=Saturday)
+        { date: '2026-03-07', repeats: true, frequency: 'weekly', color: '#fea655', events: [['Neighborhood Canvassing', '9:00am - 1:00pm']] },
+        // Sunday Door Knocking (day=1 → (1-1)%7=0=Sunday)
+        { date: '2026-03-01', repeats: true, frequency: 'weekly', color: '#90c4f9', events: [['Sunday Door Knocking', '10:00am - 12:00pm']] },
+        // Wednesday Phone Bank (day=4 → (4-1)%7=3=Wednesday)
+        { date: '2026-03-04', repeats: true, frequency: 'weekly', color: '#2ecc71', events: [['Phone Bank Night', '6:00pm - 8:30pm']] },
+
+        // === Recurring Monthly ===
+        // Community Town Hall on the 15th
+        { date: '2026-03-15', repeats: true, frequency: 'monthly', color: '#9b59b6', events: [['Community Town Hall', '6:00pm - 8:00pm']] },
+
+        // === Holidays (yearly) ===
+        { date: '2026-05-25', repeats: true, frequency: 'yearly', color: '#ff6b6b', events: [['Memorial Day', 'No scheduled events']] },
+        { date: '2026-07-04', repeats: true, frequency: 'yearly', color: '#ff6b6b', events: [['Independence Day', 'No scheduled events']] },
+        { date: '2026-09-07', repeats: true, frequency: 'yearly', color: '#ff6b6b', events: [['Labor Day', 'No scheduled events']] },
+
+        // === Arizona Election Dates ===
+        { date: '2026-07-06', repeats: false, color: '#f64c2d', events: [['Voter Reg Deadline — Primary', 'Register at azsos.gov']] },
+        { date: '2026-07-08', repeats: false, color: '#4ecdc4', events: [['Early Voting Begins — Primary', 'County recorder offices open']] },
+        { date: '2026-08-04', repeats: false, color: '#f64c2d', events: [['PRIMARY ELECTION DAY', 'Polls open 6:00am - 7:00pm']] },
+        { date: '2026-10-05', repeats: false, color: '#f64c2d', events: [['Voter Reg Deadline — General', 'Register at azsos.gov']] },
+        { date: '2026-10-07', repeats: false, color: '#4ecdc4', events: [['Early Voting Begins — General', 'County recorder offices open']] },
+        { date: '2026-11-03', repeats: false, color: '#f64c2d', events: [['GENERAL ELECTION DAY', 'Polls open 6:00am - 7:00pm']] },
+
+        // === Campaign Events (generic — TBA locations) ===
+        { date: '2026-03-22', repeats: false, color: '#e67e22', events: [['Campaign Kickoff Rally', 'Location TBA']] },
+        { date: '2026-04-18', repeats: false, color: '#2ecc71', events: [['Voter Registration Drive', '10:00am - 3:00pm']] },
+        { date: '2026-05-09', repeats: false, color: '#e67e22', events: [['Meet & Greet — Surprise', 'Location TBA']] },
+        { date: '2026-06-13', repeats: false, color: '#2ecc71', events: [['Voter Registration Drive', '10:00am - 3:00pm']] },
+        { date: '2026-06-27', repeats: false, color: '#e67e22', events: [['Campaign Fundraiser', 'Details TBA']] },
+        { date: '2026-07-18', repeats: false, color: '#3498db', events: [['Debate Watch Party', '7:00pm - 9:00pm']] },
+        { date: '2026-08-15', repeats: false, color: '#e67e22', events: [['Meet & Greet — West Valley', 'Location TBA']] },
+        { date: '2026-09-19', repeats: false, color: '#2ecc71', events: [['Voter Registration Drive', '10:00am - 3:00pm']] },
+        { date: '2026-10-10', repeats: false, color: '#e67e22', events: [['Campaign Rally', 'Location TBA']] },
+        { date: '2026-10-24', repeats: false, color: '#f64c2d', events: [['GOTV Rally — Final Push', 'Location TBA']] },
+        { date: '2026-10-31', repeats: false, color: '#9b59b6', events: [['Halloween GOTV Canvass', '10:00am - 2:00pm']] },
     ];
 
     // Method to handle selecting a day on the calendar

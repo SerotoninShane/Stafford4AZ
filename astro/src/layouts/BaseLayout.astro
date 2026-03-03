@@ -23,11 +23,51 @@ const { title, canonicalUrl, description } = Astro.props;
         description={description}
     />
     <body>
+        <a href="#main-content" class="skip-to-content">Skip to main content</a>
         <Header transition:persist /> 
-        <main>
+        <main id="main-content">
             <slot /> 
         </main>
         <Footer transition:persist /> 
         <CleanElectrions transition:persist />
+
+        <style is:global>
+            /* Scroll reveal animations */
+            .reveal {
+                opacity: 0;
+                transform: translateY(32px);
+                transition: opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1);
+                will-change: opacity, transform;
+            }
+            .reveal.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            /* Stagger children inside grids */
+            .reveal-child { opacity: 0; transform: translateY(24px); transition: opacity 0.5s ease, transform 0.5s ease; }
+            .reveal-child.visible { opacity: 1; transform: translateY(0); }
+        </style>
+
+        <script>
+            function initReveal() {
+                const els = document.querySelectorAll('.reveal, .reveal-child');
+                if (!els.length) return;
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+                els.forEach(el => observer.observe(el));
+            }
+
+            // Run on initial load and on View Transition navigations
+            initReveal();
+            document.addEventListener('astro:page-load', initReveal);
+        </script>
     </body>
 </html>

@@ -1,0 +1,303 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitle = "Eric Stafford for Arizona Senate - Voter Resources";
+const pageUrl = '/voter-resources';
+const pageDescription = "Find voter registration info, check if you're in LD29, locate your polling place, and learn about early voting in Arizona.";
+---
+
+<BaseLayout 
+    title={pageTitle} 
+    canonicalUrl={pageUrl} 
+    description={pageDescription}
+>
+<section class="mini-hero">
+    <div class="mini-hero-content">
+        <h2>Voter Resources</h2>
+    </div>
+</section>
+
+<section class="voter-resources-page reveal">
+    <div class="voter-resources-header">
+        <h2>Your Vote Matters</h2>
+        <p>Everything you need to make your voice heard in LD29. Whether you need to register, find your polling place, or check if you're in our district — we've got you covered.</p>
+    </div>
+
+    <div class="voter-cards-grid">
+        <!-- Am I in LD29? -->
+        <div class="voter-card">
+            <div class="voter-card-icon">
+                <i class="fas fa-map-location-dot"></i>
+            </div>
+            <h3>Am I in LD29?</h3>
+            <p>Arizona Legislative District 29 covers parts of Surprise, Wittmann, Sun City Grand, and the northwest West Valley in Maricopa County. Use the Arizona legislature's official tool to check your district.</p>
+            <a href="https://www.azleg.gov/findmylegislator/" class="btn voter-card-btn" target="_blank" rel="noopener">Find My District</a>
+        </div>
+
+        <!-- Register to Vote -->
+        <div class="voter-card">
+            <div class="voter-card-icon">
+                <i class="fas fa-clipboard-check"></i>
+            </div>
+            <h3>Register to Vote</h3>
+            <p>You can register to vote online through the Arizona Secretary of State's office. You must register at least 29 days before the election. It only takes a few minutes.</p>
+            <a href="https://azsos.gov/elections/voting-election/register-vote-or-update-your-current-voter-information" class="btn voter-card-btn" target="_blank" rel="noopener">Register Online</a>
+        </div>
+
+        <!-- Check Registration -->
+        <div class="voter-card">
+            <div class="voter-card-icon">
+                <i class="fas fa-user-check"></i>
+            </div>
+            <h3>Check Your Registration</h3>
+            <p>Already registered? Verify your voter registration status, check your polling location, and view your sample ballot ahead of election day.</p>
+            <a href="https://my.arizona.vote/WhereDoIVote.aspx?s=address" class="btn voter-card-btn" target="_blank" rel="noopener">Check Status</a>
+        </div>
+
+        <!-- Early Voting -->
+        <div class="voter-card">
+            <div class="voter-card-icon">
+                <i class="fas fa-envelope-open-text"></i>
+            </div>
+            <h3>Vote Early by Mail</h3>
+            <p>Arizona makes it easy to vote from home. Request an early ballot through the Active Early Voter List (AEVL) and receive your ballot automatically for every election.</p>
+            <a href="https://azsos.gov/elections/voting-election" class="btn voter-card-btn" target="_blank" rel="noopener">Learn About Early Voting</a>
+        </div>
+
+        <!-- Polling Locations -->
+        <div class="voter-card">
+            <div class="voter-card-icon">
+                <i class="fas fa-location-dot"></i>
+            </div>
+            <h3>Find Your Polling Place</h3>
+            <p>Maricopa County uses Vote Centers — you can vote at any location on Election Day. Find the nearest one to cast your ballot in person.</p>
+            <a href="https://recorder.maricopa.gov/pollingplace/" class="btn voter-card-btn" target="_blank" rel="noopener">Find a Vote Center</a>
+        </div>
+
+        <!-- Key Dates -->
+        <div class="voter-card voter-card-highlight">
+            <div class="voter-card-icon">
+                <i class="fas fa-calendar-day"></i>
+            </div>
+            <h3>Key Dates for 2026</h3>
+            <ul class="key-dates-list">
+                <li><strong>Aug 4, 2026</strong> — Primary Election</li>
+                <li><strong>Jul 6, 2026</strong> — Registration Deadline (Primary)</li>
+                <li><strong>Nov 3, 2026</strong> — General Election</li>
+                <li><strong>Oct 5, 2026</strong> — Registration Deadline (General)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- LD29 Info -->
+    <div class="ld29-info-section">
+        <h3>About Legislative District 29</h3>
+        <div class="ld29-stats">
+            <div class="ld29-stat">
+                <span class="stat-number">240,102</span>
+                <span class="stat-label">Population</span>
+            </div>
+            <div class="ld29-stat">
+                <span class="stat-number">142,701</span>
+                <span class="stat-label">Registered Voters</span>
+            </div>
+            <div class="ld29-stat">
+                <span class="stat-number">47</span>
+                <span class="stat-label">Precincts</span>
+            </div>
+        </div>
+        <p>LD29 is located in Maricopa County and includes parts of <strong>Surprise</strong>, <strong>Wittmann</strong>, <strong>Sun City Grand</strong>, and surrounding West Valley communities. It is one of the fastest-growing districts in Arizona.</p>
+        <p class="ld29-zip-note">Common zip codes in LD29: <strong>85374, 85378, 85379, 85387, 85388, 85361</strong></p>
+    </div>
+</section>
+
+</BaseLayout>
+
+<style>
+.voter-resources-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 40px 80px;
+}
+
+.voter-resources-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.voter-resources-header h2 {
+    font-size: 36px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--main-blue);
+    margin-bottom: 16px;
+}
+
+.voter-resources-header p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--main-blue);
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.voter-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 60px;
+}
+
+.voter-card {
+    background: white;
+    border-radius: 8px;
+    padding: 30px 24px;
+    border: 2px solid rgba(23, 60, 98, 0.08);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.voter-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.voter-card-highlight {
+    background: rgba(254, 166, 85, 0.08);
+    border-color: var(--bg-orange);
+}
+
+.voter-card-icon {
+    font-size: 28px;
+    color: var(--bg-orange);
+    margin-bottom: 16px;
+}
+
+.voter-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--main-blue);
+    margin-bottom: 10px;
+}
+
+.voter-card p {
+    font-size: 15px;
+    color: var(--main-blue);
+    opacity: 0.8;
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 20px;
+}
+
+.voter-card-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    border-color: var(--main-blue);
+    color: var(--main-blue);
+    align-self: flex-start;
+}
+
+.voter-card-btn:hover {
+    background: var(--main-blue);
+    color: var(--off-white);
+}
+
+.key-dates-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.key-dates-list li {
+    font-size: 15px;
+    color: var(--main-blue);
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(23, 60, 98, 0.1);
+}
+
+.key-dates-list li strong {
+    color: var(--bg-orange);
+    margin-right: 8px;
+}
+
+/* LD29 Info */
+.ld29-info-section {
+    padding: 40px;
+    background: linear-gradient(135deg, var(--main-blue), #122940);
+    border-radius: 8px;
+    color: var(--off-white);
+    text-align: center;
+}
+
+.ld29-info-section h3 {
+    font-size: 28px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+.ld29-stats {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-bottom: 24px;
+}
+
+.ld29-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-number {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--bg-orange);
+}
+
+.stat-label {
+    font-size: 14px;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.ld29-info-section p {
+    font-size: 16px;
+    line-height: 1.7;
+    opacity: 0.9;
+    max-width: 650px;
+    margin: 0 auto 12px;
+}
+
+.ld29-zip-note {
+    font-size: 14px !important;
+    opacity: 0.7 !important;
+}
+
+@media (max-width: 768px) {
+    .voter-resources-page {
+        padding: 40px 20px 60px;
+    }
+
+    .voter-resources-header h2 {
+        font-size: 28px;
+    }
+
+    .voter-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .ld29-stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .ld29-info-section {
+        padding: 30px 20px;
+    }
+}
+</style>

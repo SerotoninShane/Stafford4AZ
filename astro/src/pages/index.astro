@@ -24,8 +24,8 @@ const pageDescription = "View Eric Stafford's detailed platform on education, wa
                 Eric Stafford: Arizonans First. Arizona Always.
             </h1>
             <div class="hero-buttons">
-                <a href="https://apps.azsos.gov/apps/election/eps/op/Home/Ineligible/ada93e50-5ae8-4e4b-a116-5b345b6698a1" class="btn">SIGN MY PETITIONS</a>
-                <a href="https://apps.azsos.gov/apps/election/eps/qc/Home/Ineligible/19ff18fa-6ab3-4a37-b0a9-9bc2e2d41eb6" class="btn" target="_blank">DONATE</a>
+                <a href="/platform" class="btn">SEE WHERE I STAND</a>
+                <a href="https://secure.actblue.com/donate/stafford-4-az-1?refcode=directory" class="btn" target="_blank">DONATE</a>
             </div>
         </div>
         <div class="hero-headshot-container">
@@ -44,7 +44,7 @@ const pageDescription = "View Eric Stafford's detailed platform on education, wa
     </div>
     
     <div class="about-content">
-        <form class="campaign-form" name="campaign-signup" method="POST" data-netlify="true">
+        <form class="campaign-form" name="campaign-signup" method="POST" data-netlify="true" action="/thank-you">
             <input type="hidden" name="form-name" value="campaign-signup">
 
             <div class="form-row">
@@ -79,8 +79,22 @@ const pageDescription = "View Eric Stafford's detailed platform on education, wa
     </div>
 </section>
 
+<!-- Voter Resources CTA -->
+<section class="home-voter-cta reveal">
+    <div class="home-voter-cta-content">
+        <div class="home-voter-cta-actions">
+            <a href="/voter-resources" class="btn home-voter-btn">Voter Resources</a>
+            <a href="https://my.arizona.vote/WhereDoIVote.aspx?s=address" class="btn home-voter-btn-secondary" target="_blank" rel="noopener">Am I in LD29?</a>
+        </div>
+        <div class="home-voter-cta-text">
+            <h2>Are You Ready to Vote?</h2>
+            <p>Check if you're in LD29, register to vote, find your polling place, and learn about early voting — everything you need in one place.</p>
+        </div>
+    </div>
+</section>
+
 <!-- Video Section -->
-<section class="video-section" id="video">
+<section class="video-section reveal" id="video">
     <div class="video-content-wrapper">
         <div class="video-text">
             <h2>See Eric's Vision for Arizona</h2>
@@ -96,38 +110,38 @@ const pageDescription = "View Eric Stafford's detailed platform on education, wa
 </div>
 
 <!-- Donate Section -->
-<section class="donate-section">
+<section class="donate-section reveal">
     <h2>
         DONATE TO<br>
         Eric Stafford<br>
         for Senate
     </h2>
     <div class="donate-amounts">
-        <a href="https://apps.azsos.gov/apps/election/eps/qc/Home/Ineligible/19ff18fa-6ab3-4a37-b0a9-9bc2e2d41eb6" target="_blank">
+        <a href="https://secure.actblue.com/donate/stafford-4-az-1?refcode=directory&amount=5" target="_blank">
         <button class="donate-amount-btn" data-amount="5">$5</button>
         </a>
-        <a href="https://secure.actblue.com/donate/staffordforarizona?amount=10" target="_blank">
+        <a href="https://secure.actblue.com/donate/stafford-4-az-1?refcode=directory&amount=10" target="_blank">
         <button class="donate-amount-btn" data-amount="10">$10</button>
         </a>
-        <a href="https://secure.actblue.com/donate/staffordforarizona?amount=25" target="_blank">
+        <a href="https://secure.actblue.com/donate/stafford-4-az-1?refcode=directory&amount=25" target="_blank">
         <button class="donate-amount-btn" data-amount="25">$25</button>
         </a>
-        <a href="https://secure.actblue.com/donate/staffordforarizona?amount=50" target="_blank">
+        <a href="https://secure.actblue.com/donate/stafford-4-az-1?refcode=directory&amount=50" target="_blank">
         <button class="donate-amount-btn" data-amount="50">$50</button>
         </a>
-        <a href="https://secure.actblue.com/donate/staffordforarizona?amount=100" target="_blank">
+        <a href="https://secure.actblue.com/donate/stafford-4-az-1?refcode=directory&amount=100" target="_blank">
         <button class="donate-amount-btn" data-amount="100">$100</button>
         </a>
-        <a href="https://secure.actblue.com/donate/staffordforarizona" target="_blank">
+        <a href="https://secure.actblue.com/donate/stafford-4-az-1?refcode=directory" target="_blank">
         <button class="donate-amount-btn other" data-amount="other">OTHER</button>
         </a>
     </div>
 </section>
 
 <!-- Platform Section -->
-<section class="platform-section" id="platform">
+<section class="platform-section reveal" id="platform">
     <div class="platform-image-container">
-        <img src="/assets/vote.webp" alt="Eric Stafford State Senator Candidate Holding Vote Hat">
+        <img src="/assets/vote.webp" alt="Eric Stafford State Senator Candidate Holding Vote Hat" width="600" height="400" loading="lazy" style="max-width:100%;height:auto;">
     </div>
     <div class="platform-content-wrapper">
         <div class="platform-text">
@@ -138,4 +152,90 @@ const pageDescription = "View Eric Stafford's detailed platform on education, wa
         </div>
     </div>
 </section>
+
 </BaseLayout>
+
+<style>
+/* Home Voter Resources CTA */
+.home-voter-cta {
+    background: linear-gradient(135deg, var(--main-blue), #122940);
+    padding: 60px 60px;
+}
+
+.home-voter-cta-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.home-voter-cta-text h2 {
+    font-size: 30px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--off-white);
+    margin-bottom: 12px;
+}
+
+.home-voter-cta-text p {
+    font-size: 16px;
+    color: var(--off-white);
+    opacity: 0.85;
+    line-height: 1.7;
+    max-width: 480px;
+}
+
+.home-voter-cta-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.home-voter-btn {
+    background: var(--bg-orange);
+    border-color: var(--bg-orange);
+    color: var(--main-blue);
+    padding: 14px 32px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.home-voter-btn:hover {
+    background: #e8943e;
+    border-color: #e8943e;
+}
+
+.home-voter-btn-secondary {
+    border-color: var(--off-white);
+    color: var(--off-white);
+    padding: 14px 32px;
+    text-align: center;
+}
+
+.home-voter-btn-secondary:hover {
+    background: var(--off-white);
+    color: var(--main-blue);
+}
+
+@media (max-width: 768px) {
+    .home-voter-cta {
+        padding: 40px 20px;
+    }
+
+    .home-voter-cta-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .home-voter-cta-text h2 {
+        font-size: 24px;
+    }
+
+    .home-voter-cta-actions {
+        width: 100%;
+    }
+}
+</style>

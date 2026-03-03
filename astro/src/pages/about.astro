@@ -4,7 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 // Define the unique data for this specific page
 const pageTitle = "Eric Stafford for Arizona Senate - About";
 const pageUrl = '/about';
-const pageDescription = "View Eric Stafford's detailed platform on education, water, and economic development for Arizona.";
+const pageDescription = "Meet Eric Stafford — community organizer, tradesman, and Clean Elections candidate running for Arizona State Senate in LD29.";
 ---
 
 <BaseLayout 
@@ -18,28 +18,518 @@ const pageDescription = "View Eric Stafford's detailed platform on education, wa
     </div>
 </section>
 
-<section class="about-container" id="about">
-    <div class="about-image-container">
-        <img src="/assets/eric.webp" alt="Eric Stafford"/>
+<!-- Bio Intro — Image + Intro side by side -->
+<section class="about-intro reveal">
+    <div class="about-intro-inner">
+        <div class="about-intro-image">
+            <img src="/assets/eric.webp" alt="Eric Stafford" width="340" height="450" loading="eager" style="max-width:100%;height:auto;" />
+        </div>
+        <div class="about-intro-text">
+            <h2>Arizonan. Tradesman. Fighter for LD29.</h2>
+            <p class="about-lead">Eric Stafford is a community organizer, small business advocate, and lifelong Arizonan running for State Senate to deliver <strong>progress and prosperity</strong> to all by rejecting special interests and legislating with integrity.</p>
+            <div class="about-quick-facts">
+                <div class="about-fact">
+                    <i class="fas fa-wrench"></i>
+                    <span>Certified Airplane Mechanic & Machinist</span>
+                </div>
+                <div class="about-fact">
+                    <i class="fas fa-award"></i>
+                    <span>Clean Elections Candidate</span>
+                </div>
+                <div class="about-fact">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Born & Raised in Arizona</span>
+                </div>
+            </div>
+        </div>
     </div>
+</section>
 
-    <div class="about-content">
-        <p>Eric Stafford is a community organizer, small business advocate, and lifelong Arizonan running for State Senate to deliver <strong>progress and prosperity</strong>  to all by rejecting special interests and legislating with integrity.</p>
-
+<!-- Full Bio -->
+<section class="about-bio reveal">
+    <div class="about-bio-inner">
         <p>A born-and-raised Arizonan, Eric's path reflects his commitment to service and results. His blue-collar experience began when he earned his <strong>Airframe & Powerplant License</strong> and worked as a certified Airplane Mechanic & Machinist. This work gave him firsthand insight into the struggles of working families and the need for greater workplace justice.</p>
 
         <p>Eric's dedication to an ethical, human-first approach was cemented by personal tragedy: watching his own mother suffer permanent brain damage because the <strong>inflated cost of medicine</strong> due to corporate greed made her life-saving treatment unaffordable. This injustice fuels his fight for affordable healthcare and against corporate price gouging.</p>
 
         <p>From organizing neighbors to save long-time residents from corporate developers, to bringing together ranchers, tribal leaders, and environmental advocates on <strong>water conservation</strong>, Eric believes results matter more than party loyalty. He has dedicated his energy to a team of progress for all Arizonans, pushing for:</p>
 
-        <ul>
-            <li><strong>Education:</strong> Fully funding public schools and supporting teachers to reverse crippling system debt.</li>
-            <li><strong>Labor:</strong> Ensuring essential workers earn a living wage and restoring benefits for a stable middle class.</li>
-            <li><strong>Climate:</strong> Proactively preserving groundwater, maintaining aquifers, and improving air quality.</li>
-        </ul> <br>
+        <div class="about-priorities">
+            <div class="about-priority">
+                <i class="fas fa-graduation-cap"></i>
+                <div>
+                    <strong>Education</strong>
+                    <span>Fully funding public schools and supporting teachers to reverse crippling system debt.</span>
+                </div>
+            </div>
+            <div class="about-priority">
+                <i class="fas fa-hard-hat"></i>
+                <div>
+                    <strong>Labor</strong>
+                    <span>Ensuring essential workers earn a living wage and restoring benefits for a stable middle class.</span>
+                </div>
+            </div>
+            <div class="about-priority">
+                <i class="fas fa-water"></i>
+                <div>
+                    <strong>Climate</strong>
+                    <span>Proactively preserving groundwater, maintaining aquifers, and improving air quality.</span>
+                </div>
+            </div>
+        </div>
 
-        <p>Eric Stafford is prepared to be a fearless leader who rejects dark money, prioritizes his constituents, and brings a pragmatic approach to creating a government that truly works for all Americans.</p>
+        <p>Eric Stafford is prepared to be a fearless leader who rejects dark money, prioritizes his constituents, and brings a pragmatic approach to creating a government that truly works for all Arizonans.</p>
+
+        <a href="/platform" class="btn about-platform-btn">Read Eric's Full Platform</a>
+    </div>
+</section>
+
+<!-- Why This Race Matters -->
+<section class="about-race-matters reveal">
+    <div class="about-race-matters-inner">
+        <h2>Why This Race Matters</h2>
+        <p class="race-matters-lead">LD29 is one of the most competitive districts in Arizona — and in 2026, it's a real opportunity to flip.</p>
+        <div class="race-matters-grid">
+            <div class="race-matters-card">
+                <div class="race-matters-number">240K+</div>
+                <span>Residents in LD29</span>
+            </div>
+            <div class="race-matters-card">
+                <div class="race-matters-number">142K</div>
+                <span>Registered Voters</span>
+            </div>
+            <div class="race-matters-card">
+                <div class="race-matters-number">2026</div>
+                <span>The Year We Flip It</span>
+            </div>
+        </div>
+        <p>Across the country, voters in traditionally red districts are choosing new leadership — candidates who fight for working families instead of corporate interests. LD29's rapid growth and shifting demographics make this one of Arizona's most winnable seats.</p>
+        <p>Eric is running because LD29 families deserve a senator who shows up for <em>them</em> — not the lobbyists. With a Clean Elections campaign powered by grassroots support, this race proves that people-powered politics can win.</p>
+        <div class="race-matters-cta">
+            <a href="https://secure.actblue.com/donate/stafford-4-az-1?refcode=directory" class="btn race-matters-btn" target="_blank">Donate to Flip LD29</a>
+            <a href="/get-involved" class="btn race-matters-btn-secondary">Volunteer Now</a>
+        </div>
+    </div>
+</section>
+
+<!-- Transparency / Clean Candidate -->
+<section class="about-transparency reveal">
+    <div class="about-transparency-content">
+        <div class="about-transparency-icon">
+            <i class="fas fa-award"></i>
+        </div>
+        <h2>A Clean Elections Candidate</h2>
+        <p>Eric is running a fully transparent, publicly funded campaign through Arizona's Clean Elections system — no corporate PACs, no dark money, no special interests. Every dollar is reported and every decision is accountable to the voters of LD29.</p>
+        <div class="about-transparency-highlights">
+            <div class="about-transparency-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Clean Elections Certified</span>
+            </div>
+            <div class="about-transparency-item">
+                <i class="fas fa-check-circle"></i>
+                <span>No Corporate PAC Money</span>
+            </div>
+            <div class="about-transparency-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Every Dollar Publicly Reported</span>
+            </div>
+        </div>
+        <a href="/transparency" class="btn about-transparency-btn">View Full Transparency Report</a>
     </div>
 </section>
 
 </BaseLayout>
+
+<style>
+/* About Intro — Side by side */
+.about-intro {
+    padding: 60px 40px;
+    background: var(--off-white);
+}
+
+.about-intro-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 48px;
+    align-items: start;
+}
+
+.about-intro-image {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.about-intro-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: saturate(170%) contrast(115%);
+}
+
+.about-intro-text h2 {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--main-blue);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    line-height: 1.3;
+}
+
+.about-lead {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--main-blue);
+    margin-bottom: 24px;
+}
+
+.about-quick-facts {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.about-fact {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    color: var(--main-blue);
+    font-weight: 600;
+}
+
+.about-fact i {
+    color: var(--bg-orange);
+    font-size: 18px;
+    width: 24px;
+    text-align: center;
+}
+
+/* Full Bio */
+.about-bio {
+    padding: 60px 40px;
+    background: white;
+}
+
+.about-bio-inner {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.about-bio-inner p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--main-blue);
+    margin-bottom: 24px;
+}
+
+.about-priorities {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 28px 0;
+    padding: 24px;
+    background: rgba(23, 60, 98, 0.03);
+    border-radius: 8px;
+    border-left: 4px solid var(--bg-orange);
+}
+
+.about-priority {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.about-priority i {
+    color: var(--bg-orange);
+    font-size: 20px;
+    margin-top: 4px;
+    min-width: 24px;
+    text-align: center;
+}
+
+.about-priority strong {
+    display: block;
+    font-size: 16px;
+    color: var(--main-blue);
+    margin-bottom: 2px;
+}
+
+.about-priority span {
+    font-size: 15px;
+    color: var(--main-blue);
+    opacity: 0.8;
+    line-height: 1.5;
+}
+
+.about-platform-btn {
+    border-color: var(--main-blue);
+    color: var(--main-blue);
+    padding: 12px 28px;
+    margin-top: 8px;
+}
+
+.about-platform-btn:hover {
+    background: var(--main-blue);
+    color: var(--off-white);
+}
+
+/* Why This Race Matters */
+.about-race-matters {
+    padding: 80px 40px;
+    background: linear-gradient(135deg, var(--main-blue), #122940);
+    color: var(--off-white);
+    position: relative;
+    overflow: hidden;
+}
+
+.about-race-matters::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/assets/background.webp');
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%) contrast(200%);
+    opacity: 0.06;
+    z-index: 1;
+}
+
+.about-race-matters-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-race-matters h2 {
+    font-size: 36px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.race-matters-lead {
+    font-size: 19px;
+    opacity: 0.9;
+    line-height: 1.6;
+    margin-bottom: 36px;
+}
+
+.race-matters-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 36px;
+}
+
+.race-matters-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    padding: 28px 16px;
+}
+
+.race-matters-number {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--bg-orange);
+    margin-bottom: 6px;
+}
+
+.race-matters-card span {
+    font-size: 14px;
+    opacity: 0.75;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.about-race-matters-inner > p {
+    font-size: 16px;
+    line-height: 1.7;
+    opacity: 0.85;
+    margin-bottom: 16px;
+    text-align: left;
+}
+
+.race-matters-cta {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 32px;
+}
+
+.race-matters-btn {
+    background: var(--bg-orange);
+    border-color: var(--bg-orange);
+    color: var(--main-blue);
+    padding: 14px 32px;
+    font-weight: 700;
+}
+
+.race-matters-btn:hover {
+    background: #e8943e;
+    border-color: #e8943e;
+}
+
+.race-matters-btn-secondary {
+    border-color: var(--off-white);
+    color: var(--off-white);
+    padding: 14px 32px;
+}
+
+.race-matters-btn-secondary:hover {
+    background: var(--off-white);
+    color: var(--main-blue);
+}
+
+/* Transparency */
+.about-transparency {
+    padding: 60px 40px;
+    background: var(--off-white);
+}
+
+.about-transparency-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-transparency-icon {
+    font-size: 40px;
+    color: var(--bg-orange);
+    margin-bottom: 16px;
+}
+
+.about-transparency h2 {
+    font-size: 30px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--main-blue);
+    margin-bottom: 16px;
+}
+
+.about-transparency p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--main-blue);
+    opacity: 0.85;
+    margin-bottom: 28px;
+}
+
+.about-transparency-highlights {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.about-transparency-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--main-blue);
+}
+
+.about-transparency-item i {
+    color: var(--bg-orange);
+    font-size: 16px;
+}
+
+.about-transparency-btn {
+    border-color: var(--main-blue);
+    color: var(--main-blue);
+    padding: 12px 32px;
+}
+
+.about-transparency-btn:hover {
+    background: var(--main-blue);
+    color: var(--off-white);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .about-intro {
+        padding: 40px 20px;
+    }
+
+    .about-intro-inner {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .about-intro-image {
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    .about-intro-text {
+        text-align: center;
+    }
+
+    .about-intro-text h2 {
+        font-size: 22px;
+    }
+
+    .about-quick-facts {
+        align-items: center;
+    }
+
+    .about-bio {
+        padding: 40px 20px;
+    }
+
+    .about-priorities {
+        padding: 20px;
+    }
+
+    .about-race-matters {
+        padding: 50px 20px;
+    }
+
+    .about-race-matters h2 {
+        font-size: 26px;
+    }
+
+    .race-matters-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .race-matters-card {
+        padding: 20px;
+    }
+
+    .race-matters-number {
+        font-size: 28px;
+    }
+
+    .about-race-matters-inner > p {
+        text-align: center;
+    }
+
+    .race-matters-cta {
+        flex-direction: column;
+    }
+
+    .about-transparency {
+        padding: 40px 20px;
+    }
+
+    .about-transparency h2 {
+        font-size: 24px;
+    }
+
+    .about-transparency-highlights {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+}
+</style>
