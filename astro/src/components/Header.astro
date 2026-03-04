@@ -3,7 +3,7 @@
 // You can add JavaScript/TypeScript here later if needed.
 ---
 <div class="top-banner">
-    <a href="/get-involved">
+    <a href="/get-involved" class="top-banner-cta">
         Meet Eric Stafford Near You <span class="arrow">→</span>
     </a>
     <a href="/es" class="top-banner-es">En Español</a>
@@ -224,8 +224,18 @@ body.menu-open {
     }
 
     .top-banner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         font-size: 12px;
-        padding: 10px 15px;
+        padding: 8px 10px;
+        gap: 4px;
+    }
+    .top-banner-es {
+        position: static;
+        transform: none;
+        font-size: 11px;
+        padding: 2px 8px;
     }
 
     nav {
