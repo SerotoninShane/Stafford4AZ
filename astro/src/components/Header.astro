@@ -1,17 +1,20 @@
 ---
 // This is the "frontmatter" section.
 // You can add JavaScript/TypeScript here later if needed.
+import siteText from '../data/site-text.json';
+
+const globalText = siteText.global;
+const links = globalText.links;
+const headerText = globalText.header;
 ---
 <div class="top-banner">
-    <a href="/get-involved" class="top-banner-cta">
-        Meet Eric Stafford Near You <span class="arrow">→</span>
-    </a>
-    <a href="/es" class="top-banner-es">En Español</a>
+    <span class="top-banner-spacer" aria-hidden="true">Meet Eric Stafford Near You →</span>
+    <a href={links.es} class="top-banner-es">{headerText.spanishLabel}</a>
 </div>
 <header>
     <div class="header-left">
     <div class="logo">
-        <a href="/">
+        <a href={links.home}>
             <img src="/assets/logo.webp" alt="Eric Stafford Logo" width="200" height="60" style="max-width:100%;height:auto;">
         </a>
     </div>
@@ -26,13 +29,13 @@
 
     <nav id="nav-menu" aria-label="Main navigation">
         <div class="nav-left">
-            <a href="/" data-astro-prefetch="viewport">Home</a>
-            <a href="/about" data-astro-prefetch="viewport">About</a>
-            <a href="/platform" data-astro-prefetch="viewport">Platform</a>
+            <a href={links.home} data-astro-prefetch="viewport">{headerText.homeLabel}</a>
+            <a href={links.about} data-astro-prefetch="viewport">{headerText.aboutLabel}</a>
+            <a href={links.platform} data-astro-prefetch="viewport">{headerText.platformLabel}</a>
         </div>
         <div class="nav-right">
-            <a href="https://secure.actblue.com/donate/stafford-4-az-1?refcode=directory" class="nav-btn" target="_blank">DONATE</a>
-            <a href="/get-involved" class="nav-btn">GET INVOLVED</a>
+            <a href={links.donate} class="nav-btn" target="_blank">{headerText.donateLabel}</a>
+            <a href={links.getInvolved} class="nav-btn">{headerText.getInvolvedLabel}</a>
         </div>
     </nav>
 </header>
@@ -54,6 +57,14 @@
     align-items: center;
     gap: 8px;
 }
+.top-banner-spacer {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    visibility: hidden;
+    font-size: 16px;
+    line-height: 1.2;
+}
 .top-banner-es {
     position: absolute;
     right: 20px;
@@ -69,9 +80,6 @@
 .top-banner-es:hover {
     opacity: 1;
     background: rgba(255,255,255,0.15);
-}
-.arrow {
-    font-size: 16px;
 }
 /* Navigation */
 header {
@@ -201,7 +209,7 @@ body.menu-open {
 
     .logo {
         position: absolute;
-        top: -50px;
+        top: -38px;
         left: 0;
         transform: none;
         text-align: left; /* CHANGED: Left align instead of center */
@@ -293,11 +301,11 @@ body.menu-open {
         position: relative;
         justify-content: space-between; /* CHANGED: Space between logo and hamburger */
         align-items: center; /* ADDED: Vertical alignment */
-        padding: 5px;
+    padding: 12px 16px;
     }
         .logo {
         position: absolute;
-        top: -35px;
+    top: -24px;
         left: 0;
         transform: none;
         text-align: left; /* CHANGED: Left align instead of center */

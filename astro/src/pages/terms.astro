@@ -1,10 +1,13 @@
 ---
 // Import the layout
 import BaseLayout from '../layouts/BaseLayout.astro';
+import siteText from '../data/site-text.json';
 // Define the unique data for this specific page
 const pageTitle = "Eric Stafford for Arizona Senate - Terms & Conditions";
 const pageUrl = '/terms';
 const pageDescription = "Read the official Terms & Conditions for Eric Stafford's campaign for Arizona Senate, including information on donations, volunteer activities, and communications for Eric Stafford in LD29.";
+const links = siteText.global.links;
+const termsText = siteText.terms;
 ---
 
 <BaseLayout 
@@ -14,99 +17,52 @@ const pageDescription = "Read the official Terms & Conditions for Eric Stafford'
 >
 <section class="mini-hero">
     <div class="mini-hero-content">
-        <h2>Terms & Conditions</h2>
+        <h2>{termsText.heroTitle}</h2>
     </div>
 </section>
 
 <section class="terms-content">
   <div class="legal-header">
-      <h2>Terms &amp; Conditions</h2>
-      <p class="legal-meta">Effective Date: January 1, 2025 &nbsp;·&nbsp; Last Updated: January 1, 2025</p>
+            <h2>{termsText.headerTitle}</h2>
+            <p class="legal-meta">{termsText.meta}</p>
   </div>
 
-  <div class="legal-section">
-      <h3><span class="section-num">1</span> Acceptance of Terms</h3>
-      <p>Welcome to the official campaign website for Eric Stafford for Arizona Senate ("Campaign," "we," "us," or "our"). By accessing or using this website, you agree to be bound by these Terms &amp; Conditions. If you do not agree, please do not use this website.</p>
-  </div>
-
-  <div class="legal-section">
-      <h3><span class="section-num">2</span> Campaign Information &amp; Disclaimer</h3>
-      <p>This website is operated by Eric Stafford for Arizona Senate, a registered political campaign committee in Arizona. Content is for informational purposes only and does not constitute legal, financial, or professional advice. All communications comply with federal and state election laws, including FEC and Arizona Secretary of State disclosure requirements.</p>
-      <div class="legal-disclosure-box">PAID FOR BY ERIC STAFFORD FOR ARIZONA SENATE</div>
-  </div>
-
-  <div class="legal-section">
-      <h3><span class="section-num">3</span> Donations</h3>
-      <p>All contributions are subject to federal and Arizona campaign finance laws. By donating, you confirm you are a U.S. citizen or lawfully admitted permanent resident, at least 18 years old, and using your own funds. Contributions are non-refundable except as required by law. This campaign participates in Arizona's Clean Elections system.</p>
-  </div>
-
-  <div class="legal-section">
-      <h3><span class="section-num">4</span> Text Message &amp; Email Communications</h3>
-      <p>By providing your phone number and/or email, you consent to receive campaign communications, including updates, event invitations, volunteer opportunities, donation requests, and voting reminders. You may receive up to 1 text message per day. Standard message/data rates may apply. Text <strong>STOP</strong> to opt-out of texts. Click "unsubscribe" in emails to opt-out.</p>
-  </div>
-
-  <div class="legal-section">
-      <h3><span class="section-num">5</span> Volunteer Activities</h3>
-      <p>Volunteers acknowledge they are offering time freely, will comply with campaign guidelines and laws, and may be photographed or recorded for promotional purposes.</p>
-  </div>
-
-  <div class="legal-section">
-      <h3><span class="section-num">6</span> Privacy &amp; Data Use</h3>
-      <p>We collect names, emails, phone numbers, and ZIP codes for campaign communications only. We will not sell or share your information with third parties. For more, see our <a href="/privacy">Privacy Policy</a>.</p>
-  </div>
-
-  <div class="legal-section">
-      <h3><span class="section-num">7</span> Intellectual Property</h3>
-      <p>All content on this website is the property of Eric Stafford for Arizona Senate. You may use content for personal, non-commercial purposes in support of the campaign. Unauthorized use of logos or branding is prohibited.</p>
-  </div>
-
-  <div class="legal-section">
-      <h3><span class="section-num">8</span> User Conduct</h3>
-      <p>Users agree not to violate laws, infringe on rights, interfere with the site, or collect personal data from other users.</p>
-  </div>
-
-  <div class="legal-section">
-      <h3><span class="section-num">9</span> Third-Party Links</h3>
-      <p>We may link to third-party websites for convenience. We are not responsible for their content or privacy practices.</p>
-  </div>
-
-  <div class="legal-section">
-      <h3><span class="section-num">10</span> Disclaimers &amp; Limitation of Liability</h3>
-      <p>This website is provided "as is" without warranties. We are not liable for damages arising from use of this site.</p>
-  </div>
-
-  <div class="legal-section">
-      <h3><span class="section-num">11</span> Compliance &amp; Governing Law</h3>
-      <p>All website activities are subject to federal and Arizona election laws. Terms are governed by Arizona law. Modifications to these Terms take effect upon posting.</p>
-  </div>
-
-  <div class="legal-section">
-      <h3><span class="section-num">12</span> Contact Information</h3>
-      <p>If you have questions, please <a href="/contact">contact us</a>.</p>
-      <div class="legal-contact-box">
-          Eric Stafford for Arizona Senate
-      </div>
-  </div>
+    {termsText.sections.map((section, index) => (
+        <div class="legal-section">
+            <h3><span class="section-num">{index + 1}</span> {section.title}</h3>
+            {section.title === 'Privacy & Data Use' ? (
+                <p>We collect names, emails, phone numbers, and ZIP codes for campaign communications only. We will not sell or share your information with third parties. For more, see our <a href={links.privacy}>Privacy Policy</a>.</p>
+            ) : section.title === 'Contact Information' ? (
+                <p>If you have questions, please <a href={links.contact}>contact us</a>.</p>
+            ) : (
+                <p>{section.body}</p>
+            )}
+            {section.highlight && <div class="legal-disclosure-box">{section.highlight}</div>}
+            {section.title === 'Contact Information' && (
+                <div class="legal-contact-box">
+                    {termsText.contactBox}
+                </div>
+            )}
+        </div>
+    ))}
 
   <div class="legal-disclosures">
-      <h3>Additional Disclosures</h3>
+            <h3>{termsText.additionalDisclosuresTitle}</h3>
       <div class="disclosure-items">
-          <div class="disclosure-item">
-              <strong>Political Advertisement Disclaimer</strong>
-              <p>Paid for by Eric Stafford for Arizona Senate and not authorized by any other candidate or committee.</p>
-          </div>
-          <div class="disclosure-item">
-              <strong>Equal Opportunity Statement</strong>
-              <p>We do not discriminate on race, color, religion, sex, sexual orientation, gender identity, national origin, disability, or age in volunteer programs.</p>
-          </div>
-          <div class="disclosure-item">
-              <strong>Accessibility</strong>
-              <p>We are committed to website accessibility. <a href="/contact">Contact us</a> if you experience difficulties.</p>
-          </div>
+                    {termsText.additionalDisclosures.map((disclosure) => (
+                        <div class="disclosure-item">
+                            <strong>{disclosure.title}</strong>
+                            {disclosure.title === 'Accessibility' ? (
+                                <p>We are committed to website accessibility. <a href={links.contact}>Contact us</a> if you experience difficulties.</p>
+                            ) : (
+                                <p>{disclosure.body}</p>
+                            )}
+                        </div>
+                    ))}
       </div>
   </div>
 
-  <p class="legal-closing">Thank you for supporting Eric Stafford's campaign for Arizona Senate. Together, we are putting LD29 families first.</p>
+    <p class="legal-closing">{termsText.closing}</p>
 </section>
 
 </BaseLayout>

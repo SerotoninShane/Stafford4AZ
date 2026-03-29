@@ -1,464 +1,324 @@
----
-// Props for dynamic progress
-const { currentCount = 227, goalCount = 240 } = Astro.props;
-const progressPercent = (currentCount / goalCount) * 100;
----
-<div id="cleanElectionsModal" class="clean-elections-modal">
-  <div class="modal-content-clean">
-    <span class="close-clean-modal">&times;</span>
-    <h2>Support Clean Elections</h2>
-    <p>Help us reach our goal! Make a $5 qualifying contribution to support Eric's campaign through Arizona's Clean Elections program.</p>
-    
-    <div class="progress-container">
-      <div class="progress-label">
-        <span>Progress</span>
-        <span id="progressCount">{currentCount} / {goalCount}</span>
-      </div>
-      <div class="progress-bar-bg">
-        <div class="progress-bar-fill" style={`width: ${progressPercent}%;`}></div>
-      </div>
-    </div>
+﻿---
+import siteText from '../data/site-text.json';
 
-    <a href="https://apps.azsos.gov/apps/election/eps/qc/Home/Ineligible/19ff18fa-6ab3-4a37-b0a9-9bc2e2d41eb6" class="donate-btn-modal" target="_blank">Donate $5 Now</a>
-  </div>
+const globalText = siteText.global;
+const links = globalText.links;
+const cleanText = globalText.cleanElections;
+
+const modalTitle = cleanText.modalTitle ?? 'Donate to help us win.';
+const modalBody =
+	cleanText.modalBody ??
+	"Help us reach our goal! Donate a maximum of $220 to support Eric's Clean Elections campaign.";
+const progressLinkLabel = cleanText.progressLinkLabel ?? 'Track progress toward $5,293';
+const donateNowLabel = cleanText.donateNowLabel ?? 'Donate Now';
+---
+
+<div id="cleanElectionsModal" class="clean-elections-modal" aria-hidden="true">
+	<div class="modal-content-clean" role="dialog" aria-modal="true" aria-labelledby="clean-elections-title">
+		<button class="close-clean-modal" aria-label="Close clean elections modal">&times;</button>
+		<h2 id="clean-elections-title">{modalTitle}</h2>
+		<p>{modalBody}</p>
+
+		<a href={links.cleanElectionsProgressLink} class="progress-link" target="_blank" rel="noopener">
+			{progressLinkLabel}
+		</a>
+
+		<a href={links.cleanElectionsDonateNow} class="donate-btn-modal" target="_blank" rel="noopener">
+			{donateNowLabel}
+		</a>
+	</div>
 </div>
 
-<div id="cleanElectionsWidget" class="clean-elections-widget">
-  <div class="widget-content">
-    <div class="widget-icon">
-      <i class="fas fa-hand-holding-dollar"></i>
-    </div>
-    <div class="widget-text">
-      <h3>Clean Elections</h3>
-      <div class="widget-progress-mini">
-        <div class="widget-progress-fill" style={`width: ${progressPercent}%;`}></div>
-      </div>
-    </div>
-  </div>
-</div>
+<button id="cleanElectionsWidget" class="clean-elections-widget" aria-label="Open Clean Elections popup" type="button">
+	<div class="widget-content">
+		<div class="widget-icon">
+			<i class="fas fa-hand-holding-dollar"></i>
+		</div>
+	</div>
+</button>
 
 <style>
 .clean-elections-modal {
-    display: none;
-    position: fixed;
-    z-index: 2000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    animation: fadeIn 0.3s ease;
+	display: none;
+	position: fixed;
+	z-index: 2000;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	animation: fadeIn 0.3s ease;
 }
 
 .clean-elections-modal.active {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .modal-content-clean {
-    background: var(--off-white);
-    padding: 50px;
-    border-radius: 8px;
-    max-width: 600px;
-    width: 90%;
-    position: relative;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    animation: slideUp 0.4s ease;
+	background: var(--off-white);
+	padding: 50px;
+	border-radius: 8px;
+	max-width: 600px;
+	width: 90%;
+	position: relative;
+	box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+	animation: slideUp 0.4s ease;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
 @keyframes slideUp {
-    from {
-        transform: translateY(50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+	from {
+		transform: translateY(50px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
 }
 
 .close-clean-modal {
-    position: absolute;
-    top: 20px;
-    right: 25px;
-    color: var(--main-blue);
-    font-size: 32px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.3s;
-    line-height: 1;
+	position: absolute;
+	top: 20px;
+	right: 25px;
+	color: var(--main-blue);
+	font-size: 32px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: color 0.3s;
+	line-height: 1;
+	border: none;
+	background: transparent;
 }
 
 .close-clean-modal:hover {
-    color: var(--bg-orange);
+	color: var(--bg-orange);
 }
 
 .modal-content-clean h2 {
-    font-size: 36px;
-    font-weight: 800;
-    color: var(--main-blue);
-    text-transform: uppercase;
-    letter-spacing: -0.5px;
-    margin-bottom: 20px;
-    line-height: 1.1;
+	font-size: 36px;
+	font-weight: 800;
+	color: var(--main-blue);
+	text-transform: uppercase;
+	letter-spacing: -0.5px;
+	margin-bottom: 20px;
+	line-height: 1.1;
 }
 
 .modal-content-clean p {
-    font-size: 18px;
-    color: var(--main-blue);
-    line-height: 1.6;
-    margin-bottom: 30px;
-    opacity: 0.9;
+	font-size: 18px;
+	color: var(--main-blue);
+	line-height: 1.6;
+	margin-bottom: 8px;
+	opacity: 0.9;
 }
 
-.progress-container {
-    margin: 30px 0;
-}
-
-.progress-label {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    font-weight: 600;
-    color: var(--main-blue);
-    font-size: 18px;
-}
-
-.progress-bar-bg {
-    width: 100%;
-    height: 30px;
-    background-color: rgba(23, 60, 98, 0.1);
-    border-radius: 15px;
-    overflow: hidden;
-    position: relative;
-}
-
-.progress-bar-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--bg-orange), var(--bg-red));
-    border-radius: 15px;
-    transition: width 0.5s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.progress-bar-fill::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(90deg, 
-        transparent, 
-        rgba(255, 255, 255, 0.3), 
-        transparent);
-    animation: shimmer 2s infinite;
-}
-
-@keyframes shimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+.progress-link {
+	display: inline-block;
+	margin-top: 12px;
+	color: var(--main-blue);
+	text-decoration: underline;
+	font-weight: 700;
 }
 
 .donate-btn-modal {
-    width: 100%;
-    padding: 18px 40px;
-    font-size: 22px;
-    font-weight: 800;
-    border: 4px solid var(--bg-orange);
-    background: var(--bg-orange);
-    color: var(--off-white);
-    cursor: pointer;
-    transition: all 0.3s;
-    text-decoration: none;
-    display: inline-block;
-    text-align: center;
-    letter-spacing: 1px;
-    margin-top: 20px;
+	width: 100%;
+	padding: 18px 40px;
+	font-size: 22px;
+	font-weight: 800;
+	border: 4px solid var(--bg-orange);
+	background: var(--bg-orange);
+	color: var(--off-white);
+	cursor: pointer;
+	transition: all 0.3s;
+	text-decoration: none;
+	display: inline-block;
+	text-align: center;
+	letter-spacing: 1px;
+	margin-top: 20px;
 }
 
 .donate-btn-modal:hover {
-    background: transparent;
-    color: var(--bg-orange);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(254, 166, 85, 0.3);
+	background: transparent;
+	color: var(--bg-orange);
+	transform: translateY(-2px);
+	box-shadow: 0 10px 25px rgba(254, 166, 85, 0.3);
 }
 
-/* Floating Minimized Widget */
 .clean-elections-widget {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: rgba(23, 60, 98, 0.92);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    color: var(--off-white);
-    padding: 20px 25px;
-    border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-    z-index: 1999;
-    transition: all 0.3s ease;
-    max-width: 280px;
-    animation: slideInRight 0.5s ease;
+	display: none;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	background: rgba(23, 60, 98, 0.92);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	color: var(--off-white);
+	padding: 0;
+	border-radius: 50%;
+	width: 60px;
+	height: 60px;
+	box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+	cursor: pointer;
+	z-index: 1999;
+	transition: all 0.3s ease;
+	animation: slideInRight 0.5s ease;
 }
 
 @keyframes slideInRight {
-    from {
-        transform: translateX(400px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
+	from {
+		transform: translateX(400px);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
 }
 
 .clean-elections-widget:hover {
-    transform: translateY(-5px);
-    background: rgba(23, 60, 98, 0.98);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+	transform: translateY(-5px);
+	background: rgba(23, 60, 98, 0.98);
+	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
 .widget-content {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
 }
 
 .widget-icon {
-    font-size: 28px;
-    color: var(--bg-orange);
+	font-size: 24px;
+	color: var(--bg-orange);
 }
 
-.widget-text h3 {
-    font-size: 16px;
-    font-weight: 700;
-    margin-bottom: 5px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
+@media (max-width: 1024px) {
+	.clean-elections-widget {
+		bottom: 15px;
+		right: 15px;
+	}
 
-.widget-progress-mini {
-    width: 100%;
-    height: 6px;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 3px;
-    overflow: hidden;
-    margin-top: 8px;
-}
+	.modal-content-clean {
+		padding: 30px 25px;
+		width: 95%;
+	}
 
-.widget-progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--bg-orange), var(--bg-red));
-    border-radius: 3px;
-    transition: width 0.5s ease;
-}
+	.modal-content-clean h2 {
+		font-size: 28px;
+		margin-bottom: 15px;
+	}
 
-/* Demo Button */
-.demo-btn {
-    padding: 15px 40px;
-    font-size: 18px;
-    font-weight: 800;
-    border: 4px solid var(--main-blue);
-    background: var(--main-blue);
-    color: var(--off-white);
-    cursor: pointer;
-    transition: all 0.3s;
-    letter-spacing: 1px;
-}
+	.modal-content-clean p {
+		font-size: 16px;
+	}
 
-.demo-btn:hover {
-    background: transparent;
-    color: var(--main-blue);
-}
+	.donate-btn-modal {
+		padding: 15px 30px;
+		font-size: 18px;
+	}
 
-@media (max-width: 768px) {
-    .clean-elections-widget {
-        padding: 15px;
-        border-radius: 50%;
-        max-width: 60px;
-        width: 60px;
-        height: 60px;
-        bottom: 15px;
-        right: 15px;
-    }
-    
-    .widget-content {
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .widget-text {
-        display: none;
-    }
-    
-    .widget-icon {
-        font-size: 24px;
-        margin: 0;
-    }
-    
-    .modal-content-clean {
-        padding: 30px 25px;
-        width: 95%;
-    }
-    
-    .modal-content-clean h2 {
-        font-size: 28px;
-        margin-bottom: 15px;
-    }
-    
-    .modal-content-clean p {
-        font-size: 16px;
-        margin-bottom: 20px;
-    }
-    
-    .progress-label {
-        font-size: 16px;
-    }
-    
-    .progress-bar-bg {
-        height: 25px;
-    }
-    
-    .donate-btn-modal {
-        padding: 15px 30px;
-        font-size: 18px;
-    }
-    
-    .close-clean-modal {
-        top: 15px;
-        right: 15px;
-        font-size: 28px;
-    }
+	.close-clean-modal {
+		top: 15px;
+		right: 15px;
+		font-size: 28px;
+	}
 }
 
 @media (max-width: 480px) {
-    .clean-elections-widget {
-        padding: 12px;
-        max-width: 50px;
-        width: 50px;
-        height: 50px;
-        bottom: 12px;
-        right: 12px;
-    }
-    
-    .widget-icon {
-        font-size: 20px;
-    }
-    
-    .modal-content-clean {
-        padding: 25px 20px;
-    }
-    
-    .modal-content-clean h2 {
-        font-size: 24px;
-    }
-    
-    .modal-content-clean p {
-        font-size: 15px;
-    }
-    
-    .progress-label {
-        font-size: 14px;
-    }
-    
-    .progress-bar-bg {
-        height: 20px;
-    }
-    
-    .donate-btn-modal {
-        padding: 12px 25px;
-        font-size: 16px;
-        border-width: 3px;
-    }
+	.clean-elections-widget {
+		width: 50px;
+		height: 50px;
+		bottom: 12px;
+		right: 12px;
+	}
+
+	.widget-icon {
+		font-size: 20px;
+	}
+
+	.modal-content-clean {
+		padding: 25px 20px;
+	}
+
+	.modal-content-clean h2 {
+		font-size: 24px;
+	}
+
+	.modal-content-clean p {
+		font-size: 15px;
+	}
+
+	.donate-btn-modal {
+		padding: 12px 25px;
+		font-size: 16px;
+		border-width: 3px;
+	}
 }
 </style>
 
 <script>
-    // Define the global function for closing, as it may be called from outside
-    // (e.g., from inline HTML attributes, though generally avoided).
-    function closeCleanElectionsModal() {
-        const modal = document.getElementById('cleanElectionsModal');
-        const widget = document.getElementById('cleanElectionsWidget');
-        
-        if (modal && widget) {
-            modal.classList.remove('active');
-            widget.style.display = 'block';
-            // Set localStorage flag so it doesn't auto-open again
-            localStorage.setItem('cleanElectionsModalShown', 'true');
-        }
-    }
-    window.closeCleanElectionsModal = closeCleanElectionsModal;
+	function closeCleanElectionsModal() {
+		const modal = document.getElementById('cleanElectionsModal');
+		const widget = document.getElementById('cleanElectionsWidget');
 
-    // --- SETUP FUNCTION ---
-    function initializeCleanElections() {
-        const modal = document.getElementById('cleanElectionsModal');
-        const widget = document.getElementById('cleanElectionsWidget');
-        const closeModalButton = modal?.querySelector('.close-clean-modal');
-        
-        // Ensure elements exist before proceeding
-        if (!modal || !widget) {
-            // console.error('CleanElections elements not found.'); // Removed for cleaner console
-            return; 
-        }
+		if (modal && widget) {
+			modal.classList.remove('active');
+			widget.style.display = 'flex';
+			localStorage.setItem('cleanElectionsModalShown', 'true');
+		}
+	}
+	window.closeCleanElectionsModal = closeCleanElectionsModal;
 
-        // Use a function for opening the modal
-        const openCleanElectionsModal = () => {
-            modal.classList.add('active');
-            widget.style.display = 'none';
-        };
+	function initializeCleanElections() {
+		const modal = document.getElementById('cleanElectionsModal');
+		const widget = document.getElementById('cleanElectionsWidget');
+		const closeModalButton = modal?.querySelector('.close-clean-modal');
 
-        // 1. Prevent Listener Stacking: Use a flag to ensure event listeners are added only ONCE.
-        if (!widget.dataset.listenersAttached) {
-            
-            // Listener for the widget (to re-open the modal)
-            widget.addEventListener('click', openCleanElectionsModal);
+		if (!modal || !widget) return;
 
-            // Listener for the close button
-            if (closeModalButton) {
-                closeModalButton.addEventListener('click', closeCleanElectionsModal);
-            }
+		const openCleanElectionsModal = () => {
+			modal.classList.add('active');
+			widget.style.display = 'none';
+		};
 
-            // Listener for clicking outside the modal
-            window.addEventListener('click', (event) => {
-                if (event.target === modal) closeCleanElectionsModal();
-            });
+		if (!widget.dataset.listenersAttached) {
+			widget.addEventListener('click', openCleanElectionsModal);
 
-            // Mark the widget as having attached listeners
-            widget.dataset.listenersAttached = 'true';
-        }
+			if (closeModalButton) {
+				closeModalButton.addEventListener('click', closeCleanElectionsModal);
+			}
 
-        // 2. Initial State and Auto-show Logic
-        // Ensure widget is visible and modal is closed on page load/transition
-        widget.style.display = 'block';
-        modal.classList.remove('active'); 
+			window.addEventListener('click', (event) => {
+				if (event.target === modal) closeCleanElectionsModal();
+			});
 
-        const hasSeenModal = localStorage.getItem('cleanElectionsModalShown');
+			widget.dataset.listenersAttached = 'true';
+		}
 
-        // Only set the auto-open timeout if the user hasn't seen it yet
-        if (!hasSeenModal) {
-            // Clear any old timeout before setting a new one (prevents race conditions)
-            clearTimeout(window._cleanElectionsTimeout); 
-            window._cleanElectionsTimeout = setTimeout(openCleanElectionsModal, 1500);
-        }
-    }
-    
-    // --- Astro View Transitions Handling ---
-    
-    // 1. Run immediately on initial load
-    initializeCleanElections();
-    
-    // 2. Crucially, re-run after every View Transition navigation
-    document.addEventListener('astro:page-load', initializeCleanElections);
+		widget.style.display = 'flex';
+		modal.classList.remove('active');
 
+		const hasSeenModal = localStorage.getItem('cleanElectionsModalShown');
+		if (!hasSeenModal) {
+			clearTimeout(window._cleanElectionsTimeout);
+			window._cleanElectionsTimeout = setTimeout(openCleanElectionsModal, 1500);
+		}
+	}
+
+	initializeCleanElections();
+	document.addEventListener('astro:page-load', initializeCleanElections);
 </script>

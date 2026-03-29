@@ -1,10 +1,14 @@
 ---
 // Import the layout
 import BaseLayout from '../layouts/BaseLayout.astro';
+import siteText from '../data/site-text.json';
 // Define the unique data for this specific page
 const pageTitle = "Eric Stafford for Arizona Senate - Contact";
 const pageUrl = '/contact';
 const pageDescription = "Contact Eric Stafford's campaign for Arizona State Senate in LD29. Questions, feedback, endorsements, and volunteer inquiries welcome.";
+const links = siteText.global.links;
+const contactText = siteText.contact;
+const contactForm = contactText.form;
 ---
 
 <BaseLayout 
@@ -14,64 +18,60 @@ const pageDescription = "Contact Eric Stafford's campaign for Arizona State Sena
 >
 <section class="mini-hero">
     <div class="mini-hero-content">
-        <h2>Contact</h2>
+        <h2>{contactText.heroTitle}</h2>
     </div>
 </section>
 
 <section class="about-section" id="contact">
     <div class="about-image"> 
-        <h2>We’d Love to Hear From You</h2>
+        <h2>{contactText.title}</h2>
         <p class="disclaimer-large">
-            If you have questions, comments, want to get involved with Eric Stafford's campaign for Arizona Senate, or wish to share your thoughts on changes in legislation affecting LD29, please use the form below to contact us. We welcome your input and will respond as soon as possible to help keep you informed and engaged in shaping policies that matter to our community.
+            {contactText.introBody}
         </p>
     </div>
     
     <div class="about-content">
-        <form class="campaign-form" name="contact-form" method="POST" data-netlify="true" action="/thank-you">
+    <form class="campaign-form" name="contact-form" method="POST" data-netlify="true" action={links.thankYou}>
             <input type="hidden" name="form-name" value="contact-form">
 
             <div class="form-row">
                 <div class="form-group">
-                    <label for="contact-first-name">First Name (required)</label>
+                    <label for="contact-first-name">{contactForm.firstNameLabel}</label>
                     <input type="text" id="contact-first-name" name="first-name" required>
                 </div>
                 <div class="form-group">
-                    <label for="contact-last-name">Last Name (required)</label>
+                    <label for="contact-last-name">{contactForm.lastNameLabel}</label>
                     <input type="text" id="contact-last-name" name="last-name" required>
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group">
-                    <label for="contact-email">Email (required)</label>
+                    <label for="contact-email">{contactForm.emailLabel}</label>
                     <input type="email" id="contact-email" name="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="contact-phone">Phone</label>
+                    <label for="contact-phone">{contactForm.phoneLabel}</label>
                     <input type="tel" id="contact-phone" name="phone">
                 </div>
             </div>
 
             <div class="form-group full-width">
-                <label for="contact-subject">Subject</label>
+                <label for="contact-subject">{contactForm.subjectLabel}</label>
                 <select id="contact-subject" name="subject">
-                    <option value="">Select a topic...</option>
-                    <option value="general">General Question</option>
-                    <option value="volunteer">Volunteering</option>
-                    <option value="endorsement">Endorsement Inquiry</option>
-                    <option value="event">Event / Speaking Request</option>
-                    <option value="media">Press / Media</option>
-                    <option value="policy">Policy Feedback</option>
-                    <option value="other">Other</option>
+                    <option value="">{contactForm.subjectPlaceholder}</option>
+                    {contactForm.subjectOptions.map((option) => (
+                        <option value={option.value}>{option.label}</option>
+                    ))}
                 </select>
             </div>
 
             <div class="form-group full-width">
-                <label for="contact-message">Message (required)</label>
-                <textarea id="contact-message" name="message" rows="5" placeholder="How can we help?" required></textarea>
+                <label for="contact-message">{contactForm.messageLabel}</label>
+                <textarea id="contact-message" name="message" rows="5" placeholder={contactForm.messagePlaceholder} required></textarea>
             </div>
             
-            <button type="submit" class="btn submit-btn">Send Message</button>
+            <button type="submit" class="btn submit-btn">{contactText.submitLabel}</button>
         </form>
     </div>
 </section>

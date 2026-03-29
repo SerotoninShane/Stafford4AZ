@@ -1,55 +1,61 @@
 ---
 // This is the "frontmatter" section. 
 // You can add JavaScript/TypeScript here later if needed.
+import siteText from '../data/site-text.json';
+
+const globalText = siteText.global;
+const links = globalText.links;
+const social = globalText.social;
+const footerText = globalText.footer;
 ---
 
 <!-- Footer -->
 <footer id="donate">
     <img src="/assets/icon.svg" alt="Eric Stafford for Arizona Senate" width="200" height="200" style="max-width:200px;height:auto;">
-    <h3>Join Our Movement</h3>
+    <h3>{footerText.heading}</h3>
     <div class="footer-buttons">
-        <a href="https://secure.actblue.com/donate/stafford-4-az-1?refcode=directory" class="btn-footer" target="_blank" rel="noopener" aria-label="Donate via ActBlue">DONATE</a>
-        <a href="/get-involved" class="btn-footer" aria-label="Get involved with the campaign">GET INVOLVED</a>
+        <a href={links.donate} class="btn-footer" target="_blank" rel="noopener" aria-label="Donate via ActBlue">{footerText.donateLabel}</a>
+        <a href={links.getInvolved} class="btn-footer" aria-label="Get involved with the campaign">{footerText.getInvolvedLabel}</a>
     </div>
 
     <nav class="footer-links-row" aria-label="Footer navigation">
-        <a href="/endorsements">Endorsements</a>
+        <a href={links.endorsements}>{footerText.endorsementsLabel}</a>
         <span class="footer-sep">|</span>
-        <a href="/voter-resources">Voter Resources</a>
+        <a href={links.voterResources}>{footerText.voterResourcesLabel}</a>
         <span class="footer-sep">|</span>
-        <a href="/transparency">Transparency</a>
+        <a href={links.transparency}>{footerText.transparencyLabel}</a>
         <span class="footer-sep">|</span>
-        <a href="/contact">Contact</a>
+        <a href={links.contact}>{footerText.contactLabel}</a>
     </nav>
     <div class="footer-links-row footer-legal-row">
-        <a href="/privacy">Privacy Policy</a>
+        <a href={links.privacy}>{footerText.privacyLabel}</a>
         <span class="footer-sep">|</span>
-        <a href="/terms">Terms of Service</a>
+        <a href={links.terms}>{footerText.termsLabel}</a>
     </div>
     
     <div class="footer-legal-block">
-        <p class="paid-for">PAID FOR BY ERIC STAFFORD FOR ARIZONA SENATE</p>
+        <p class="paid-for">{footerText.paidFor}</p>
     </div>
 
     <div class="footer-social">
-    <a href="https://bsky.app/profile/stafford4az.bsky.social" aria-label="Bluesky" target="_blank" rel="noopener">
+    <a href={social.bluesky} aria-label="Bluesky" target="_blank" rel="noopener">
         <i class="fab fa-bluesky"></i>
     </a>
-    <a href="https://www.instagram.com/stafford4az" aria-label="Instagram" target="_blank" rel="noopener">
+    <a href={social.instagram} aria-label="Instagram" target="_blank" rel="noopener">
         <i class="fab fa-instagram"></i>
     </a>
-    <a href="https://www.youtube.com/@Stafford4AZ" aria-label="YouTube" target="_blank" rel="noopener">
+    <a href={social.youtube} aria-label="YouTube" target="_blank" rel="noopener">
         <i class="fab fa-youtube"></i>
     </a>
-    <a href="https://x.com/stafford4az" aria-label="X (Twitter)" target="_blank" rel="noopener">
+    <a href={social.x} aria-label="X (Twitter)" target="_blank" rel="noopener">
         <i class="fab fa-x-twitter"></i>
     </a>
-    <a href="https://www.facebook.com/Stafford4AZ/" aria-label="Facebook" target="_blank" rel="noopener">
+    <a href={social.facebook} aria-label="Facebook" target="_blank" rel="noopener">
         <i class="fab fa-facebook"></i>
     </a>
     </div>
 
-    <p class="copyright">©2026 Eric Stafford for Arizona Senate. All rights reserved.</p>
+    <p class="copyright">{footerText.copyright}</p>
 </footer>
 
 <style>

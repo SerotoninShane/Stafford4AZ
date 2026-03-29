@@ -2,10 +2,13 @@
 // Import the layout
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Schedule from '../components/Calendar.astro';
+import siteText from '../data/site-text.json';
 // Define the unique data for this specific page
 const pageTitle = "Eric Stafford for Arizona Senate - Events";
 const pageUrl = '/events';
 const pageDescription = "Find upcoming events, town halls, and volunteer opportunities for Eric Stafford's Arizona Senate campaign in LD29.";
+const eventsText = siteText.events;
+const eventsForm = eventsText.form;
 ---
 
 <BaseLayout 
@@ -15,17 +18,15 @@ const pageDescription = "Find upcoming events, town halls, and volunteer opportu
 >
 <section class="mini-hero">
     <div class="mini-hero-content">
-        <h2>Events & Get Involved</h2>
+        <h2>{eventsText.heroTitle}</h2>
     </div>
 </section>
 
 <!-- Events Intro -->
 <section class="events-intro">
     <div class="events-intro-content">
-        <h2>Join Us on the Trail</h2>
-        <p>
-            This campaign belongs to all of us. Whether you want to knock on doors, attend a town hall, or simply learn more about what we're fighting for — there's a place for you. Check the calendar below for upcoming events across LD29.
-        </p>
+        <h2>{eventsText.introTitle}</h2>
+        <p>{eventsText.introBody}</p>
     </div>
 </section>
 
@@ -38,71 +39,69 @@ const pageDescription = "Find upcoming events, town halls, and volunteer opportu
 <section class="volunteer-section">
     <div class="volunteer-content">
         <div class="volunteer-text">
-            <h2>Volunteer With Us</h2>
-            <p>We're building a grassroots movement across Surprise, the West Valley, and all of LD29. We need volunteers to help canvass, phone bank, host events, and spread the word.</p>
+            <h2>{eventsText.volunteerTitle}</h2>
+            <p>{eventsText.volunteerBody}</p>
             <ul class="volunteer-ways">
                 <li>
                     <i class="fas fa-door-open"></i>
                     <div>
-                        <strong>Door Knocking</strong>
-                        <span>Meet voters face to face in your neighborhood</span>
+                        <strong>{eventsText.volunteerWays[0].title}</strong>
+                        <span>{eventsText.volunteerWays[0].description}</span>
                     </div>
                 </li>
                 <li>
                     <i class="fas fa-phone"></i>
                     <div>
-                        <strong>Phone Banking</strong>
-                        <span>Make calls from home on your own schedule</span>
+                        <strong>{eventsText.volunteerWays[1].title}</strong>
+                        <span>{eventsText.volunteerWays[1].description}</span>
                     </div>
                 </li>
                 <li>
                     <i class="fas fa-signs-post"></i>
                     <div>
-                        <strong>Yard Signs & Literature</strong>
-                        <span>Show your support and help distribute materials</span>
+                        <strong>{eventsText.volunteerWays[2].title}</strong>
+                        <span>{eventsText.volunteerWays[2].description}</span>
                     </div>
                 </li>
                 <li>
                     <i class="fas fa-people-group"></i>
                     <div>
-                        <strong>Host an Event</strong>
-                        <span>Organize a meet-and-greet in your community</span>
+                        <strong>{eventsText.volunteerWays[3].title}</strong>
+                        <span>{eventsText.volunteerWays[3].description}</span>
                     </div>
                 </li>
             </ul>
         </div>
         <div class="volunteer-form-wrapper">
-            <h3>Sign Up to Volunteer</h3>
+            <h3>{eventsText.volunteerFormTitle}</h3>
             <form class="volunteer-form" name="volunteer-signup" method="POST" data-netlify="true">
                 <input type="hidden" name="form-name" value="volunteer-signup">
                 <div class="form-group">
-                    <label for="vol-name">Full Name</label>
+                    <label for="vol-name">{eventsForm.nameLabel}</label>
                     <input type="text" id="vol-name" name="name" required>
                 </div>
                 <div class="form-group">
-                    <label for="vol-email">Email</label>
+                    <label for="vol-email">{eventsForm.emailLabel}</label>
                     <input type="email" id="vol-email" name="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="vol-phone">Phone</label>
+                    <label for="vol-phone">{eventsForm.phoneLabel}</label>
                     <input type="tel" id="vol-phone" name="phone">
                 </div>
                 <div class="form-group">
-                    <label for="vol-zip">Zip Code</label>
-                    <input type="text" id="vol-zip" name="zip" pattern="[0-9]{5}" title="Please enter a 5-digit zip code">
+                    <label for="vol-zip">{eventsForm.zipLabel}</label>
+                    <input type="text" id="vol-zip" name="zip" pattern="[0-9]{5}" title={eventsForm.zipTitle}>
                 </div>
                 <div class="form-group">
-                    <label for="vol-interest">How would you like to help?</label>
+                    <label for="vol-interest">{eventsForm.interestLabel}</label>
                     <select id="vol-interest" name="interest">
-                        <option value="">Select one...</option>
-                        <option value="canvass">Door Knocking / Canvassing</option>
-                        <option value="phonebank">Phone Banking</option>
-                        <option value="yardsign">Yard Sign Request</option>
-                        <option value="host">Host an Event</option>
-                        <option value="other">Other / Anything Needed</option>
+                        <option value="">{eventsForm.interestPlaceholder}</option>
+                        {eventsForm.interestOptions.map((option) => (
+                            <option value={option.value}>{option.label}</option>
+                        ))}
                     </select>
                 </div>
-                <button type="submit" class="btn volunteer-submit-btn">Count Me In</button>
+                <button type="submit" class="btn volunteer-submit-btn">{eventsText.volunteerSubmit}</button>
             </form>
         </div>
     </div>

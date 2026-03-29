@@ -1,8 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import siteText from '../data/site-text.json';
 const pageTitle = "Page Not Found - Eric Stafford for Arizona Senate";
 const pageUrl = '/404';
 const pageDescription = "The page you're looking for doesn't exist. Return to Eric Stafford's campaign website.";
+const links = siteText.global.links;
+const notFoundText = siteText.notFound;
 ---
 
 <BaseLayout 
@@ -16,18 +19,18 @@ const pageDescription = "The page you're looking for doesn't exist. Return to Er
             <i class="fas fa-map-signs"></i>
         </div>
         <h1>404</h1>
-        <h2>Wrong Turn — This Page Doesn't Exist</h2>
-        <p>Looks like this page wandered outside the district. Let's get you back on track.</p>
+        <h2>{notFoundText.heading}</h2>
+        <p>{notFoundText.body}</p>
         <div class="error-actions">
-            <a href="/" class="btn error-btn-primary">Back to Home</a>
-            <a href="/platform" class="btn error-btn-secondary">See Where I Stand</a>
+            <a href={links.home} class="btn error-btn-primary">{notFoundText.homeCta}</a>
+            <a href={links.platform} class="btn error-btn-secondary">{notFoundText.platformCta}</a>
         </div>
         <div class="error-links">
-            <a href="/about">About Eric</a>
+            <a href={links.about}>{notFoundText.quickLinks.about}</a>
             <span>·</span>
-            <a href="/get-involved">Get Involved</a>
+            <a href={links.getInvolved}>{notFoundText.quickLinks.getInvolved}</a>
             <span>·</span>
-            <a href="/contact">Contact</a>
+            <a href={links.contact}>{notFoundText.quickLinks.contact}</a>
         </div>
     </div>
 </section>

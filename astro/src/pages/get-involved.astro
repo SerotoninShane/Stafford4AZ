@@ -2,10 +2,14 @@
 // Import the layout
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Schedule from '../components/Calendar.astro';
+import siteText from '../data/site-text.json';
 // Define the unique data for this specific page
 const pageTitle = "Eric Stafford for Arizona Senate - Get Involved";
 const pageUrl = '/get-involved';
 const pageDescription = "Find upcoming events, volunteer opportunities, and ways to support Eric Stafford's Arizona Senate campaign in LD29.";
+const links = siteText.global.links;
+const giText = siteText.getInvolved;
+const giForm = giText.form;
 ---
 
 <BaseLayout 
@@ -15,17 +19,15 @@ const pageDescription = "Find upcoming events, volunteer opportunities, and ways
 >
 <section class="mini-hero">
     <div class="mini-hero-content">
-        <h2>Events & Get Involved</h2>
+        <h2>{giText.heroTitle}</h2>
     </div>
 </section>
 
 <!-- Events Intro -->
 <section class="events-intro reveal">
     <div class="events-intro-content">
-        <h2>Join Us on the Trail</h2>
-        <p>
-            This campaign belongs to all of us. Whether you want to knock on doors, attend a town hall, or simply learn more about what we're fighting for — there's a place for you. Check the calendar below for upcoming events across LD29.
-        </p>
+        <h2>{giText.introTitle}</h2>
+        <p>{giText.introBody}</p>
     </div>
 </section>
 
@@ -38,71 +40,69 @@ const pageDescription = "Find upcoming events, volunteer opportunities, and ways
 <section class="volunteer-section reveal">
     <div class="volunteer-content">
         <div class="volunteer-text">
-            <h2>Volunteer With Us</h2>
-            <p>We're building a grassroots movement across Surprise, the West Valley, and all of LD29. We need volunteers to help canvass, phone bank, host events, and spread the word.</p>
+            <h2>{giText.volunteerTitle}</h2>
+            <p>{giText.volunteerBody}</p>
             <ul class="volunteer-ways">
                 <li>
                     <i class="fas fa-door-open"></i>
                     <div>
-                        <strong>Door Knocking</strong>
-                        <span>Meet voters face to face in your neighborhood</span>
+                        <strong>{giText.volunteerWays[0].title}</strong>
+                        <span>{giText.volunteerWays[0].description}</span>
                     </div>
                 </li>
                 <li>
                     <i class="fas fa-phone"></i>
                     <div>
-                        <strong>Phone Banking</strong>
-                        <span>Make calls from home on your own schedule</span>
+                        <strong>{giText.volunteerWays[1].title}</strong>
+                        <span>{giText.volunteerWays[1].description}</span>
                     </div>
                 </li>
                 <li>
                     <i class="fas fa-signs-post"></i>
                     <div>
-                        <strong>Yard Signs & Literature</strong>
-                        <span>Show your support and help distribute materials</span>
+                        <strong>{giText.volunteerWays[2].title}</strong>
+                        <span>{giText.volunteerWays[2].description}</span>
                     </div>
                 </li>
                 <li>
                     <i class="fas fa-people-group"></i>
                     <div>
-                        <strong>Host an Event</strong>
-                        <span>Organize a meet-and-greet in your community</span>
+                        <strong>{giText.volunteerWays[3].title}</strong>
+                        <span>{giText.volunteerWays[3].description}</span>
                     </div>
                 </li>
             </ul>
         </div>
         <div class="volunteer-form-wrapper">
-            <h3>Sign Up to Volunteer</h3>
-            <form class="volunteer-form" name="volunteer-signup" method="POST" data-netlify="true" action="/thank-you">
+            <h3>{giText.volunteerFormTitle}</h3>
+            <form class="volunteer-form" name="volunteer-signup" method="POST" data-netlify="true" action={links.thankYou}>
                 <input type="hidden" name="form-name" value="volunteer-signup">
                 <div class="form-group">
-                    <label for="vol-name">Full Name</label>
+                    <label for="vol-name">{giForm.nameLabel}</label>
                     <input type="text" id="vol-name" name="name" required>
                 </div>
                 <div class="form-group">
-                    <label for="vol-email">Email</label>
+                    <label for="vol-email">{giForm.emailLabel}</label>
                     <input type="email" id="vol-email" name="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="vol-phone">Phone</label>
+                    <label for="vol-phone">{giForm.phoneLabel}</label>
                     <input type="tel" id="vol-phone" name="phone">
                 </div>
                 <div class="form-group">
-                    <label for="vol-zip">Zip Code</label>
-                    <input type="text" id="vol-zip" name="zip" pattern="[0-9]{5}" title="Please enter a 5-digit zip code">
+                    <label for="vol-zip">{giForm.zipLabel}</label>
+                    <input type="text" id="vol-zip" name="zip" pattern="[0-9]{5}" title={giForm.zipTitle}>
                 </div>
                 <div class="form-group">
-                    <label for="vol-interest">How would you like to help?</label>
+                    <label for="vol-interest">{giForm.interestLabel}</label>
                     <select id="vol-interest" name="interest">
-                        <option value="">Select one...</option>
-                        <option value="canvass">Door Knocking / Canvassing</option>
-                        <option value="phonebank">Phone Banking</option>
-                        <option value="yardsign">Yard Sign Request</option>
-                        <option value="host">Host an Event</option>
-                        <option value="other">Other / Anything Needed</option>
+                        <option value="">{giForm.interestPlaceholder}</option>
+                        {giForm.interestOptions.map((option) => (
+                            <option value={option.value}>{option.label}</option>
+                        ))}
                     </select>
                 </div>
-                <button type="submit" class="btn volunteer-submit-btn">Count Me In</button>
+                <button type="submit" class="btn volunteer-submit-btn">{giText.volunteerSubmit}</button>
             </form>
         </div>
     </div>
@@ -115,16 +115,16 @@ const pageDescription = "Find upcoming events, volunteer opportunities, and ways
             <i class="fas fa-signs-post"></i>
         </div>
         <div class="yard-sign-text">
-            <h2>Request a Yard Sign</h2>
-            <p>Show your neighbors you support Eric Stafford for Arizona Senate. We'll deliver a free yard sign right to your door.</p>
+            <h2>{giText.yardSignTitle}</h2>
+            <p>{giText.yardSignBody}</p>
         </div>
-        <form class="yard-sign-form" name="yard-sign-request" method="POST" data-netlify="true" action="/thank-you">
+        <form class="yard-sign-form" name="yard-sign-request" method="POST" data-netlify="true" action={links.thankYou}>
             <input type="hidden" name="form-name" value="yard-sign-request">
-            <input type="text" name="name" placeholder="Full Name" required>
-            <input type="text" name="address" placeholder="Street Address" required>
-            <input type="text" name="city" placeholder="City" required>
-            <input type="text" name="zip" placeholder="Zip Code" pattern="[0-9]{5}" required>
-            <button type="submit" class="btn yard-sign-btn">Send Me a Sign</button>
+            <input type="text" name="name" placeholder={giText.yardSignForm.namePlaceholder} required>
+            <input type="text" name="address" placeholder={giText.yardSignForm.addressPlaceholder} required>
+            <input type="text" name="city" placeholder={giText.yardSignForm.cityPlaceholder} required>
+            <input type="text" name="zip" placeholder={giText.yardSignForm.zipPlaceholder} pattern="[0-9]{5}" required>
+            <button type="submit" class="btn yard-sign-btn">{giText.yardSignSubmit}</button>
         </form>
     </div>
 </section>
@@ -132,27 +132,27 @@ const pageDescription = "Find upcoming events, volunteer opportunities, and ways
 <!-- Endorsements Preview -->
 <section class="endorsements-preview-section reveal">
     <div class="endorsements-preview-content">
-        <h2>Endorsed By</h2>
-        <p class="endorsements-subtitle">Eric is proud to be supported by workers, community leaders, and organizations across LD29.</p>
+        <h2>{giText.endorsementsTitle}</h2>
+        <p class="endorsements-subtitle">{giText.endorsementsSubtitle}</p>
         <div class="endorsements-preview-grid">
             <div class="endorsement-card">
                 <i class="fas fa-hard-hat"></i>
-                <span>Labor & Trade Unions</span>
+                <span>{giText.endorsementPreview[0]}</span>
             </div>
             <div class="endorsement-card">
                 <i class="fas fa-chalkboard-teacher"></i>
-                <span>Educators & Teachers</span>
+                <span>{giText.endorsementPreview[1]}</span>
             </div>
             <div class="endorsement-card">
                 <i class="fas fa-store"></i>
-                <span>Small Business Owners</span>
+                <span>{giText.endorsementPreview[2]}</span>
             </div>
             <div class="endorsement-card">
                 <i class="fas fa-people-carry-box"></i>
-                <span>Community Leaders</span>
+                <span>{giText.endorsementPreview[3]}</span>
             </div>
         </div>
-        <a href="/endorsements" class="btn endorsements-link-btn">See All Endorsements</a>
+        <a href={links.endorsements} class="btn endorsements-link-btn">{giText.endorsementsLink}</a>
     </div>
 </section>
 

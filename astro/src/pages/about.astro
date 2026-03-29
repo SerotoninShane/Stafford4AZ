@@ -1,10 +1,13 @@
 ---
 // Import the layout
 import BaseLayout from '../layouts/BaseLayout.astro';
+import siteText from '../data/site-text.json';
 // Define the unique data for this specific page
 const pageTitle = "Eric Stafford for Arizona Senate - About";
 const pageUrl = '/about';
 const pageDescription = "Meet Eric Stafford — community organizer, tradesman, and Clean Elections candidate running for Arizona State Senate in LD29.";
+const links = siteText.global.links;
+const aboutText = siteText.about;
 ---
 
 <BaseLayout 
@@ -14,7 +17,7 @@ const pageDescription = "Meet Eric Stafford — community organizer, tradesman, 
 >
 <section class="mini-hero">
     <div class="mini-hero-content">
-        <h2>Meet Eric Stafford</h2>
+        <h2>{aboutText.heroTitle}</h2>
     </div>
 </section>
 
@@ -25,20 +28,20 @@ const pageDescription = "Meet Eric Stafford — community organizer, tradesman, 
             <img src="/assets/eric.webp" alt="Eric Stafford" width="340" height="450" loading="eager" style="max-width:100%;height:auto;" />
         </div>
         <div class="about-intro-text">
-            <h2>Arizonan. Tradesman. Fighter for LD29.</h2>
-            <p class="about-lead">Eric Stafford is a community organizer, small business advocate, and lifelong Arizonan running for State Senate to deliver <strong>progress and prosperity</strong> to all by rejecting special interests and legislating with integrity.</p>
+            <h2>{aboutText.introHeading}</h2>
+            <p class="about-lead">{aboutText.introLead}</p>
             <div class="about-quick-facts">
                 <div class="about-fact">
                     <i class="fas fa-wrench"></i>
-                    <span>Certified Airplane Mechanic & Machinist</span>
+                    <span>{aboutText.quickFacts[0]}</span>
                 </div>
                 <div class="about-fact">
                     <i class="fas fa-award"></i>
-                    <span>Clean Elections Candidate</span>
+                    <span>{aboutText.quickFacts[1]}</span>
                 </div>
                 <div class="about-fact">
                     <i class="fas fa-map-marker-alt"></i>
-                    <span>Born & Raised in Arizona</span>
+                    <span>{aboutText.quickFacts[2]}</span>
                 </div>
             </div>
         </div>
@@ -48,66 +51,66 @@ const pageDescription = "Meet Eric Stafford — community organizer, tradesman, 
 <!-- Full Bio -->
 <section class="about-bio reveal">
     <div class="about-bio-inner">
-        <p>A born-and-raised Arizonan, Eric's path reflects his commitment to service and results. His blue-collar experience began when he earned his <strong>Airframe & Powerplant License</strong> and worked as a certified Airplane Mechanic & Machinist. This work gave him firsthand insight into the struggles of working families and the need for greater workplace justice.</p>
+        <p>{aboutText.bioParagraphs[0]}</p>
 
-        <p>Eric's dedication to an ethical, human-first approach was cemented by personal tragedy: watching his own mother suffer permanent brain damage because the <strong>inflated cost of medicine</strong> due to corporate greed made her life-saving treatment unaffordable. This injustice fuels his fight for affordable healthcare and against corporate price gouging.</p>
+        <p>{aboutText.bioParagraphs[1]}</p>
 
-        <p>From organizing neighbors to save long-time residents from corporate developers, to bringing together ranchers, tribal leaders, and environmental advocates on <strong>water conservation</strong>, Eric believes results matter more than party loyalty. He has dedicated his energy to a team of progress for all Arizonans, pushing for:</p>
+        <p>{aboutText.bioParagraphs[2]}</p>
 
         <div class="about-priorities">
             <div class="about-priority">
                 <i class="fas fa-graduation-cap"></i>
                 <div>
-                    <strong>Education</strong>
-                    <span>Fully funding public schools and supporting teachers to reverse crippling system debt.</span>
+                    <strong>{aboutText.priorities[0].title}</strong>
+                    <span>{aboutText.priorities[0].description}</span>
                 </div>
             </div>
             <div class="about-priority">
                 <i class="fas fa-hard-hat"></i>
                 <div>
-                    <strong>Labor</strong>
-                    <span>Ensuring essential workers earn a living wage and restoring benefits for a stable middle class.</span>
+                    <strong>{aboutText.priorities[1].title}</strong>
+                    <span>{aboutText.priorities[1].description}</span>
                 </div>
             </div>
             <div class="about-priority">
                 <i class="fas fa-water"></i>
                 <div>
-                    <strong>Climate</strong>
-                    <span>Proactively preserving groundwater, maintaining aquifers, and improving air quality.</span>
+                    <strong>{aboutText.priorities[2].title}</strong>
+                    <span>{aboutText.priorities[2].description}</span>
                 </div>
             </div>
         </div>
 
-        <p>Eric Stafford is prepared to be a fearless leader who rejects dark money, prioritizes his constituents, and brings a pragmatic approach to creating a government that truly works for all Arizonans.</p>
+        <p>{aboutText.bioClosing}</p>
 
-        <a href="/platform" class="btn about-platform-btn">Read Eric's Full Platform</a>
+    <a href={links.platform} class="btn about-platform-btn">{aboutText.platformCta}</a>
     </div>
 </section>
 
 <!-- Why This Race Matters -->
 <section class="about-race-matters reveal">
     <div class="about-race-matters-inner">
-        <h2>Why This Race Matters</h2>
-        <p class="race-matters-lead">LD29 is one of the most competitive districts in Arizona — and in 2026, it's a real opportunity to flip.</p>
+        <h2>{aboutText.raceTitle}</h2>
+        <p class="race-matters-lead">{aboutText.raceLead}</p>
         <div class="race-matters-grid">
             <div class="race-matters-card">
-                <div class="race-matters-number">240K+</div>
-                <span>Residents in LD29</span>
+                <div class="race-matters-number">{aboutText.raceStats[0].number}</div>
+                <span>{aboutText.raceStats[0].label}</span>
             </div>
             <div class="race-matters-card">
-                <div class="race-matters-number">142K</div>
-                <span>Registered Voters</span>
+                <div class="race-matters-number">{aboutText.raceStats[1].number}</div>
+                <span>{aboutText.raceStats[1].label}</span>
             </div>
             <div class="race-matters-card">
-                <div class="race-matters-number">2026</div>
-                <span>The Year We Flip It</span>
+                <div class="race-matters-number">{aboutText.raceStats[2].number}</div>
+                <span>{aboutText.raceStats[2].label}</span>
             </div>
         </div>
-        <p>Across the country, voters in traditionally red districts are choosing new leadership — candidates who fight for working families instead of corporate interests. LD29's rapid growth and shifting demographics make this one of Arizona's most winnable seats.</p>
-        <p>Eric is running because LD29 families deserve a senator who shows up for <em>them</em> — not the lobbyists. With a Clean Elections campaign powered by grassroots support, this race proves that people-powered politics can win.</p>
+        <p>{aboutText.raceParagraphs[0]}</p>
+        <p>{aboutText.raceParagraphs[1]}</p>
         <div class="race-matters-cta">
-            <a href="https://secure.actblue.com/donate/stafford-4-az-1?refcode=directory" class="btn race-matters-btn" target="_blank">Donate to Flip LD29</a>
-            <a href="/get-involved" class="btn race-matters-btn-secondary">Volunteer Now</a>
+            <a href={links.donate} class="btn race-matters-btn" target="_blank">{aboutText.donateCta}</a>
+            <a href={links.getInvolved} class="btn race-matters-btn-secondary">{aboutText.volunteerCta}</a>
         </div>
     </div>
 </section>
@@ -118,23 +121,23 @@ const pageDescription = "Meet Eric Stafford — community organizer, tradesman, 
         <div class="about-transparency-icon">
             <i class="fas fa-award"></i>
         </div>
-        <h2>A Clean Elections Candidate</h2>
-        <p>Eric is running a fully transparent, publicly funded campaign through Arizona's Clean Elections system — no corporate PACs, no dark money, no special interests. Every dollar is reported and every decision is accountable to the voters of LD29.</p>
+        <h2>{aboutText.transparencyTitle}</h2>
+        <p>{aboutText.transparencyBody}</p>
         <div class="about-transparency-highlights">
             <div class="about-transparency-item">
                 <i class="fas fa-check-circle"></i>
-                <span>Clean Elections Certified</span>
+                <span>{aboutText.transparencyItems[0]}</span>
             </div>
             <div class="about-transparency-item">
                 <i class="fas fa-check-circle"></i>
-                <span>No Corporate PAC Money</span>
+                <span>{aboutText.transparencyItems[1]}</span>
             </div>
             <div class="about-transparency-item">
                 <i class="fas fa-check-circle"></i>
-                <span>Every Dollar Publicly Reported</span>
+                <span>{aboutText.transparencyItems[2]}</span>
             </div>
         </div>
-        <a href="/transparency" class="btn about-transparency-btn">View Full Transparency Report</a>
+        <a href={links.transparency} class="btn about-transparency-btn">{aboutText.transparencyCta}</a>
     </div>
 </section>
 

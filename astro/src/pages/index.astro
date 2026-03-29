@@ -3,10 +3,14 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import VideoThumbnail from '../components/VideoThumbnail.astro';
 import VideoModal from '../components/VideoModal.astro';
+import siteText from '../data/site-text.json';
 // Define the unique data for this specific page
 const pageTitle = "Eric Stafford For LD29 Arizona Senate | Putting Arizonans First";
 const pageUrl = '/';
 const pageDescription = "View Eric Stafford's detailed platform on education, water, and economic development for LD29 and Arizona.";
+const links = siteText.global.links;
+const homeText = siteText.home;
+const homeForm = homeText.form;
 ---
 
 <BaseLayout 
@@ -21,11 +25,11 @@ const pageDescription = "View Eric Stafford's detailed platform on education, wa
     <div class="hero-content-wrapper">
         <div class="hero-text-and-buttons">
             <h1>
-                Eric Stafford: Arizonans First. Arizona Always.
+                {homeText.heroTitle}
             </h1>
             <div class="hero-buttons">
-                <a href="/platform" class="btn">SEE WHERE I STAND</a>
-                <a href="https://secure.actblue.com/donate/stafford-4-az-1?refcode=directory" class="btn" target="_blank">DONATE</a>
+                <a href={links.platform} class="btn">{homeText.heroPrimaryCta}</a>
+                <a href={links.donate} class="btn" target="_blank">{homeText.heroDonateCta}</a>
             </div>
         </div>
         <div class="hero-headshot-container">
@@ -37,44 +41,44 @@ const pageDescription = "View Eric Stafford's detailed platform on education, wa
 <!-- About / Signup Section -->
 <section class="about-section" id="contact">
     <div class="about-image"> 
-        <h2>Stay Up to Date on Eric's Campaign</h2>
+        <h2>{homeText.signupTitle}</h2>
         <p class="disclaimer-large">
-            By submitting your phone number you are agreeing to receive up to 1 text message(s) per day from Eric Stafford for Arizona Senate. Eric Stafford for Arizona Senate's mobile campaigns provide subscribers with updates, event invitations, donation asks, and voting reminders. Messages may include donation asks. Message and data rates may apply. Text HELP for more information. Text STOP to stop receiving messages. See Terms of Service/Privacy Policy.
+            {homeText.signupDisclaimer}
         </p>
     </div>
     
     <div class="about-content">
-        <form class="campaign-form" name="campaign-signup" method="POST" data-netlify="true" action="/thank-you">
+    <form class="campaign-form" name="campaign-signup" method="POST" data-netlify="true" action={links.thankYou}>
             <input type="hidden" name="form-name" value="campaign-signup">
 
             <div class="form-row">
                 <div class="form-group">
-                    <label for="first-name">First Name (required)</label>
+                    <label for="first-name">{homeForm.firstNameLabel}</label>
                     <input type="text" id="first-name" name="first-name" required>
                 </div>
                 <div class="form-group">
-                    <label for="last-name">Last Name (required)</label>
+                    <label for="last-name">{homeForm.lastNameLabel}</label>
                     <input type="text" id="last-name" name="last-name" required>
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group">
-                    <label for="zip-code">Zip Code (required)</label>
+                    <label for="zip-code">{homeForm.zipCodeLabel}</label>
                     <input type="text" id="zip-code" name="zip-code" pattern="[0-9]{5}" title="Please enter a 5-digit zip code" required>
                 </div>
                 <div class="form-group">
-                    <label for="phone">Phone</label>
+                    <label for="phone">{homeForm.phoneLabel}</label>
                     <input type="tel" id="phone" name="phone">
                 </div>
             </div>
 
             <div class="form-group full-width">
-                <label for="email">Email (required)</label>
+                <label for="email">{homeForm.emailLabel}</label>
                 <input type="email" id="email" name="email" required>
             </div>
             
-            <button type="submit" class="btn submit-btn">Submit</button>
+            <button type="submit" class="btn submit-btn">{homeForm.submitLabel}</button>
         </form>
     </div>
 </section>
@@ -83,12 +87,12 @@ const pageDescription = "View Eric Stafford's detailed platform on education, wa
 <section class="home-voter-cta reveal">
     <div class="home-voter-cta-content">
         <div class="home-voter-cta-actions">
-            <a href="/voter-resources" class="btn home-voter-btn">Voter Resources</a>
-            <a href="https://my.arizona.vote/WhereDoIVote.aspx?s=address" class="btn home-voter-btn-secondary" target="_blank" rel="noopener">Am I in LD29?</a>
+            <a href={links.voterResources} class="btn home-voter-btn">{homeText.voterResourcesLabel}</a>
+            <a href={links.checkVoterStatus} class="btn home-voter-btn-secondary" target="_blank" rel="noopener">{homeText.inDistrictLabel}</a>
         </div>
         <div class="home-voter-cta-text">
-            <h2>Are You Ready to Vote?</h2>
-            <p>Check if you're in LD29, register to vote, find your polling place, and learn about early voting — everything you need in one place.</p>
+            <h2>{homeText.voterCtaTitle}</h2>
+            <p>{homeText.voterCtaBody}</p>
         </div>
     </div>
 </section>
@@ -97,8 +101,8 @@ const pageDescription = "View Eric Stafford's detailed platform on education, wa
 <section class="video-section reveal" id="video">
     <div class="video-content-wrapper">
         <div class="video-text">
-            <h2>See Eric's Vision for Arizona</h2>
-            <p>Join Eric Stafford as he shares his vision for LD29 and how he’ll prioritize Arizona families. See how Eric Stafford will lower the cost of living, support fair wages, strengthen schools, and run a clean, accountable government. Watch the video to see how his people-first leadership can create a brighter future for all families in LD29.</p>
+            <h2>{homeText.videoTitle}</h2>
+            <p>{homeText.videoBody}</p>
         </div>
     </div>
     <VideoThumbnail />
@@ -112,28 +116,28 @@ const pageDescription = "View Eric Stafford's detailed platform on education, wa
 <!-- Donate Section -->
 <section class="donate-section reveal">
     <h2>
-        DONATE TO<br>
-        Eric Stafford<br>
-        for Senate
+        {homeText.donateTitleLines[0]}<br>
+        {homeText.donateTitleLines[1]}<br>
+        {homeText.donateTitleLines[2]}
     </h2>
     <div class="donate-amounts">
-        <a href="https://secure.actblue.com/donate/stafford-4-az-1?refcode=directory&amount=5" target="_blank">
+        <a href={links.donate5} target="_blank">
         <button class="donate-amount-btn" data-amount="5">$5</button>
         </a>
-        <a href="https://secure.actblue.com/donate/stafford-4-az-1?refcode=directory&amount=10" target="_blank">
+        <a href={links.donate10} target="_blank">
         <button class="donate-amount-btn" data-amount="10">$10</button>
         </a>
-        <a href="https://secure.actblue.com/donate/stafford-4-az-1?refcode=directory&amount=25" target="_blank">
+        <a href={links.donate25} target="_blank">
         <button class="donate-amount-btn" data-amount="25">$25</button>
         </a>
-        <a href="https://secure.actblue.com/donate/stafford-4-az-1?refcode=directory&amount=50" target="_blank">
+        <a href={links.donate50} target="_blank">
         <button class="donate-amount-btn" data-amount="50">$50</button>
         </a>
-        <a href="https://secure.actblue.com/donate/stafford-4-az-1?refcode=directory&amount=100" target="_blank">
+        <a href={links.donate100} target="_blank">
         <button class="donate-amount-btn" data-amount="100">$100</button>
         </a>
-        <a href="https://secure.actblue.com/donate/stafford-4-az-1?refcode=directory" target="_blank">
-        <button class="donate-amount-btn other" data-amount="other">OTHER</button>
+        <a href={links.donate} target="_blank">
+        <button class="donate-amount-btn other" data-amount="other">{homeText.donateOtherLabel}</button>
         </a>
     </div>
 </section>
@@ -145,9 +149,9 @@ const pageDescription = "View Eric Stafford's detailed platform on education, wa
     </div>
     <div class="platform-content-wrapper">
         <div class="platform-text">
-            <h2>Where I Stand</h2>
+            <h2>{homeText.platformTitle}</h2>
             <p>
-                Arizona is becoming increasingly unaffordable for families in LD29, as rising housing costs, stagnant wages, and limited access to quality education make life harder, while corruption and special interests shape policies that should serve the people. I’m running to put LD29 families first, fight for fair wages, strong schools, affordable housing, and a government that is truly accountable to everyone.
+                {homeText.platformBody}
             </p>
         </div>
     </div>

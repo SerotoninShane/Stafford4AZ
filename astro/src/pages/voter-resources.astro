@@ -1,8 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import siteText from '../data/site-text.json';
 const pageTitle = "Eric Stafford for Arizona Senate - Voter Resources";
 const pageUrl = '/voter-resources';
 const pageDescription = "Find voter registration info, check if you're in LD29, locate your polling place, and learn about early voting in Arizona.";
+const links = siteText.global.links;
+const voterText = siteText.voterResources;
 ---
 
 <BaseLayout 
@@ -12,14 +15,14 @@ const pageDescription = "Find voter registration info, check if you're in LD29, 
 >
 <section class="mini-hero">
     <div class="mini-hero-content">
-        <h2>Voter Resources</h2>
+        <h2>{voterText.heroTitle}</h2>
     </div>
 </section>
 
 <section class="voter-resources-page reveal">
     <div class="voter-resources-header">
-        <h2>Your Vote Matters</h2>
-        <p>Everything you need to make your voice heard in LD29. Whether you need to register, find your polling place, or check if you're in our district — we've got you covered.</p>
+        <h2>{voterText.headerTitle}</h2>
+        <p>{voterText.headerBody}</p>
     </div>
 
     <div class="voter-cards-grid">
@@ -28,9 +31,9 @@ const pageDescription = "Find voter registration info, check if you're in LD29, 
             <div class="voter-card-icon">
                 <i class="fas fa-map-location-dot"></i>
             </div>
-            <h3>Am I in LD29?</h3>
-            <p>Arizona Legislative District 29 covers parts of Surprise, Wittmann, Sun City Grand, and the northwest West Valley in Maricopa County. Use the Arizona legislature's official tool to check your district.</p>
-            <a href="https://www.azleg.gov/findmylegislator/" class="btn voter-card-btn" target="_blank" rel="noopener">Find My District</a>
+            <h3>{voterText.cards.district.title}</h3>
+            <p>{voterText.cards.district.body}</p>
+            <a href={links.findMyDistrict} class="btn voter-card-btn" target="_blank" rel="noopener">{voterText.findDistrictLabel}</a>
         </div>
 
         <!-- Register to Vote -->
@@ -38,9 +41,9 @@ const pageDescription = "Find voter registration info, check if you're in LD29, 
             <div class="voter-card-icon">
                 <i class="fas fa-clipboard-check"></i>
             </div>
-            <h3>Register to Vote</h3>
-            <p>You can register to vote online through the Arizona Secretary of State's office. You must register at least 29 days before the election. It only takes a few minutes.</p>
-            <a href="https://azsos.gov/elections/voting-election/register-vote-or-update-your-current-voter-information" class="btn voter-card-btn" target="_blank" rel="noopener">Register Online</a>
+            <h3>{voterText.cards.register.title}</h3>
+            <p>{voterText.cards.register.body}</p>
+            <a href={links.registerToVote} class="btn voter-card-btn" target="_blank" rel="noopener">{voterText.registerLabel}</a>
         </div>
 
         <!-- Check Registration -->
@@ -48,9 +51,9 @@ const pageDescription = "Find voter registration info, check if you're in LD29, 
             <div class="voter-card-icon">
                 <i class="fas fa-user-check"></i>
             </div>
-            <h3>Check Your Registration</h3>
-            <p>Already registered? Verify your voter registration status, check your polling location, and view your sample ballot ahead of election day.</p>
-            <a href="https://my.arizona.vote/WhereDoIVote.aspx?s=address" class="btn voter-card-btn" target="_blank" rel="noopener">Check Status</a>
+            <h3>{voterText.cards.check.title}</h3>
+            <p>{voterText.cards.check.body}</p>
+            <a href={links.checkVoterStatus} class="btn voter-card-btn" target="_blank" rel="noopener">{voterText.checkStatusLabel}</a>
         </div>
 
         <!-- Early Voting -->
@@ -58,9 +61,9 @@ const pageDescription = "Find voter registration info, check if you're in LD29, 
             <div class="voter-card-icon">
                 <i class="fas fa-envelope-open-text"></i>
             </div>
-            <h3>Vote Early by Mail</h3>
-            <p>Arizona makes it easy to vote from home. Request an early ballot through the Active Early Voter List (AEVL) and receive your ballot automatically for every election.</p>
-            <a href="https://azsos.gov/elections/voting-election" class="btn voter-card-btn" target="_blank" rel="noopener">Learn About Early Voting</a>
+            <h3>{voterText.cards.early.title}</h3>
+            <p>{voterText.cards.early.body}</p>
+            <a href={links.earlyVoting} class="btn voter-card-btn" target="_blank" rel="noopener">{voterText.earlyVotingLabel}</a>
         </div>
 
         <!-- Polling Locations -->
@@ -68,9 +71,9 @@ const pageDescription = "Find voter registration info, check if you're in LD29, 
             <div class="voter-card-icon">
                 <i class="fas fa-location-dot"></i>
             </div>
-            <h3>Find Your Polling Place</h3>
-            <p>Maricopa County uses Vote Centers — you can vote at any location on Election Day. Find the nearest one to cast your ballot in person.</p>
-            <a href="https://recorder.maricopa.gov/pollingplace/" class="btn voter-card-btn" target="_blank" rel="noopener">Find a Vote Center</a>
+            <h3>{voterText.cards.polling.title}</h3>
+            <p>{voterText.cards.polling.body}</p>
+            <a href={links.findVoteCenter} class="btn voter-card-btn" target="_blank" rel="noopener">{voterText.findVoteCenterLabel}</a>
         </div>
 
         <!-- Key Dates -->
@@ -78,35 +81,28 @@ const pageDescription = "Find voter registration info, check if you're in LD29, 
             <div class="voter-card-icon">
                 <i class="fas fa-calendar-day"></i>
             </div>
-            <h3>Key Dates for 2026</h3>
+            <h3>{voterText.cards.dates.title}</h3>
             <ul class="key-dates-list">
-                <li><strong>Aug 4, 2026</strong> — Primary Election</li>
-                <li><strong>Jul 6, 2026</strong> — Registration Deadline (Primary)</li>
-                <li><strong>Nov 3, 2026</strong> — General Election</li>
-                <li><strong>Oct 5, 2026</strong> — Registration Deadline (General)</li>
+                {voterText.keyDates.map((item) => (
+                    <li><strong>{item.date}</strong> — {item.label}</li>
+                ))}
             </ul>
         </div>
     </div>
 
     <!-- LD29 Info -->
     <div class="ld29-info-section">
-        <h3>About Legislative District 29</h3>
+        <h3>{voterText.districtInfoTitle}</h3>
         <div class="ld29-stats">
-            <div class="ld29-stat">
-                <span class="stat-number">240,102</span>
-                <span class="stat-label">Population</span>
-            </div>
-            <div class="ld29-stat">
-                <span class="stat-number">142,701</span>
-                <span class="stat-label">Registered Voters</span>
-            </div>
-            <div class="ld29-stat">
-                <span class="stat-number">47</span>
-                <span class="stat-label">Precincts</span>
-            </div>
+            {voterText.districtStats.map((stat) => (
+                <div class="ld29-stat">
+                    <span class="stat-number">{stat.number}</span>
+                    <span class="stat-label">{stat.label}</span>
+                </div>
+            ))}
         </div>
-        <p>LD29 is located in Maricopa County and includes parts of <strong>Surprise</strong>, <strong>Wittmann</strong>, <strong>Sun City Grand</strong>, and surrounding West Valley communities. It is one of the fastest-growing districts in Arizona.</p>
-        <p class="ld29-zip-note">Common zip codes in LD29: <strong>85374, 85378, 85379, 85387, 85388, 85361</strong></p>
+        <p>{voterText.districtBody}</p>
+        <p class="ld29-zip-note">{voterText.zipNote}</p>
     </div>
 </section>
 

@@ -1,0 +1,884 @@
+{
+  "global": {
+    "baseLayout": {
+      "skipToContent": "Skip to main content"
+    },
+    "links": {
+      "home": "/",
+      "about": "/about",
+      "platform": "/platform",
+      "contact": "/contact",
+      "events": "/events",
+      "getInvolved": "/get-involved",
+      "endorsements": "/endorsements",
+      "voterResources": "/voter-resources",
+      "transparency": "/transparency",
+      "privacy": "/privacy",
+      "terms": "/terms",
+      "thankYou": "/thank-you",
+      "es": "/es",
+      "donate": "https://secure.actblue.com/donate/stafford-4-az-1?refcode=directory",
+      "donate5": "https://secure.actblue.com/donate/stafford-4-az-1?refcode=directory&amount=5",
+      "donate10": "https://secure.actblue.com/donate/stafford-4-az-1?refcode=directory&amount=10",
+      "donate25": "https://secure.actblue.com/donate/stafford-4-az-1?refcode=directory&amount=25",
+      "donate50": "https://secure.actblue.com/donate/stafford-4-az-1?refcode=directory&amount=50",
+      "donate100": "https://secure.actblue.com/donate/stafford-4-az-1?refcode=directory&amount=100",
+      "checkVoterStatus": "https://my.arizona.vote/WhereDoIVote.aspx?s=address",
+      "findMyDistrict": "https://www.azleg.gov/findmylegislator/",
+      "registerToVote": "https://azsos.gov/elections/voting-election/register-vote-or-update-your-current-voter-information",
+      "earlyVoting": "https://azsos.gov/elections/voting-election",
+      "findVoteCenter": "https://recorder.maricopa.gov/pollingplace/",
+      "cleanElectionsInfo": "https://www.azcleanelections.gov/",
+      "publicFilings": "https://apps.azsos.gov/apps/election/cfs/search/MainSearch.aspx",
+      "spanishPetitions": "https://apps.azsos.gov/apps/election/eps/op/Home/Ineligible/ada93e50-5ae8-4e4b-a116-5b345b6698a1",
+  "cleanElectionsDonate5": "https://apps.azsos.gov/apps/election/eps/qc/Home/Ineligible/19ff18fa-6ab3-4a37-b0a9-9bc2e2d41eb6",
+  "cleanElectionsProgressLink": "https://secure.actblue.com/donate/stafford-4-az-1?refcode=directory",
+  "cleanElectionsDonateNow": "https://secure.actblue.com/donate/stafford-4-az-1"
+    },
+    "social": {
+      "bluesky": "https://bsky.app/profile/stafford4az.bsky.social",
+      "instagram": "https://www.instagram.com/stafford4az",
+      "youtube": "https://www.youtube.com/@Stafford4AZ",
+      "x": "https://x.com/stafford4az",
+      "facebook": "https://www.facebook.com/Stafford4AZ/"
+    },
+    "header": {
+      "spanishLabel": "En Español",
+      "homeLabel": "Home",
+      "aboutLabel": "About",
+      "platformLabel": "Platform",
+      "donateLabel": "DONATE",
+      "getInvolvedLabel": "GET INVOLVED"
+    },
+    "footer": {
+      "heading": "Join Our Movement",
+      "donateLabel": "DONATE",
+      "getInvolvedLabel": "GET INVOLVED",
+      "endorsementsLabel": "Endorsements",
+      "voterResourcesLabel": "Voter Resources",
+      "transparencyLabel": "Transparency",
+      "contactLabel": "Contact",
+      "privacyLabel": "Privacy Policy",
+      "termsLabel": "Terms of Service",
+      "paidFor": "PAID FOR BY ERIC STAFFORD FOR ARIZONA SENATE",
+      "copyright": "©2026 Eric Stafford for Arizona Senate. All rights reserved."
+    },
+    "cleanElections": {
+      "modalTitle": "Donate to help us win.",
+      "modalBody": "Help us reach our goal! Donate a maximum of $220 to support Eric's Clean Elections campaign.",
+      "progressLinkLabel": "Track progress toward $5,293",
+      "donateNowLabel": "Donate Now",
+      "widgetTitle": "Support Clean Elections",
+      "widgetBody": "Help power Eric's people-first campaign with a $5 qualifying contribution.",
+      "widgetButton": "Donate $5"
+    }
+  },
+  "home": {
+    "heroTitle": "Eric Stafford: Arizonans First. Arizona Always.",
+    "heroPrimaryCta": "SEE WHERE I STAND",
+    "heroDonateCta": "DONATE",
+    "voterResourcesLabel": "Voter Resources",
+    "inDistrictLabel": "Am I in LD29?",
+    "donateOtherLabel": "OTHER",
+    "signupTitle": "Stay Up to Date on Eric's Campaign",
+    "signupDisclaimer": "By submitting your phone number you are agreeing to receive up to 1 text message(s) per day from Eric Stafford for Arizona Senate. Eric Stafford for Arizona Senate's mobile campaigns provide subscribers with updates, event invitations, donation asks, and voting reminders. Messages may include donation asks. Message and data rates may apply. Text HELP for more information. Text STOP to stop receiving messages. See Terms of Service/Privacy Policy.",
+    "voterCtaTitle": "Are You Ready to Vote?",
+    "voterCtaBody": "Check if you're in LD29, register to vote, find your polling place, and learn about early voting — everything you need in one place.",
+    "videoTitle": "See Eric's Vision for Arizona",
+    "videoBody": "Join Eric Stafford as he shares his vision for LD29 and how he’ll prioritize Arizona families. See how Eric Stafford will lower the cost of living, support fair wages, strengthen schools, and run a clean, accountable government. Watch the video to see how his people-first leadership can create a brighter future for all families in LD29.",
+    "form": {
+      "firstNameLabel": "First Name (required)",
+      "lastNameLabel": "Last Name (required)",
+      "zipCodeLabel": "Zip Code (required)",
+      "phoneLabel": "Phone",
+      "emailLabel": "Email (required)",
+      "submitLabel": "Submit"
+    },
+    "donateTitleLines": [
+      "DONATE TO",
+      "Eric Stafford",
+      "for Senate"
+    ],
+    "platformTitle": "Where I Stand",
+    "platformBody": "Arizona is becoming increasingly unaffordable for families in LD29, as rising housing costs, stagnant wages, and limited access to quality education make life harder, while corruption and special interests shape policies that should serve the people. I’m running to put LD29 families first, fight for fair wages, strong schools, affordable housing, and a government that is truly accountable to everyone."
+  },
+  "about": {
+    "heroTitle": "Meet Eric Stafford",
+    "introHeading": "Arizonan. Tradesman. Fighter for LD29.",
+    "introLead": "Eric Stafford is a community organizer, small business advocate, and lifelong Arizonan running for State Senate to deliver progress and prosperity to all by rejecting special interests and legislating with integrity.",
+    "quickFacts": [
+      "Certified Airplane Mechanic & Machinist",
+      "Clean Elections Candidate",
+      "Born & Raised in Arizona"
+    ],
+    "bioParagraphs": [
+      "A born-and-raised Arizonan, Eric's path reflects his commitment to service and results. His blue-collar experience began when he earned his Airframe & Powerplant License and worked as a certified Airplane Mechanic & Machinist. This work gave him firsthand insight into the struggles of working families and the need for greater workplace justice.",
+      "Eric's dedication to an ethical, human-first approach was cemented by personal tragedy: watching his own mother suffer permanent brain damage because the inflated cost of medicine due to corporate greed made her life-saving treatment unaffordable. This injustice fuels his fight for affordable healthcare and against corporate price gouging.",
+      "From organizing neighbors to save long-time residents from corporate developers, to bringing together ranchers, tribal leaders, and environmental advocates on water conservation, Eric believes results matter more than party loyalty. He has dedicated his energy to a team of progress for all Arizonans, pushing for:"
+    ],
+    "priorities": [
+      {
+        "title": "Education",
+        "description": "Fully funding public schools and supporting teachers to reverse crippling system debt."
+      },
+      {
+        "title": "Labor",
+        "description": "Ensuring essential workers earn a living wage and restoring benefits for a stable middle class."
+      },
+      {
+        "title": "Climate",
+        "description": "Proactively preserving groundwater, maintaining aquifers, and improving air quality."
+      }
+    ],
+    "bioClosing": "Eric Stafford is prepared to be a fearless leader who rejects dark money, prioritizes his constituents, and brings a pragmatic approach to creating a government that truly works for all Arizonans.",
+    "raceTitle": "Why This Race Matters",
+    "raceLead": "LD29 is one of the most competitive districts in Arizona — and in 2026, it's a real opportunity to flip.",
+    "raceStats": [
+      {
+        "number": "240K+",
+        "label": "Residents in LD29"
+      },
+      {
+        "number": "142K",
+        "label": "Registered Voters"
+      },
+      {
+        "number": "2026",
+        "label": "The Year We Flip It"
+      }
+    ],
+    "raceParagraphs": [
+      "Across the country, voters in traditionally red districts are choosing new leadership — candidates who fight for working families instead of corporate interests. LD29's rapid growth and shifting demographics make this one of Arizona's most winnable seats.",
+      "Eric is running because LD29 families deserve a senator who shows up for them — not the lobbyists. With a Clean Elections campaign powered by grassroots support, this race proves that people-powered politics can win."
+    ],
+    "transparencyTitle": "A Clean Elections Candidate",
+    "transparencyBody": "Eric is running a fully transparent, publicly funded campaign through Arizona's Clean Elections system — no corporate PACs, no dark money, no special interests. Every dollar is reported and every decision is accountable to the voters of LD29.",
+    "transparencyItems": [
+      "Clean Elections Certified",
+      "No Corporate PAC Money",
+      "Every Dollar Publicly Reported"
+    ],
+    "platformCta": "Read Eric's Full Platform",
+    "donateCta": "Donate to Flip LD29",
+    "volunteerCta": "Volunteer Now",
+    "transparencyCta": "View Full Transparency Report"
+  },
+  "contact": {
+    "heroTitle": "Contact",
+    "title": "We’d Love to Hear From You",
+    "introBody": "If you have questions, comments, want to get involved with Eric Stafford's campaign for Arizona Senate, or wish to share your thoughts on changes in legislation affecting LD29, please use the form below to contact us. We welcome your input and will respond as soon as possible to help keep you informed and engaged in shaping policies that matter to our community.",
+    "form": {
+      "firstNameLabel": "First Name (required)",
+      "lastNameLabel": "Last Name (required)",
+      "emailLabel": "Email (required)",
+      "phoneLabel": "Phone",
+      "subjectLabel": "Subject",
+      "subjectPlaceholder": "Select a topic...",
+      "subjectOptions": [
+        {
+          "value": "general",
+          "label": "General Question"
+        },
+        {
+          "value": "volunteer",
+          "label": "Volunteering"
+        },
+        {
+          "value": "endorsement",
+          "label": "Endorsement Inquiry"
+        },
+        {
+          "value": "event",
+          "label": "Event / Speaking Request"
+        },
+        {
+          "value": "media",
+          "label": "Press / Media"
+        },
+        {
+          "value": "policy",
+          "label": "Policy Feedback"
+        },
+        {
+          "value": "other",
+          "label": "Other"
+        }
+      ],
+      "messageLabel": "Message (required)",
+      "messagePlaceholder": "How can we help?"
+    },
+    "submitLabel": "Send Message"
+  },
+  "endorsements": {
+    "heroTitle": "Endorsements",
+    "headerTitle": "Who Stands With Eric",
+    "headerBody": "This campaign is built on the support of working families, union members, small business owners, and community leaders across LD29. We're proud to have the backing of people and organizations who share our vision for Arizona.",
+    "categories": [
+      {
+        "title": "Labor & Trade Organizations",
+        "description": "Endorsements are being finalized and will be listed here as they are confirmed. If your organization would like to endorse Eric, please reach out to our team."
+      },
+      {
+        "title": "Education & Educators",
+        "description": "Coming soon — endorsements from educators and education organizations who believe in fully funding Arizona's public schools."
+      },
+      {
+        "title": "Small Business Owners",
+        "description": "Local business owners across the West Valley are standing with Eric. Full list coming soon."
+      },
+      {
+        "title": "Community Leaders",
+        "description": "Neighbors, organizers, and local leaders building a grassroots movement. Full list coming soon."
+      },
+      {
+        "title": "Elected Officials",
+        "description": "Endorsements from elected officials will be posted here as they are announced."
+      }
+    ],
+    "ctaTitle": "Want to Endorse Eric?",
+    "ctaBody": "Whether you're a union, an organization, a local business, or an individual community member — your endorsement matters. Let us know you stand with us.",
+    "ctaButton": "Submit Your Endorsement"
+  },
+  "events": {
+    "heroTitle": "Events & Get Involved",
+    "introTitle": "Join Us on the Trail",
+    "introBody": "This campaign belongs to all of us. Whether you want to knock on doors, attend a town hall, or simply learn more about what we're fighting for — there's a place for you. Check the calendar below for upcoming events across LD29.",
+    "volunteerTitle": "Volunteer With Us",
+    "volunteerBody": "We're building a grassroots movement across Surprise, the West Valley, and all of LD29. We need volunteers to help canvass, phone bank, host events, and spread the word.",
+    "volunteerWays": [
+      {
+        "title": "Door Knocking",
+        "description": "Meet voters face to face in your neighborhood"
+      },
+      {
+        "title": "Phone Banking",
+        "description": "Make calls from home on your own schedule"
+      },
+      {
+        "title": "Yard Signs & Literature",
+        "description": "Show your support and help distribute materials"
+      },
+      {
+        "title": "Host an Event",
+        "description": "Organize a meet-and-greet in your community"
+      }
+    ],
+    "volunteerFormTitle": "Sign Up to Volunteer",
+    "form": {
+      "nameLabel": "Full Name",
+      "emailLabel": "Email",
+      "phoneLabel": "Phone",
+      "zipLabel": "Zip Code",
+      "zipTitle": "Please enter a 5-digit zip code",
+      "interestLabel": "How would you like to help?",
+      "interestPlaceholder": "Select one...",
+      "interestOptions": [
+        {
+          "value": "canvass",
+          "label": "Door Knocking / Canvassing"
+        },
+        {
+          "value": "phonebank",
+          "label": "Phone Banking"
+        },
+        {
+          "value": "yardsign",
+          "label": "Yard Sign Request"
+        },
+        {
+          "value": "host",
+          "label": "Host an Event"
+        },
+        {
+          "value": "other",
+          "label": "Other / Anything Needed"
+        }
+      ]
+    },
+    "volunteerSubmit": "Count Me In"
+  },
+  "getInvolved": {
+    "heroTitle": "Events & Get Involved",
+    "introTitle": "Join Us on the Trail",
+    "introBody": "This campaign belongs to all of us. Whether you want to knock on doors, attend a town hall, or simply learn more about what we're fighting for — there's a place for you. Check the calendar below for upcoming events across LD29.",
+    "volunteerTitle": "Volunteer With Us",
+    "volunteerBody": "We're building a grassroots movement across Surprise, the West Valley, and all of LD29. We need volunteers to help canvass, phone bank, host events, and spread the word.",
+    "volunteerWays": [
+      {
+        "title": "Door Knocking",
+        "description": "Meet voters face to face in your neighborhood"
+      },
+      {
+        "title": "Phone Banking",
+        "description": "Make calls from home on your own schedule"
+      },
+      {
+        "title": "Yard Signs & Literature",
+        "description": "Show your support and help distribute materials"
+      },
+      {
+        "title": "Host an Event",
+        "description": "Organize a meet-and-greet in your community"
+      }
+    ],
+    "volunteerFormTitle": "Sign Up to Volunteer",
+    "form": {
+      "nameLabel": "Full Name",
+      "emailLabel": "Email",
+      "phoneLabel": "Phone",
+      "zipLabel": "Zip Code",
+      "zipTitle": "Please enter a 5-digit zip code",
+      "interestLabel": "How would you like to help?",
+      "interestPlaceholder": "Select one...",
+      "interestOptions": [
+        {
+          "value": "canvass",
+          "label": "Door Knocking / Canvassing"
+        },
+        {
+          "value": "phonebank",
+          "label": "Phone Banking"
+        },
+        {
+          "value": "yardsign",
+          "label": "Yard Sign Request"
+        },
+        {
+          "value": "host",
+          "label": "Host an Event"
+        },
+        {
+          "value": "other",
+          "label": "Other / Anything Needed"
+        }
+      ]
+    },
+    "volunteerSubmit": "Count Me In",
+    "yardSignTitle": "Request a Yard Sign",
+    "yardSignBody": "Show your neighbors you support Eric Stafford for Arizona Senate. We'll deliver a free yard sign right to your door.",
+    "yardSignForm": {
+      "namePlaceholder": "Full Name",
+      "addressPlaceholder": "Street Address",
+      "cityPlaceholder": "City",
+      "zipPlaceholder": "Zip Code"
+    },
+    "yardSignSubmit": "Send Me a Sign",
+    "endorsementsTitle": "Endorsed By",
+    "endorsementsSubtitle": "Eric is proud to be supported by workers, community leaders, and organizations across LD29.",
+    "endorsementPreview": [
+      "Labor & Trade Unions",
+      "Educators & Teachers",
+      "Small Business Owners",
+      "Community Leaders"
+    ],
+    "endorsementsLink": "See All Endorsements"
+  },
+  "platform": {
+    "heroTitle": "Eric's Platform",
+    "headerTitle": "Where I Stand",
+    "introParagraphs": [
+      "Arizona families are being priced out of their own communities. Why? Because corporate interests and out-of-state developers have shaped policies that benefit the wealthy few while hardworking Arizonans struggle to get by.",
+      "I'm running to put Arizona families first—not special interests or corporate donors.",
+      "We deserve leaders who are clear about where they stand. Here is my platform."
+    ],
+    "contactLine": "Most importantly, I want to hear from you as this platform grows and develops. Please reach out to info@ericstaffordforsenate.com with any thoughts or additions you might have, or to schedule a further conversation.",
+    "overviewTitle": "Overview",
+    "overviewParagraphs": [
+      "Arizona stands at a crossroads. Our state is growing rapidly, but that growth isn't benefiting everyone equally. While corporations rake in record profits, working families face skyrocketing housing costs, water insecurity, and an education system that's been systematically underfunded for decades.",
+      "We need a government that works for Arizona families, not one beholden to special interests. My platform addresses the real challenges facing our communities, from securing our water future to making housing affordable, from protecting our environment to ensuring every child gets a quality education.",
+      "I will be a Senator for all Arizonans—not just those who can afford to buy influence in Phoenix."
+    ],
+    "items": [
+      {
+        "title": "Make Housing Affordable Again",
+        "content": "Families across LD29—from Surprise to the West Valley—are being priced out of homeownership and rental markets by Wall Street investors and corporate landlords. In one of the fastest-growing regions in the country, housing shouldn't be a luxury. We need to put it back in reach for working families.",
+        "listItems": [
+          "Tax incentives for first-time homebuyers in rapidly growing communities",
+          "Crack down on corporate landlords and investors driving up rents",
+          "Increase funding for affordable housing development",
+          "Support local communities in preventing displacement of long-time residents",
+          "Address predatory lending and unfair eviction practices",
+          "Ensure new development includes affordable housing commitments"
+        ]
+      },
+      {
+        "title": "Strengthen Labor Rights and Protect Workers",
+        "content": "As a tradesman who earned his Airframe & Powerplant license and worked as a certified airplane mechanic and machinist, I know firsthand what it means to work with your hands and fight for fair treatment on the job. Arizona's workers—union and non-union alike—deserve strong protections, living wages, and a seat at the table.",
+        "listItems": [
+          "Protect and expand the right to organize and collectively bargain",
+          "Fight for prevailing wage standards on public projects",
+          "Strengthen workplace safety standards and OSHA enforcement",
+          "End wage theft and misclassification of employees as independent contractors",
+          "Support apprenticeship programs in the skilled trades",
+          "Ensure essential workers earn a living wage with real benefits"
+        ]
+      },
+      {
+        "title": "Fully Fund Public Education and the Trades",
+        "content": "Arizona ranks near the bottom nationally in education funding. Our teachers are underpaid, our classrooms are overcrowded, and our students deserve better. At the same time, we're facing a critical shortage of skilled tradespeople. We need to invest in both traditional education and the trades that build Arizona.",
+        "listItems": [
+          "Competitive teacher salaries to attract and retain quality educators",
+          "Increased funding for school infrastructure and resources",
+          "Massively expand vocational, technical, and apprenticeship programs",
+          "Partner with unions and trade schools to create career pathways",
+          "Accountability for charter schools receiving public funds",
+          "Support community colleges like Rio Salado in providing accessible education"
+        ]
+      },
+      {
+        "title": "Fix Our Broken Healthcare System",
+        "content": "Healthcare is a right, not a privilege. I watched my own mother suffer permanent brain damage because the inflated cost of medicine—driven by corporate greed—made her life-saving treatment unaffordable. No family should ever face that choice. We need comprehensive reform now.",
+        "listItems": [
+          "Expanding access to affordable healthcare for all Arizonans through AHCCCS and state programs",
+          "Lowering prescription drug costs through state-level bulk purchasing and price transparency laws",
+          "Protecting coverage for pre-existing conditions under Arizona law",
+          "Increasing mental health and addiction treatment services statewide",
+          "Expanding healthcare access in fast-growing West Valley communities",
+          "Holding pharmaceutical companies accountable through state consumer protection laws"
+        ]
+      },
+      {
+        "title": "Manage Growth and Invest in Infrastructure",
+        "content": "LD29 is one of the fastest-growing areas in Arizona. Surprise alone has grown from 30,000 to over 150,000 residents in just two decades. Massive projects like the proposed $3.2 billion BNSF logistics hub in Wittmann will reshape our communities. Growth must work for residents—not just developers.",
+        "listItems": [
+          "Ensure community input on major development projects like the BNSF Wittmann rail hub",
+          "Expand public transit options after the elimination of WeRIDE service",
+          "Invest in road infrastructure to keep pace with explosive population growth",
+          "Protect existing neighborhoods from overdevelopment and industrial encroachment",
+          "Demand environmental impact assessments for large-scale industrial projects",
+          "Prioritize water and utility infrastructure before approving new developments"
+        ]
+      },
+      {
+        "title": "Support Small Businesses and Break Up Monopolies",
+        "content": "Small businesses are the backbone of Arizona's economy, but they're being squeezed by mega-corporations that dominate entire industries. From the shops along Bell Road to family farms in the West Valley, we need to level the playing field.",
+        "listItems": [
+          "Enforce antitrust laws and break up monopolies",
+          "Provide tax relief and support for small businesses",
+          "Expand access to capital for entrepreneurs",
+          "Protect Main Street from Wall Street consolidation",
+          "Support local agriculture and food producers"
+        ]
+      },
+      {
+        "title": "Combat Extreme Heat and Protect Our Environment",
+        "content": "Arizona is on the frontlines of climate change. Wittmann has recorded temperatures of 119°F. Record heat, water scarcity, and poor air quality threaten our communities and our workers—especially those in the trades and construction who labor outdoors. We must act decisively.",
+        "listItems": [
+          "Adopt extreme heat protections for outdoor workers",
+          "Accelerate the transition to renewable energy and good-paying green jobs",
+          "Strengthen air quality standards to protect public health",
+          "Invest in urban cooling infrastructure—shade, green space, and cooling centers",
+          "Protect Arizona's groundwater and support smart water conservation",
+          "Invest in wildfire prevention and forest management"
+        ]
+      },
+      {
+        "title": "Support Veterans and Military Families",
+        "content": "Luke Air Force Base is right in our backyard, and thousands of veterans and military families call LD29 home. We owe them more than gratitude—we owe them real support, from healthcare to housing to good jobs when they return to civilian life.",
+        "listItems": [
+          "Expand state-funded veteran healthcare services and reduce wait times",
+          "Increase state funding for mental health and PTSD treatment for veterans",
+          "Support veteran employment programs and skills-to-trades pipelines",
+          "Protect military families from predatory lending and housing scams through state regulation",
+          "Ensure Luke Air Force Base remains a vital community partner"
+        ]
+      },
+      {
+        "title": "Comprehensive Immigration Reform",
+        "content": "Arizona's border communities deserve real solutions, not political theater. As a state senator, I'll fight for practical state-level policies that support our border communities while treating people with dignity.",
+        "listItems": [
+          "Fund state border security technology and partnerships with local law enforcement",
+          "Protect Dreamers' access to in-state tuition and state services",
+          "Support border communities with state resources and infrastructure funding",
+          "Ensure immigrant workers are protected by Arizona labor laws",
+          "Oppose state legislation that promotes racial profiling or targets immigrant families"
+        ]
+      },
+      {
+        "title": "Protect Reproductive Rights",
+        "content": "The government has no place in personal medical decisions. I will always defend the right to choose and fight against any attempts to restrict reproductive healthcare.",
+        "listItems": [
+          "Codify reproductive freedom protections into Arizona state law",
+          "Protect access to contraception and family planning services statewide",
+          "Ensure Arizona healthcare providers can practice without political interference",
+          "Support comprehensive, medically accurate sex education in Arizona schools"
+        ]
+      },
+      {
+        "title": "Get Money Out of Politics",
+        "content": "Our democracy is being sold to the highest bidder. Arizona needs fundamental campaign finance reform at the state level to ensure every voice is heard, not just those with deep pockets.",
+        "listItems": [
+          "Strengthen Arizona's dark money disclosure laws and close loopholes",
+          "Expand and protect Arizona's Clean Elections public financing system",
+          "Strict limits on corporate political spending in state elections",
+          "Full transparency in all political donations to Arizona candidates",
+          "End the revolving door between the state legislature and lobbying firms"
+        ]
+      }
+    ]
+  },
+  "voterResources": {
+    "heroTitle": "Voter Resources",
+    "headerTitle": "Your Vote Matters",
+    "headerBody": "Everything you need to make your voice heard in LD29. Whether you need to register, find your polling place, or check if you're in our district — we've got you covered.",
+    "cards": {
+      "district": {
+        "title": "Am I in LD29?",
+        "body": "Arizona Legislative District 29 covers parts of Surprise, Wittmann, Sun City Grand, and the northwest West Valley in Maricopa County. Use the Arizona legislature's official tool to check your district."
+      },
+      "register": {
+        "title": "Register to Vote",
+        "body": "You can register to vote online through the Arizona Secretary of State's office. You must register at least 29 days before the election. It only takes a few minutes."
+      },
+      "check": {
+        "title": "Check Your Registration",
+        "body": "Already registered? Verify your voter registration status, check your polling location, and view your sample ballot ahead of election day."
+      },
+      "early": {
+        "title": "Vote Early by Mail",
+        "body": "Arizona makes it easy to vote from home. Request an early ballot through the Active Early Voter List (AEVL) and receive your ballot automatically for every election."
+      },
+      "polling": {
+        "title": "Find Your Polling Place",
+        "body": "Maricopa County uses Vote Centers — you can vote at any location on Election Day. Find the nearest one to cast your ballot in person."
+      },
+      "dates": {
+        "title": "Key Dates for 2026"
+      }
+    },
+    "keyDates": [
+      {
+        "date": "Aug 4, 2026",
+        "label": "Primary Election"
+      },
+      {
+        "date": "Jul 6, 2026",
+        "label": "Registration Deadline (Primary)"
+      },
+      {
+        "date": "Nov 3, 2026",
+        "label": "General Election"
+      },
+      {
+        "date": "Oct 5, 2026",
+        "label": "Registration Deadline (General)"
+      }
+    ],
+    "districtInfoTitle": "About Legislative District 29",
+    "districtStats": [
+      {
+        "number": "240,102",
+        "label": "Population"
+      },
+      {
+        "number": "142,701",
+        "label": "Registered Voters"
+      },
+      {
+        "number": "47",
+        "label": "Precincts"
+      }
+    ],
+    "districtBody": "LD29 is located in Maricopa County and includes parts of Surprise, Wittmann, Sun City Grand, and surrounding West Valley communities. It is one of the fastest-growing districts in Arizona.",
+    "zipNote": "Common zip codes in LD29: 85374, 85378, 85379, 85387, 85388, 85361",
+    "findDistrictLabel": "Find My District",
+    "registerLabel": "Register Online",
+    "checkStatusLabel": "Check Status",
+    "earlyVotingLabel": "Learn About Early Voting",
+    "findVoteCenterLabel": "Find a Vote Center"
+  },
+  "transparency": {
+    "heroTitle": "Transparency",
+    "headerTitle": "Open Books, Honest Campaign",
+    "headerBody": "Eric believes voters deserve to know exactly who funds his campaign and how every dollar is spent. That's why he's running as a Clean Elections candidate — powered by people, not corporations.",
+    "cleanElectionsTitle": "Arizona Clean Elections Candidate",
+    "cleanElectionsBody": "Eric is a certified Clean Elections candidate through the Arizona Citizens Clean Elections Commission. This means his campaign is publicly funded by Arizona voters — not special interests, lobbyists, or corporate PACs.",
+    "cleanElectionsProgress": "Clean Elections candidates qualify by collecting $5 contributions from registered voters in their district — proving grassroots support before receiving any public funds. Eric has collected 227 of 240 qualifying contributions so far.",
+    "disclosureTitle": "Campaign Disclosure",
+    "paidFor": "PAID FOR BY ERIC STAFFORD FOR ARIZONA SENATE",
+    "authorizedBy": "Authorized by Eric Stafford, Candidate for Arizona State Senate, LD29",
+    "disclosureBody": "All campaign communications, advertisements, and materials are paid for by Eric Stafford for Arizona Senate in compliance with Arizona campaign finance laws.",
+    "financeReportsTitle": "Campaign Finance Reports",
+    "financeReportsBody": "All campaign finance reports are filed with the Arizona Secretary of State and are publicly available. You can view our filings and track every contribution and expenditure.",
+    "noCorporateTitle": "No Corporate PAC Money",
+    "noCorporateBody": "Eric does not accept contributions from corporate PACs, fossil fuel companies, or dark money groups. His campaign is funded exclusively through Arizona's Clean Elections system and small-dollar donations from people who believe in his vision for LD29.",
+    "commitmentTitle": "Our Commitment to You",
+    "commitmentItems": [
+      "Every dollar publicly reported",
+      "No corporate PAC money",
+      "Clean Elections certified",
+      "Open and accessible to constituents"
+    ],
+    "contactPrompt": "Have questions about our campaign finances or want to report a concern?",
+    "contactLabel": "Contact us directly",
+    "filingsButton": "View Public Filings"
+  },
+  "es": {
+    "langNotice": "🇲🇽 Esta página está en español.",
+    "viewEnglish": "View in English",
+    "heroTitle": "Eric Stafford: Los Arizonenses Primero. Arizona Siempre.",
+    "heroSubtitle": "Candidato al Senado Estatal de Arizona — Distrito Legislativo 29",
+    "heroPetitions": "FIRMAR MIS PETICIONES",
+    "heroDonate": "DONAR",
+    "aboutTitle": "Conozca a Eric Stafford",
+    "aboutParagraphs": [
+      "Eric Stafford es un organizador comunitario, defensor de pequeñas empresas y arizonense de toda la vida que se postula para el Senado Estatal para ofrecer progreso y prosperidad a todos, rechazando los intereses especiales y legislando con integridad.",
+      "Nacido y criado en Arizona, la trayectoria de Eric refleja su compromiso con el servicio y los resultados. Su experiencia laboral comenzó cuando obtuvo su Licencia de Estructura y Motor de Avión y trabajó como mecánico de aviones y maquinista certificado. Este trabajo le dio una experiencia directa de las dificultades de las familias trabajadoras.",
+      "La dedicación de Eric a un enfoque ético y humano fue marcada por una tragedia personal: ver a su propia madre sufrir daño cerebral permanente porque el costo inflado de la medicina debido a la codicia corporativa hizo que su tratamiento fuera inasequible."
+    ],
+    "prioritiesTitle": "Mis Prioridades para el LD29",
+    "priorities": [
+      {
+        "title": "Vivienda Asequible",
+        "description": "Luchar contra los alquileres descontrolados, ampliar los programas de asistencia para la compra de vivienda y proteger a los inquilinos contra desalojos injustos."
+      },
+      {
+        "title": "Derechos Laborales",
+        "description": "Salarios justos, protecciones para los trabajadores del comercio y la construcción, y restaurar los derechos de negociación colectiva."
+      },
+      {
+        "title": "Educación y Oficios",
+        "description": "Financiar completamente las escuelas públicas, apoyar a los maestros y expandir programas de formación técnica y profesional."
+      },
+      {
+        "title": "Atención Médica",
+        "description": "Reducir los costos de medicamentos recetados, ampliar el acceso a servicios de salud mental y combatir la codicia de las farmacéuticas."
+      },
+      {
+        "title": "Infraestructura",
+        "description": "Inversión en carreteras, transporte público y crecimiento responsable para las comunidades de rápido crecimiento del Oeste del Valle."
+      },
+      {
+        "title": "Pequeñas Empresas",
+        "description": "Reducir la burocracia, apoyar a los emprendedores locales y crear oportunidades económicas para las familias del LD29."
+      }
+    ],
+    "platformButton": "Ver la Plataforma Completa (Inglés)",
+    "voterTitle": "Recursos para Votantes",
+    "voterDescription": "Todo lo que necesita para hacer escuchar su voz en el LD29.",
+    "voterCards": [
+      {
+        "title": "¿Estoy en el LD29?",
+        "description": "El Distrito Legislativo 29 cubre partes de Surprise, Wittmann, Sun City Grand y el noroeste del Valle Oeste del Condado de Maricopa.",
+        "button": "Buscar Mi Distrito"
+      },
+      {
+        "title": "Registrarse para Votar",
+        "description": "Puede registrarse en línea. Debe registrarse al menos 29 días antes de la elección.",
+        "button": "Registrarse en Línea"
+      },
+      {
+        "title": "Votar Anticipadamente",
+        "description": "Arizona facilita votar desde casa. Solicite una boleta anticipada a través de la Lista de Votantes Anticipados Activos (AEVL).",
+        "button": "Más Información"
+      },
+      {
+        "title": "Centros de Votación",
+        "description": "El Condado de Maricopa usa Centros de Votación — puede votar en cualquier ubicación el Día de las Elecciones.",
+        "button": "Encontrar un Centro"
+      }
+    ],
+    "keyDatesTitle": "Fechas Importantes para 2026",
+    "keyDates": [
+      {
+        "date": "4 de agosto, 2026",
+        "label": "Elección Primaria"
+      },
+      {
+        "date": "6 de julio, 2026",
+        "label": "Fecha límite de registro (Primaria)"
+      },
+      {
+        "date": "3 de noviembre, 2026",
+        "label": "Elección General"
+      },
+      {
+        "date": "5 de octubre, 2026",
+        "label": "Fecha límite de registro (General)"
+      }
+    ],
+    "participateTitle": "Participa",
+    "participateDescription": "Únase a nuestro movimiento para poner a las familias del LD29 primero.",
+    "participateCards": [
+      {
+        "title": "Sea Voluntario",
+        "description": "Ayude con eventos, toque puertas y haga llamadas.",
+        "button": "Ser Voluntario"
+      },
+      {
+        "title": "Señal de Jardín",
+        "description": "Solicite una señal gratuita y muestre su apoyo.",
+        "button": "Solicitar Señal"
+      },
+      {
+        "title": "Donar",
+        "description": "Eric es candidato de Elecciones Limpias. Cada $5 cuenta.",
+        "button": "Donar Ahora"
+      }
+    ],
+    "contactTitle": "Contáctenos",
+    "contactDescription": "¿Tiene preguntas? Nos encantaría saber de usted.",
+    "contactButton": "Formulario de Contacto (Inglés)"
+  },
+  "thankYou": {
+    "title": "Thank You!",
+    "message": "Your message has been received. Our team will get back to you as soon as possible.",
+    "subMessage": "In the meantime, here are some ways to stay connected:",
+    "primaryCta": "Get Involved",
+    "secondaryCta": "Read Eric's Platform",
+    "followLabel": "Follow the campaign:",
+    "aria": {
+      "bluesky": "Bluesky",
+      "instagram": "Instagram",
+      "youtube": "YouTube",
+      "x": "X (Twitter)",
+      "facebook": "Facebook"
+    }
+  },
+  "notFound": {
+    "heading": "Wrong Turn — This Page Doesn't Exist",
+    "body": "Looks like this page wandered outside the district. Let's get you back on track.",
+    "homeCta": "Back to Home",
+    "platformCta": "See Where I Stand",
+    "quickLinks": {
+      "about": "About Eric",
+      "getInvolved": "Get Involved",
+      "contact": "Contact"
+    }
+  },
+  "privacy": {
+    "heroTitle": "Privacy Policy",
+    "headerTitle": "Privacy Policy",
+    "meta": "Effective Date: January 1, 2025 · Last Updated: January 1, 2025",
+    "sections": [
+      {
+        "title": "Introduction",
+        "body": "Eric Stafford for Arizona Senate (\"Campaign,\" \"we,\" \"us,\" or \"our\") respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard information provided by supporters, volunteers, and website visitors in LD29 and across Arizona."
+      },
+      {
+        "title": "Information We Collect",
+        "body": "When you interact with our website or campaign, we may collect the following information:",
+        "list": [
+          "Name",
+          "Email address",
+          "Phone number",
+          "ZIP code",
+          "Other information you provide voluntarily (e.g., donations or volunteer sign-ups)"
+        ]
+      },
+      {
+        "title": "How We Use Your Information",
+        "body": "We use your information for campaign purposes only, including:",
+        "list": [
+          "Sending updates, event invitations, and volunteer opportunities",
+          "Requesting donations and providing campaign information",
+          "Sending voting reminders and election information",
+          "Improving our website and campaign outreach"
+        ]
+      },
+      {
+        "title": "Text Messaging & Email Communications",
+        "body": "By providing your phone number or email, you consent to receive communications from the campaign. You may receive up to 1 text message per day. Standard message and data rates may apply. You can opt out of text messages by texting STOP or opt out of emails by clicking \"unsubscribe\" in any message."
+      },
+      {
+        "title": "Sharing of Information",
+        "body": "We do not sell or rent your personal information to third parties. Information may be shared with trusted service providers who assist with campaign operations, in accordance with applicable federal and state election laws."
+      },
+      {
+        "title": "Security",
+        "body": "We take reasonable measures to protect the personal information we collect. However, no method of transmission over the Internet or electronic storage is completely secure, and we cannot guarantee absolute security."
+      },
+      {
+        "title": "Your Rights",
+        "body": "You may request access to, correction, or deletion of your personal information by contacting us directly. You may also unsubscribe from campaign emails or texts at any time as described above."
+      },
+      {
+        "title": "Third-Party Links",
+        "body": "Our website may contain links to third-party sites. We are not responsible for the privacy practices or content of these external websites."
+      },
+      {
+        "title": "Changes to this Policy",
+        "body": "We may update this Privacy Policy from time to time. Changes will be posted with an updated \"Last Updated\" date. Continued use of the website constitutes acceptance of the revised policy."
+      },
+      {
+        "title": "Contact Information",
+        "body": "If you have any questions about this Privacy Policy, please contact us."
+      }
+    ],
+    "contactBox": "Eric Stafford for Arizona Senate",
+    "closing": "Thank you for supporting Eric Stafford's campaign for Arizona Senate. We respect your privacy and are committed to protecting your personal information as we work to put LD29 families first."
+  },
+  "terms": {
+    "heroTitle": "Terms & Conditions",
+    "headerTitle": "Terms & Conditions",
+    "meta": "Effective Date: January 1, 2025 · Last Updated: January 1, 2025",
+    "sections": [
+      {
+        "title": "Acceptance of Terms",
+        "body": "Welcome to the official campaign website for Eric Stafford for Arizona Senate (\"Campaign,\" \"we,\" \"us,\" or \"our\"). By accessing or using this website, you agree to be bound by these Terms & Conditions. If you do not agree, please do not use this website."
+      },
+      {
+        "title": "Campaign Information & Disclaimer",
+        "body": "This website is operated by Eric Stafford for Arizona Senate, a registered political campaign committee in Arizona. Content is for informational purposes only and does not constitute legal, financial, or professional advice. All communications comply with federal and state election laws, including FEC and Arizona Secretary of State disclosure requirements.",
+        "highlight": "PAID FOR BY ERIC STAFFORD FOR ARIZONA SENATE"
+      },
+      {
+        "title": "Donations",
+        "body": "All contributions are subject to federal and Arizona campaign finance laws. By donating, you confirm you are a U.S. citizen or lawfully admitted permanent resident, at least 18 years old, and using your own funds. Contributions are non-refundable except as required by law. This campaign participates in Arizona's Clean Elections system."
+      },
+      {
+        "title": "Text Message & Email Communications",
+        "body": "By providing your phone number and/or email, you consent to receive campaign communications, including updates, event invitations, volunteer opportunities, donation requests, and voting reminders. You may receive up to 1 text message per day. Standard message/data rates may apply. Text STOP to opt-out of texts. Click \"unsubscribe\" in emails to opt-out."
+      },
+      {
+        "title": "Volunteer Activities",
+        "body": "Volunteers acknowledge they are offering time freely, will comply with campaign guidelines and laws, and may be photographed or recorded for promotional purposes."
+      },
+      {
+        "title": "Privacy & Data Use",
+        "body": "We collect names, emails, phone numbers, and ZIP codes for campaign communications only. We will not sell or share your information with third parties. For more, see our Privacy Policy."
+      },
+      {
+        "title": "Intellectual Property",
+        "body": "All content on this website is the property of Eric Stafford for Arizona Senate. You may use content for personal, non-commercial purposes in support of the campaign. Unauthorized use of logos or branding is prohibited."
+      },
+      {
+        "title": "User Conduct",
+        "body": "Users agree not to violate laws, infringe on rights, interfere with the site, or collect personal data from other users."
+      },
+      {
+        "title": "Third-Party Links",
+        "body": "We may link to third-party websites for convenience. We are not responsible for their content or privacy practices."
+      },
+      {
+        "title": "Disclaimers & Limitation of Liability",
+        "body": "This website is provided \"as is\" without warranties. We are not liable for damages arising from use of this site."
+      },
+      {
+        "title": "Compliance & Governing Law",
+        "body": "All website activities are subject to federal and Arizona election laws. Terms are governed by Arizona law. Modifications to these Terms take effect upon posting."
+      },
+      {
+        "title": "Contact Information",
+        "body": "If you have questions, please contact us."
+      }
+    ],
+    "contactBox": "Eric Stafford for Arizona Senate",
+    "additionalDisclosuresTitle": "Additional Disclosures",
+    "additionalDisclosures": [
+      {
+        "title": "Political Advertisement Disclaimer",
+        "body": "Paid for by Eric Stafford for Arizona Senate and not authorized by any other candidate or committee."
+      },
+      {
+        "title": "Equal Opportunity Statement",
+        "body": "We do not discriminate on race, color, religion, sex, sexual orientation, gender identity, national origin, disability, or age in volunteer programs."
+      },
+      {
+        "title": "Accessibility",
+        "body": "We are committed to website accessibility. Contact us if you experience difficulties."
+      }
+    ],
+    "closing": "Thank you for supporting Eric Stafford's campaign for Arizona Senate. Together, we are putting LD29 families first."
+  }
+}

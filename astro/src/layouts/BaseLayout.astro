@@ -3,6 +3,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import HeadMeta from '../components/HeadMeta.astro'; 
 import CleanElectrions from '../components/CleanElectrions.astro';
+import siteText from '../data/site-text.json';
 
 // Define props for the layout
 interface Props {
@@ -13,6 +14,7 @@ interface Props {
 
 // Destructure props (now every page must provide a title and canonicalUrl)
 const { title, canonicalUrl, description } = Astro.props; 
+const globalText = siteText.global;
 ---
 
 <!doctype html>
@@ -23,7 +25,7 @@ const { title, canonicalUrl, description } = Astro.props;
         description={description}
     />
     <body>
-        <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    <a href="#main-content" class="skip-to-content">{globalText.baseLayout.skipToContent}</a>
         <Header transition:persist /> 
         <main id="main-content">
             <slot /> 

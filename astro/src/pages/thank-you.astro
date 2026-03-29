@@ -1,8 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import siteText from '../data/site-text.json';
 const pageTitle = "Thank You - Eric Stafford for Arizona Senate";
 const pageUrl = '/thank-you';
 const pageDescription = "Thank you for reaching out to Eric Stafford's campaign for Arizona State Senate.";
+const links = siteText.global.links;
+const social = siteText.global.social;
+const thankYouText = siteText.thankYou;
 ---
 
 <BaseLayout 
@@ -15,21 +19,21 @@ const pageDescription = "Thank you for reaching out to Eric Stafford's campaign 
         <div class="thankyou-icon">
             <i class="fas fa-check-circle"></i>
         </div>
-        <h1>Thank You!</h1>
-        <p>Your message has been received. Our team will get back to you as soon as possible.</p>
-        <p class="thankyou-sub">In the meantime, here are some ways to stay connected:</p>
+        <h1>{thankYouText.title}</h1>
+        <p>{thankYouText.message}</p>
+        <p class="thankyou-sub">{thankYouText.subMessage}</p>
         <div class="thankyou-actions">
-            <a href="/get-involved" class="btn thankyou-btn-primary">Get Involved</a>
-            <a href="/platform" class="btn thankyou-btn-secondary">Read Eric's Platform</a>
+            <a href={links.getInvolved} class="btn thankyou-btn-primary">{thankYouText.primaryCta}</a>
+            <a href={links.platform} class="btn thankyou-btn-secondary">{thankYouText.secondaryCta}</a>
         </div>
         <div class="thankyou-social">
-            <span>Follow the campaign:</span>
+            <span>{thankYouText.followLabel}</span>
             <div class="thankyou-social-icons">
-                <a href="https://bsky.app/profile/stafford4az.bsky.social" aria-label="Bluesky" target="_blank" rel="noopener"><i class="fab fa-bluesky"></i></a>
-                <a href="https://www.instagram.com/stafford4az" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.youtube.com/@Stafford4AZ" aria-label="YouTube" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
-                <a href="https://x.com/stafford4az" aria-label="X (Twitter)" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i></a>
-                <a href="https://www.facebook.com/Stafford4AZ/" aria-label="Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+                <a href={social.bluesky} aria-label={thankYouText.aria.bluesky} target="_blank" rel="noopener"><i class="fab fa-bluesky"></i></a>
+                <a href={social.instagram} aria-label={thankYouText.aria.instagram} target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                <a href={social.youtube} aria-label={thankYouText.aria.youtube} target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+                <a href={social.x} aria-label={thankYouText.aria.x} target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i></a>
+                <a href={social.facebook} aria-label={thankYouText.aria.facebook} target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
             </div>
         </div>
     </div>

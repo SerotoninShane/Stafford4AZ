@@ -1,8 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import siteText from '../data/site-text.json';
 const pageTitle = "Eric Stafford para el Senado de Arizona - LD29 | Los Arizonenses Primero";
 const pageUrl = '/es';
 const pageDescription = "Eric Stafford se postula para el Senado Estatal de Arizona por el LD29. Vivienda asequible, salarios justos, escuelas sólidas — los arizonenses primero.";
+const links = siteText.global.links;
+const social = siteText.global.social;
+const esText = siteText.es;
 ---
 
 <BaseLayout 
@@ -13,17 +17,17 @@ const pageDescription = "Eric Stafford se postula para el Senado Estatal de Ariz
 
 <!-- Spanish Language Notice -->
 <div class="es-lang-bar">
-    <p>🇲🇽 Esta página está en español. <a href="/">View in English</a></p>
+    <p>{esText.langNotice} <a href={links.home}>{esText.viewEnglish}</a></p>
 </div>
 
 <!-- Hero -->
 <section class="es-hero">
     <div class="es-hero-content">
-        <h1>Eric Stafford: Los Arizonenses Primero. Arizona Siempre.</h1>
-        <p class="es-hero-sub">Candidato al Senado Estatal de Arizona — Distrito Legislativo 29</p>
+        <h1>{esText.heroTitle}</h1>
+        <p class="es-hero-sub">{esText.heroSubtitle}</p>
         <div class="es-hero-buttons">
-            <a href="https://apps.azsos.gov/apps/election/eps/op/Home/Ineligible/ada93e50-5ae8-4e4b-a116-5b345b6698a1" class="btn es-btn-primary">FIRMAR MIS PETICIONES</a>
-            <a href="https://secure.actblue.com/donate/stafford-4-az-1?refcode=directory" class="btn es-btn-secondary" target="_blank">DONAR</a>
+            <a href={links.spanishPetitions} class="btn es-btn-primary">{esText.heroPetitions}</a>
+            <a href={links.donate} class="btn es-btn-secondary" target="_blank">{esText.heroDonate}</a>
         </div>
     </div>
 </section>
@@ -31,15 +35,15 @@ const pageDescription = "Eric Stafford se postula para el Senado Estatal de Ariz
 <!-- Sobre Eric -->
 <section class="es-section">
     <div class="es-section-inner">
-        <h2>Conozca a Eric Stafford</h2>
+        <h2>{esText.aboutTitle}</h2>
         <div class="es-about-grid">
             <div class="es-about-image">
                 <img src="/assets/eric.webp" alt="Eric Stafford" width="340" height="450" loading="eager" style="max-width:100%;height:auto;" />
             </div>
             <div class="es-about-text">
-                <p>Eric Stafford es un organizador comunitario, defensor de pequeñas empresas y arizonense de toda la vida que se postula para el Senado Estatal para ofrecer <strong>progreso y prosperidad</strong> a todos, rechazando los intereses especiales y legislando con integridad.</p>
-                <p>Nacido y criado en Arizona, la trayectoria de Eric refleja su compromiso con el servicio y los resultados. Su experiencia laboral comenzó cuando obtuvo su <strong>Licencia de Estructura y Motor de Avión</strong> y trabajó como mecánico de aviones y maquinista certificado. Este trabajo le dio una experiencia directa de las dificultades de las familias trabajadoras.</p>
-                <p>La dedicación de Eric a un enfoque ético y humano fue marcada por una tragedia personal: ver a su propia madre sufrir daño cerebral permanente porque el <strong>costo inflado de la medicina</strong> debido a la codicia corporativa hizo que su tratamiento fuera inasequible.</p>
+                <p>{esText.aboutParagraphs[0]}</p>
+                <p>{esText.aboutParagraphs[1]}</p>
+                <p>{esText.aboutParagraphs[2]}</p>
             </div>
         </div>
     </div>
@@ -48,41 +52,41 @@ const pageDescription = "Eric Stafford se postula para el Senado Estatal de Ariz
 <!-- Plataforma -->
 <section class="es-section es-section-alt">
     <div class="es-section-inner">
-        <h2>Mis Prioridades para el LD29</h2>
+        <h2>{esText.prioritiesTitle}</h2>
         <div class="es-platform-grid">
             <div class="es-platform-card">
                 <i class="fas fa-house"></i>
-                <h3>Vivienda Asequible</h3>
-                <p>Luchar contra los alquileres descontrolados, ampliar los programas de asistencia para la compra de vivienda y proteger a los inquilinos contra desalojos injustos.</p>
+                <h3>{esText.priorities[0].title}</h3>
+                <p>{esText.priorities[0].description}</p>
             </div>
             <div class="es-platform-card">
                 <i class="fas fa-hard-hat"></i>
-                <h3>Derechos Laborales</h3>
-                <p>Salarios justos, protecciones para los trabajadores del comercio y la construcción, y restaurar los derechos de negociación colectiva.</p>
+                <h3>{esText.priorities[1].title}</h3>
+                <p>{esText.priorities[1].description}</p>
             </div>
             <div class="es-platform-card">
                 <i class="fas fa-graduation-cap"></i>
-                <h3>Educación y Oficios</h3>
-                <p>Financiar completamente las escuelas públicas, apoyar a los maestros y expandir programas de formación técnica y profesional.</p>
+                <h3>{esText.priorities[2].title}</h3>
+                <p>{esText.priorities[2].description}</p>
             </div>
             <div class="es-platform-card">
                 <i class="fas fa-heart-pulse"></i>
-                <h3>Atención Médica</h3>
-                <p>Reducir los costos de medicamentos recetados, ampliar el acceso a servicios de salud mental y combatir la codicia de las farmacéuticas.</p>
+                <h3>{esText.priorities[3].title}</h3>
+                <p>{esText.priorities[3].description}</p>
             </div>
             <div class="es-platform-card">
                 <i class="fas fa-road"></i>
-                <h3>Infraestructura</h3>
-                <p>Inversión en carreteras, transporte público y crecimiento responsable para las comunidades de rápido crecimiento del Oeste del Valle.</p>
+                <h3>{esText.priorities[4].title}</h3>
+                <p>{esText.priorities[4].description}</p>
             </div>
             <div class="es-platform-card">
                 <i class="fas fa-store"></i>
-                <h3>Pequeñas Empresas</h3>
-                <p>Reducir la burocracia, apoyar a los emprendedores locales y crear oportunidades económicas para las familias del LD29.</p>
+                <h3>{esText.priorities[5].title}</h3>
+                <p>{esText.priorities[5].description}</p>
             </div>
         </div>
         <div class="es-platform-more">
-            <a href="/platform" class="btn es-btn-outline">Ver la Plataforma Completa (Inglés)</a>
+            <a href={links.platform} class="btn es-btn-outline">{esText.platformButton}</a>
         </div>
     </div>
 </section>
@@ -90,52 +94,52 @@ const pageDescription = "Eric Stafford se postula para el Senado Estatal de Ariz
 <!-- Recursos para Votantes -->
 <section class="es-section">
     <div class="es-section-inner">
-        <h2>Recursos para Votantes</h2>
-        <p class="es-section-desc">Todo lo que necesita para hacer escuchar su voz en el LD29.</p>
+        <h2>{esText.voterTitle}</h2>
+        <p class="es-section-desc">{esText.voterDescription}</p>
         <div class="es-voter-grid">
             <div class="es-voter-card">
                 <i class="fas fa-map-location-dot"></i>
-                <h3>¿Estoy en el LD29?</h3>
-                <p>El Distrito Legislativo 29 cubre partes de Surprise, Wittmann, Sun City Grand y el noroeste del Valle Oeste del Condado de Maricopa.</p>
-                <a href="https://www.azleg.gov/findmylegislator/" class="btn es-btn-small" target="_blank" rel="noopener">Buscar Mi Distrito</a>
+                <h3>{esText.voterCards[0].title}</h3>
+                <p>{esText.voterCards[0].description}</p>
+                <a href={links.findMyDistrict} class="btn es-btn-small" target="_blank" rel="noopener">{esText.voterCards[0].button}</a>
             </div>
             <div class="es-voter-card">
                 <i class="fas fa-clipboard-check"></i>
-                <h3>Registrarse para Votar</h3>
-                <p>Puede registrarse en línea. Debe registrarse al menos 29 días antes de la elección.</p>
-                <a href="https://azsos.gov/elections/voting-election/register-vote-or-update-your-current-voter-information" class="btn es-btn-small" target="_blank" rel="noopener">Registrarse en Línea</a>
+                <h3>{esText.voterCards[1].title}</h3>
+                <p>{esText.voterCards[1].description}</p>
+                <a href={links.registerToVote} class="btn es-btn-small" target="_blank" rel="noopener">{esText.voterCards[1].button}</a>
             </div>
             <div class="es-voter-card">
                 <i class="fas fa-envelope-open-text"></i>
-                <h3>Votar Anticipadamente</h3>
-                <p>Arizona facilita votar desde casa. Solicite una boleta anticipada a través de la Lista de Votantes Anticipados Activos (AEVL).</p>
-                <a href="https://azsos.gov/elections/voting-election" class="btn es-btn-small" target="_blank" rel="noopener">Más Información</a>
+                <h3>{esText.voterCards[2].title}</h3>
+                <p>{esText.voterCards[2].description}</p>
+                <a href={links.earlyVoting} class="btn es-btn-small" target="_blank" rel="noopener">{esText.voterCards[2].button}</a>
             </div>
             <div class="es-voter-card">
                 <i class="fas fa-location-dot"></i>
-                <h3>Centros de Votación</h3>
-                <p>El Condado de Maricopa usa Centros de Votación — puede votar en cualquier ubicación el Día de las Elecciones.</p>
-                <a href="https://recorder.maricopa.gov/pollingplace/" class="btn es-btn-small" target="_blank" rel="noopener">Encontrar un Centro</a>
+                <h3>{esText.voterCards[3].title}</h3>
+                <p>{esText.voterCards[3].description}</p>
+                <a href={links.findVoteCenter} class="btn es-btn-small" target="_blank" rel="noopener">{esText.voterCards[3].button}</a>
             </div>
         </div>
         <div class="es-key-dates">
-            <h3>Fechas Importantes para 2026</h3>
+            <h3>{esText.keyDatesTitle}</h3>
             <div class="es-dates-row">
                 <div class="es-date-item">
-                    <strong>4 de agosto, 2026</strong>
-                    <span>Elección Primaria</span>
+                    <strong>{esText.keyDates[0].date}</strong>
+                    <span>{esText.keyDates[0].label}</span>
                 </div>
                 <div class="es-date-item">
-                    <strong>6 de julio, 2026</strong>
-                    <span>Fecha límite de registro (Primaria)</span>
+                    <strong>{esText.keyDates[1].date}</strong>
+                    <span>{esText.keyDates[1].label}</span>
                 </div>
                 <div class="es-date-item">
-                    <strong>3 de noviembre, 2026</strong>
-                    <span>Elección General</span>
+                    <strong>{esText.keyDates[2].date}</strong>
+                    <span>{esText.keyDates[2].label}</span>
                 </div>
                 <div class="es-date-item">
-                    <strong>5 de octubre, 2026</strong>
-                    <span>Fecha límite de registro (General)</span>
+                    <strong>{esText.keyDates[3].date}</strong>
+                    <span>{esText.keyDates[3].label}</span>
                 </div>
             </div>
         </div>
@@ -145,26 +149,26 @@ const pageDescription = "Eric Stafford se postula para el Senado Estatal de Ariz
 <!-- Participa -->
 <section class="es-section es-section-dark">
     <div class="es-section-inner">
-        <h2>Participa</h2>
-        <p class="es-section-desc-light">Únase a nuestro movimiento para poner a las familias del LD29 primero.</p>
+        <h2>{esText.participateTitle}</h2>
+        <p class="es-section-desc-light">{esText.participateDescription}</p>
         <div class="es-involve-grid">
             <div class="es-involve-item">
                 <i class="fas fa-people-group"></i>
-                <h3>Sea Voluntario</h3>
-                <p>Ayude con eventos, toque puertas y haga llamadas.</p>
-                <a href="/get-involved" class="btn es-btn-orange">Ser Voluntario</a>
+                <h3>{esText.participateCards[0].title}</h3>
+                <p>{esText.participateCards[0].description}</p>
+                <a href={links.getInvolved} class="btn es-btn-orange">{esText.participateCards[0].button}</a>
             </div>
             <div class="es-involve-item">
                 <i class="fas fa-sign-hanging"></i>
-                <h3>Señal de Jardín</h3>
-                <p>Solicite una señal gratuita y muestre su apoyo.</p>
-                <a href="/get-involved#yard-signs" class="btn es-btn-orange">Solicitar Señal</a>
+                <h3>{esText.participateCards[1].title}</h3>
+                <p>{esText.participateCards[1].description}</p>
+                <a href={`${links.getInvolved}#yard-signs`} class="btn es-btn-orange">{esText.participateCards[1].button}</a>
             </div>
             <div class="es-involve-item">
                 <i class="fas fa-hand-holding-dollar"></i>
-                <h3>Donar</h3>
-                <p>Eric es candidato de Elecciones Limpias. Cada $5 cuenta.</p>
-                <a href="https://secure.actblue.com/donate/stafford-4-az-1?refcode=directory" class="btn es-btn-orange" target="_blank">Donar Ahora</a>
+                <h3>{esText.participateCards[2].title}</h3>
+                <p>{esText.participateCards[2].description}</p>
+                <a href={links.donate} class="btn es-btn-orange" target="_blank">{esText.participateCards[2].button}</a>
             </div>
         </div>
     </div>
@@ -173,14 +177,14 @@ const pageDescription = "Eric Stafford se postula para el Senado Estatal de Ariz
 <!-- Contacto -->
 <section class="es-section">
     <div class="es-section-inner es-contact-section">
-        <h2>Contáctenos</h2>
-        <p class="es-section-desc">¿Tiene preguntas? Nos encantaría saber de usted.</p>
-        <a href="/contact" class="btn es-btn-outline">Formulario de Contacto (Inglés)</a>
+        <h2>{esText.contactTitle}</h2>
+        <p class="es-section-desc">{esText.contactDescription}</p>
+        <a href={links.contact} class="btn es-btn-outline">{esText.contactButton}</a>
         <div class="es-social-row">
-            <a href="https://www.facebook.com/Stafford4AZ/" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com/stafford4az" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-            <a href="https://x.com/stafford4az" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i></a>
-            <a href="https://www.youtube.com/@Stafford4AZ" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+            <a href={social.facebook} target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+            <a href={social.instagram} target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+            <a href={social.x} target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i></a>
+            <a href={social.youtube} target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
         </div>
     </div>
 </section>

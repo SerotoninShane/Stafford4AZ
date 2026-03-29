@@ -1,8 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import siteText from '../data/site-text.json';
 const pageTitle = "Eric Stafford for Arizona Senate - Endorsements";
 const pageUrl = '/endorsements';
 const pageDescription = "See who is endorsing Eric Stafford for Arizona State Senate in LD29. Unions, community leaders, and organizations standing with working families.";
+const links = siteText.global.links;
+const endorsementsText = siteText.endorsements;
 ---
 
 <BaseLayout 
@@ -12,47 +15,47 @@ const pageDescription = "See who is endorsing Eric Stafford for Arizona State Se
 >
 <section class="mini-hero">
     <div class="mini-hero-content">
-        <h2>Endorsements</h2>
+        <h2>{endorsementsText.heroTitle}</h2>
     </div>
 </section>
 
 <section class="endorsements-page reveal">
     <div class="endorsements-header">
-        <h2>Who Stands With Eric</h2>
-        <p>This campaign is built on the support of working families, union members, small business owners, and community leaders across LD29. We're proud to have the backing of people and organizations who share our vision for Arizona.</p>
+        <h2>{endorsementsText.headerTitle}</h2>
+        <p>{endorsementsText.headerBody}</p>
     </div>
 
     <!-- Endorsement Categories -->
     <div class="endorsement-category">
-        <h3><i class="fas fa-hard-hat"></i> Labor & Trade Organizations</h3>
-        <p class="endorsement-placeholder">Endorsements are being finalized and will be listed here as they are confirmed. If your organization would like to endorse Eric, please <a href="/contact">reach out to our team</a>.</p>
+        <h3><i class="fas fa-hard-hat"></i> {endorsementsText.categories[0].title}</h3>
+    <p class="endorsement-placeholder">{endorsementsText.categories[0].description} <a href={links.contact}>reach out to our team</a>.</p>
     </div>
 
     <div class="endorsement-category">
-        <h3><i class="fas fa-chalkboard-teacher"></i> Education & Educators</h3>
-        <p class="endorsement-placeholder">Coming soon — endorsements from educators and education organizations who believe in fully funding Arizona's public schools.</p>
+        <h3><i class="fas fa-chalkboard-teacher"></i> {endorsementsText.categories[1].title}</h3>
+        <p class="endorsement-placeholder">{endorsementsText.categories[1].description}</p>
     </div>
 
     <div class="endorsement-category">
-        <h3><i class="fas fa-store"></i> Small Business Owners</h3>
-        <p class="endorsement-placeholder">Local business owners across the West Valley are standing with Eric. Full list coming soon.</p>
+        <h3><i class="fas fa-store"></i> {endorsementsText.categories[2].title}</h3>
+        <p class="endorsement-placeholder">{endorsementsText.categories[2].description}</p>
     </div>
 
     <div class="endorsement-category">
-        <h3><i class="fas fa-users"></i> Community Leaders</h3>
-        <p class="endorsement-placeholder">Neighbors, organizers, and local leaders building a grassroots movement. Full list coming soon.</p>
+        <h3><i class="fas fa-users"></i> {endorsementsText.categories[3].title}</h3>
+        <p class="endorsement-placeholder">{endorsementsText.categories[3].description}</p>
     </div>
 
     <div class="endorsement-category">
-        <h3><i class="fas fa-flag-usa"></i> Elected Officials</h3>
-        <p class="endorsement-placeholder">Endorsements from elected officials will be posted here as they are announced.</p>
+        <h3><i class="fas fa-flag-usa"></i> {endorsementsText.categories[4].title}</h3>
+        <p class="endorsement-placeholder">{endorsementsText.categories[4].description}</p>
     </div>
 
     <!-- CTA -->
     <div class="endorsement-cta">
-        <h3>Want to Endorse Eric?</h3>
-        <p>Whether you're a union, an organization, a local business, or an individual community member — your endorsement matters. Let us know you stand with us.</p>
-        <a href="/contact" class="btn endorsement-cta-btn">Submit Your Endorsement</a>
+        <h3>{endorsementsText.ctaTitle}</h3>
+        <p>{endorsementsText.ctaBody}</p>
+        <a href={links.contact} class="btn endorsement-cta-btn">{endorsementsText.ctaButton}</a>
     </div>
 </section>
 
