@@ -61,6 +61,11 @@
       "privacyLabel": "Privacy Policy",
       "termsLabel": "Terms of Service",
       "paidFor": "PAID FOR BY ERIC STAFFORD FOR ARIZONA SENATE",
+      "paidForLines": [
+        "PAID FOR BY ERIC STAFFORD FOR ARIZONA SENATE",
+        "PAID FOR BY ANALISE ORTIZ FOR ARIZONA.",
+        "AUTHORIZED BY ANALISE ORTIZ."
+      ],
       "copyright": "©2026 Eric Stafford for Arizona Senate. All rights reserved."
     },
     "cleanElections": {
