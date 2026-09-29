@@ -6,7 +6,7 @@ import VideoThumbnail from '../components/VideoThumbnail.astro';
 import VideoModal from '../components/VideoModal.astro';
 import DonateButton from '../components/DonateButton.astro';
 import { Image } from 'astro:assets';
-import ericPhoto from '../assets/eric.webp';
+import ericPhoto from '../assets/eric-hero.webp';
 import votePhoto from '../assets/vote.webp';
 import siteText from '../data/site-text.json';
 // Define the unique data for this specific page
@@ -55,7 +55,7 @@ const donateAmounts = [
             </div>
         </div>
         <div class="hero-headshot-container">
-            <Image src={ericPhoto} alt="Eric Stafford Headshot" width={1200} widths={[480, 800, 1200]} sizes="(max-width: 1024px) 400px, 500px" loading="eager" fetchpriority="high" />
+            <Image src={ericPhoto} alt="Eric Stafford smiling with arms crossed" width={1200} widths={[480, 800, 1200]} sizes="(max-width: 1024px) 400px, 500px" loading="eager" fetchpriority="high" />
         </div>
     </div>
 </section>
