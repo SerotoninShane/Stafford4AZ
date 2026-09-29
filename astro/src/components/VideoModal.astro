@@ -1,5 +1,7 @@
 ---
 const { videoUrl = "" } = Astro.props;
+// Local files (e.g. /assets/campaign-video.mp4) play in a <video> tag; anything else is treated as an embed URL
+const isFile = /\.(mp4|webm)$/i.test(videoUrl);
 ---
 <!-- https://www.youtube.com/embed/acwCoMV8jTE?autoplay=1&start=3 -->
 
@@ -7,7 +9,9 @@ const { videoUrl = "" } = Astro.props;
     <span class="close-modal">&times;</span>
     <div class="video-modal-content">
         <div class="video-wrapper">
-            <iframe id="videoPlayer" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            {isFile
+                ? <video id="videoPlayer" src={videoUrl} preload="none" controls playsinline></video>
+                : <iframe id="videoPlayer" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>}
         </div>
     </div>
 </div>
@@ -63,18 +67,21 @@ const { videoUrl = "" } = Astro.props;
     overflow: hidden;
 }
 
-.video-wrapper iframe {
+.video-wrapper iframe,
+.video-wrapper video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    border: 0;
+    background: #000;
 }
 </style>
 
 <script>
     const videoModal = document.getElementById('videoModal')!;
-    const videoPlayer = document.getElementById('videoPlayer')! as HTMLIFrameElement;
+    const videoPlayer = document.getElementById('videoPlayer') as HTMLIFrameElement | HTMLVideoElement;
     const closeModal = document.querySelector('.close-modal')!;
     const videoUrl = videoModal.dataset.videoUrl;
 
@@ -87,14 +94,18 @@ const { videoUrl = "" } = Astro.props;
     function openModal() {
         // 1. Calculate scrollbar width
         const scrollbarWidth = getScrollbarWidth();
-        
+
         // 2. Lock body scroll and compensate for scrollbar removal
         document.body.style.paddingRight = scrollbarWidth + 'px'; // <-- ADDED: Compensates for content shift
         document.body.style.overflow = 'hidden';                 // <-- Locks the scroll
-        
-        // 3. Show modal and start video
+
+        // 3. Show modal and start video (a local file only starts downloading here, thanks to preload="none")
         videoModal.style.display = 'block';
-        videoPlayer.src = videoUrl!;
+        if (videoPlayer instanceof HTMLVideoElement) {
+            videoPlayer.play().catch(() => {});
+        } else {
+            videoPlayer.src = videoUrl!;
+        }
     }
 
     // Close modal
@@ -102,10 +113,15 @@ const { videoUrl = "" } = Astro.props;
         // 1. Reset body styles to unlock scroll
         document.body.style.overflow = '';
         document.body.style.paddingRight = ''; // <-- ADDED: Resets the padding
-        
+
         // 2. Hide modal and stop video
         videoModal.style.display = 'none';
-        videoPlayer.src = '';
+        if (videoPlayer instanceof HTMLVideoElement) {
+            videoPlayer.pause();
+            videoPlayer.currentTime = 0;
+        } else {
+            videoPlayer.src = '';
+        }
     }
 
     // Event listeners

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import siteText from '../data/site-text.json';
+import Icon from '../components/Icon.astro';
 const pageTitle = "Page Not Found - Eric Stafford for Arizona Senate";
 const pageUrl = '/404';
 const pageDescription = "The page you're looking for doesn't exist. Return to Eric Stafford's campaign website.";
@@ -16,7 +17,7 @@ const notFoundText = siteText.notFound;
 <section class="error-page">
     <div class="error-content">
         <div class="error-icon">
-            <i class="fas fa-map-signs"></i>
+            <Icon name="signs-post" />
         </div>
         <h1>404</h1>
         <h2>{notFoundText.heading}</h2>

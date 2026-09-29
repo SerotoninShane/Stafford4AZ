@@ -1,8 +1,10 @@
 ---
 // Import the layout
 import BaseLayout from '../layouts/BaseLayout.astro';
+import AttributionFields from '../components/AttributionFields.astro';
 import Schedule from '../components/Calendar.astro';
 import siteText from '../data/site-text.json';
+import Icon from '../components/Icon.astro';
 // Define the unique data for this specific page
 const pageTitle = "Eric Stafford for Arizona Senate - Events";
 const pageUrl = '/events';
@@ -18,7 +20,7 @@ const eventsForm = eventsText.form;
 >
 <section class="mini-hero">
     <div class="mini-hero-content">
-        <h2>{eventsText.heroTitle}</h2>
+        <h1>{eventsText.heroTitle}</h1>
     </div>
 </section>
 
@@ -43,28 +45,28 @@ const eventsForm = eventsText.form;
             <p>{eventsText.volunteerBody}</p>
             <ul class="volunteer-ways">
                 <li>
-                    <i class="fas fa-door-open"></i>
+                    <Icon name="door-open" />
                     <div>
                         <strong>{eventsText.volunteerWays[0].title}</strong>
                         <span>{eventsText.volunteerWays[0].description}</span>
                     </div>
                 </li>
                 <li>
-                    <i class="fas fa-phone"></i>
+                    <Icon name="phone" />
                     <div>
                         <strong>{eventsText.volunteerWays[1].title}</strong>
                         <span>{eventsText.volunteerWays[1].description}</span>
                     </div>
                 </li>
                 <li>
-                    <i class="fas fa-signs-post"></i>
+                    <Icon name="signs-post" />
                     <div>
                         <strong>{eventsText.volunteerWays[2].title}</strong>
                         <span>{eventsText.volunteerWays[2].description}</span>
                     </div>
                 </li>
                 <li>
-                    <i class="fas fa-people-group"></i>
+                    <Icon name="people-group" />
                     <div>
                         <strong>{eventsText.volunteerWays[3].title}</strong>
                         <span>{eventsText.volunteerWays[3].description}</span>
@@ -76,6 +78,7 @@ const eventsForm = eventsText.form;
             <h3>{eventsText.volunteerFormTitle}</h3>
             <form class="volunteer-form" name="volunteer-signup" method="POST" data-netlify="true">
                 <input type="hidden" name="form-name" value="volunteer-signup">
+                <AttributionFields />
                 <div class="form-group">
                     <label for="vol-name">{eventsForm.nameLabel}</label>
                     <input type="text" id="vol-name" name="name" required>

@@ -3,35 +3,31 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import HeadMeta from '../components/HeadMeta.astro'; 
 import CleanElectrions from '../components/CleanElectrions.astro';
+import Analytics from '../components/Analytics.astro';
 import siteText from '../data/site-text.json';
 
-// Define props for the layout
-interface Props {
-    title: string;
-    canonicalUrl: string; // Add canonicalUrl to layout props
-    description?: string; // Add description to layout props
-}
+import type { Props as HeadMetaProps } from '../components/HeadMeta.astro';
 
-// Destructure props (now every page must provide a title and canonicalUrl)
-const { title, canonicalUrl, description } = Astro.props; 
+// Every page must provide a title and canonicalUrl; the rest (lang, schema,
+// breadcrumbs, ...) are optional SEO settings passed straight to HeadMeta.
+type Props = HeadMetaProps & { canonicalUrl: string };
+
+const headProps = Astro.props;
 const globalText = siteText.global;
 ---
 
 <!doctype html>
-<html lang="en">
-    <HeadMeta 
-        title={title} 
-        canonicalUrl={canonicalUrl} 
-        description={description}
-    />
+<html lang={headProps.lang ?? 'en'}>
+    <HeadMeta {...headProps} />
     <body>
+    <Analytics />
     <a href="#main-content" class="skip-to-content">{globalText.baseLayout.skipToContent}</a>
         <Header transition:persist /> 
         <main id="main-content">
             <slot /> 
         </main>
         <Footer transition:persist /> 
-        <CleanElectrions transition:persist />
+        {globalText.cleanElections.popupEnabled && <CleanElectrions transition:persist />}
 
         <style is:global>
             /* Scroll reveal animations */

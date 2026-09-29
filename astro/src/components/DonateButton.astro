@@ -1,0 +1,27 @@
+---
+// Renders a donate link, or the same button greyed out and unclickable when
+// global.donations.open is false in site-text.json.
+import siteText from '../data/site-text.json';
+
+interface Props {
+    label: string;
+    href?: string;
+    class?: string;
+    ariaLabel?: string;
+    [key: string]: unknown; // passes through the parent's scoped-style attribute
+}
+
+const donations = siteText.global.donations;
+const {
+    label,
+    href = siteText.global.links.donate,
+    class: className,
+    ariaLabel,
+    ...rest
+} = Astro.props;
+---
+{donations.open ? (
+    <a href={href} class={className} target="_blank" rel="noopener" aria-label={ariaLabel} {...rest}>{label}</a>
+) : (
+    <span class:list={[className, 'donate-closed']} role="link" aria-disabled="true" title={donations.closedNote} {...rest}>{label}</span>
+)}

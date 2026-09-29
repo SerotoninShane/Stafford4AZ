@@ -1,0 +1,335 @@
+---
+// Layout for text-heavy SEO pages (LD29 guide, community pages, news posts):
+// the site's usual mini-hero, breadcrumbs, a readable article column, and a
+// closing call to action with links to every LD29 community page.
+import BaseLayout from './BaseLayout.astro';
+import type { Props as HeadMetaProps } from '../components/HeadMeta.astro';
+import siteText from '../data/site-text.json';
+import ld29 from '../data/ld29.json';
+
+type Props = HeadMetaProps & { canonicalUrl: string; heading: string };
+
+const { heading, ...headProps } = Astro.props;
+const breadcrumbs = headProps.breadcrumbs ?? [];
+const links = siteText.global.links;
+---
+
+<BaseLayout {...headProps}>
+<section class="mini-hero content-hero">
+    <div class="mini-hero-content">
+        <h1>{heading}</h1>
+    </div>
+</section>
+
+{breadcrumbs.length > 0 && (
+    <nav class="content-breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+            <li><a href="/">Home</a></li>
+            {breadcrumbs.map((crumb, i) => (
+                <li>
+                    {i === breadcrumbs.length - 1
+                        ? <span aria-current="page">{crumb.name}</span>
+                        : <a href={crumb.path}>{crumb.name}</a>}
+                </li>
+            ))}
+        </ol>
+    </nav>
+)}
+
+<article class="content-page">
+    <slot />
+</article>
+
+<section class="content-cta">
+    <div class="content-cta-inner">
+        <h2>Eric Stafford for Arizona State Senate, LD29</h2>
+        <p>Eric is a lifelong Arizonan, tradesman and Clean Elections candidate, and the Democratic nominee running to put West Valley families first. Election Day is Tuesday, November 3, 2026.</p>
+        <div class="content-cta-buttons">
+            <a href={links.platform} class="btn">Read Eric's Platform</a>
+            <a href={links.getInvolved} class="btn">Get Involved</a>
+            <a href={links.findMyDistrict} class="btn" target="_blank" rel="noopener">Am I in LD29?</a>
+        </div>
+        <nav class="content-cta-communities" aria-label="LD29 communities">
+            <a href="/ld29">LD29 Guide</a>
+            {ld29.communities.map((c) => <a href={`/ld29/${c.slug}`}>{c.name}</a>)}
+            <a href="/who-is-my-state-senator">Who Is My State Senator?</a>
+            <a href="/news">News</a>
+        </nav>
+    </div>
+</section>
+</BaseLayout>
+
+<style is:global>
+.content-hero h1 {
+    font-size: 1.5em;
+    line-height: 1.2;
+}
+
+.content-breadcrumbs {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 20px 24px 0;
+    font-size: 14px;
+}
+
+.content-breadcrumbs ol {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.content-breadcrumbs li + li::before {
+    content: '›';
+    margin-right: 6px;
+    opacity: 0.5;
+}
+
+.content-breadcrumbs a {
+    color: var(--main-blue);
+    opacity: 0.75;
+}
+
+.content-page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 30px 24px 70px;
+    color: var(--main-blue);
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+.content-page > * + * {
+    margin-top: 1em;
+}
+
+.content-page h2 {
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.25;
+    text-transform: uppercase;
+    margin-top: 2em;
+}
+
+.content-page h3 {
+    font-size: 20px;
+    font-weight: 800;
+    margin-top: 1.6em;
+}
+
+.content-page ul,
+.content-page ol {
+    padding-left: 1.4em;
+}
+
+.content-page li + li {
+    margin-top: 0.4em;
+}
+
+.content-page a {
+    color: var(--main-blue);
+    font-weight: 600;
+    text-decoration-color: var(--bg-orange);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
+}
+
+.content-page .lead {
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+.content-page .content-meta {
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+.content-callout {
+    background: rgba(254, 166, 85, 0.12);
+    border-left: 5px solid var(--bg-orange);
+    padding: 18px 22px;
+}
+
+.content-callout > * + * {
+    margin-top: 0.6em;
+}
+
+.content-page .btn-blue,
+.content-page a.btn-blue {
+    border-color: var(--main-blue);
+    color: var(--main-blue);
+    font-size: 17px;
+    text-decoration: none;
+    white-space: normal;
+}
+
+.content-page .btn-blue:hover {
+    background: var(--main-blue);
+    color: var(--off-white);
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 16px;
+}
+
+.content-card {
+    display: block;
+    border: 2px solid rgba(23, 60, 98, 0.15);
+    padding: 18px 20px;
+    text-decoration: none !important;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.content-card:hover {
+    border-color: var(--bg-orange);
+    transform: translateY(-2px);
+}
+
+.content-card strong {
+    display: block;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.content-card span {
+    display: block;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.5;
+    margin-top: 4px;
+}
+
+.content-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+}
+
+.content-table th,
+.content-table td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(23, 60, 98, 0.15);
+    vertical-align: top;
+}
+
+.content-table th {
+    font-weight: 800;
+}
+
+.content-dates {
+    list-style: none;
+    padding-left: 0 !important;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+}
+
+.content-dates li {
+    margin: 0 !important;
+    border-top: 4px solid var(--bg-orange);
+    padding-top: 8px;
+}
+
+.content-dates strong {
+    display: block;
+    font-size: 18px;
+}
+
+.content-faq details {
+    border-bottom: 1px solid rgba(23, 60, 98, 0.15);
+    padding: 14px 0;
+}
+
+.content-faq summary {
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.content-faq details p {
+    margin-top: 8px;
+}
+
+.content-sources {
+    font-size: 15px;
+}
+
+.content-cta {
+    background: linear-gradient(135deg, var(--main-blue), #122940);
+    color: var(--off-white);
+    text-align: center;
+}
+
+.content-cta-inner {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.content-cta h2 {
+    font-size: 30px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.content-cta p {
+    font-size: 17px;
+    line-height: 1.7;
+    opacity: 0.9;
+}
+
+.content-cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin: 28px 0;
+}
+
+.content-cta-communities {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 18px;
+    font-size: 15px;
+}
+
+.content-cta-communities a {
+    color: var(--off-white);
+    opacity: 0.8;
+}
+
+.content-cta-communities a:hover {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .content-page {
+        font-size: 16px;
+        padding-top: 20px;
+    }
+
+    .content-page h2 {
+        font-size: 22px;
+    }
+
+    .content-page .lead {
+        font-size: 18px;
+    }
+
+    .content-cta h2 {
+        font-size: 24px;
+    }
+
+    .content-cta-buttons .btn {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .content-table {
+        font-size: 15px;
+    }
+}
+</style>

@@ -1,23 +1,42 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import DonateButton from '../components/DonateButton.astro';
+import ericPhoto from '../assets/eric.webp';
 import siteText from '../data/site-text.json';
+import Icon from '../components/Icon.astro';
 const pageTitle = "Eric Stafford para el Senado de Arizona - LD29 | Los Arizonenses Primero";
 const pageUrl = '/es';
-const pageDescription = "Eric Stafford se postula para el Senado Estatal de Arizona por el LD29. Vivienda asequible, salarios justos, escuelas sólidas — los arizonenses primero.";
+const pageDescription = "Eric Stafford, candidato demócrata al Senado Estatal de Arizona por el LD29. Vivienda asequible, salarios justos, escuelas sólidas — los arizonenses primero.";
 const links = siteText.global.links;
 const social = siteText.global.social;
 const esText = siteText.es;
+
+// Google Translate's view of an English page, for Spanish readers who want the rest of the site.
+const translated = (path: string) =>
+    `https://translate.google.com/translate?sl=en&tl=es&hl=es&u=${encodeURIComponent(`https://stafford4az.com${path}`)}`;
 ---
 
 <BaseLayout 
     title={pageTitle} 
     canonicalUrl={pageUrl} 
     description={pageDescription}
+    lang="es"
+    alternates={[
+        { hreflang: 'en', path: '/' },
+        { hreflang: 'es', path: '/es' },
+        { hreflang: 'x-default', path: '/' },
+    ]}
 >
 
 <!-- Spanish Language Notice -->
 <div class="es-lang-bar">
-    <p>{esText.langNotice} <a href={links.home}>{esText.viewEnglish}</a></p>
+    <p>
+        {esText.langNotice}
+        <a href={translated('/')} target="_blank" rel="noopener">{esText.translateSiteLabel}</a>
+        <span class="es-lang-sep" aria-hidden="true">·</span>
+        <a href={links.home} lang="en">{esText.viewEnglish}</a>
+    </p>
 </div>
 
 <!-- Hero -->
@@ -27,7 +46,7 @@ const esText = siteText.es;
         <p class="es-hero-sub">{esText.heroSubtitle}</p>
         <div class="es-hero-buttons">
             <a href={links.spanishPetitions} class="btn es-btn-primary">{esText.heroPetitions}</a>
-            <a href={links.donate} class="btn es-btn-secondary" target="_blank">{esText.heroDonate}</a>
+            <DonateButton class="btn es-btn-secondary" label={esText.heroDonate} />
         </div>
     </div>
 </section>
@@ -38,7 +57,7 @@ const esText = siteText.es;
         <h2>{esText.aboutTitle}</h2>
         <div class="es-about-grid">
             <div class="es-about-image">
-                <img src="/assets/eric.webp" alt="Eric Stafford" width="340" height="450" loading="eager" style="max-width:100%;height:auto;" />
+                <Image src={ericPhoto} alt="Eric Stafford" width={700} widths={[400, 700]} sizes="(max-width: 768px) 280px, 340px" loading="eager" style="max-width:100%;height:auto;" />
             </div>
             <div class="es-about-text">
                 <p>{esText.aboutParagraphs[0]}</p>
@@ -55,38 +74,38 @@ const esText = siteText.es;
         <h2>{esText.prioritiesTitle}</h2>
         <div class="es-platform-grid">
             <div class="es-platform-card">
-                <i class="fas fa-house"></i>
+                <Icon name="house" />
                 <h3>{esText.priorities[0].title}</h3>
                 <p>{esText.priorities[0].description}</p>
             </div>
             <div class="es-platform-card">
-                <i class="fas fa-hard-hat"></i>
+                <Icon name="helmet-safety" />
                 <h3>{esText.priorities[1].title}</h3>
                 <p>{esText.priorities[1].description}</p>
             </div>
             <div class="es-platform-card">
-                <i class="fas fa-graduation-cap"></i>
+                <Icon name="graduation-cap" />
                 <h3>{esText.priorities[2].title}</h3>
                 <p>{esText.priorities[2].description}</p>
             </div>
             <div class="es-platform-card">
-                <i class="fas fa-heart-pulse"></i>
+                <Icon name="heart-pulse" />
                 <h3>{esText.priorities[3].title}</h3>
                 <p>{esText.priorities[3].description}</p>
             </div>
             <div class="es-platform-card">
-                <i class="fas fa-road"></i>
+                <Icon name="road" />
                 <h3>{esText.priorities[4].title}</h3>
                 <p>{esText.priorities[4].description}</p>
             </div>
             <div class="es-platform-card">
-                <i class="fas fa-store"></i>
+                <Icon name="store" />
                 <h3>{esText.priorities[5].title}</h3>
                 <p>{esText.priorities[5].description}</p>
             </div>
         </div>
         <div class="es-platform-more">
-            <a href={links.platform} class="btn es-btn-outline">{esText.platformButton}</a>
+            <a href={translated(links.platform)} class="btn es-btn-outline" target="_blank" rel="noopener">{esText.platformButton}</a>
         </div>
     </div>
 </section>
@@ -98,25 +117,25 @@ const esText = siteText.es;
         <p class="es-section-desc">{esText.voterDescription}</p>
         <div class="es-voter-grid">
             <div class="es-voter-card">
-                <i class="fas fa-map-location-dot"></i>
+                <Icon name="map-location-dot" />
                 <h3>{esText.voterCards[0].title}</h3>
                 <p>{esText.voterCards[0].description}</p>
                 <a href={links.findMyDistrict} class="btn es-btn-small" target="_blank" rel="noopener">{esText.voterCards[0].button}</a>
             </div>
             <div class="es-voter-card">
-                <i class="fas fa-clipboard-check"></i>
+                <Icon name="clipboard-check" />
                 <h3>{esText.voterCards[1].title}</h3>
                 <p>{esText.voterCards[1].description}</p>
                 <a href={links.registerToVote} class="btn es-btn-small" target="_blank" rel="noopener">{esText.voterCards[1].button}</a>
             </div>
             <div class="es-voter-card">
-                <i class="fas fa-envelope-open-text"></i>
+                <Icon name="envelope-open-text" />
                 <h3>{esText.voterCards[2].title}</h3>
                 <p>{esText.voterCards[2].description}</p>
                 <a href={links.earlyVoting} class="btn es-btn-small" target="_blank" rel="noopener">{esText.voterCards[2].button}</a>
             </div>
             <div class="es-voter-card">
-                <i class="fas fa-location-dot"></i>
+                <Icon name="location-dot" />
                 <h3>{esText.voterCards[3].title}</h3>
                 <p>{esText.voterCards[3].description}</p>
                 <a href={links.findVoteCenter} class="btn es-btn-small" target="_blank" rel="noopener">{esText.voterCards[3].button}</a>
@@ -153,22 +172,22 @@ const esText = siteText.es;
         <p class="es-section-desc-light">{esText.participateDescription}</p>
         <div class="es-involve-grid">
             <div class="es-involve-item">
-                <i class="fas fa-people-group"></i>
+                <Icon name="people-group" />
                 <h3>{esText.participateCards[0].title}</h3>
                 <p>{esText.participateCards[0].description}</p>
                 <a href={links.getInvolved} class="btn es-btn-orange">{esText.participateCards[0].button}</a>
             </div>
             <div class="es-involve-item">
-                <i class="fas fa-sign-hanging"></i>
+                <Icon name="sign-hanging" />
                 <h3>{esText.participateCards[1].title}</h3>
                 <p>{esText.participateCards[1].description}</p>
                 <a href={`${links.getInvolved}#yard-signs`} class="btn es-btn-orange">{esText.participateCards[1].button}</a>
             </div>
             <div class="es-involve-item">
-                <i class="fas fa-hand-holding-dollar"></i>
+                <Icon name="hand-holding-dollar" />
                 <h3>{esText.participateCards[2].title}</h3>
                 <p>{esText.participateCards[2].description}</p>
-                <a href={links.donate} class="btn es-btn-orange" target="_blank">{esText.participateCards[2].button}</a>
+                <DonateButton class="btn es-btn-orange" label={esText.participateCards[2].button} />
             </div>
         </div>
     </div>
@@ -181,10 +200,10 @@ const esText = siteText.es;
         <p class="es-section-desc">{esText.contactDescription}</p>
         <a href={links.contact} class="btn es-btn-outline">{esText.contactButton}</a>
         <div class="es-social-row">
-            <a href={social.facebook} target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
-            <a href={social.instagram} target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-            <a href={social.x} target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i></a>
-            <a href={social.youtube} target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+            <a href={social.facebook} target="_blank" rel="noopener"><Icon name="facebook" /></a>
+            <a href={social.instagram} target="_blank" rel="noopener"><Icon name="instagram" /></a>
+            <a href={social.x} target="_blank" rel="noopener"><Icon name="x-twitter" /></a>
+            <a href={social.youtube} target="_blank" rel="noopener"><Icon name="youtube" /></a>
         </div>
     </div>
 </section>
@@ -206,6 +225,11 @@ const esText = siteText.es;
     color: var(--off-white);
     text-decoration: underline;
     margin-left: 6px;
+}
+
+.es-lang-sep {
+    margin-left: 6px;
+    opacity: 0.6;
 }
 
 /* Hero */
@@ -417,6 +441,7 @@ const esText = siteText.es;
     border-color: var(--main-blue) !important;
     color: var(--main-blue) !important;
     padding: 12px 28px;
+    white-space: normal; /* long Spanish labels must wrap on phones */
 }
 
 .es-btn-outline:hover {

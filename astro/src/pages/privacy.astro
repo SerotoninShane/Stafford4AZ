@@ -17,7 +17,7 @@ const privacyText = siteText.privacy;
 >
 <section class="mini-hero">
     <div class="mini-hero-content">
-        <h2>{privacyText.heroTitle}</h2>
+        <h1>{privacyText.heroTitle}</h1>
     </div>
 </section>
 
@@ -39,6 +39,13 @@ const privacyText = siteText.privacy;
                 <ul>
                     {section.list.map((item) => (
                         <li>{item}</li>
+                    ))}
+                </ul>
+            )}
+            {'links' in section && section.links && (
+                <ul class="legal-links">
+                    {section.links.map((link) => (
+                        <li><a href={link.url} target="_blank" rel="noopener">{link.label}</a></li>
                     ))}
                 </ul>
             )}

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import siteText from '../data/site-text.json';
+import Icon from '../components/Icon.astro';
 const pageTitle = "Eric Stafford for Arizona Senate - Voter Resources";
 const pageUrl = '/voter-resources';
 const pageDescription = "Find voter registration info, check if you're in LD29, locate your polling place, and learn about early voting in Arizona.";
@@ -15,7 +16,7 @@ const voterText = siteText.voterResources;
 >
 <section class="mini-hero">
     <div class="mini-hero-content">
-        <h2>{voterText.heroTitle}</h2>
+        <h1>{voterText.heroTitle}</h1>
     </div>
 </section>
 
@@ -29,7 +30,7 @@ const voterText = siteText.voterResources;
         <!-- Am I in LD29? -->
         <div class="voter-card">
             <div class="voter-card-icon">
-                <i class="fas fa-map-location-dot"></i>
+                <Icon name="map-location-dot" />
             </div>
             <h3>{voterText.cards.district.title}</h3>
             <p>{voterText.cards.district.body}</p>
@@ -39,7 +40,7 @@ const voterText = siteText.voterResources;
         <!-- Register to Vote -->
         <div class="voter-card">
             <div class="voter-card-icon">
-                <i class="fas fa-clipboard-check"></i>
+                <Icon name="clipboard-check" />
             </div>
             <h3>{voterText.cards.register.title}</h3>
             <p>{voterText.cards.register.body}</p>
@@ -49,7 +50,7 @@ const voterText = siteText.voterResources;
         <!-- Check Registration -->
         <div class="voter-card">
             <div class="voter-card-icon">
-                <i class="fas fa-user-check"></i>
+                <Icon name="user-check" />
             </div>
             <h3>{voterText.cards.check.title}</h3>
             <p>{voterText.cards.check.body}</p>
@@ -59,7 +60,7 @@ const voterText = siteText.voterResources;
         <!-- Early Voting -->
         <div class="voter-card">
             <div class="voter-card-icon">
-                <i class="fas fa-envelope-open-text"></i>
+                <Icon name="envelope-open-text" />
             </div>
             <h3>{voterText.cards.early.title}</h3>
             <p>{voterText.cards.early.body}</p>
@@ -69,7 +70,7 @@ const voterText = siteText.voterResources;
         <!-- Polling Locations -->
         <div class="voter-card">
             <div class="voter-card-icon">
-                <i class="fas fa-location-dot"></i>
+                <Icon name="location-dot" />
             </div>
             <h3>{voterText.cards.polling.title}</h3>
             <p>{voterText.cards.polling.body}</p>
@@ -79,7 +80,7 @@ const voterText = siteText.voterResources;
         <!-- Key Dates -->
         <div class="voter-card voter-card-highlight">
             <div class="voter-card-icon">
-                <i class="fas fa-calendar-day"></i>
+                <Icon name="calendar-day" />
             </div>
             <h3>{voterText.cards.dates.title}</h3>
             <ul class="key-dates-list">

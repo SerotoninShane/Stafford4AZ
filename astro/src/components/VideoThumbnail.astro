@@ -1,5 +1,9 @@
 ---
-const { thumbnail = "/assets/thumbnail.webp", alt = "Video Thumbnail" } = Astro.props;
+import { Image } from 'astro:assets';
+import defaultThumbnail from '../assets/thumbnail.webp';
+import Icon from './Icon.astro';
+
+const { thumbnail = defaultThumbnail, alt = "Video Thumbnail" } = Astro.props;
 ---
 
 <style>
@@ -52,7 +56,7 @@ const { thumbnail = "/assets/thumbnail.webp", alt = "Video Thumbnail" } = Astro.
 .play-button:hover {
   transform: translate(-50%, -50%) scale(1.15);
   box-shadow: 0 8px 40px rgba(246, 76, 45, 0.6);
-``}
+}
 
 @media (max-width: 1024px) {
   .video-thumbnail-container {
@@ -94,9 +98,9 @@ const { thumbnail = "/assets/thumbnail.webp", alt = "Video Thumbnail" } = Astro.
 
 
 <div class="video-thumbnail-container" id="videoThumbnail">
-  <img src={thumbnail} alt={alt} />
+  <Image src={thumbnail} alt={alt} width={2000} widths={[800, 1400, 2000]} sizes="(max-width: 1024px) 750px, 1400px" loading="lazy" />
   <div class="play-button">
-    <i class="fas fa-play"></i>
+    <Icon name="play" />
   </div>
 </div>
 

@@ -1,6 +1,7 @@
 ---
 // Import the layout
 import BaseLayout from '../layouts/BaseLayout.astro';
+import AttributionFields from '../components/AttributionFields.astro';
 import siteText from '../data/site-text.json';
 // Define the unique data for this specific page
 const pageTitle = "Eric Stafford for Arizona Senate - Contact";
@@ -15,10 +16,12 @@ const contactForm = contactText.form;
     title={pageTitle} 
     canonicalUrl={pageUrl} 
     description={pageDescription}
+    pageType="ContactPage"
+    breadcrumbs={[{ name: 'Contact', path: '/contact' }]}
 >
 <section class="mini-hero">
     <div class="mini-hero-content">
-        <h2>{contactText.heroTitle}</h2>
+        <h1>{contactText.heroTitle}</h1>
     </div>
 </section>
 
@@ -33,6 +36,7 @@ const contactForm = contactText.form;
     <div class="about-content">
     <form class="campaign-form" name="contact-form" method="POST" data-netlify="true" action={links.thankYou}>
             <input type="hidden" name="form-name" value="contact-form">
+            <AttributionFields />
 
             <div class="form-row">
                 <div class="form-group">

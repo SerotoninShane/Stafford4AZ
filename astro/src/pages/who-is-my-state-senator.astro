@@ -1,0 +1,86 @@
+---
+import ContentLayout from '../layouts/ContentLayout.astro';
+import siteText from '../data/site-text.json';
+import ld29 from '../data/ld29.json';
+
+const pageTitle = 'Who Is My Arizona State Senator? West Valley Guide (Surprise, Goodyear, Avondale)';
+const pageUrl = '/who-is-my-state-senator';
+const pageDescription = 'Find your Arizona state senator in the West Valley. See which parts of Surprise, El Mirage, Glendale, Goodyear, Litchfield Park, Avondale and nearby cities are in LD29.';
+const links = siteText.global.links;
+const d = ld29.district;
+
+const lookup = [
+    { place: 'Surprise', status: 'Mostly in LD29, including Sun City Grand', href: '/ld29/surprise' },
+    { place: 'El Mirage', status: 'In LD29', href: '/ld29/el-mirage' },
+    { place: 'Glendale', status: 'Western Glendale near Luke Air Force Base is in LD29; most of the city is in other districts', href: '/ld29/glendale' },
+    { place: 'Goodyear', status: 'Split among several districts; part of the city is in LD29', href: '/ld29/goodyear' },
+    { place: 'Litchfield Park', status: 'In LD29', href: '/ld29/litchfield-park' },
+    { place: 'Wittmann & Morristown', status: 'In LD29', href: '/ld29/wittmann' },
+    { place: 'Peoria', status: 'A small part is in LD29; most of the city is in other districts', href: '' },
+    { place: 'Avondale, Tolleson & Buckeye', status: 'Mostly in neighboring districts', href: '' },
+    { place: 'Sun City, Youngtown & Sun City West', status: 'Check your address; nearby areas are split between LD29 and neighboring districts', href: '' },
+];
+
+// Reuse the district FAQ answers that fit this page.
+const faqItems = ld29.faq.filter((item) =>
+    ['What cities are in Arizona Legislative District 29?', 'Who is the current state senator for LD29?', 'Is Avondale in LD29?', 'How long is an Arizona State Senate term?'].includes(item.question)
+);
+const faqSchema = {
+    '@type': 'FAQPage',
+    '@id': `https://stafford4az.com${pageUrl}#faq`,
+    mainEntity: faqItems.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+};
+---
+
+<ContentLayout
+    title={pageTitle}
+    canonicalUrl={pageUrl}
+    description={pageDescription}
+    heading="Who Is My State Senator?"
+    breadcrumbs={[{ name: 'Who Is My State Senator?', path: pageUrl }]}
+    schema={[faqSchema]}
+>
+    <p class="lead">Arizona has 30 legislative districts, and each one elects one state senator and two state representatives every two years. Your senator depends on your legislative district, not your city, because district lines don't follow city limits.</p>
+
+    <div class="content-callout">
+        <p><strong>The fastest way to know for sure:</strong> enter your home address in the Arizona Legislature's official lookup.</p>
+        <p><a href={links.findMyDistrict} class="btn btn-blue" target="_blank" rel="noopener">Find My Legislator</a></p>
+    </div>
+
+    <h2>West Valley cities and LD29</h2>
+    <p>Legislative District 29 (LD29) covers much of the northwest West Valley. Here's a quick guide for nearby communities.</p>
+    <table class="content-table">
+        <thead>
+            <tr><th scope="col">Community</th><th scope="col">Legislative district</th></tr>
+        </thead>
+        <tbody>
+            {lookup.map((row) => (
+                <tr>
+                    <th scope="row">{row.href ? <a href={row.href}>{row.place}</a> : row.place}</th>
+                    <td>{row.status}</td>
+                </tr>
+            ))}
+        </tbody>
+    </table>
+
+    <h2>If you live in LD29</h2>
+    <p>Your current state senator is {d.senator}, and your state representatives are {d.representatives.join(' and ')}. On Tuesday, November 3, 2026, you'll choose your next state senator. The race is between Democratic nominee <a href={links.about}>Eric Stafford</a> and Republican incumbent Sen. {d.senator}.</p>
+    <p>Eric is a lifelong Arizonan, tradesman and Clean Elections candidate who takes no PAC or dark money. <a href={links.platform}>See where he stands</a> on housing costs, wages, public schools, healthcare and growth in the West Valley.</p>
+
+    <h2>If you live outside LD29</h2>
+    <p>You can still help elect a senator who will put West Valley families first. <a href={links.getInvolved}>Volunteer with the campaign</a>, knock doors, make calls, or tell a friend in LD29 about Eric.</p>
+
+    <h2>Common questions</h2>
+    <div class="content-faq">
+        {faqItems.map((item) => (
+            <details>
+                <summary>{item.question}</summary>
+                <p>{item.answer}</p>
+            </details>
+        ))}
+    </div>
+</ContentLayout>

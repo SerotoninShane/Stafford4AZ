@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import siteText from '../data/site-text.json';
+import Icon from '../components/Icon.astro';
 const pageTitle = "Eric Stafford for Arizona Senate - Transparency";
 const pageUrl = '/transparency';
 const pageDescription = "Campaign finance transparency for Eric Stafford's Arizona Senate LD29 campaign. Clean Elections participant, open books, accountable to voters.";
@@ -15,7 +16,7 @@ const transparencyText = siteText.transparency;
 >
 <section class="mini-hero">
     <div class="mini-hero-content">
-        <h2>{transparencyText.heroTitle}</h2>
+        <h1>{transparencyText.heroTitle}</h1>
     </div>
 </section>
 
@@ -28,7 +29,7 @@ const transparencyText = siteText.transparency;
     <!-- Clean Elections -->
     <div class="transparency-section">
         <div class="transparency-icon">
-            <i class="fas fa-award"></i>
+            <Icon name="award" />
         </div>
         <div class="transparency-content">
             <h3>{transparencyText.cleanElectionsTitle}</h3>
@@ -40,7 +41,7 @@ const transparencyText = siteText.transparency;
     <!-- Paid For Disclosure -->
     <div class="transparency-section">
         <div class="transparency-icon">
-            <i class="fas fa-file-invoice-dollar"></i>
+            <Icon name="file-invoice-dollar" />
         </div>
         <div class="transparency-content">
             <h3>{transparencyText.disclosureTitle}</h3>
@@ -55,7 +56,7 @@ const transparencyText = siteText.transparency;
     <!-- Finance Reports -->
     <div class="transparency-section">
         <div class="transparency-icon">
-            <i class="fas fa-magnifying-glass-chart"></i>
+            <Icon name="magnifying-glass-chart" />
         </div>
         <div class="transparency-content">
             <h3>{transparencyText.financeReportsTitle}</h3>
@@ -67,7 +68,7 @@ const transparencyText = siteText.transparency;
     <!-- No Corporate Money -->
     <div class="transparency-section">
         <div class="transparency-icon">
-            <i class="fas fa-ban"></i>
+            <Icon name="ban" />
         </div>
         <div class="transparency-content">
             <h3>{transparencyText.noCorporateTitle}</h3>
@@ -80,19 +81,19 @@ const transparencyText = siteText.transparency;
         <h3>{transparencyText.commitmentTitle}</h3>
         <div class="commitment-grid">
             <div class="commitment-item">
-                <i class="fas fa-check-circle"></i>
+                <Icon name="circle-check" />
                 <span>{transparencyText.commitmentItems[0]}</span>
             </div>
             <div class="commitment-item">
-                <i class="fas fa-check-circle"></i>
+                <Icon name="circle-check" />
                 <span>{transparencyText.commitmentItems[1]}</span>
             </div>
             <div class="commitment-item">
-                <i class="fas fa-check-circle"></i>
+                <Icon name="circle-check" />
                 <span>{transparencyText.commitmentItems[2]}</span>
             </div>
             <div class="commitment-item">
-                <i class="fas fa-check-circle"></i>
+                <Icon name="circle-check" />
                 <span>{transparencyText.commitmentItems[3]}</span>
             </div>
         </div>

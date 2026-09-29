@@ -1,0 +1,82 @@
+---
+// One page per LD29 community (e.g. /ld29/surprise), built from src/data/ld29.json.
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import siteText from '../../data/site-text.json';
+import ld29 from '../../data/ld29.json';
+
+export function getStaticPaths() {
+    return ld29.communities.map((community) => ({
+        params: { slug: community.slug },
+        props: { community },
+    }));
+}
+
+const { community } = Astro.props;
+const links = siteText.global.links;
+const keyDates = siteText.voterResources.keyDates;
+const d = ld29.district;
+const pageUrl = `/ld29/${community.slug}`;
+const otherCommunities = ld29.communities.filter((c) => c.slug !== community.slug);
+
+const placeSchema = {
+    '@type': 'Place',
+    '@id': `https://stafford4az.com${pageUrl}#place`,
+    name: `${community.name}, Arizona`,
+    containedInPlace: { '@id': 'https://stafford4az.com/ld29#district' },
+};
+---
+
+<ContentLayout
+    title={community.title}
+    canonicalUrl={pageUrl}
+    description={community.metaDescription}
+    heading={community.heading}
+    breadcrumbs={[
+        { name: 'LD29 Guide', path: '/ld29' },
+        { name: community.name, path: pageUrl },
+    ]}
+    schema={[placeSchema]}
+>
+    <p class="lead">{community.lead}</p>
+
+    <div class="content-callout">
+        <p><strong>Is my {community.name} address in LD29?</strong> District lines don't follow city limits. Enter your address in the Arizona Legislature's official lookup to confirm your district and legislators.</p>
+        <p><a href={links.findMyDistrict} class="btn btn-blue" target="_blank" rel="noopener">Find My Legislator</a></p>
+    </div>
+
+    {community.sections.map((section) => (
+        <>
+            <h2>{section.heading}</h2>
+            {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+        </>
+    ))}
+
+    <h2>What Eric will fight for in {community.name}</h2>
+    <ul>
+        {community.issues.map((issue) => <li>{issue}</li>)}
+    </ul>
+    <p><a href={links.platform}>Read Eric Stafford's full platform</a> or <a href={links.about}>learn more about Eric</a>.</p>
+
+    <h2>Who represents {community.name} in LD29 today?</h2>
+    <p>If you live in the LD29 part of {community.name}, your state senator is {d.senator}, who has held the seat since {d.senatorSince}. Your state representatives are {d.representatives.join(' and ')}.</p>
+    <p>On Tuesday, November 3, 2026, LD29 voters will choose their next state senator in a race between Democratic nominee Eric Stafford and Republican incumbent Sen. {d.senator}.</p>
+
+    <h2>2026 election dates for {community.name} voters</h2>
+    <ul class="content-dates">
+        {keyDates.map((item) => (
+            <li><strong>{item.date}</strong>{item.label}</li>
+        ))}
+    </ul>
+    <p>Maricopa County uses vote centers, so on Election Day you can vote at any location in the county. <a href="/news/how-to-vote-in-ld29-2026">Here's how to vote in LD29 in 2026.</a></p>
+    {community.zipCodes && <p class="content-meta">Common {community.name} ZIP codes in LD29: {community.zipCodes}</p>}
+
+    <h2>Other LD29 communities</h2>
+    <div class="content-grid">
+        {otherCommunities.map((c) => (
+            <a class="content-card" href={`/ld29/${c.slug}`}>
+                <strong>{c.name}</strong>
+                <span>{c.card}</span>
+            </a>
+        ))}
+    </div>
+</ContentLayout>

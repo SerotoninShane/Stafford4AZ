@@ -1,5 +1,6 @@
 ﻿---
 import siteText from '../data/site-text.json';
+import Icon from './Icon.astro';
 
 const globalText = siteText.global;
 const links = globalText.links;
@@ -32,7 +33,7 @@ const donateNowLabel = cleanText.donateNowLabel ?? 'Donate Now';
 <button id="cleanElectionsWidget" class="clean-elections-widget" aria-label="Open Clean Elections popup" type="button">
 	<div class="widget-content">
 		<div class="widget-icon">
-			<i class="fas fa-hand-holding-dollar"></i>
+			<Icon name="hand-holding-dollar" />
 		</div>
 	</div>
 </button>
@@ -271,6 +272,11 @@ const donateNowLabel = cleanText.donateNowLabel ?? 'Donate Now';
 </style>
 
 <script>
+	const w = window as Window & {
+		closeCleanElectionsModal?: () => void;
+		_cleanElectionsTimeout?: ReturnType<typeof setTimeout>;
+	};
+
 	function closeCleanElectionsModal() {
 		const modal = document.getElementById('cleanElectionsModal');
 		const widget = document.getElementById('cleanElectionsWidget');
@@ -281,7 +287,7 @@ const donateNowLabel = cleanText.donateNowLabel ?? 'Donate Now';
 			localStorage.setItem('cleanElectionsModalShown', 'true');
 		}
 	}
-	window.closeCleanElectionsModal = closeCleanElectionsModal;
+	w.closeCleanElectionsModal = closeCleanElectionsModal;
 
 	function initializeCleanElections() {
 		const modal = document.getElementById('cleanElectionsModal');
@@ -314,8 +320,8 @@ const donateNowLabel = cleanText.donateNowLabel ?? 'Donate Now';
 
 		const hasSeenModal = localStorage.getItem('cleanElectionsModalShown');
 		if (!hasSeenModal) {
-			clearTimeout(window._cleanElectionsTimeout);
-			window._cleanElectionsTimeout = setTimeout(openCleanElectionsModal, 1500);
+			clearTimeout(w._cleanElectionsTimeout);
+			w._cleanElectionsTimeout = setTimeout(openCleanElectionsModal, 1500);
 		}
 	}
 

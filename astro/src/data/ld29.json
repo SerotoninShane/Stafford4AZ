@@ -1,0 +1,252 @@
+{
+  "district": {
+    "population": "240,102",
+    "registeredVoters": "142,701",
+    "precincts": "47",
+    "statsYear": "2023",
+    "senator": "Janae Shamp",
+    "senatorSince": "January 2023",
+    "representatives": [
+      "Steve Montenegro",
+      "James Taylor"
+    ],
+    "communitiesSummary": "parts of Surprise, El Mirage, Glendale, Goodyear, Litchfield Park and Peoria, plus the unincorporated communities of Wittmann and Morristown"
+  },
+  "sources": [
+    {
+      "label": "Arizona Legislature – Find My Legislator",
+      "url": "https://www.azleg.gov/findmylegislator/"
+    },
+    {
+      "label": "Arizona Independent Redistricting Commission",
+      "url": "https://irc.az.gov/"
+    },
+    {
+      "label": "Arizona Secretary of State – 2026 Election Information",
+      "url": "https://azsos.gov/elections/election-information/2026-election-info"
+    },
+    {
+      "label": "Ballotpedia – Arizona State Senate District 29",
+      "url": "https://ballotpedia.org/Arizona_State_Senate_District_29"
+    },
+    {
+      "label": "Wikipedia – Arizona's 29th legislative district",
+      "url": "https://en.wikipedia.org/wiki/Arizona%27s_29th_legislative_district"
+    }
+  ],
+  "communities": [
+    {
+      "slug": "surprise",
+      "name": "Surprise",
+      "card": "Most of the city, including Sun City Grand, is in LD29.",
+      "title": "Who Is the State Senator for Surprise, AZ? | LD29 | Eric Stafford",
+      "metaDescription": "Much of Surprise, including Sun City Grand, is in Arizona Legislative District 29. See who represents Surprise in the State Senate and what Eric Stafford will fight for.",
+      "heading": "State Senate for Surprise, Arizona",
+      "lead": "Much of Surprise, including neighborhoods around Sun City Grand, is part of Arizona's Legislative District 29 (LD29). That means Surprise voters help choose LD29's state senator on November 3, 2026, and Eric Stafford is running to be that senator.",
+      "sections": [
+        {
+          "heading": "A city that is outgrowing its infrastructure",
+          "paragraphs": [
+            "Surprise has grown from roughly 30,000 residents in 2000 to more than 140,000 at the 2020 Census, making it one of the fastest-growing cities in Arizona. New subdivisions, warehouses and data-center proposals keep arriving faster than the roads, water supply and schools that have to support them.",
+            "Eric believes growth has to work for the people who already live here, not just developers. That means putting water and utility infrastructure first, giving neighbors a real voice on major projects, and making sure new development includes homes working families can actually afford."
+          ]
+        },
+        {
+          "heading": "Retirees and families in Sun City Grand and beyond",
+          "paragraphs": [
+            "Surprise is home to both young families and retirees, and both are feeling the cost of living. Eric supports lowering prescription drug costs through state bulk purchasing and price-transparency laws, protecting coverage for pre-existing conditions, and expanding access to affordable care through AHCCCS."
+          ]
+        }
+      ],
+      "issues": [
+        "Put water and utility infrastructure first before approving new large-scale development",
+        "Give residents a real say on major projects, including proposed data centers",
+        "Expand West Valley transit options like buses and light rail to ease traffic on Bell Road and Grand Avenue",
+        "Crack down on corporate landlords and support first-time homebuyers",
+        "Lower prescription drug and healthcare costs for retirees and families"
+      ],
+      "zipCodes": "85374, 85378, 85379, 85387, 85388"
+    },
+    {
+      "slug": "el-mirage",
+      "name": "El Mirage",
+      "card": "The Grand Avenue city between Surprise and Youngtown.",
+      "title": "Who Is the State Senator for El Mirage, AZ? | LD29 | Eric Stafford",
+      "metaDescription": "El Mirage is in Arizona Legislative District 29. Find out who represents El Mirage in the Arizona State Senate and how Eric Stafford will fight for working families.",
+      "heading": "State Senate for El Mirage, Arizona",
+      "lead": "El Mirage, the city along Grand Avenue between Surprise and Youngtown, lies within Arizona's Legislative District 29 (LD29). El Mirage voters help choose LD29's state senator on November 3, 2026, and Eric Stafford is running to represent you.",
+      "sections": [
+        {
+          "heading": "A working community that deserves a working-class senator",
+          "paragraphs": [
+            "El Mirage is a city of working families, commuters and neighbors who keep the West Valley running, a short drive from Luke Air Force Base. Eric has spent a decade in blue-collar jobs, in machine shops, airport hangars, veterinary clinics and service work, and he knows what it is like when 40 hours a week isn't enough to pay the bills.",
+            "In the Senate, Eric will fight for living wages, stronger workplace safety enforcement, an end to wage theft, and real heat protections for people who work outdoors through Arizona summers."
+          ]
+        },
+        {
+          "heading": "Schools that get the funding they need",
+          "paragraphs": [
+            "Families in El Mirage and Surprise are served by the Dysart Unified School District. Arizona's school funding has lagged the nation for years. Eric supports competitive teacher pay, more money for school buildings and resources, audits of voucher spending, and expanded vocational and apprenticeship programs for students of every age."
+          ]
+        }
+      ],
+      "issues": [
+        "Living wages and protection from wage theft",
+        "Extreme-heat protections for outdoor workers",
+        "Competitive teacher pay and full funding for public schools",
+        "Affordable housing and protection from unfair evictions",
+        "Better West Valley transit and shaded, walkable streets"
+      ],
+      "zipCodes": "85335"
+    },
+    {
+      "slug": "glendale",
+      "name": "Glendale",
+      "card": "Western Glendale near Luke Air Force Base.",
+      "title": "Is Glendale in LD29? West Glendale State Senator | Eric Stafford",
+      "metaDescription": "Part of western Glendale near Luke Air Force Base is in Arizona Legislative District 29. Check if you're in LD29 and see how Eric Stafford will support veterans and military families.",
+      "heading": "State Senate for West Glendale, Arizona",
+      "lead": "Arizona's Legislative District 29 (LD29) includes part of western Glendale near Luke Air Force Base. Most of Glendale is in other legislative districts, so look up your address to confirm, and if you're in LD29, Eric Stafford is running to be your state senator.",
+      "sections": [
+        {
+          "heading": "Home to Luke Air Force Base",
+          "paragraphs": [
+            "Luke Air Force Base, where the Air Force trains F-35 pilots, is part of the West Valley's economy and identity, and thousands of veterans and military families call LD29 home. Eric believes we owe them more than gratitude. We owe them real support, from healthcare to housing to good jobs when they return to civilian life."
+          ]
+        },
+        {
+          "heading": "What Eric will do for veterans and military families",
+          "paragraphs": [
+            "Eric will push to expand state-funded veteran healthcare and cut wait times, increase funding for mental health and PTSD treatment, build skills-to-trades pipelines for veterans, and protect military families from predatory lending and housing scams."
+          ]
+        }
+      ],
+      "issues": [
+        "Expand state-funded veteran healthcare and reduce wait times",
+        "Increase funding for veteran mental health and PTSD treatment",
+        "Veteran employment programs and skills-to-trades pipelines",
+        "Protect military families from predatory lending and housing scams",
+        "Keep Luke Air Force Base a strong community partner"
+      ],
+      "zipCodes": ""
+    },
+    {
+      "slug": "goodyear",
+      "name": "Goodyear",
+      "card": "Part of this fast-growing city is in LD29.",
+      "title": "Is Goodyear in LD29? Goodyear, AZ State Senator | Eric Stafford",
+      "metaDescription": "Goodyear is split among several legislative districts, and part of it is in LD29. Check your district and see Eric Stafford's plan for growth, water and affordability.",
+      "heading": "State Senate for Goodyear, Arizona",
+      "lead": "Goodyear is split among several Arizona legislative districts, and part of the city is in Legislative District 29 (LD29). If your address is in LD29, you help choose the district's state senator on November 3, 2026, and Eric Stafford is running to represent you.",
+      "sections": [
+        {
+          "heading": "Growth that works for residents",
+          "paragraphs": [
+            "Goodyear is one of the fastest-growing cities in the country. New neighborhoods, warehouses and industrial projects bring jobs, but they also bring traffic, higher housing costs and pressure on the water supply.",
+            "Eric wants the state to require environmental impact assessments for large industrial projects, prioritize water and utility infrastructure before approving new developments, and make sure new development includes affordable housing commitments."
+          ]
+        }
+      ],
+      "issues": [
+        "Water and utility infrastructure before new large-scale development",
+        "Environmental impact assessments for major industrial projects",
+        "Affordable housing commitments in new developments",
+        "Protect existing neighborhoods from industrial encroachment",
+        "Tax relief and support for small, local businesses"
+      ],
+      "zipCodes": ""
+    },
+    {
+      "slug": "litchfield-park",
+      "name": "Litchfield Park",
+      "card": "The historic small city near Luke Air Force Base.",
+      "title": "Is Litchfield Park in LD29? State Senator | Eric Stafford",
+      "metaDescription": "Litchfield Park is part of Arizona Legislative District 29. See who represents Litchfield Park in the State Senate and what Eric Stafford will fight for.",
+      "heading": "State Senate for Litchfield Park, Arizona",
+      "lead": "Litchfield Park, the small city near Luke Air Force Base, is part of Arizona's Legislative District 29 (LD29). Litchfield Park voters help choose LD29's state senator on November 3, 2026, and Eric Stafford is running to be that senator.",
+      "sections": [
+        {
+          "heading": "A small city with deep West Valley roots",
+          "paragraphs": [
+            "Litchfield Park grew out of the farm settlement the Goodyear Tire & Rubber Company founded in 1916 to grow cotton, and it's named for company executive Paul W. Litchfield. More than a century later, it's a close-knit community surrounded by some of the fastest growth in Arizona.",
+            "Eric wants to protect established neighborhoods like Litchfield Park from overdevelopment and industrial encroachment, and to invest in shade, green space and cooling infrastructure that keeps our streets livable in the summer."
+          ]
+        }
+      ],
+      "issues": [
+        "Protect established neighborhoods from overdevelopment",
+        "Support for veterans and military families near Luke Air Force Base",
+        "Shade, green space and cooling infrastructure",
+        "Full funding for public schools and competitive teacher pay",
+        "Support for small businesses and local agriculture"
+      ],
+      "zipCodes": "85340"
+    },
+    {
+      "slug": "wittmann",
+      "name": "Wittmann",
+      "card": "Wittmann and Morristown along U.S. 60.",
+      "title": "Wittmann & Morristown, AZ State Senator | LD29 | Eric Stafford",
+      "metaDescription": "Wittmann and Morristown are in Arizona Legislative District 29. See how Eric Stafford will stand up for rural West Valley residents on the BNSF rail hub, water and growth.",
+      "heading": "State Senate for Wittmann and Morristown, Arizona",
+      "lead": "Wittmann and Morristown, the unincorporated communities along U.S. 60 (Grand Avenue) in northwest Maricopa County, are part of Arizona's Legislative District 29 (LD29). Residents help choose LD29's state senator on November 3, 2026, and Eric Stafford is running to represent you.",
+      "sections": [
+        {
+          "heading": "The proposed BNSF logistics hub",
+          "paragraphs": [
+            "The proposed $3.2 billion BNSF logistics hub in Wittmann would reshape this part of the West Valley. Projects that big should never move forward without the people who live next to them having a real say.",
+            "Eric will fight to guarantee community input on major projects like the Wittmann rail hub, to require environmental impact assessments for large-scale industrial development, and to protect rural neighborhoods from industrial encroachment."
+          ]
+        },
+        {
+          "heading": "Water, heat and rural life",
+          "paragraphs": [
+            "Wittmann and Morristown sit at the edge of the desert, where groundwater and extreme heat are daily concerns. Eric supports protecting Arizona's groundwater, smart water conservation, heat protections for outdoor workers, and support for local farms and food producers."
+          ]
+        }
+      ],
+      "issues": [
+        "Community input and environmental review for the Wittmann rail hub",
+        "Protect rural neighborhoods from industrial encroachment",
+        "Protect groundwater and support smart water conservation",
+        "Heat protections for outdoor workers",
+        "Support local agriculture and food producers"
+      ],
+      "zipCodes": "85361"
+    }
+  ],
+  "faq": [
+    {
+      "question": "What cities are in Arizona Legislative District 29?",
+      "answer": "LD29 covers parts of Surprise, El Mirage, Glendale, Goodyear, Litchfield Park and Peoria, plus the unincorporated communities of Wittmann and Morristown, all in Maricopa County's northwest West Valley. District lines don't follow city limits, so check your address with the Arizona Legislature's Find My Legislator tool."
+    },
+    {
+      "question": "Who is the current state senator for LD29?",
+      "answer": "Janae Shamp has represented LD29 in the Arizona Senate since January 2023. LD29's two state representatives are Steve Montenegro and James Taylor."
+    },
+    {
+      "question": "Who is running for Arizona State Senate in LD29 in 2026?",
+      "answer": "The November 3, 2026 general election for the LD29 State Senate seat is between Democratic nominee Eric Stafford and Republican incumbent Janae Shamp."
+    },
+    {
+      "question": "Has Eric Stafford run for LD29 State Senate before?",
+      "answer": "Yes. Eric Stafford was the Democratic nominee for LD29 State Senate in 2024, when he earned 48,608 votes (40.7%) against Janae Shamp. He is the Democratic nominee again in 2026."
+    },
+    {
+      "question": "When is the 2026 general election in Arizona?",
+      "answer": "Tuesday, November 3, 2026. The voter registration deadline is October 5, early voting runs October 7 through October 30, and the last day to request an early ballot is October 23."
+    },
+    {
+      "question": "How long is an Arizona State Senate term?",
+      "answer": "Two years. Each of Arizona's 30 legislative districts elects one state senator and two state representatives every two years, and lawmakers are limited to four consecutive terms in the same chamber."
+    },
+    {
+      "question": "Who draws LD29's boundaries?",
+      "answer": "The Arizona Independent Redistricting Commission, a five-member commission created by voters through Proposition 106 in 2000. It redraws legislative maps after each census. The current LD29 was first used in the 2022 election."
+    },
+    {
+      "question": "Is Avondale in LD29?",
+      "answer": "Mostly no. Avondale is largely in a neighboring legislative district. District lines don't follow city limits, though, so enter your address in the Find My Legislator tool to be sure."
+    }
+  ]
+}

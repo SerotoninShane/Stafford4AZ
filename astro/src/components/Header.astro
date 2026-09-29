@@ -2,6 +2,7 @@
 // This is the "frontmatter" section.
 // You can add JavaScript/TypeScript here later if needed.
 import siteText from '../data/site-text.json';
+import DonateButton from './DonateButton.astro';
 
 const globalText = siteText.global;
 const links = globalText.links;
@@ -34,7 +35,7 @@ const headerText = globalText.header;
             <a href={links.platform} data-astro-prefetch="viewport">{headerText.platformLabel}</a>
         </div>
         <div class="nav-right">
-            <a href={links.donate} class="nav-btn" target="_blank">{headerText.donateLabel}</a>
+            <DonateButton class="nav-btn" label={headerText.donateLabel} />
             <a href={links.getInvolved} class="nav-btn">{headerText.getInvolvedLabel}</a>
         </div>
     </nav>
@@ -67,7 +68,7 @@ const headerText = globalText.header;
 }
 .top-banner-es {
     position: absolute;
-    right: 20px;
+    right: 40px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 13px;
@@ -199,6 +200,7 @@ body.menu-open {
         justify-content: space-between; /* CHANGED: Space between logo and hamburger */
         align-items: center; /* ADDED: Vertical alignment */
         padding: 15px 20px;
+        min-height: 110px; /* Tall enough to hold the logo art */
     }
 
     .header-left {
@@ -209,7 +211,8 @@ body.menu-open {
 
     .logo {
         position: absolute;
-        top: -38px;
+        top: auto;
+        bottom: -18px; /* Anchor to the band's bottom (offsets the image's transparent padding) */
         left: 0;
         transform: none;
         text-align: left; /* CHANGED: Left align instead of center */
@@ -233,11 +236,13 @@ body.menu-open {
 
     .top-banner {
         display: flex;
-        flex-direction: column;
+        justify-content: center;
         align-items: center;
         font-size: 12px;
-        padding: 8px 10px;
-        gap: 4px;
+        padding: 10px;
+    }
+    .top-banner-spacer {
+        display: none;
     }
     .top-banner-es {
         position: static;
@@ -302,10 +307,12 @@ body.menu-open {
         justify-content: space-between; /* CHANGED: Space between logo and hamburger */
         align-items: center; /* ADDED: Vertical alignment */
     padding: 12px 16px;
+    min-height: 80px;
     }
         .logo {
         position: absolute;
-    top: -24px;
+    top: auto;
+    bottom: -12px;
         left: 0;
         transform: none;
         text-align: left; /* CHANGED: Left align instead of center */
@@ -338,7 +345,7 @@ body.menu-open {
             return;
         }
 
-        function toggleMenu() {
+        const toggleMenu = () => {
             const isOpening = !hamburger.classList.contains('active');
             
             if (isOpening) {
@@ -356,7 +363,7 @@ body.menu-open {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
             body.classList.toggle('menu-open');
-        }
+        };
 
         if (!hamburger.dataset.listenersAttached) {
             hamburger.addEventListener('click', toggleMenu);
@@ -372,7 +379,7 @@ body.menu-open {
                         toggleMenu();
                         
                         setTimeout(() => {
-                            window.location.href = href;
+                            if (href) window.location.href = href;
                         }, 200);
                     }
                 });

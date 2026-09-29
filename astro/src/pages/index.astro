@@ -1,22 +1,41 @@
 ---
 // Import the layout
 import BaseLayout from '../layouts/BaseLayout.astro';
+import AttributionFields from '../components/AttributionFields.astro';
 import VideoThumbnail from '../components/VideoThumbnail.astro';
 import VideoModal from '../components/VideoModal.astro';
+import DonateButton from '../components/DonateButton.astro';
+import { Image } from 'astro:assets';
+import ericPhoto from '../assets/eric.webp';
+import votePhoto from '../assets/vote.webp';
 import siteText from '../data/site-text.json';
 // Define the unique data for this specific page
-const pageTitle = "Eric Stafford For LD29 Arizona Senate | Putting Arizonans First";
+const pageTitle = "Eric Stafford for Arizona State Senate, LD29 | Putting Arizonans First";
 const pageUrl = '/';
-const pageDescription = "View Eric Stafford's detailed platform on education, water, and economic development for LD29 and Arizona.";
+const pageDescription = "Eric Stafford, Democratic nominee for Arizona State Senate in LD29: Surprise, El Mirage, Glendale, Goodyear and the West Valley. Lower costs, fair wages, strong schools.";
 const links = siteText.global.links;
 const homeText = siteText.home;
 const homeForm = homeText.form;
+const donations = siteText.global.donations;
+const donateAmounts = [
+    { href: links.donate5, amount: '5', label: '$5' },
+    { href: links.donate10, amount: '10', label: '$10' },
+    { href: links.donate25, amount: '25', label: '$25' },
+    { href: links.donate50, amount: '50', label: '$50' },
+    { href: links.donate100, amount: '100', label: '$100' },
+    { href: links.donate, amount: 'other', label: homeText.donateOtherLabel, other: true },
+];
 ---
 
 <BaseLayout 
     title={pageTitle} 
     canonicalUrl={pageUrl} 
     description={pageDescription}
+    alternates={[
+        { hreflang: 'en', path: '/' },
+        { hreflang: 'es', path: '/es' },
+        { hreflang: 'x-default', path: '/' },
+    ]}
 >
 
 
@@ -25,15 +44,18 @@ const homeForm = homeText.form;
     <div class="hero-content-wrapper">
         <div class="hero-text-and-buttons">
             <h1>
-                {homeText.heroTitle}
+                {homeText.heroTitleLines.map((line, i) => (
+                    <span class:list={['hero-title-line', { name: i === 0 }]}>{line}</span>
+                ))}
             </h1>
+            <p class="hero-subtitle">{homeText.heroSubtitle}</p>
             <div class="hero-buttons">
                 <a href={links.platform} class="btn">{homeText.heroPrimaryCta}</a>
-                <a href={links.donate} class="btn" target="_blank">{homeText.heroDonateCta}</a>
+                <DonateButton class="btn" label={homeText.heroDonateCta} />
             </div>
         </div>
         <div class="hero-headshot-container">
-            <img src="/assets/eric.webp" alt="Eric Stafford Headshot" width="600" height="400" loading="eager">
+            <Image src={ericPhoto} alt="Eric Stafford Headshot" width={1200} widths={[480, 800, 1200]} sizes="(max-width: 1024px) 400px, 500px" loading="eager" fetchpriority="high" />
         </div>
     </div>
 </section>
@@ -50,6 +72,7 @@ const homeForm = homeText.form;
     <div class="about-content">
     <form class="campaign-form" name="campaign-signup" method="POST" data-netlify="true" action={links.thankYou}>
             <input type="hidden" name="form-name" value="campaign-signup">
+            <AttributionFields />
 
             <div class="form-row">
                 <div class="form-group">
@@ -109,9 +132,7 @@ const homeForm = homeText.form;
 </section>
 
 <!-- Video Modal -->
-<VideoModal />
-
-</div>
+<VideoModal videoUrl="/assets/campaign-video.mp4" />
 
 <!-- Donate Section -->
 <section class="donate-section reveal">
@@ -121,31 +142,23 @@ const homeForm = homeText.form;
         {homeText.donateTitleLines[2]}
     </h2>
     <div class="donate-amounts">
-        <a href={links.donate5} target="_blank">
-        <button class="donate-amount-btn" data-amount="5">$5</button>
-        </a>
-        <a href={links.donate10} target="_blank">
-        <button class="donate-amount-btn" data-amount="10">$10</button>
-        </a>
-        <a href={links.donate25} target="_blank">
-        <button class="donate-amount-btn" data-amount="25">$25</button>
-        </a>
-        <a href={links.donate50} target="_blank">
-        <button class="donate-amount-btn" data-amount="50">$50</button>
-        </a>
-        <a href={links.donate100} target="_blank">
-        <button class="donate-amount-btn" data-amount="100">$100</button>
-        </a>
-        <a href={links.donate} target="_blank">
-        <button class="donate-amount-btn other" data-amount="other">{homeText.donateOtherLabel}</button>
-        </a>
+        {donateAmounts.map(({ href, amount, label, other }) => donations.open ? (
+            <a href={href} target="_blank">
+            <button class:list={['donate-amount-btn', { other }]} data-amount={amount}>{label}</button>
+            </a>
+        ) : (
+            <span>
+            <button class:list={['donate-amount-btn', { other }]} data-amount={amount} disabled>{label}</button>
+            </span>
+        ))}
+        {!donations.open && <p class="donate-closed-note">{donations.closedNote}</p>}
     </div>
 </section>
 
 <!-- Platform Section -->
 <section class="platform-section reveal" id="platform">
     <div class="platform-image-container">
-        <img src="/assets/vote.webp" alt="Eric Stafford State Senator Candidate Holding Vote Hat" width="600" height="400" loading="lazy" style="max-width:100%;height:auto;">
+        <Image src={votePhoto} alt="Eric Stafford State Senator Candidate Holding Vote Hat" width={2000} widths={[800, 1400, 2000]} sizes="(max-width: 1024px) 750px, 1400px" loading="lazy" style="max-width:100%;height:auto;" />
     </div>
     <div class="platform-content-wrapper">
         <div class="platform-text">
@@ -160,6 +173,40 @@ const homeForm = homeText.form;
 </BaseLayout>
 
 <style>
+/* Hero title: one line per entry in home.heroTitleLines */
+.hero-title-line {
+    display: block;
+}
+.hero-title-line + .hero-title-line {
+    margin-top: 0.12em;
+}
+.hero h1 .name {
+    margin-bottom: 0.18em;
+}
+
+/* Donate section when donations are closed (global.donations.open = false) */
+.donate-amount-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.donate-closed-note {
+    flex-basis: 100%;
+    grid-column: 1 / -1;
+    text-align: right;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--main-blue);
+}
+
+@media (max-width: 768px) {
+    .donate-closed-note {
+        text-align: center;
+    }
+}
+
 /* Home Voter Resources CTA */
 .home-voter-cta {
     background: linear-gradient(135deg, var(--main-blue), #122940);

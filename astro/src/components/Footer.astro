@@ -2,6 +2,9 @@
 // This is the "frontmatter" section. 
 // You can add JavaScript/TypeScript here later if needed.
 import siteText from '../data/site-text.json';
+import DonateButton from './DonateButton.astro';
+import ld29 from '../data/ld29.json';
+import Icon from './Icon.astro';
 
 const globalText = siteText.global;
 const links = globalText.links;
@@ -12,10 +15,10 @@ const paidForLines = footerText.paidForLines ?? [footerText.paidFor];
 
 <!-- Footer -->
 <footer id="donate">
-    <img src="/assets/icon.svg" alt="Eric Stafford for Arizona Senate" width="200" height="200" style="max-width:200px;height:auto;">
+    <img src="/assets/icon.webp" alt="Eric Stafford for Arizona Senate" width="200" height="200" loading="lazy" decoding="async" style="max-width:200px;height:auto;">
     <h3>{footerText.heading}</h3>
     <div class="footer-buttons">
-        <a href={links.donate} class="btn-footer" target="_blank" rel="noopener" aria-label="Donate via ActBlue">{footerText.donateLabel}</a>
+        <DonateButton class="btn-footer" label={footerText.donateLabel} ariaLabel="Donate via ActBlue" />
         <a href={links.getInvolved} class="btn-footer" aria-label="Get involved with the campaign">{footerText.getInvolvedLabel}</a>
     </div>
 
@@ -24,9 +27,22 @@ const paidForLines = footerText.paidForLines ?? [footerText.paidFor];
         <span class="footer-sep">|</span>
         <a href={links.voterResources}>{footerText.voterResourcesLabel}</a>
         <span class="footer-sep">|</span>
+        <a href="/ld29">{footerText.ld29GuideLabel}</a>
+        <span class="footer-sep">|</span>
+        <a href="/news">{footerText.newsLabel}</a>
+        <span class="footer-sep">|</span>
         <a href={links.transparency}>{footerText.transparencyLabel}</a>
         <span class="footer-sep">|</span>
         <a href={links.contact}>{footerText.contactLabel}</a>
+    </nav>
+    <nav class="footer-links-row footer-communities-row" aria-label="LD29 communities">
+        <a href="/who-is-my-state-senator">{footerText.whoIsMySenatorLabel}</a>
+        {ld29.communities.map((community) => (
+            <>
+                <span class="footer-sep">·</span>
+                <a href={`/ld29/${community.slug}`}>{community.name}</a>
+            </>
+        ))}
     </nav>
     <div class="footer-links-row footer-legal-row">
         <a href={links.privacy}>{footerText.privacyLabel}</a>
@@ -40,19 +56,19 @@ const paidForLines = footerText.paidForLines ?? [footerText.paidFor];
 
     <div class="footer-social">
     <a href={social.bluesky} aria-label="Bluesky" target="_blank" rel="noopener">
-        <i class="fab fa-bluesky"></i>
+        <Icon name="bluesky" />
     </a>
     <a href={social.instagram} aria-label="Instagram" target="_blank" rel="noopener">
-        <i class="fab fa-instagram"></i>
+        <Icon name="instagram" />
     </a>
     <a href={social.youtube} aria-label="YouTube" target="_blank" rel="noopener">
-        <i class="fab fa-youtube"></i>
+        <Icon name="youtube" />
     </a>
     <a href={social.x} aria-label="X (Twitter)" target="_blank" rel="noopener">
-        <i class="fab fa-x-twitter"></i>
+        <Icon name="x-twitter" />
     </a>
     <a href={social.facebook} aria-label="Facebook" target="_blank" rel="noopener">
-        <i class="fab fa-facebook"></i>
+        <Icon name="facebook" />
     </a>
     </div>
 
@@ -147,6 +163,14 @@ footer h3 {
     opacity: 0.35;
     font-size: 13px;
     user-select: none;
+}
+
+.footer-communities-row {
+    margin-top: 0;
+}
+
+.footer-communities-row a {
+    font-size: 13px;
 }
 
 .footer-legal-row {

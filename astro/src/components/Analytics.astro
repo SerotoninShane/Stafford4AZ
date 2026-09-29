@@ -1,0 +1,95 @@
+---
+// Google Tag Manager <noscript> fallback plus page view / lead events for GA4.
+// The GTM and GA4 <script> tags themselves live in HeadMeta.astro. Set
+// global.analytics.gtmId (GTM) or global.analytics.ga4Id (GA4 directly) in
+// site-text.json to turn them on.
+import siteText from '../data/site-text.json';
+
+const gtmId = siteText.global.analytics.gtmId;
+---
+{gtmId && (
+    <noscript>
+        <iframe src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`} height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+)}
+
+<script>
+    // - Remembers the latest UTM parameters for 30 days and copies them into the
+    //   hidden AttributionFields on every Netlify form, so each submission shows
+    //   which campaign link brought the person in.
+    // - Pushes `virtual_page_view` on client-side (View Transition) navigations,
+    //   which GTM would otherwise never see. A directly loaded GA4 tag counts
+    //   these itself through its "browser history events" page view setting.
+    // - Pushes `generate_lead` when a form is submitted (to GTM and GA4).
+    type Attribution = { params: Record<string, string>; landing_page: string; ts: number };
+
+    const STORAGE_KEY = 'stafford_attribution';
+    const TTL_MS = 30 * 24 * 60 * 60 * 1000;
+    const UTM_PARAMS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+
+    const w = window as Window & { dataLayer?: unknown[]; gtag?: (...args: unknown[]) => void };
+    const dataLayer = (w.dataLayer = w.dataLayer || []);
+
+    function readStoredAttribution(): Attribution | null {
+        try {
+            const raw = localStorage.getItem(STORAGE_KEY);
+            if (!raw) return null;
+            const data = JSON.parse(raw) as Attribution;
+            return Date.now() - data.ts < TTL_MS ? data : null;
+        } catch {
+            return null;
+        }
+    }
+
+    function captureAttribution(): Attribution | null {
+        const search = new URLSearchParams(location.search);
+        const params: Record<string, string> = {};
+        for (const key of UTM_PARAMS) {
+            const value = search.get(key);
+            if (value) params[key] = value;
+        }
+        if (!Object.keys(params).length) return readStoredAttribution();
+
+        const data: Attribution = { params, landing_page: location.pathname + location.search, ts: Date.now() };
+        try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        } catch {
+            // Storage blocked (private mode etc.) — still use it for this page.
+        }
+        return data;
+    }
+
+    function fillAttributionFields(attribution: Attribution | null) {
+        if (!attribution) return;
+        const values: Record<string, string> = { ...attribution.params, landing_page: attribution.landing_page };
+        document.querySelectorAll<HTMLInputElement>('input[data-attribution]').forEach((input) => {
+            input.value = values[input.dataset.attribution!] ?? '';
+        });
+    }
+
+    const attribution = captureAttribution();
+    fillAttributionFields(attribution);
+
+    let lastUrl = location.href;
+    document.addEventListener('astro:page-load', () => {
+        fillAttributionFields(attribution);
+        // The first full page load is already counted by the GA4 tag (direct or in GTM).
+        if (location.href === lastUrl) return;
+        dataLayer.push({
+            event: 'virtual_page_view',
+            page_location: location.href,
+            page_path: location.pathname,
+            page_title: document.title,
+            page_referrer: lastUrl,
+        });
+        lastUrl = location.href;
+    });
+
+    document.addEventListener('submit', (event) => {
+        const form = event.target as HTMLFormElement;
+        const formName = form.querySelector<HTMLInputElement>('input[name="form-name"]')?.value ?? form.getAttribute('name');
+        if (!formName) return;
+        dataLayer.push({ event: 'generate_lead', form_name: formName });
+        w.gtag?.('event', 'generate_lead', { form_name: formName });
+    });
+</script>

@@ -1,42 +1,223 @@
 ---
 import { ClientRouter } from 'astro:transitions';
+import siteText from '../data/site-text.json';
 // Define the properties (props) that this component will accept
-interface Props {
+export interface Breadcrumb {
+    name: string;
+    path: string;
+}
+
+export interface Props {
     title: string;
     description?: string; // Optional since it has a global default
     canonicalUrl?: string; // The specific page URL for canonical tag
     imagePath?: string; // Optional if all pages use the same image
+    lang?: 'en' | 'es';
+    pageType?: string; // schema.org type for this page, e.g. 'AboutPage'
+    ogType?: 'website' | 'article';
+    publishedTime?: string; // ISO date, for articles
+    breadcrumbs?: Breadcrumb[]; // excluding Home, which is always first
+    alternates?: { hreflang: string; path: string }[];
+    schema?: Record<string, unknown>[]; // extra JSON-LD nodes for this page
 }
 
 // Set up default values for shared props
-const { 
-    title, 
+const {
+    title,
     canonicalUrl = 'https://stafford4az.com/', // Default to homepage
-    description = 'Eric Stafford is running for Arizona State Senate in LD29 to put Arizonans first. Learn about his platform, events, and how to volunteer or donate.',
-    imagePath = '/assets/og-card.webp'
+    description = 'Eric Stafford is running for Arizona State Senate in Legislative District 29 (LD29) to put West Valley families first. See his platform and how to get involved.',
+    imagePath = '/assets/og-card.jpg',
+    lang = 'en',
+    pageType = 'WebPage',
+    ogType = 'website',
+    publishedTime,
+    breadcrumbs = [],
+    alternates = [],
+    schema = [],
 } = Astro.props;
 
 // Construct full URLs for Open Graph/Twitter
 const siteUrl = 'https://stafford4az.com';
-const fullCanonicalUrl = canonicalUrl.startsWith(siteUrl) ? canonicalUrl : siteUrl + canonicalUrl;
+// Netlify serves each page at a URL ending in "/" (e.g. /about/) and redirects
+// the version without it, so page URLs we hand to search engines get the slash.
+const pageUrl = (path: string) => {
+    const url = new URL(path, siteUrl);
+    if (!url.pathname.endsWith('/') && !/\.\w+$/.test(url.pathname)) url.pathname += '/';
+    return url.href;
+};
+const fullCanonicalUrl = pageUrl(canonicalUrl);
 const fullImageUrl = siteUrl + imagePath;
+const gtmId = siteText.global.analytics.gtmId;
+const ga4Id = siteText.global.analytics.ga4Id;
+const social = siteText.global.social;
+
+// Structured data (JSON-LD). The Person / Organization / WebSite nodes are the
+// same on every page, which is how Google ties the site, Eric and his profiles
+// elsewhere (Ballotpedia, Vote Smart, social accounts) into one entity.
+const ids = {
+    website: `${siteUrl}/#website`,
+    campaign: `${siteUrl}/#campaign`,
+    eric: `${siteUrl}/#eric`,
+    page: `${fullCanonicalUrl}#webpage`,
+};
+const socialProfiles = [social.facebook, social.instagram, social.x, social.youtube, social.bluesky];
+const allCrumbs = [{ name: 'Home', path: '/' }, ...breadcrumbs];
+const structuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+        {
+            '@type': 'WebSite',
+            '@id': ids.website,
+            url: `${siteUrl}/`,
+            name: 'Eric Stafford for Arizona Senate',
+            alternateName: ['Stafford4AZ', 'Eric Stafford for LD29'],
+            inLanguage: ['en-US', 'es-US'],
+            publisher: { '@id': ids.campaign },
+        },
+        {
+            '@type': 'Organization',
+            '@id': ids.campaign,
+            name: 'Eric Stafford for Arizona Senate',
+            url: `${siteUrl}/`,
+            logo: { '@type': 'ImageObject', url: `${siteUrl}/assets/logo.png`, width: 500, height: 200 },
+            email: 'info@ericstaffordforsenate.com',
+            areaServed: { '@type': 'AdministrativeArea', name: 'Arizona Legislative District 29' },
+            sameAs: socialProfiles,
+        },
+        {
+            '@type': 'Person',
+            '@id': ids.eric,
+            name: 'Eric Stafford',
+            givenName: 'Eric',
+            familyName: 'Stafford',
+            url: `${siteUrl}/`,
+            image: `${siteUrl}/assets/eric.webp`,
+            description: 'Eric Stafford is the Democratic nominee for Arizona State Senate in Legislative District 29 (LD29) in the West Valley, running against Republican incumbent Sen. Janae Shamp in the November 3, 2026 general election. He is a lifelong Arizonan, certified A&P mechanic and machinist, and Clean Elections candidate.',
+            jobTitle: 'Democratic nominee for Arizona State Senate, Legislative District 29',
+            // Birthplace, schools and past jobs match his Ballotpedia profile, and the
+            // Wikidata links let Google match each one to an entity it already knows.
+            birthPlace: {
+                '@type': 'City',
+                name: 'Phoenix, Arizona',
+                sameAs: ['https://www.wikidata.org/wiki/Q16556', 'https://en.wikipedia.org/wiki/Phoenix,_Arizona'],
+            },
+            homeLocation: {
+                '@type': 'City',
+                name: 'Goodyear, Arizona',
+                sameAs: ['https://www.wikidata.org/wiki/Q79457', 'https://en.wikipedia.org/wiki/Goodyear,_Arizona'],
+            },
+            nationality: { '@type': 'Country', name: 'United States' },
+            alumniOf: [
+                {
+                    '@type': 'EducationalOrganization',
+                    name: 'Western Maricopa Education Center (West-MEC)',
+                    sameAs: ['https://www.wikidata.org/wiki/Q7988043', 'https://en.wikipedia.org/wiki/Western_Maricopa_Education_Center'],
+                },
+                {
+                    '@type': 'CollegeOrUniversity',
+                    name: 'Pima Medical Institute',
+                    sameAs: ['https://www.wikidata.org/wiki/Q7194581', 'https://en.wikipedia.org/wiki/Pima_Medical_Institute'],
+                },
+            ],
+            hasOccupation: [
+                { '@type': 'Occupation', name: 'Aircraft mechanic (FAA A&P certified)', sameAs: 'https://www.wikidata.org/wiki/Q1430683' },
+                { '@type': 'Occupation', name: 'Machinist', sameAs: 'https://www.wikidata.org/wiki/Q196721' },
+                { '@type': 'Occupation', name: 'Veterinary technician', sameAs: 'https://www.wikidata.org/wiki/Q61055981' },
+                { '@type': 'Occupation', name: 'Political organizer', sameAs: 'https://www.wikidata.org/wiki/Q28532974' },
+            ],
+            hasCredential: {
+                '@type': 'EducationalOccupationalCredential',
+                name: 'FAA Airframe and Powerplant (A&P) mechanic certificate',
+                credentialCategory: 'license',
+                recognizedBy: { '@type': 'GovernmentOrganization', name: 'Federal Aviation Administration' },
+            },
+            affiliation: { '@id': ids.campaign },
+            memberOf: {
+                '@type': 'Organization',
+                name: 'Democratic Party',
+                sameAs: ['https://www.wikidata.org/wiki/Q29552', 'https://en.wikipedia.org/wiki/Democratic_Party_(United_States)'],
+            },
+            knowsAbout: [
+                'Affordable housing', "Workers' rights", 'Public education', 'Healthcare',
+                'Water and growth in the West Valley', 'Veterans and Luke Air Force Base',
+                'Campaign finance reform', 'Arizona Clean Elections',
+            ],
+            sameAs: [
+                ...socialProfiles,
+                'https://www.wikidata.org/wiki/Q141600287',
+                'https://ballotpedia.org/Eric_Stafford',
+                'https://justfacts.votesmart.org/candidate/216807/eric-stafford',
+                'https://www.ballotready.org/people/eric-stafford',
+            ],
+        },
+        {
+            '@type': pageType,
+            '@id': ids.page,
+            url: fullCanonicalUrl,
+            name: title,
+            description,
+            inLanguage: lang === 'es' ? 'es-US' : 'en-US',
+            isPartOf: { '@id': ids.website },
+            about: { '@id': ids.eric },
+            // Google reads a ProfilePage's mainEntity as the person the page is about.
+            ...(pageType === 'ProfilePage' ? { mainEntity: { '@id': ids.eric } } : {}),
+            primaryImageOfPage: fullImageUrl,
+            ...(breadcrumbs.length ? { breadcrumb: { '@id': `${fullCanonicalUrl}#breadcrumb` } } : {}),
+        },
+        ...(breadcrumbs.length ? [{
+            '@type': 'BreadcrumbList',
+            '@id': `${fullCanonicalUrl}#breadcrumb`,
+            itemListElement: allCrumbs.map((crumb, i) => ({
+                '@type': 'ListItem',
+                position: i + 1,
+                name: crumb.name,
+                item: pageUrl(crumb.path),
+            })),
+        }] : []),
+        ...schema,
+    ],
+};
 ---
 <head>
-    <ClientRouter />
     <meta charset="UTF-8">
+    {gtmId && (
+        <script is:inline define:vars={{ gtmId }}>
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer',gtmId);
+        </script>
+    )}
+    {ga4Id && (
+        <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`}></script>
+    )}
+    {ga4Id && (
+        <script is:inline define:vars={{ ga4Id }}>
+            // gtag is set on window so Analytics.astro can send page views and form events.
+            window.dataLayer = window.dataLayer || [];
+            window.gtag = function () { window.dataLayer.push(arguments); };
+            window.gtag('js', new Date());
+            window.gtag('config', ga4Id);
+        </script>
+    )}
+    <ClientRouter />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title}</title>
     <meta name="description" content={description}>
-    <meta name="keywords" content="Eric Stafford, Arizona Senate 2026, Arizona State Senate, LD29, Legislative District 29, Arizona politics, Surprise AZ, West Valley, volunteer, donate, campaign">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href={fullCanonicalUrl}>
+    {alternates.map((alt) => <link rel="alternate" hreflang={alt.hreflang} href={pageUrl(alt.path)}>)}
 
     <!-- Prevent FOUC during View Transitions -->
     <style>
       img { max-width: 100%; height: auto; }
     </style>
 
-    <meta property="og:type" content="website">
+    <meta property="og:type" content={ogType}>
+    <meta property="og:site_name" content="Eric Stafford for Arizona Senate">
+    <meta property="og:locale" content={lang === 'es' ? 'es_US' : 'en_US'}>
+    {publishedTime && <meta property="article:published_time" content={publishedTime}>}
     <meta property="og:url" content={fullCanonicalUrl}>
     <meta property="og:title" content={title}>
     <meta property="og:description" content={description}>
@@ -50,39 +231,17 @@ const fullImageUrl = siteUrl + imagePath;
     <meta name="twitter:image" content={fullImageUrl}>
     <meta name="twitter:image:alt" content="Eric Stafford for Arizona State Senate - LD29">
 
-    <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+    <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
     <link rel="apple-touch-icon" href="/assets/icon.png">
 
     <meta name="theme-color" content="#173c62">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700;800&display=swap" as="style">
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="preload" as="image" href="/assets/logo.webp">
 
-    <script type="application/ld+json">
-    {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Eric Stafford",
-    "url": "https://stafford4az.com",
-    "image": "https://stafford4az.com/assets/eric.webp",
-    "sameAs": [
-        "https://www.instagram.com/stafford4az",
-        "https://www.youtube.com/@Stafford4AZ",
-        "https://bsky.app/profile/stafford4az.bsky.social",
-        "https://x.com/stafford4az",
-        "https://www.facebook.com/Stafford4AZ/"
-    ],
-    "jobTitle": "Arizona State Senate Candidate, LD29",
-    "affiliation": {
-        "@type": "Organization",
-        "name": "Eric Stafford for Arizona Senate"
-    }
-    }
-    </script>
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 </head>

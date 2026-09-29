@@ -78,7 +78,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url(/assets/thumbnail.webp);
+    background-image: url(/assets/calendar-bg.webp);
     background-size: cover;
     background-position: center;
     filter: grayscale(100%) contrast(100%);
@@ -312,10 +312,10 @@
 </style>
 
 <script>
-function createDiv(classes, content) {
+function createDiv(classes: string[], content: string | number = '') {
     const div = document.createElement('div');
     div.classList.add(...classes);
-    div.textContent = content;
+    div.textContent = String(content);
     return div;
 }
 
@@ -349,9 +349,9 @@ class Calendar {
         { date: '2026-09-07', repeats: true, frequency: 'yearly', color: '#ff6b6b', events: [['Labor Day', 'No scheduled events']] },
 
         // === Arizona Election Dates ===
-        { date: '2026-07-06', repeats: false, color: '#f64c2d', events: [['Voter Reg Deadline — Primary', 'Register at azsos.gov']] },
-        { date: '2026-07-08', repeats: false, color: '#4ecdc4', events: [['Early Voting Begins — Primary', 'County recorder offices open']] },
-        { date: '2026-08-04', repeats: false, color: '#f64c2d', events: [['PRIMARY ELECTION DAY', 'Polls open 6:00am - 7:00pm']] },
+        { date: '2026-06-22', repeats: false, color: '#f64c2d', events: [['Voter Reg Deadline — Primary', 'Register at azsos.gov']] },
+        { date: '2026-06-24', repeats: false, color: '#4ecdc4', events: [['Early Voting Begins — Primary', 'County recorder offices open']] },
+        { date: '2026-07-21', repeats: false, color: '#f64c2d', events: [['PRIMARY ELECTION DAY', 'Polls open 6:00am - 7:00pm']] },
         { date: '2026-10-05', repeats: false, color: '#f64c2d', events: [['Voter Reg Deadline — General', 'Register at azsos.gov']] },
         { date: '2026-10-07', repeats: false, color: '#4ecdc4', events: [['Early Voting Begins — General', 'County recorder offices open']] },
         { date: '2026-11-03', repeats: false, color: '#f64c2d', events: [['GENERAL ELECTION DAY', 'Polls open 6:00am - 7:00pm']] },
@@ -371,7 +371,7 @@ class Calendar {
     ];
 
     // Method to handle selecting a day on the calendar
-    static selectDay(element) {
+    static selectDay(element: HTMLElement) {
         // Remove selected class from all days and add it to the clicked day
         UI.days.forEach(day => {
             if (day.classList.contains('selected')) day.classList.remove('selected', 'Grit');
@@ -431,7 +431,7 @@ class Calendar {
     }
 
     // Method to update calendar information based on selected date
-    static getEventsForDate(date) {
+    static getEventsForDate(date: Date) {
         const selectedDateString = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
         
         return this.events.filter(event => {
@@ -445,7 +445,7 @@ class Calendar {
                     case 'daily':
                         return true; // Always matches for daily events
                     case 'weekly':
-                        return date.getDay() === parseInt(day - 1) % 7;
+                        return date.getDay() === (parseInt(day) - 1) % 7;
                     case 'monthly':
                         return date.getDate() == parseInt(day); // Match the day of the month
                     case 'yearly':
@@ -475,13 +475,13 @@ class Calendar {
             event.events.forEach(([eventName, eventTime]) => {
                 const eventDiv = createDiv(['event'], eventName);
                 eventDiv.append(createDiv(['time'], eventTime));
-                Display.calendarEvents.append(eventDiv);
+                Display.calendarEvents!.append(eventDiv);
             });
         });
     }
 
     // Method to generate calendar grid for a specific month
-    static generate(year, month) {
+    static generate(year: number, month: number) {
         // Update calendar info
         this.updateInfo();
         const lastDayOfMonth = new Date(year, month + 1, 0).getDate();
@@ -494,7 +494,7 @@ class Calendar {
             // If the date is the first day of the month, fill in previous month's days
             if (date.getDate() == 1) {
                 for (let i = date.getDay() - 1; i > -1; i--) {
-                    Display.calendarGrid.append(createDiv(['day', 'interface', 'lastMonth'], lastDayOfLastMonth - i));
+                    Display.calendarGrid!.append(createDiv(['day', 'interface', 'lastMonth'], lastDayOfLastMonth - i));
                 }
             }
             
@@ -529,7 +529,7 @@ class Calendar {
 
             // Append the day div to the calendar grid
             dayDiv.append(dotContainer);
-            Display.calendarGrid.append(dayDiv);
+            Display.calendarGrid!.append(dayDiv);
         }
         UI.update();
     }
@@ -539,7 +539,7 @@ class Calendar {
 class UI {
     static calendarMonthRight = document.querySelector('.Schedule .right.interface');
     static calendarMonthLeft = document.querySelector('.Schedule .left.interface');
-    static days = document.querySelectorAll('.Schedule .day.interface');
+    static days = document.querySelectorAll<HTMLElement>('.Schedule .day.interface');
     static reset = document.querySelector('.Schedule .reset.interface');
     static listenersAttached = false;
 
@@ -566,7 +566,7 @@ class UI {
 
     // Method to update UI elements
     static update() {
-        this.days = document.querySelectorAll('.Schedule .day.interface');
+        this.days = document.querySelectorAll<HTMLElement>('.Schedule .day.interface');
         this.days.forEach(day => {
             // Check if listener already attached to prevent duplicates
             if (!day.dataset.listenerAttached) {
@@ -589,8 +589,8 @@ class Display {
     static initialized = false;
 
     // Method to change content of an element
-    static change(element, content) {
-        element.textContent = content;
+    static change(element: Element | null, content: string | number) {
+        if (element) element.textContent = String(content);
     }
 
     // Method to update display elements

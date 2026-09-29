@@ -1,0 +1,52 @@
+---
+import { getCollection, render } from 'astro:content';
+import ContentLayout from '../../layouts/ContentLayout.astro';
+
+export async function getStaticPaths() {
+    const posts = await getCollection('news');
+    return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const pageUrl = `/news/${post.id}`;
+const published = post.data.date;
+const updated = post.data.updated ?? published;
+const formatDate = (date: Date) =>
+    date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+
+const articleSchema = {
+    '@type': 'BlogPosting',
+    '@id': `https://stafford4az.com${pageUrl}#article`,
+    headline: post.data.heading,
+    description: post.data.description,
+    datePublished: published.toISOString(),
+    dateModified: updated.toISOString(),
+    image: 'https://stafford4az.com/assets/og-card.jpg',
+    author: { '@id': 'https://stafford4az.com/#campaign' },
+    publisher: { '@id': 'https://stafford4az.com/#campaign' },
+    about: { '@id': 'https://stafford4az.com/#eric' },
+    mainEntityOfPage: { '@id': `https://stafford4az.com${pageUrl}#webpage` },
+    inLanguage: 'en-US',
+};
+---
+
+<ContentLayout
+    title={post.data.title}
+    canonicalUrl={pageUrl}
+    description={post.data.description}
+    heading={post.data.heading}
+    breadcrumbs={[
+        { name: 'News', path: '/news' },
+        { name: post.data.heading, path: pageUrl },
+    ]}
+    ogType="article"
+    publishedTime={published.toISOString()}
+    schema={[articleSchema]}
+>
+    <p class="content-meta">
+        By Eric Stafford for Arizona Senate ·
+        <time datetime={published.toISOString()}>{formatDate(published)}</time>
+    </p>
+    <Content />
+</ContentLayout>

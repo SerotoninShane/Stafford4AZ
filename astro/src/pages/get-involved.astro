@@ -1,8 +1,10 @@
 ---
 // Import the layout
 import BaseLayout from '../layouts/BaseLayout.astro';
+import AttributionFields from '../components/AttributionFields.astro';
 import Schedule from '../components/Calendar.astro';
 import siteText from '../data/site-text.json';
+import Icon from '../components/Icon.astro';
 // Define the unique data for this specific page
 const pageTitle = "Eric Stafford for Arizona Senate - Get Involved";
 const pageUrl = '/get-involved';
@@ -19,7 +21,7 @@ const giForm = giText.form;
 >
 <section class="mini-hero">
     <div class="mini-hero-content">
-        <h2>{giText.heroTitle}</h2>
+        <h1>{giText.heroTitle}</h1>
     </div>
 </section>
 
@@ -44,28 +46,28 @@ const giForm = giText.form;
             <p>{giText.volunteerBody}</p>
             <ul class="volunteer-ways">
                 <li>
-                    <i class="fas fa-door-open"></i>
+                    <Icon name="door-open" />
                     <div>
                         <strong>{giText.volunteerWays[0].title}</strong>
                         <span>{giText.volunteerWays[0].description}</span>
                     </div>
                 </li>
                 <li>
-                    <i class="fas fa-phone"></i>
+                    <Icon name="phone" />
                     <div>
                         <strong>{giText.volunteerWays[1].title}</strong>
                         <span>{giText.volunteerWays[1].description}</span>
                     </div>
                 </li>
                 <li>
-                    <i class="fas fa-signs-post"></i>
+                    <Icon name="signs-post" />
                     <div>
                         <strong>{giText.volunteerWays[2].title}</strong>
                         <span>{giText.volunteerWays[2].description}</span>
                     </div>
                 </li>
                 <li>
-                    <i class="fas fa-people-group"></i>
+                    <Icon name="people-group" />
                     <div>
                         <strong>{giText.volunteerWays[3].title}</strong>
                         <span>{giText.volunteerWays[3].description}</span>
@@ -77,6 +79,7 @@ const giForm = giText.form;
             <h3>{giText.volunteerFormTitle}</h3>
             <form class="volunteer-form" name="volunteer-signup" method="POST" data-netlify="true" action={links.thankYou}>
                 <input type="hidden" name="form-name" value="volunteer-signup">
+                <AttributionFields />
                 <div class="form-group">
                     <label for="vol-name">{giForm.nameLabel}</label>
                     <input type="text" id="vol-name" name="name" required>
@@ -112,7 +115,7 @@ const giForm = giText.form;
 <section class="yard-sign-section reveal">
     <div class="yard-sign-content">
         <div class="yard-sign-icon">
-            <i class="fas fa-signs-post"></i>
+            <Icon name="signs-post" />
         </div>
         <div class="yard-sign-text">
             <h2>{giText.yardSignTitle}</h2>
@@ -120,6 +123,7 @@ const giForm = giText.form;
         </div>
         <form class="yard-sign-form" name="yard-sign-request" method="POST" data-netlify="true" action={links.thankYou}>
             <input type="hidden" name="form-name" value="yard-sign-request">
+            <AttributionFields />
             <input type="text" name="name" placeholder={giText.yardSignForm.namePlaceholder} required>
             <input type="text" name="address" placeholder={giText.yardSignForm.addressPlaceholder} required>
             <input type="text" name="city" placeholder={giText.yardSignForm.cityPlaceholder} required>
@@ -136,19 +140,19 @@ const giForm = giText.form;
         <p class="endorsements-subtitle">{giText.endorsementsSubtitle}</p>
         <div class="endorsements-preview-grid">
             <div class="endorsement-card">
-                <i class="fas fa-hard-hat"></i>
+                <Icon name="helmet-safety" />
                 <span>{giText.endorsementPreview[0]}</span>
             </div>
             <div class="endorsement-card">
-                <i class="fas fa-chalkboard-teacher"></i>
+                <Icon name="chalkboard-user" />
                 <span>{giText.endorsementPreview[1]}</span>
             </div>
             <div class="endorsement-card">
-                <i class="fas fa-store"></i>
+                <Icon name="store" />
                 <span>{giText.endorsementPreview[2]}</span>
             </div>
             <div class="endorsement-card">
-                <i class="fas fa-people-carry-box"></i>
+                <Icon name="people-carry-box" />
                 <span>{giText.endorsementPreview[3]}</span>
             </div>
         </div>

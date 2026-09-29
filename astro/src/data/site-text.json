@@ -56,6 +56,9 @@
       "getInvolvedLabel": "GET INVOLVED",
       "endorsementsLabel": "Endorsements",
       "voterResourcesLabel": "Voter Resources",
+      "ld29GuideLabel": "LD29 Guide",
+      "newsLabel": "News",
+      "whoIsMySenatorLabel": "Who Is My State Senator?",
       "transparencyLabel": "Transparency",
       "contactLabel": "Contact",
       "privacyLabel": "Privacy Policy",
@@ -67,7 +70,16 @@
       ],
       "copyright": "©2026 Eric Stafford for Arizona Senate. All rights reserved."
     },
+    "analytics": {
+      "gtmId": "",
+      "ga4Id": "G-SG2GGDGV3M"
+    },
+    "donations": {
+      "open": false,
+      "closedNote": "Donations for this period have closed. Thank you to everyone who chipped in — we are so grateful for your support!"
+    },
     "cleanElections": {
+      "popupEnabled": false,
       "modalTitle": "Donate to help us win.",
       "modalBody": "Help us reach our goal! Donate a maximum of $220 to support Eric's Clean Elections campaign.",
       "progressLinkLabel": "Track progress toward $5,293",
@@ -78,7 +90,12 @@
     }
   },
   "home": {
-    "heroTitle": "Eric Stafford: By The People. For The People.",
+    "heroTitleLines": [
+      "Eric Stafford",
+      "By The People.",
+      "For The People."
+    ],
+    "heroSubtitle": "Democratic Nominee for Arizona State Senate · LD29",
     "heroPrimaryCta": "SEE WHERE I STAND",
     "heroDonateCta": "DONATE",
     "voterResourcesLabel": "Voter Resources",
@@ -91,11 +108,11 @@
     "videoTitle": "See Eric's Vision for Arizona",
     "videoBody": "Join Eric Stafford as he shares his vision for LD29 and how he’ll prioritize Arizona families. See how Eric Stafford will lower the cost of living, support fair wages, strengthen schools, and run a clean, accountable government. Watch the video to see how his people-first leadership can create a brighter future for all families in LD29.",
     "form": {
-      "firstNameLabel": "First Name (required)",
-      "lastNameLabel": "Last Name (required)",
-      "zipCodeLabel": "Zip Code (required)",
+      "firstNameLabel": "First Name",
+      "lastNameLabel": "Last Name",
+      "zipCodeLabel": "Zip Code",
       "phoneLabel": "Phone",
-      "emailLabel": "Email (required)",
+      "emailLabel": "Email",
       "submitLabel": "Submit"
     },
     "donateTitleLines": [
@@ -109,16 +126,17 @@
   "about": {
     "heroTitle": "Meet Eric Stafford",
     "introHeading": "Arizonan. Tradesman. Fighter for LD29.",
-    "introLead": "Eric Stafford is a community organizer, working people's advocate, and lifelong Arizonan running for State Senate to deliver progress and prosperity to all by rejecting special interest money, and legislating on behalf of the common good for the most people in this state.",
+    "introLead": "Eric Stafford is a community organizer, working people's advocate, and lifelong Arizonan running as the Democratic nominee for State Senate to deliver progress and prosperity to all by rejecting special interest money, and legislating on behalf of the common good for the most people in this state.",
+    "candidacyLine": "Eric is the Democratic nominee for Arizona State Senate in Legislative District 29, running against Republican incumbent Sen. Janae Shamp in the November 3, 2026 general election.",
     "quickFacts": [
       "Certified A&P Mechanic and Machinist",
-      "Veterinary & Healthcare Experience",
+      "Worked in Aircraft Hangars & Machine Shops",
       "Clean Elections Candidate",
       "No PAC or Dark money funding"
     ],
     "bioParagraphs": [
       "Eric is running for office because there is a severe lack of young representation at the capitol, and he will not tolerate the collective push by members of our legislature to defund Arizona's government and destroy many programs aimed at helping working-class people get by.",
-      "There have been numerous bills proposed that make voting harder for citizens, removing support for people in poverty, and cutting taxes for the filthy rich in Arizona - all  while young and working class people have to choose between a gallon of gas and a carton of eggs."
+      "There have been numerous bills proposed that make voting harder for citizens, removing support for people in poverty, and cutting taxes for the filthy rich in Arizona - all while young and working class people have to choose between a gallon of gas and a carton of eggs."
     ],
     "priorities": [
       {
@@ -134,7 +152,7 @@
         "description": "Our generation has everything to lose by electing weak politicians, what we need is modern candidates who understand how hard it is to get by nowadays and work to fix it for everyone."
       }
     ],
-    "bioClosing": "Eric Stafford is prepared to be a transparent leader who rejects corrupt intersts, prioritizes people over poltics, and seeks to fix the rules that allow for political corruption in the first place.",
+    "bioClosing": "Eric Stafford is prepared to be a transparent leader who rejects corrupt interests, prioritizes people over politics, and seeks to fix the rules that allow for political corruption in the first place.",
     "raceTitle": "Why This Race Matters",
     "raceLead": "LD29 is one of the most competitive districts in Arizona — and in 2026, it's a real opportunity to flip.",
     "raceStats": [
@@ -153,7 +171,7 @@
     ],
     "raceParagraphs": [
       "Across the country, voters in traditionally red districts are choosing new leadership — candidates who fight for working families instead of selfish interests. LD29's rapid growth and shifting demographics make this district a first-time swing district.",
-      "Arizona families deserve politicians who show up for them — not the people who pay them,. With a Clean-Elections campaign powered by grassroots support, this race proves that people-powered politics can and will win."
+      "Arizona families deserve politicians who show up for them — not the people who pay them. With a Clean-Elections campaign powered by grassroots support, this race proves that people-powered politics can and will win."
     ],
     "transparencyTitle": "A Clean Elections Candidate",
     "transparencyBody": "Eric is running a fully transparent, publicly funded campaign through Arizona's Clean Elections system — no corporate PACs, no dark money, no special interests. Every dollar is reported and every decision is accountable to the voters of LD29.",
@@ -165,16 +183,51 @@
     "platformCta": "Read Eric's Full Platform",
     "donateCta": "Donate to Flip LD29",
     "volunteerCta": "Volunteer Now",
-    "transparencyCta": "View Full Transparency Report"
+    "transparencyCta": "View Full Transparency Report",
+    "faqTitle": "Frequently Asked Questions About Eric Stafford",
+    "faq": [
+      {
+        "question": "What district is Eric Stafford running in?",
+        "answer": "Eric is running for Arizona State Senate in Legislative District 29 (LD29). LD29 covers parts of Surprise, El Mirage, Glendale, Goodyear, Litchfield Park and Peoria, plus the unincorporated communities of Wittmann and Morristown, in Maricopa County's northwest West Valley.",
+        "link": { "href": "/ld29", "label": "Explore the LD29 guide" }
+      },
+      {
+        "question": "Who is running for Arizona State Senate in LD29 in 2026?",
+        "answer": "Eric Stafford, the Democratic nominee, is running against Republican incumbent Sen. Janae Shamp, who has held the LD29 Senate seat since 2023. Voters will decide the race in the November 3, 2026 general election."
+      },
+      {
+        "question": "Is Eric Stafford a Democrat?",
+        "answer": "Yes. Eric is the Democratic nominee for Arizona State Senate in LD29. He is running a people-first campaign to lower costs, raise wages and strengthen public schools, and he takes no corporate PAC or dark money."
+      },
+      {
+        "question": "When is the election?",
+        "answer": "The general election is Tuesday, November 3, 2026. The voter registration deadline is October 5, early voting runs October 7 through October 30, and the last day to request an early ballot is October 23.",
+        "link": { "href": "/voter-resources", "label": "Get ready to vote" }
+      },
+      {
+        "question": "What is Eric Stafford's background?",
+        "answer": "Eric is a lifelong Arizonan who was born in Phoenix and lives in Goodyear. He graduated from West-MEC (Western Maricopa Education Center) in 2016 and Pima Medical Institute in 2018. He is a tradesman: a certified A&P (airframe and powerplant) aircraft mechanic and a machinist who has worked in airplane hangars and machine shops. He has also worked as a veterinary technician. He got his start in politics as a field organizer on U.S. Senator Mark Kelly's campaign."
+      },
+      {
+        "question": "Is Eric Stafford a Clean Elections candidate?",
+        "answer": "Yes. Eric is running through Arizona's Clean Elections system, so his campaign is powered by small-dollar contributions from voters. He takes no corporate PAC or dark money, and every dollar is publicly reported.",
+        "link": { "href": "/transparency", "label": "See the campaign's finances" }
+      },
+      {
+        "question": "What are Eric Stafford's top priorities?",
+        "answer": "Lowering housing costs, protecting workers and raising wages, fully funding public schools and trade programs, making healthcare affordable, making sure the West Valley's growth and water use work for the people who live here, and getting dark money out of Arizona politics.",
+        "link": { "href": "/platform", "label": "Read Eric's full platform" }
+      }
+    ]
   },
   "contact": {
     "heroTitle": "Contact",
     "title": "We’d Love to Hear From You",
     "introBody": "If you have questions, comments, want to get involved with Eric Stafford's campaign for Arizona Senate, or wish to share your thoughts on changes in legislation affecting LD29, please use the form below to contact us. We welcome your input and will respond as soon as possible to help keep you informed and engaged in shaping policies that matter to our community.",
     "form": {
-      "firstNameLabel": "First Name (required)",
-      "lastNameLabel": "Last Name (required)",
-      "emailLabel": "Email (required)",
+      "firstNameLabel": "First Name",
+      "lastNameLabel": "Last Name",
+      "emailLabel": "Email",
       "phoneLabel": "Phone",
       "subjectLabel": "Subject",
       "subjectPlaceholder": "Select a topic...",
@@ -208,7 +261,7 @@
           "label": "Other"
         }
       ],
-      "messageLabel": "Message (required)",
+      "messageLabel": "Message",
       "messagePlaceholder": "How can we help?"
     },
     "submitLabel": "Send Message"
@@ -388,26 +441,26 @@
     "contactLine": "Most importantly, I want to hear from you as this platform grows and develops. Please reach out to info@ericstaffordforsenate.com with any thoughts or additions you might have, or to schedule a further conversation.",
     "overviewTitle": "Overview",
     "overviewParagraphs": [
-      "Arizona stands at a crossroads. Maricopa county is now the second largest county in the U.S.A and growing rapidly, but that growth isn't benefiting everyone equally. While corporations rake in record profits, working families face skyrocketing housing costs, water insecurity, and an education system that's been systematically de-funded for decades.",
+      "Arizona stands at a crossroads. Maricopa County is now the fourth most populous county in the U.S.A and growing rapidly, but that growth isn't benefiting everyone equally. While corporations rake in record profits, working families face skyrocketing housing costs, water insecurity, and an education system that's been systematically de-funded for decades.",
       "The average age of an AZ politician is around 60 years old, and members of our legislature are actively defunding Arizona's government and destroying many programs aimed at helping working-class people get by.", 
       "There have been numerous bills proposed to make voting harder for AZ citizens, removing support for people in poverty, and cutting taxes for the filthy rich in Arizona - all while young and working-class people have to choose between a gallon of gas and a carton of eggs."
     ],
     "items": [
       {
         "title": "Affordable Housing",
-        "content": "Families across Arizona being priced out of homeownership, and owning a home has gone from attainable to impossible. Big Wall Street investors and corporate landlords are trying to transform homeowners into lifelong renters, and buy houses en masse only to jack up prices for you and me. Housing should not be a rare luxury, we need to put it back in reach for working families.",
+        "content": "Families across Arizona are being priced out of homeownership, and owning a home has gone from attainable to impossible. Big Wall Street investors and corporate landlords are trying to transform homeowners into lifelong renters, and buy houses en masse only to jack up prices for you and me. Housing should not be a rare luxury, we need to put it back in reach for working families.",
         "listItems": [
           "Tax incentives for first-time homebuyers",
           "Crack down on corporate landlords and house-hoarders driving up rents",
           "Increase funding for affordable housing development",
-          "Support local communities by protecting residents from homelesness",
+          "Support local communities by protecting residents from homelessness",
           "Address predatory lending and unfair eviction practices",
           "Ensure new development includes affordable housing commitments"
         ]
       },
       {
         "title": "Strong Labor, Happy Workers",
-        "content": "I have worked in blue-collar work for a decade and have been in machine shops, airport hangars, veterinary clinics and in service work, and I know firsthand what it feels like to put your body on the line to be able to pay the bills. Now, threats from AI, Poor Job Markets, and Union Busting has lowered the quality of jobs so far that 40 hours a week is not ewnough to live off of. Arizona's workers keep the lights on in this state, and need protections, living wages, and a seat at the table.",
+        "content": "I have worked in blue-collar work for a decade and have been in machine shops, airport hangars, veterinary clinics and in service work, and I know firsthand what it feels like to put your body on the line to be able to pay the bills. Now, threats from AI, Poor Job Markets, and Union Busting have lowered the quality of jobs so far that 40 hours a week is not enough to live off of. Arizona's workers keep the lights on in this state, and need protections, living wages, and a seat at the table.",
         "listItems": [
           "Protect and expand the right to organize and collectively bargain",
           "Fight for prevailing wage standards on public projects",
@@ -418,36 +471,36 @@
         ]
       },
       {
-        "title": "Exceptional Educations",
-        "content": "Arizona ranks DEAD LAST nationally in education funding. Our teachers are underpaid, classrooms overcrowded, and our state is lagging behind by not producing #1 in-the-nation high school educations. At the same time, we're facing shortages of skilled tradespeople of all ages, and need to invest in affordable public education for Children and Adults.",
+        "title": "Exceptional Education",
+        "content": "Arizona ranks DEAD LAST nationally in education funding. Our teachers are underpaid, classrooms overcrowded, and our state is lagging behind by not producing #1 in-the-nation high school education. At the same time, we're facing shortages of skilled tradespeople of all ages, and need to invest in affordable public education for Children and Adults.",
         "listItems": [
           "Competitive teacher salaries to attract and retain quality educators",
           "Increased funding for school infrastructure and resources",
           "Massively expand vocational, technical, and apprenticeship programs for all ages",
           "Ensure voucher handouts are audited to prevent waste, fraud, and abuse",
-          "Mandating teacher background checks, financial audits, and nondicrimination for all schools receiving public funds ",
-          "Support free community college grtants for first-time students to help people step into future careers."
+          "Mandating teacher background checks, financial audits, and nondiscrimination for all schools receiving public funds",
+          "Support free community college grants for first-time students to help people step into future careers."
         ]
       },
       {
         "title": "Healthcare is a Human Right",
-        "content": "If we deserve Life, Liberty, and the Pursuit of Happiness, Affordable Healthcare is a good start. My mom suffered permanent brain damage because she couldnt afford her life-saving medicine due to corporate greed. No family should ever have to choose between health and finances in the United States. We need comprehensive reform now.",
+        "content": "If we deserve Life, Liberty, and the Pursuit of Happiness, Affordable Healthcare is a good start. My mom suffered permanent brain damage because she couldn't afford her life-saving medicine due to corporate greed. No family should ever have to choose between health and finances in the United States. We need comprehensive reform now.",
         "listItems": [
           "Expanding access to affordable healthcare for all Arizonans through AHCCCS and state programs",
           "Lowering prescription drug costs through state-level bulk purchasing and price transparency laws",
           "Protecting coverage for pre-existing conditions under Arizona law",
           "Increasing mental health and addiction treatment services statewide",
-          "Expanding addiction treatment services statewide to help addcits in need and to keep needles of the streets for good.",
+          "Expanding addiction treatment services statewide to help addicts in need and to keep needles off the streets for good.",
           "Holding un-ethical pharmaceutical companies accountable through state consumer protection laws"
         ]
       },
       {
         "title": "Fiscal Responsibility and Infrastructure",
-        "content": "LD29 is one of the fastest-growing areas in Arizona. Surprise alone has grown from 30,000 to over 150,000 residents in just two decade, and goodyear is one of the fastest growing cities in the nation. Massive projects like the proposed $3.2 billion BNSF logistics hub in Wittmann, or massive data centers will reshape our communities. Growth must work for residents—not just developers.",
+        "content": "LD29 is one of the fastest-growing areas in Arizona. Surprise alone has grown from 30,000 to over 150,000 residents in just two decades, and Goodyear is one of the fastest growing cities in the nation. Massive projects like the proposed $3.2 billion BNSF logistics hub in Wittmann, or massive data centers will reshape our communities. Growth must work for residents—not just developers.",
         "listItems": [
           "Ensure community input on major development projects like the Wittmann rail hub, the Surprise ICE Facility, or the Water-Draining Data-Centers",
-          "Expand public transit like Busses, & Light rail to help reduce traffic, and keep transit convenient and affordable for the West-Valley",
-          "Invest in shaded infrastructure, safe bike lanes, and public transit options to help make our streets, cool, clean and walkable",
+          "Expand public transit like buses & light rail to help reduce traffic, and keep transit convenient and affordable for the West Valley",
+          "Invest in shaded infrastructure, safe bike lanes, and public transit options to help make our streets cool, clean and walkable",
           "Protect existing neighborhoods from overdevelopment and industrial encroachment",
           "Demand environmental impact assessments for large-scale industrial projects, and prioritize water & utility infrastructure before approving new developments"
         ]
@@ -465,7 +518,7 @@
       },
       {
         "title": "Climate and Environment",
-        "content": "One of Arizona's greates exports is our Climate. As of 2026 Wittmann has recorded temperatures of 119°F. Record heat, water scarcity, and poor air quality threaten our communities, our skyline views, and make ourdoor work & recreation unsafe for our skin, lungs, & mental health.",
+        "content": "One of Arizona's greatest exports is our Climate. As of 2026 Wittmann has recorded temperatures of 119°F. Record heat, water scarcity, and poor air quality threaten our communities, our skyline views, and make outdoor work & recreation unsafe for our skin, lungs, & mental health.",
         "listItems": [
           "Adopt extreme heat protections for outdoor workers",
           "Accelerate the transition to renewable energy and good-paying green jobs",
@@ -508,17 +561,17 @@
          },
       {
         "title": "Vaccines and Public Health",
-        "content": "Many bills are being passed in 2026 to ban vaccine requirements at workplaces and public schools where diseases sprerad like wildfire and can permanently maim or kill people who are vunerable. Policies like this pretend that dangerous diseases cannot, or do-not exist, and prevent emergency health measures from existing ever.",
+        "content": "Many bills are being passed in 2026 to ban vaccine requirements at workplaces and public schools where diseases spread like wildfire and can permanently maim or kill people who are vulnerable. Policies like this pretend that dangerous diseases cannot or do not exist, and prevent emergency health measures from existing ever.",
         "listItems": [
           "Continue protecting OSHA workers and students from diseases like measles, polio, and genital warts by maintaining vaccine rules in public workplaces.",
-          "Keeping vaccine desicions between patients, and their doctors, and keeping politics out of the equation",
+          "Keeping vaccine decisions between patients, and their doctors, and keeping politics out of the equation",
           "Protecting public health now, and planning ahead to defeat the disease of the future.",
-          "Portecting kids from preventable diseases, and ensuring medicines and vaccines are safe, healthy, and effective"
+          "Protecting kids from preventable diseases, and ensuring medicines and vaccines are safe, healthy, and effective"
         ]
       },
       {
         "title": "Ban Political Corruption in our Politics",
-        "content": "Our futures and our childrens futures are being sold to the highest bidder. Arizona needs fundamental campaign finance reform to ban corportaions and private interests from paying our politicians to pass unpopular policies.",
+        "content": "Our futures and our children's futures are being sold to the highest bidder. Arizona needs fundamental campaign finance reform to ban corporations and private interests from paying our politicians to pass unpopular policies.",
         "listItems": [
           "Strengthen Arizona's dark money disclosure laws and close loopholes",
           "Expand and protect Arizona's Clean-Elections public financing system",
@@ -536,7 +589,7 @@
     "cards": {
       "district": {
         "title": "Am I in LD29?",
-        "body": "Arizona Legislative District 29 covers parts of Surprise, Wittmann, Sun City Grand, and the northwest West Valley in Maricopa County. Use the Arizona legislature's official tool to check your district."
+        "body": "Arizona Legislative District 29 covers parts of Surprise, El Mirage, Glendale, Goodyear, Litchfield Park, Wittmann, Sun City Grand, and the northwest West Valley in Maricopa County. Use the Arizona legislature's official tool to check your district."
       },
       "register": {
         "title": "Register to Vote",
@@ -560,20 +613,20 @@
     },
     "keyDates": [
       {
-        "date": "Aug 4, 2026",
-        "label": "Primary Election"
+        "date": "Oct 5, 2026",
+        "label": "Voter Registration Deadline"
       },
       {
-        "date": "Jul 6, 2026",
-        "label": "Registration Deadline (Primary)"
+        "date": "Oct 7, 2026",
+        "label": "Early Voting Begins"
+      },
+      {
+        "date": "Oct 23, 2026",
+        "label": "Last Day to Request an Early Ballot"
       },
       {
         "date": "Nov 3, 2026",
-        "label": "General Election"
-      },
-      {
-        "date": "Oct 5, 2026",
-        "label": "Registration Deadline (General)"
+        "label": "General Election Day"
       }
     ],
     "districtInfoTitle": "About Legislative District 29",
@@ -591,7 +644,7 @@
         "label": "Precincts"
       }
     ],
-    "districtBody": "LD29 is located in Maricopa County and includes parts of Surprise, Wittmann, Sun City Grand, and surrounding West Valley communities. It is one of the fastest-growing districts in Arizona.",
+    "districtBody": "LD29 is located in Maricopa County and includes parts of Surprise, El Mirage, Glendale, Goodyear, Litchfield Park, Wittmann, Sun City Grand, and surrounding West Valley communities. It is one of the fastest-growing districts in Arizona.",
     "zipNote": "Common zip codes in LD29: 85374, 85378, 85379, 85387, 85388, 85361",
     "findDistrictLabel": "Find My District",
     "registerLabel": "Register Online",
@@ -605,7 +658,7 @@
     "headerBody": "Eric believes voters deserve to know exactly who funds his campaign and how every dollar is spent. That's why he's running as a Clean Elections candidate — powered by people, not corporations.",
     "cleanElectionsTitle": "Arizona Clean Elections Candidate",
     "cleanElectionsBody": "Eric is a certified Clean Elections candidate through the Arizona Citizens Clean Elections Commission. This means his campaign is publicly funded by Arizona voters — not special interests, lobbyists, or corporate PACs.",
-    "cleanElectionsProgress": "Clean Elections candidates qualify by collecting $5 contributions from registered voters in their district — proving grassroots support before receiving any public funds. Eric has collected 227 of 240 qualifying contributions so far.",
+    "cleanElectionsProgress": "Clean Elections candidates qualify by collecting $5 contributions from registered voters in their district — proving grassroots support before receiving any public funds. Eric reached his goal and has qualified for Clean Elections funding. Thank you to every LD29 voter who chipped in $5!",
     "disclosureTitle": "Campaign Disclosure",
     "paidFor": "PAID FOR BY ERIC STAFFORD FOR ARIZONA SENATE",
     "authorizedBy": "Authorized by Eric Stafford, Candidate for Arizona State Senate, LD29",
@@ -628,13 +681,14 @@
   "es": {
     "langNotice": "🇲🇽 Esta página está en español.",
     "viewEnglish": "View in English",
+    "translateSiteLabel": "Traducir todo el sitio",
     "heroTitle": "Eric Stafford: Los Arizonenses Primero. Arizona Siempre.",
-    "heroSubtitle": "Candidato al Senado Estatal de Arizona — Distrito Legislativo 29",
+    "heroSubtitle": "Candidato demócrata al Senado Estatal de Arizona — Distrito Legislativo 29",
     "heroPetitions": "FIRMAR MIS PETICIONES",
     "heroDonate": "DONAR",
     "aboutTitle": "Conozca a Eric Stafford",
     "aboutParagraphs": [
-      "Eric Stafford es un organizador comunitario, defensor de pequeñas empresas y arizonense de toda la vida que se postula para el Senado Estatal para ofrecer progreso y prosperidad a todos, rechazando los intereses especiales y legislando con integridad.",
+      "Eric Stafford es un organizador comunitario, defensor de pequeñas empresas y arizonense de toda la vida que se postula para el Senado Estatal para ofrecer progreso y prosperidad a todos, rechazando los intereses especiales y legislando con integridad. Eric es el candidato demócrata al Senado Estatal por el Distrito Legislativo 29 y se enfrenta a la senadora republicana Janae Shamp en la elección general del 3 de noviembre de 2026.",
       "Nacido y criado en Arizona, la trayectoria de Eric refleja su compromiso con el servicio y los resultados. Su experiencia laboral comenzó cuando obtuvo su Licencia de Estructura y Motor de Avión y trabajó como mecánico de aviones y maquinista certificado. Este trabajo le dio una experiencia directa de las dificultades de las familias trabajadoras.",
       "La dedicación de Eric a un enfoque ético y humano fue marcada por una tragedia personal: ver a su propia madre sufrir daño cerebral permanente porque el costo inflado de la medicina debido a la codicia corporativa hizo que su tratamiento fuera inasequible."
     ],
@@ -665,13 +719,13 @@
         "description": "Reducir la burocracia, apoyar a los emprendedores locales y crear oportunidades económicas para las familias del LD29."
       }
     ],
-    "platformButton": "Ver la Plataforma Completa (Inglés)",
+    "platformButton": "Ver la Plataforma Completa",
     "voterTitle": "Recursos para Votantes",
     "voterDescription": "Todo lo que necesita para hacer escuchar su voz en el LD29.",
     "voterCards": [
       {
         "title": "¿Estoy en el LD29?",
-        "description": "El Distrito Legislativo 29 cubre partes de Surprise, Wittmann, Sun City Grand y el noroeste del Valle Oeste del Condado de Maricopa.",
+        "description": "El Distrito Legislativo 29 cubre partes de Surprise, El Mirage, Glendale, Goodyear, Litchfield Park, Wittmann, Sun City Grand y el noroeste del Valle Oeste del Condado de Maricopa.",
         "button": "Buscar Mi Distrito"
       },
       {
@@ -693,20 +747,20 @@
     "keyDatesTitle": "Fechas Importantes para 2026",
     "keyDates": [
       {
-        "date": "4 de agosto, 2026",
-        "label": "Elección Primaria"
+        "date": "5 de octubre, 2026",
+        "label": "Fecha límite para registrarse"
       },
       {
-        "date": "6 de julio, 2026",
-        "label": "Fecha límite de registro (Primaria)"
+        "date": "7 de octubre, 2026",
+        "label": "Comienza la votación anticipada"
+      },
+      {
+        "date": "23 de octubre, 2026",
+        "label": "Último día para pedir boleta anticipada"
       },
       {
         "date": "3 de noviembre, 2026",
-        "label": "Elección General"
-      },
-      {
-        "date": "5 de octubre, 2026",
-        "label": "Fecha límite de registro (General)"
+        "label": "Día de la Elección General"
       }
     ],
     "participateTitle": "Participa",
@@ -761,7 +815,7 @@
   "privacy": {
     "heroTitle": "Privacy Policy",
     "headerTitle": "Privacy Policy",
-    "meta": "Effective Date: January 1, 2025 · Last Updated: January 1, 2025",
+    "meta": "Effective Date: January 1, 2025 · Last Updated: September 29, 2026",
     "sections": [
       {
         "title": "Introduction",
@@ -775,7 +829,8 @@
           "Email address",
           "Phone number",
           "ZIP code",
-          "Other information you provide voluntarily (e.g., donations or volunteer sign-ups)"
+          "Other information you provide voluntarily (e.g., donations or volunteer sign-ups)",
+          "Website usage information collected through cookies and analytics (see Cookies & Analytics below)"
         ]
       },
       {
@@ -795,6 +850,24 @@
       {
         "title": "Sharing of Information",
         "body": "We do not sell or rent your personal information to third parties. Information may be shared with trusted service providers who assist with campaign operations, in accordance with applicable federal and state election laws."
+      },
+      {
+        "title": "Cookies & Analytics",
+        "body": "We use Google Analytics to understand how people find and use our website, such as which pages are visited and which links or ads brought visitors here. Google Analytics uses cookies and similar technologies to collect information like your browser and device type, the pages you view, and your general location (based on your IP address). Google collects and processes this information under its own privacy policy. We use it only in summary form to improve our website and outreach, and we do not sell it. If you arrive through one of our campaign links, your browser also remembers that link's campaign details (such as \"utm_source\") on your device for up to 30 days, and they are included with any form you submit so we know which outreach is working.",
+        "list": [
+          "You can block or delete cookies at any time in your browser settings.",
+          "You can opt out of Google Analytics on every website with Google's opt-out browser add-on."
+        ],
+        "links": [
+          {
+            "label": "How Google uses information from sites that use its services",
+            "url": "https://policies.google.com/technologies/partner-sites"
+          },
+          {
+            "label": "Google Analytics opt-out browser add-on",
+            "url": "https://tools.google.com/dlpage/gaoptout"
+          }
+        ]
       },
       {
         "title": "Security",

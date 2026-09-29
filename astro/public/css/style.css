@@ -55,7 +55,7 @@ body {
     
     /* Main colors */
     --main-blue: #173c62;
-    --off-white: #f9fff2;
+    --off-white: #faf9f6; /* soft neutral off-white (the old #f9fff2 read as green) */
     
     /* Opacity variants for backgrounds */
     --bg-red-75: rgba(246, 76, 45, 0.75);
@@ -148,7 +148,6 @@ body {
     z-index: 2;
 }
 
-
 .hero h1 {
     font-size: 5vh;
     font-weight: 700;
@@ -163,6 +162,18 @@ body {
 .hero .name {
     color: var(--bg-orange);
     font-weight: 700;
+}
+
+.hero-subtitle {
+    color: var(--off-white);
+    font-size: clamp(15px, 2.2vh, 22px);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-align: left;
+    text-wrap: balance;
+    opacity: 0.9;
+    margin-bottom: 2.4vh;
 }
 
 .hero-buttons {
@@ -191,513 +202,37 @@ body {
     color: var(--main-blue);
 }
 
-/* Content Sections */
-section {
-    padding: 100px 60px;
-}
-
-#contact {
-    margin: auto;
-    max-width: 1200px;
-    display: grid;
-    /* Defines two columns: one for the content and one for the form */
-    grid-template-columns: 1fr 1fr; 
-    gap: 80px; /* Space between the two columns */
-    padding: 80px 60px; /* Example padding for the entire section */
-    background-color: var(--off-white); /* Example background color */
-}
-
-
-/* Styling for the large disclaimer on the left side */
-.disclaimer-large {
-    font-size: 16px; 
-    line-height: 1.6;
-    color: var(--main-blue);
-    opacity: 0.85;
-    margin-bottom: 40px;
-    font-style: italic;
-}
-
-/* Ensure the H2 style is applied for the title on the left */
-.about-image h2 {
-    font-size: 5vh; /* Use a relative unit for the title */
-    font-weight: 700;
-    line-height: 1.1;
-    color: var(--main-blue);
-    text-transform: uppercase;
-    letter-spacing: -0.5px;
-}
-
-/* --- RIGHT COLUMN CONTENT (The Form) --- */
-.campaign-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px; 
-}
-
-/* Rows containing two fields (First/Last Name, Zip/Phone) */
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Two equal columns */
-    gap: 20px; /* Horizontal space between the two fields */
-}
-
-/* Individual field groups */
-.form-group {
-    display: flex;
-    flex-direction: column;
-}
-
-/* Labels */
-.campaign-form label {
-    font-weight: 600;
-    margin-bottom: 5px;
-    font-size: 16px;
-    color: var(--main-blue);
-}
-
-/* Input Fields */
-.campaign-form input[type="text"],
-.campaign-form input[type="email"],
-.campaign-form input[type="tel"] {
-    padding: 15px;
-    border: 1px solid var(--bg-dark-green);
-    border-radius: 4px;
-    font-size: 16px;
-    outline: none;
-    transition: border-color 0.3s;
-}
-
-.campaign-form input:focus {
-    border-color: var(--main-blue);
-    box-shadow: 0 0 0 2px var(--main-blue);
-}
-
-/* Full-width email field */
-.form-group.full-width {
-    /* This rule is now mostly redundant if we don't use .form-row for email, 
-    but it's good to keep if you ever change the form container to grid/flex directly */
-    /* grid-column: 1 / -1; */ 
-}
-
-/* Submit button (Now full width) */
-.campaign-form .submit-btn {
-    padding: 15px 40px; 
-    font-size: 20px;
+/* Required-field asterisk, added automatically to any label whose field is required */
+.form-group:has(> :is(input, select, textarea):required) > label::after {
+    content: " *";
+    content: " *" / ""; /* screen readers already announce "required" from the input */
+    color: var(--bg-red);
     font-weight: 800;
-    border: 4px solid var(--main-blue);
-    background: var(--main-blue);
-    color: var(--off-white);
-    cursor: pointer;
-    transition: all 0.3s;
-    text-align: center;
-    /* 🌟 CRITICAL CHANGE: Make button full width 🌟 */
-    width: 100%; 
-    /* REMOVED: align-self: flex-start; (Not needed when width is 100%) */
 }
 
-.campaign-form .submit-btn:hover {
-    background: transparent;
-    color: var(--main-blue);
-}
-
-/* Donate Section */
-.donate-section {
-    background-color: var(--off-white);
-    padding-inline: 60px;
-    padding-block: 90px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.donate-section h2 {
-    font-size: 42px;
-    font-weight: 700;
-    color: var(--main-blue);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin: 0;
-    flex-shrink: 0;
-    width: 40%;
-}
-
-.donate-amounts {
-    display: flex;
-    justify-content: flex-end;
-    gap: 20px;
-    flex-wrap: wrap;
-    flex: 1;
-}
-
-.donate-amount-btn {
-    padding: 20px 50px;
-    font-size: 24px;
-    font-weight: 800;
-    border: 4px solid var(--main-blue);
-    background: transparent;
-    color: var(--main-blue);
-    cursor: pointer;
-    transition: all 0.3s;
-    text-decoration: none;
+/* Inline SVG icons (Icon.astro). The <i> wrapper sits where Font Awesome's
+   font glyph used to, so size, color and spacing still come from font-size/color. */
+.icon {
     display: inline-block;
-    letter-spacing: 1px;
-    min-width: 160px;
+    height: 1em;
+    font-style: normal;
+    line-height: 1;
+    vertical-align: -0.125em;
 }
 
-.donate-amount-btn:hover {
-    background: var(--main-blue);
-    color: var(--off-white);
-}
-
-.donate-amount-btn.other {
-    border-color: var(--bg-orange);
-    color: var(--bg-orange);
-}
-
-.donate-amount-btn.other:hover {
-    background: var(--bg-orange);
-    color: var(--off-white);
-}
-
-/* Video Section */
-.video-section {
-    min-height: 60vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: linear-gradient(0.25turn, var(--bg-orange), var(--bg-orange-75));
-    position: relative;
-    overflow: visible;
-}
-
-.video-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.15"/></svg>');
-    opacity: 0.4;
-    z-index: 1;
-}
-
-.video-content-wrapper {
-    display: flex;
-    gap: 4vw;
-    align-items: center;
-    position: relative;
-    z-index: 3;
-    max-width: 1100px;
-    width: 100%;
-    pointer-events: none;
-}
-
-.video-text {
-    flex: 1;
-    text-align: left;
-    z-index: 2;
-    max-width: 40%;
-}
-
-.video-text h2 {
-    font-size: 5vh;
-    font-weight: 700;
-    line-height: 1.1;
-    color: var(--off-white);
-    text-transform: uppercase;
-    letter-spacing: -0.5px;
-    margin-bottom: 20px;
-}
-
-.video-text p {
-    font-size: 20px;
-    color: var(--off-white);
-    line-height: 1.6;
-    opacity: 0.9;
-}
-
-.video-thumbnail-container {
-    width: 50vw;
-    height: 520px;
-    overflow: hidden;
-    border-radius: 5% 0 0 0;
-    box-shadow: -10px 10px 60px rgba(0, 0, 0, 0.5);
-    position: absolute;
-    right: 0;
-    top: 8vh;
-    cursor: pointer;
-    z-index: 1;
-}
-
-.video-thumbnail-container img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: auto;
-    height: 100%;
-    transform: translate(-50%, -50%) scale(1.8);
-    object-fit: cover;
-    object-position: center center;
-}
-
-
-.play-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50px;
-    height: 50px;
-    background-color: var(--bg-red);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.4s ease;
-    box-shadow: 0 8px 30px rgba(254, 166, 85, 0.5);
-}
-
-.play-button i {
-    color: var(--off-white);
-    font-size: 20px;
-    margin-left: 3px;
-}
-
-.play-button:hover {
-    background-color: var(--bg-red);
-    transform: translate(-50%, -50%) scale(1.15);
-    box-shadow: 0 8px 40px rgba(246, 76, 45, 0.6);
-}
-
-/* Video Modal */
-.video-modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.video-modal-content {
-    position: relative;
-    margin: auto;
-    width: 90%;
-    max-width: 1200px;
-    top: 50%;
-    padding: 5vw;
-    transform: translateY(-50%);
-}
-
-.close-modal {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    color: var(--off-white);
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.3s;
-    z-index: 1001;
-}
-
-.close-modal:hover {
-    color: var(--bg-orange);
-}
-
-.video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    height: 0;
-    overflow: hidden;
-}
-
-.video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.video-modal-content {
-    position: relative;
-    margin: auto;
-    width: 90%;
-    max-width: 1200px;
-    top: 50%;
-    padding: 5vw;
-    transform: translateY(-50%);
-}
-
-.close-modal {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    color: var(--off-white);
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.3s;
-    z-index: 1001;
-}
-
-.close-modal:hover {
-    color: var(--bg-orange);
-}
-
-.video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    height: 0;
-    overflow: hidden;
-}
-
-.video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-/* Platform Section */
-.platform-section {
-    min-height: 50vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: linear-gradient(#122940, var(--main-blue) );
-    position: relative;
-    overflow: visible;
-}
-
-.platform-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.15"/></svg>');
-    opacity: 0.4;
-    z-index: 1;
-}
-
-.platform-content-wrapper {
-    display: flex;
-    gap: 4vw;
-    align-items: center;
-    position: relative;
-    z-index: 3;
-    max-width: 1100px;
-    width: 100%;
-    justify-content: flex-end;
-}
-
-.platform-text {
-    flex: 1;
-    text-align: left;
-    z-index: 2;
-    max-width: 40%;
-}
-
-.platform-text h2 {
-    font-size: 5vh;
-    font-weight: 700;
-    line-height: 1.1;
-    color: var(--off-white);
-    text-transform: uppercase;
-    letter-spacing: -0.5px;
-    margin-bottom: 20px;
-}
-
-.platform-text p {
-    font-size: 20px;
-    color: var(--off-white);
-    line-height: 1.6;
-    opacity: 0.9;
-}
-
-.platform-image-container {
-    width: 50vw;
-    height: 520px;
-    aspect-ratio: 19/6;
-    overflow: hidden;
-    border-radius: 0 5% 0 0;
-    box-shadow: 10px 10px 60px rgba(0, 0, 0, 0.5);
-    position: absolute;
-    left: 0;
-    top: -2vh;
-    z-index: 1;
-}
-
-.platform-image-container img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: auto;
-    height: 100%;
-    transform: translate(-50%, -50%) scale(1.8);
-    object-fit: cover;
-    object-position: center center;
-    filter: brightness(0.85) contrast(1.1);
-}
-
-.about-image-container {
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto 50px;
-    overflow: hidden;
-    border-radius: 5%;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-
-.about-image-container img {
-    width: 100%;
-    height: auto;
+.icon svg {
     display: block;
-    filter: saturate(170%) contrast(115%);
-}
-
-.about-container {
-    max-width: 900px;
+    height: 1em;
+    width: auto;
     margin: 0 auto;
-    padding: 80px 40px;
+    overflow: visible;
 }
 
-.about-content {
-    font-size: 18px;
-    line-height: 1.8;
-    color: var(--main-blue);
-    text-align: left;
-}
-
-.about-content p {
-    margin-bottom: 25px;
-}
-
-.about-content p:first-of-type {
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--bg-orange);
+/* Donate buttons while donations are closed (global.donations.open in site-text.json) */
+.donate-closed {
+    opacity: 0.55;
+    cursor: not-allowed;
+    pointer-events: none;
 }
 
 .mini-hero {
@@ -734,79 +269,9 @@ section {
     max-width: 800px;
 }
 
-
-.platform-item-body ul {
-    padding-left: 2vw; /* moves both bullet and text */
-}
-
-/* Platform Section */
-.platform-page-section {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 80px 40px;
-}
-
-.platform-page-header {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.platform-page-header h1 {
-    font-size: 48px;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--main-blue);
-    margin-bottom: 20px;
-    letter-spacing: -0.5px;
-}
-
-.platform-page-header h2 {
-    font-size: 32px;
-    font-weight: 600;
-    color: var(--main-blue);
-    margin-bottom: 30px;
-}
-
-.platform-page-intro {
-    font-size: 18px;
-    line-height: 1.8;
-    color: var(--main-blue);
-    margin-bottom: 20px;
-}
-
-.platform-page-contact {
-    font-size: 16px;
-    color: var(--main-blue);
-    opacity: 0.85;
-    font-style: italic;
-    margin-top: 30px;
-}
-
-/* Overview Section */
-.overview-section {
-    margin: 60px 0;
-    padding: 40px;
-    background-color: rgba(254, 166, 85, 0.1);
-    border-left: 5px solid var(--bg-orange);
-}
-
-.overview-section h2 {
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--main-blue);
-    margin-bottom: 20px;
-}
-
-.overview-section p {
-    font-size: 17px;
-    line-height: 1.8;
-    color: var(--main-blue);
-    margin-bottom: 15px;
-}
-
-/* Accordion/Dropdown Items */
-.platform-page-list {
-    list-style: none;
+/* Page titles are h1s for search engines; keep them the size the old h2s were. */
+.mini-hero h1 {
+    font-size: 1.5em;
 }
 
 /* Content Sections */
@@ -824,7 +289,6 @@ section {
     padding: 80px 60px; /* Example padding for the entire section */
     background-color: var(--off-white); /* Example background color */
 }
-
 
 /* Styling for the large disclaimer on the left side */
 .disclaimer-large {
@@ -1063,7 +527,6 @@ section {
     object-position: center center;
 }
 
-
 .play-button {
     position: absolute;
     top: 50%;
@@ -1105,51 +568,6 @@ section {
     animation: fadeIn 0.3s ease;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.video-modal-content {
-    position: relative;
-    margin: auto;
-    width: 90%;
-    max-width: 1200px;
-    top: 50%;
-    padding: 5vw;
-    transform: translateY(-50%);
-}
-
-.close-modal {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    color: var(--off-white);
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.3s;
-    z-index: 1001;
-}
-
-.close-modal:hover {
-    color: var(--bg-orange);
-}
-
-.video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    height: 0;
-    overflow: hidden;
-}
-
-.video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -1457,7 +875,11 @@ section {
         font-size: 4vh;
         text-align: center;
     }
-    
+
+    .hero-subtitle {
+        text-align: center;
+    }
+
     .hero-buttons {
         justify-content: center;
     }
@@ -1771,5 +1193,4 @@ section {
         padding-left: 5vw;
     }
 }
-
 

@@ -1,0 +1,6 @@
+---
+// Hidden campaign-attribution fields for Netlify forms. They must exist in the
+// static HTML so Netlify registers them; Analytics.astro fills in the values.
+const fields = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'landing_page'];
+---
+{fields.map((name) => <input type="hidden" name={name} data-attribution={name} />)}

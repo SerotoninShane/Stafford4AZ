@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import siteText from '../data/site-text.json';
+import Icon from '../components/Icon.astro';
 const pageTitle = "Thank You - Eric Stafford for Arizona Senate";
 const pageUrl = '/thank-you';
 const pageDescription = "Thank you for reaching out to Eric Stafford's campaign for Arizona State Senate.";
@@ -17,7 +18,7 @@ const thankYouText = siteText.thankYou;
 <section class="thankyou-page">
     <div class="thankyou-content">
         <div class="thankyou-icon">
-            <i class="fas fa-check-circle"></i>
+            <Icon name="circle-check" />
         </div>
         <h1>{thankYouText.title}</h1>
         <p>{thankYouText.message}</p>
@@ -29,11 +30,11 @@ const thankYouText = siteText.thankYou;
         <div class="thankyou-social">
             <span>{thankYouText.followLabel}</span>
             <div class="thankyou-social-icons">
-                <a href={social.bluesky} aria-label={thankYouText.aria.bluesky} target="_blank" rel="noopener"><i class="fab fa-bluesky"></i></a>
-                <a href={social.instagram} aria-label={thankYouText.aria.instagram} target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-                <a href={social.youtube} aria-label={thankYouText.aria.youtube} target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
-                <a href={social.x} aria-label={thankYouText.aria.x} target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i></a>
-                <a href={social.facebook} aria-label={thankYouText.aria.facebook} target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+                <a href={social.bluesky} aria-label={thankYouText.aria.bluesky} target="_blank" rel="noopener"><Icon name="bluesky" /></a>
+                <a href={social.instagram} aria-label={thankYouText.aria.instagram} target="_blank" rel="noopener"><Icon name="instagram" /></a>
+                <a href={social.youtube} aria-label={thankYouText.aria.youtube} target="_blank" rel="noopener"><Icon name="youtube" /></a>
+                <a href={social.x} aria-label={thankYouText.aria.x} target="_blank" rel="noopener"><Icon name="x-twitter" /></a>
+                <a href={social.facebook} aria-label={thankYouText.aria.facebook} target="_blank" rel="noopener"><Icon name="facebook" /></a>
             </div>
         </div>
     </div>

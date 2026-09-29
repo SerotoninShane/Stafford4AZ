@@ -1,0 +1,16 @@
+---
+// Inline SVG icon (replaces the Font Awesome web font). Renders an <i> wrapper
+// so existing CSS written for Font Awesome's <i> tags (size, color, spacing)
+// keeps working. Icons live in ./icons.ts.
+import { icons, type IconName } from './icons';
+
+interface Props {
+    name: IconName;
+    class?: string;
+    [key: string]: unknown; // passes through the parent's scoped-style attribute
+}
+
+const { name, class: className, ...rest } = Astro.props;
+const icon = icons[name];
+---
+<i class:list={['icon', className]} aria-hidden="true" {...rest}><svg xmlns="http://www.w3.org/2000/svg" viewBox={icon.viewBox} fill="currentColor" focusable="false"><path d={icon.path} /></svg></i>

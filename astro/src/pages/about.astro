@@ -1,23 +1,42 @@
 ---
 // Import the layout
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import DonateButton from '../components/DonateButton.astro';
+import ericPhoto from '../assets/eric.webp';
 import siteText from '../data/site-text.json';
+import Icon from '../components/Icon.astro';
 // Define the unique data for this specific page
-const pageTitle = "Eric Stafford for Arizona Senate - About";
+const pageTitle = "About Eric Stafford | LD29 State Senate Democratic Nominee";
 const pageUrl = '/about';
-const pageDescription = "Meet Eric Stafford — community organizer, tradesman, and Clean Elections candidate running for Arizona State Senate in LD29.";
+const pageDescription = "Meet Eric Stafford, Democratic nominee for Arizona State Senate in LD29, facing Sen. Janae Shamp on Nov. 3, 2026. Tradesman and Clean Elections candidate.";
 const links = siteText.global.links;
 const aboutText = siteText.about;
+const faq: { question: string; answer: string; link?: { href: string; label: string } }[] = aboutText.faq;
+
+// Mark up the FAQ so search engines and AI assistants can read each answer directly.
+const faqSchema = {
+    '@type': 'FAQPage',
+    '@id': 'https://stafford4az.com/about#faq',
+    mainEntity: faq.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+};
 ---
 
 <BaseLayout 
     title={pageTitle} 
     canonicalUrl={pageUrl} 
     description={pageDescription}
+    pageType="ProfilePage"
+    breadcrumbs={[{ name: 'About', path: '/about' }]}
+    schema={[faqSchema]}
 >
 <section class="mini-hero">
     <div class="mini-hero-content">
-        <h2>{aboutText.heroTitle}</h2>
+        <h1>{aboutText.heroTitle}</h1>
     </div>
 </section>
 
@@ -25,22 +44,23 @@ const aboutText = siteText.about;
 <section class="about-intro reveal">
     <div class="about-intro-inner">
         <div class="about-intro-image">
-            <img src="/assets/eric.webp" alt="Eric Stafford" width="340" height="450" loading="eager" style="max-width:100%;height:auto;" />
+            <Image src={ericPhoto} alt="Eric Stafford" width={700} widths={[400, 700]} sizes="(max-width: 768px) 280px, 340px" loading="eager" style="max-width:100%;height:auto;" />
         </div>
         <div class="about-intro-text">
             <h2>{aboutText.introHeading}</h2>
             <p class="about-lead">{aboutText.introLead}</p>
+            <p class="about-candidacy">{aboutText.candidacyLine}</p>
             <div class="about-quick-facts">
                 <div class="about-fact">
-                    <i class="fas fa-wrench"></i>
+                    <Icon name="wrench" />
                     <span>{aboutText.quickFacts[0]}</span>
                 </div>
                 <div class="about-fact">
-                    <i class="fas fa-award"></i>
+                    <Icon name="plane" />
                     <span>{aboutText.quickFacts[1]}</span>
                 </div>
                 <div class="about-fact">
-                    <i class="fas fa-map-marker-alt"></i>
+                    <Icon name="location-dot" />
                     <span>{aboutText.quickFacts[2]}</span>
                 </div>
             </div>
@@ -59,21 +79,21 @@ const aboutText = siteText.about;
 
         <div class="about-priorities">
             <div class="about-priority">
-                <i class="fas fa-graduation-cap"></i>
+                <Icon name="graduation-cap" />
                 <div>
                     <strong>{aboutText.priorities[0].title}</strong>
                     <span>{aboutText.priorities[0].description}</span>
                 </div>
             </div>
             <div class="about-priority">
-                <i class="fas fa-hard-hat"></i>
+                <Icon name="helmet-safety" />
                 <div>
                     <strong>{aboutText.priorities[1].title}</strong>
                     <span>{aboutText.priorities[1].description}</span>
                 </div>
             </div>
             <div class="about-priority">
-                <i class="fas fa-water"></i>
+                <Icon name="water" />
                 <div>
                     <strong>{aboutText.priorities[2].title}</strong>
                     <span>{aboutText.priorities[2].description}</span>
@@ -109,7 +129,7 @@ const aboutText = siteText.about;
         <p>{aboutText.raceParagraphs[0]}</p>
         <p>{aboutText.raceParagraphs[1]}</p>
         <div class="race-matters-cta">
-            <a href={links.donate} class="btn race-matters-btn" target="_blank">{aboutText.donateCta}</a>
+            <DonateButton class="btn race-matters-btn" label={aboutText.donateCta} />
             <a href={links.getInvolved} class="btn race-matters-btn-secondary">{aboutText.volunteerCta}</a>
         </div>
     </div>
@@ -119,25 +139,39 @@ const aboutText = siteText.about;
 <section class="about-transparency reveal">
     <div class="about-transparency-content">
         <div class="about-transparency-icon">
-            <i class="fas fa-award"></i>
+            <Icon name="award" />
         </div>
         <h2>{aboutText.transparencyTitle}</h2>
         <p>{aboutText.transparencyBody}</p>
         <div class="about-transparency-highlights">
             <div class="about-transparency-item">
-                <i class="fas fa-check-circle"></i>
+                <Icon name="circle-check" />
                 <span>{aboutText.transparencyItems[0]}</span>
             </div>
             <div class="about-transparency-item">
-                <i class="fas fa-check-circle"></i>
+                <Icon name="circle-check" />
                 <span>{aboutText.transparencyItems[1]}</span>
             </div>
             <div class="about-transparency-item">
-                <i class="fas fa-check-circle"></i>
+                <Icon name="circle-check" />
                 <span>{aboutText.transparencyItems[2]}</span>
             </div>
         </div>
         <a href={links.transparency} class="btn about-transparency-btn">{aboutText.transparencyCta}</a>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="about-faq reveal">
+    <div class="about-faq-inner">
+        <h2>{aboutText.faqTitle}</h2>
+        {faq.map((item) => (
+            <details>
+                <summary>{item.question}</summary>
+                <p>{item.answer}</p>
+                {item.link && <a href={item.link.href}>{item.link.label}</a>}
+            </details>
+        ))}
     </div>
 </section>
 
@@ -185,6 +219,16 @@ const aboutText = siteText.about;
     font-size: 17px;
     line-height: 1.7;
     color: var(--main-blue);
+    margin-bottom: 24px;
+}
+
+.about-candidacy {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.6;
+    color: var(--main-blue);
+    padding-left: 14px;
+    border-left: 4px solid var(--bg-orange);
     margin-bottom: 24px;
 }
 
@@ -456,6 +500,53 @@ const aboutText = siteText.about;
     color: var(--off-white);
 }
 
+/* FAQ */
+.about-faq {
+    padding: 60px 40px 80px;
+    background: white;
+}
+
+.about-faq-inner {
+    max-width: 750px;
+    margin: 0 auto;
+    color: var(--main-blue);
+}
+
+.about-faq h2 {
+    font-size: 30px;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.about-faq details {
+    border-bottom: 1px solid rgba(23, 60, 98, 0.15);
+    padding: 16px 0;
+}
+
+.about-faq summary {
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.about-faq details p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-top: 10px;
+}
+
+.about-faq details a {
+    display: inline-block;
+    margin-top: 8px;
+    color: var(--main-blue);
+    font-weight: 700;
+    text-decoration-color: var(--bg-orange);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .about-intro {
@@ -533,6 +624,22 @@ const aboutText = siteText.about;
         flex-direction: column;
         align-items: center;
         gap: 12px;
+    }
+
+    .about-candidacy {
+        text-align: left;
+    }
+
+    .about-faq {
+        padding: 40px 20px 60px;
+    }
+
+    .about-faq h2 {
+        font-size: 24px;
+    }
+
+    .about-faq summary {
+        font-size: 17px;
     }
 }
 </style>

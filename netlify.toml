@@ -5,3 +5,16 @@
 
 [build.environment]
   NODE_VERSION = "20"
+
+# Astro's built files (/_astro/*) have content hashes in their names, so they
+# can be cached forever. Files in /assets/* keep the same name when replaced,
+# so browsers re-check them after a day.
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"

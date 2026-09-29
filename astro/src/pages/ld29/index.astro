@@ -1,0 +1,100 @@
+---
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import siteText from '../../data/site-text.json';
+import ld29 from '../../data/ld29.json';
+
+const pageTitle = 'Arizona Legislative District 29 (LD29): Map, Cities, Senator & History';
+const pageUrl = '/ld29';
+const pageDescription = 'Your guide to Arizona LD29: which West Valley cities it covers, who represents it, how the district was drawn, and key dates for the November 3, 2026 election.';
+const links = siteText.global.links;
+const keyDates = siteText.voterResources.keyDates;
+const d = ld29.district;
+
+const faqSchema = {
+    '@type': 'FAQPage',
+    '@id': 'https://stafford4az.com/ld29#faq',
+    mainEntity: ld29.faq.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+};
+const placeSchema = {
+    '@type': 'AdministrativeArea',
+    '@id': 'https://stafford4az.com/ld29#district',
+    name: 'Arizona Legislative District 29',
+    alternateName: ['LD29', 'Arizona LD 29', 'Arizona State Senate District 29'],
+    containedInPlace: { '@type': 'AdministrativeArea', name: 'Maricopa County, Arizona' },
+    containsPlace: ld29.communities.map((c) => ({ '@type': 'Place', name: `${c.name}, Arizona`, url: `https://stafford4az.com/ld29/${c.slug}/` })),
+};
+---
+
+<ContentLayout
+    title={pageTitle}
+    canonicalUrl={pageUrl}
+    description={pageDescription}
+    heading="Arizona Legislative District 29"
+    breadcrumbs={[{ name: 'LD29 Guide', path: '/ld29' }]}
+    schema={[faqSchema, placeSchema]}
+>
+    <p class="lead">Legislative District 29 (LD29) is one of Arizona's 30 legislative districts. It covers {d.communitiesSummary}, all in Maricopa County's northwest West Valley. Its voters elect one state senator and two state representatives every two years.</p>
+
+    <div class="content-callout">
+        <p><strong>Not sure if you live in LD29?</strong> District lines don't follow city limits. Enter your address in the Arizona Legislature's official lookup to see your district and legislators.</p>
+        <p><a href={links.findMyDistrict} class="btn btn-blue" target="_blank" rel="noopener">Find My Legislator</a></p>
+    </div>
+
+    <h2>LD29 at a glance</h2>
+    <ul>
+        <li><strong>Population:</strong> {d.population}</li>
+        <li><strong>Registered voters:</strong> {d.registeredVoters} ({d.statsYear})</li>
+        <li><strong>Precincts:</strong> {d.precincts}, all in Maricopa County</li>
+        <li><strong>Current state senator:</strong> {d.senator} (since {d.senatorSince})</li>
+        <li><strong>Current state representatives:</strong> {d.representatives.join(' and ')}</li>
+        <li><strong>Next election:</strong> Tuesday, November 3, 2026</li>
+    </ul>
+
+    <h2>Cities and communities in LD29</h2>
+    <p>Select your community to see what's at stake locally and how Eric Stafford will fight for you in the State Senate.</p>
+    <div class="content-grid">
+        {ld29.communities.map((c) => (
+            <a class="content-card" href={`/ld29/${c.slug}`}>
+                <strong>{c.name}</strong>
+                <span>{c.card}</span>
+            </a>
+        ))}
+    </div>
+    <p>A small part of Peoria is also in LD29. Live in Avondale, Buckeye, Sun City or another nearby community? See <a href="/who-is-my-state-senator">Who Is My State Senator?</a></p>
+
+    <h2>The 2026 State Senate race in LD29</h2>
+    <p>On Tuesday, November 3, 2026, LD29 voters will choose their state senator. The race is between Democratic nominee <a href={links.about}>Eric Stafford</a> and Republican incumbent Sen. {d.senator}.</p>
+    <p>Eric is a lifelong Arizonan, a certified A&amp;P mechanic and machinist, and a Clean Elections candidate who takes no PAC or dark money. He is running to lower housing costs, raise wages, fully fund public schools, protect access to healthcare, and make sure the West Valley's rapid growth works for the people who already live here. <a href={links.platform}>Read his full platform.</a></p>
+
+    <h2>A short history of LD29</h2>
+    <p>Since 2000, when voters approved Proposition 106, Arizona's legislative maps have been drawn by the five-member Arizona Independent Redistricting Commission instead of the Legislature. The commission redraws all 30 districts after every census.</p>
+    <p>Before 2022, the number 29 belonged to a very different place. From 2013 through 2022, Legislative District 29 covered west Phoenix, including much of Maryvale, and part of Glendale. It was represented in the Senate by Martín Quezada (2015–2023) and in the House by lawmakers including Richard Andrade and César Chávez.</p>
+    <p>After the 2020 Census, the commission redrew the map. The new lines, finalized in early 2022, moved LD29 to the fast-growing northwest West Valley. The 2022 election was the first under the new district, and {d.senator} won the Senate seat. In 2024, Eric Stafford ran as the Democratic nominee and earned 48,608 votes (40.7%). He is running again in 2026. <a href="/news/history-of-arizona-legislative-district-29">Read the full history of LD29.</a></p>
+
+    <h2>Key dates for the 2026 general election</h2>
+    <ul class="content-dates">
+        {keyDates.map((item) => (
+            <li><strong>{item.date}</strong>{item.label}</li>
+        ))}
+    </ul>
+    <p>Register, check your registration, and find a vote center on our <a href={links.voterResources}>Voter Resources</a> page, or read <a href="/news/how-to-vote-in-ld29-2026">how to vote in LD29 in 2026</a>.</p>
+
+    <h2>Frequently asked questions about LD29</h2>
+    <div class="content-faq">
+        {ld29.faq.map((item) => (
+            <details>
+                <summary>{item.question}</summary>
+                <p>{item.answer}</p>
+            </details>
+        ))}
+    </div>
+
+    <h2>Sources</h2>
+    <ul class="content-sources">
+        {ld29.sources.map((s) => <li><a href={s.url} target="_blank" rel="noopener">{s.label}</a></li>)}
+    </ul>
+</ContentLayout>
